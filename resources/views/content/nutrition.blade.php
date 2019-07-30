@@ -3,7 +3,6 @@
 @section('content')
 
 
-<!--  ANY HTL CONTENT HERE -->
-<h1>Main Homepage</h1>
+<h1>Nutrition</h1>
 
 @endsection

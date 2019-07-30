@@ -18,6 +18,7 @@
 				  </div><!-- col ends -->
 				  	<div class="row">
 			            <div class="col-auto">
+<<<<<<< HEAD
 			            	<span class="footer-links"><a href="#" target="_blank">About us</a></span><br />
 			            	<span class="footer-links"><a href="#" target="_blank">Privacy</a></span><br />
 			            	<span class="footer-links"><a href="#" target="_blank">Term of use</a></span><br />
@@ -27,6 +28,17 @@
 			            	<span class="footer-links"><a href="#" target="_blank">Contact us</a></span><br />
 			            	<span class="footer-links"><a href="#" target="_blank">Nutrition guide</a></span><br />
 			            	<span class="footer-links"><a href="#" target="_blank">Gift cards</a></span><br />
+=======
+			            	<span class="footer-links"><a href="/about">About us</a></span><br />
+			            	<span class="footer-links"><a href="/content/privacy">Privacy</a></span><br />
+			            	<span class="footer-links"><a href="/content/terms">Term of use</a></span><br />
+			            </div><!-- col ends -->
+			        
+			            <div class="col-auto">
+			            	<span class="footer-links"><a href="/contact">Contact us</a></span><br />
+			            	<span class="footer-links"><a href="/content/nutricion-guide">Nutrition guide</a></span><br />
+			            	<span class="footer-links"><a href="/content/gift-card">Gift cards</a></span><br />
+>>>>>>> 7577b69ea6990ce82c1b5408c4798834b900b7a5
 			            </div><!-- col ends -->
 		            </div><!-- row ends -->
 		        </div><!-- row ends -->
