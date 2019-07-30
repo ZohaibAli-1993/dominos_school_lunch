@@ -3,19 +3,13 @@
 <html lang="en">
 
     <head>
-
         <meta charset="utf-8" />
-        
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  />
-
+        <link rel="stylesheet" type="text/css" href="css/app.css"  />
+        <script src="js/app.js" ></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
         <link href="https://fonts.googleapis.com/css?family=Gothic+A1:300,400,700&display=swap" rel="stylesheet"> 
-
         <link rel="stylesheet" type="text/css" href="css/custom.css" />
-
     </head>
 
     <body>
@@ -91,4 +85,4 @@
         </div> <!-- /bottom header -->
 
     </header><!--/header-->
-
+    <div class="" id="main_content">
