@@ -1,0 +1,140 @@
+/*font styles*/
+
+/**MONILA*/
+
+body{
+
+    font-family: 'Gothic A1', sans-serif;
+}
+
+#container{
+
+    position: relative;
+}
+
+/* Top part of header styles */
+#top_header{
+
+    background-color: #006491;
+    box-shadow: inset 0 0 10px #fff;
+    width: 100%;
+    height: 50px;
+}
+
+/* Logo styles*/
+
+#logo{
+
+    position: absolute;
+    left: 70px;
+    top:0;
+    z-index:1;
+}
+
+/* Bottom part of header styles */
+
+#bottom_header{
+
+    background-color: #fff;
+    box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
+    position: absolute;
+    top: 50px;
+    height: 60px;
+    width: 100%;
+}
+
+/* Main Navigation styles */
+
+#main_nav_bar nav {
+
+    position: relative;
+}
+
+#main_nav_bar nav ul{
+    position:absolute;
+    right: 70px;
+    padding-top: 20px;
+}
+
+#main_nav_bar nav ul li{
+
+    list-style-type: none;
+    display: inline-block;
+}
+
+#main_nav_bar nav ul li a {
+
+    text-decoration: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    font-weight: 700;
+    color: #006491;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+}
+
+#main_nav_bar nav ul li a:hover{
+
+    background-color: #a6c9d9;
+    text-decoration: none;
+    color: #fff;
+}
+
+#main_nav_bar{
+    float: left;
+    width: 50%;
+}
+
+/* contact and user icons */
+#header_icons{
+    padding-top: 6px;
+}
+
+.user_icon a, .contact_icon a{
+    font-size: 28px;
+    color: #fff;
+}
+
+#top_header .user_icon{
+    float: right;
+    margin-right: 6.5%;
+}
+
+#top_header .contact_icon{
+    float: right;
+    margin-right: 2%;
+}
+
+/* Brand name styles*/
+#brand_name{
+    float: left;
+    width: 50%;
+    padding-left: 13.5%;
+}
+
+#brand_name .name_first_part{
+    margin-top: -3px;
+    font-weight: 700;
+    color: #006491;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    font-size: 31px;
+}
+
+#brand_name .name_second_part{
+    margin-top: -30px;
+    font-size: 21px;
+    color: #fff;
+    -webkit-text-stroke: 0.5px #e51937;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+}
+
+code#quote{
+
+    color: #006491;
+
+}
+
+
+/**END Monika*/
+
