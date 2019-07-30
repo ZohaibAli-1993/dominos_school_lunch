@@ -41,7 +41,7 @@ Route::get('/schools/', function(){return view('schools.index');});
 Route::get('/parents/', function(){return view('parents.index');});
 
 /**FOOTER CONTENT LINKS */
-Route::get('/content/gift-cards', function(){return view('content.cards');});
+Route::get('/content/gift-card', function(){return view('content.cards');});
 Route::get('/content/terms', function(){return view('content.terms');});
 Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
 Route::get('/content/privacy', function(){return view('content.privacy');});
