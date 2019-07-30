@@ -15,7 +15,7 @@ body{
 /* Top part of header styles */
 #top_header{
 
-    background-color: #006491;
+    background-color: # ;
     box-shadow: inset 0 0 10px #fff;
     width: 100%;
     height: 50px;
@@ -160,8 +160,20 @@ header{
 .success.icon{
     font-size: 7em;
     color: #e51937;
+    text-align: center;
+}
+
+.success.icon h3,
+.success.icon h4{
+    color: #006491;
 }
 
 .success.icon i{
     margin: 0 auto;
+}
+
+.success.icon i:hover{
+
+    transform: rotate3d(30deg)
+
 }
