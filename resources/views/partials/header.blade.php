@@ -68,13 +68,13 @@
                 <nav>
 
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="/">Home</a></li>
 
-                        <li><a href="#">School Coordinator</a></li>
+                        <li><a href="/school">School Coordinator</a></li>
 
-                        <li><a href="#">Parents</a></li>
+                        <li><a href="/parents">Parents</a></li>
 
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="/about">About Us</a></li>
 
                     </ul>
 

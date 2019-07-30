@@ -15,7 +15,11 @@ body{
 /* Top part of header styles */
 #top_header{
 
+<<<<<<< HEAD
     background-color: #006491 ;
+=======
+    background-color: #006491;
+>>>>>>> 1ced02f877b0b1b7af55e5f04ba980705311469a
     box-shadow: inset 0 0 10px #fff;
     width: 100%;
     height: 50px;
