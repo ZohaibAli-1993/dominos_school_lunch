@@ -9,20 +9,4 @@
 </div>
 
 
-<div>
-
-<input type="text" id="select_date" class="selecteShipDate" />
-
-</div>
-
-<script>
-$(document).ready(function () {
-    $input = $("#select_date");
-    $input.datepicker({
-        format: 'dd MM yyyy'
-    });
-    $input.data('datepicker').hide = function () {};
-    $input.datepicker('show');
-});
-</script>
 @endsection

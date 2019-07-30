@@ -33,3 +33,15 @@ Route::get('refresh_captcha', 'Home@refreshCaptcha')->name('refresh_captcha');
 
 Route::get('/send/email', 'Email@mail');
 
+
+/**SCHOOL ROUTES */
+Route::get('/schools/', function(){return view('schools.index');});
+
+/**PARENTS ROUTES */
+Route::get('/parents/', function(){return view('parents.index');});
+
+/**FOOTER CONTENT LINKS */
+Route::get('/content/gift-cards', function(){return view('content.cards');});
+Route::get('/content/terms', function(){return view('content.terms');});
+Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
+Route::get('/content/privacy', function(){return view('content.privacy');});

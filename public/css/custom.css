@@ -145,6 +145,7 @@ header{
 
 #main_content{
     padding: 0 100px;
+    min-height: 500px;
 }
 
 /**END Monika*/
