@@ -149,6 +149,36 @@ header{
 
 /**END Monika*/
 
+
+/** AMANDEEP  */
+
+/** hero-image */
+#about-hero-image{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/** about image */
+#about-image{
+    float:right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.row .col  h2{
+    color:#006491;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.row .col p{
+    font-size: 16px;
+    
+}
+
+/** END Amandeep */
+
 /**WILMER*/
 
 
