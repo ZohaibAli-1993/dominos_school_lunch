@@ -44,11 +44,11 @@
 						</div>						  
 	                        
                         <div class="col-sm-8"> 	
-					  	   	<img src="logo_footer.png" style="margin-left: 170px; width: 30%;" >
+					  	   	<img src="img/logo_footer.png" style="margin-left: 170px; width: 30%;" >
 	
-					  	   	<a href="https://www.facebook.com/dominoswinnipeg/"><img src="fb.png" style="margin-left: 70px; padding-left: 30px;" ></a>
-					  	   	<img src="twitter.png" style="padding-left: 30px;" >
-					  	   	<img src="instagram.png" style="padding-left: 30px;" >
+					  	   	<a href="https://www.facebook.com/dominoswinnipeg/"><img src="img/fb.png" style="margin-left: 70px; padding-left: 30px;" ></a>
+					  	   	<img src="img/twitter.png" style="padding-left: 30px;" >
+					  	   	<img src="img/instagram.png" style="padding-left: 30px;" >
 					  	   	
 					  	   </div>
 				  	        
