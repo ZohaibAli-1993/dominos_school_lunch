@@ -149,3 +149,19 @@ header{
 
 /**END Monika*/
 
+/**WILMER*/
+
+
+.contact.form{
+    width: 50%;
+    margin:  0 auto;
+}
+
+.success.icon{
+    font-size: 7em;
+    color: #e51937;
+}
+
+.success.icon i{
+    margin: 0 auto;
+}
