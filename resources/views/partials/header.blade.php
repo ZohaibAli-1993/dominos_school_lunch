@@ -23,7 +23,7 @@
         <div id="top_header">
 
             <!-- Logo of the site -->
-            <img id="logo" src="img/logo.png" alt="logo" />
+            <img id="logo" src="/img/logo.png" alt="logo" />
 
             <!-- Header icons-->
             <div id="header_icons">

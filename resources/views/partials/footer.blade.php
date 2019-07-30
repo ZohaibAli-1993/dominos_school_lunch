@@ -18,9 +18,9 @@
 				  </div><!-- col ends -->
 				  	<div class="row">
 			            <div class="col-auto">
-			            	<span class="footer-links"><a href="/about" target="_blank">About us</a></span><br />
-			            	<span class="footer-links"><a href="/content/privacy" target="_blank">Privacy</a></span><br />
-			            	<span class="footer-links"><a href="/content/terms" target="_blank">Term of use</a></span><br />
+			            	<span class="footer-links"><a href="/about" >About us</a></span><br />
+			            	<span class="footer-links"><a href="/content/privacy" >Privacy</a></span><br />
+			            	<span class="footer-links"><a href="/content/terms" >Term of use</a></span><br />
 			            </div><!-- col ends -->
 			        
 			        
