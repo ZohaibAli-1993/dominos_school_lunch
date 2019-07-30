@@ -34,7 +34,7 @@
 
                 <p class="contact_icon">
 
-                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="/contact"><i class="fas fa-envelope"></i></a>
 
                 </p>
 
