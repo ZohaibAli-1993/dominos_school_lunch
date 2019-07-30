@@ -21,6 +21,10 @@ Route::get('/contact',function(){
 
 Route::post('/contact','Home@contact');
 
+Route::get('/about',function(){
+    return view('main.about')
+;});
+
 //Captcha routes
 Route::get('my-captcha', 'Home@myCaptcha')->name('myCaptcha');
 Route::post('my-captcha', 'Home@myCaptchaPost')->name('myCaptcha.post');

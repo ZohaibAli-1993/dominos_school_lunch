@@ -2,5 +2,7 @@
 
 @section('content')
 
-<h4>Message has been sent!</h4>
+<div class="success icon .text-danger">
+    <i class="far fa-check-circle"></i>
+</div>
 @endsection
