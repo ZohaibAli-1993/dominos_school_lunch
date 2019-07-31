@@ -154,7 +154,8 @@ header{
 
 
 .contact.form{
-    width: 50%;
+    max-width: 960px;
+    min-width: 350px;
     margin:  0 auto;
 }
 
