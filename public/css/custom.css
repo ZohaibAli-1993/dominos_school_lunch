@@ -298,22 +298,6 @@ header{
     font-weight: bold; 
 }
 
-form{
-    bottom: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: absolute;
-    z-index: 1000;
-    
-}
-
-form button#join-btn{
-    border: 1px solid #e51937;
-    color: #fff;
-    background-color: #e51937;
-    border-radius: 3px;
-}
-
 
 
 /** ---------------------END Amandeep ----------------------------------------*/
