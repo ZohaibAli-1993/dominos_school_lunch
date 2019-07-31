@@ -179,6 +179,40 @@ header{
 
 }
 
+
+/*-------------- Menu for schools --------------*/
+
+h1,h2,h3{
+    padding: 10px;
+    color: #006491;
+    text-align: center;
+    font-family: 'Gothic A1', sans-serif;   
+    font-weight: 800;
+
+}
+
+
+.menu-image{
+    margin-bottom: 10px;
+    border: 1px solid #006491;
+    text-align: center;
+}
+#menu-add-btn{
+    background-color: #017ab0;
+    padding: 6px;
+    margin-bottom: 15px;
+    color: #fff;
+    border-radius: 15px;
+    width: 80px;
+    font-weight: 800;
+}
+#menu-add-btn:hover{
+    text-decoration: none;
+}
+
+
+/*--------------Footer --------------------*/
+
 footer{
     width: 100%;
     min-height: 200px;
