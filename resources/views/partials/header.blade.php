@@ -70,25 +70,27 @@
 
                     <!-- Main Navigation -->
                     <div id="main_nav_bar" class="col">
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a href="/">Home</a>
+                        <nav class="navbar navbar-expand-lg navbar-light ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                                 </li>
-
-                                <li>
-                                    <a href="/schools">School Coordinator</a>
+                                <li class="nav-item">
+                                <a class="nav-link" href="/schools">School Coordinator</a>
                                 </li>
-
-                                <li>
-                                    <a href="/parents">Parents</a>
+                                <li class="nav-item">
+                                <a class="nav-link" href="/parents">Parents</a>
                                 </li>
-
-                                <li>
-                                    <a href="/about">About Us</a>
+                                <li class="nav-item">
+                                <a class="nav-link disabled" href="/about">About Us</a>
                                 </li>
                             </ul>
-                        </nav> <!--/nav-->
+                            </div>
+                            </nav>
                     </div><!-- .col-->
                 </div><!-- .row-->
             </div><!-- .container-->
