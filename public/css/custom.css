@@ -250,7 +250,6 @@ header{
 /** hero-image */
 #about-hero-image{
     width: 100%;
-    margin-bottom: 30px;
     position: relative;
     top: -80px;
 }
@@ -263,14 +262,15 @@ header{
     margin-left: 20px;
 }
 
-.row .col  h2{
+#about .col  h2{
     color:#006491;
     font-family: 'Gothic A1', sans-serif;
     font-weight: bold;
     margin-top: 10px;
+    text-align: left;
 }
 
-.row .col p{
+#about .col p{
     font-size: 16px;
     
 }
@@ -292,6 +292,8 @@ header{
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
     
 }
 
@@ -303,15 +305,21 @@ header{
     font-weight: bold; 
 }
 
-.subscription-layout form{
+.subscription-layout #join-form{
     bottom: 20px;
     text-align: center;
     margin-bottom: 20px;
     position: absolute;
     z-index: 1000;
     bottom: -30px;
-    
+    width: 100%;
 }
+
+.subscription-layout #join-form form legend{
+    border: 1px solid #006491;
+}
+
+
 
 .subscription-layout form button#join-btn{
     border: 1px solid #e51937;

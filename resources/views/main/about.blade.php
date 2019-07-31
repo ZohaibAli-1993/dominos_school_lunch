@@ -1,15 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+	<div id="hero-image">
+				<img id="about-hero-image" src="img/pizza_1400.png" alt="Pizza" />
+	</div>
 	<div class="container">
-		<div class="row" id="hero-image">
-			<div class="col">
-				<img id="about-hero-image" src="img/pizza.jpg" alt="Pizza" />
-			</div>
 
-		</div><!-- end row1 -->
-
-		<div class="row">
+		<div class="row" id="about">
 			<div class="col">
 				<h2>About Us</h2>
 
