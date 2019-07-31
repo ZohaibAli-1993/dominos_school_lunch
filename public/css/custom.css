@@ -1,6 +1,6 @@
 /*font styles*/
 
-/**MONILA*/
+/**MONIKA*/
 
 body{
 
@@ -56,7 +56,7 @@ body{
 
 #main_nav_bar nav ul{
     position:absolute;
-    right: 70px;
+
     padding-top: 20px;
 }
 
@@ -144,8 +144,13 @@ header{
 }
 
 #main_content{
+<<<<<<< HEAD
     padding: 0 100px; 
    ;
+=======
+    padding: 0 100px;
+    min-height: 500px;
+>>>>>>> c93dee78b2bd63d592dc0211c78c8579ab91b3bc
 }
 
 /**END Monika*/
@@ -154,9 +159,11 @@ header{
 
 
 .contact.form{
-    width: 50%;
+    max-width: 960px;
+    min-width: 350px;
     margin:  0 auto;
 }
+<<<<<<< HEAD
 /***************************************************/ 
 .zero-raduis{
     border-radius: 0px !important;
@@ -242,7 +249,9 @@ h2 {
   margin:0 auto;
 } 
 #parents_registration{ 
-    height: 700px;
+    height: 900px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
 }
  
 
@@ -331,7 +340,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 #registration_first_name,#registration_last_name, 
 #registration_verify_password,#registration_phone, 
 #registration_school_name,#registration_city, 
-#registration_street,#registration_postal,#registration_province,select{
+#registration_street,#registration_postal,#registration_province,#captcha{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -351,7 +360,10 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-}  
+}   
+#captcha{ 
+ width: 30%;
+ }
 
 @media only screen and (max-width: 505px) {  
     #registration_email,#registration_password, 
@@ -492,3 +504,130 @@ input::placeholder {
   opacity: 0.5;
 }
 /***************************************************************/
+=======
+
+.success.icon{
+    font-size: 7em;
+    color: #e51937;
+    text-align: center;
+}
+
+.success.icon h3,
+.success.icon h4{
+    color: #006491;
+}
+
+.success.icon i{
+    margin: 0 auto;
+}
+
+.success.icon i:hover{
+
+    transform: rotate3d(30deg)
+
+}
+
+
+/*-------------- Menu for schools --------------*/
+
+h1,h2,h3{
+    padding: 10px;
+    color: #006491;
+    text-align: center;
+    font-family: 'Gothic A1', sans-serif;   
+    font-weight: 800;
+
+}
+
+
+.menu-image{
+    margin-bottom: 10px;
+    border: 1px solid #006491;
+    text-align: center;
+}
+#menu-add-btn{
+    background-color: #017ab0;
+    padding: 6px;
+    margin-bottom: 15px;
+    color: #fff;
+    border-radius: 15px;
+    width: 80px;
+    font-weight: 800;
+}
+#menu-add-btn:hover{
+    text-decoration: none;
+}
+
+
+/*--------------Footer --------------------*/
+
+footer{
+    width: 100%;
+    min-height: 200px;
+    background-color: #006491;
+    font-family: 'Gothic A1', sans-serif;
+    
+}
+.footer-logo{
+    font-weight: 800;
+    color: #fff;
+    font-size: 26px;
+    padding-top: 5px;
+    margin:0 auto;
+    padding-left: 70px;
+}
+.nutrition{
+    -webkit-text-stroke: 0.75px #e51937;
+    margin-left: 60px;
+    text-shadow: 1px 1px 1px #000;
+}
+.footer-para{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+    padding-left: 70px;
+}
+.footer-copyright{
+    font-size: 16px;
+    color: #fff;
+    padding-left: 70px;
+} 
+
+.page-footer .footer-links a:hover{
+    text-decoration: none;
+}
+.page-footer .footer-links a{
+    color: #fff;
+    padding: 7px;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: left;
+    padding-left: 70px;
+    display: inline-block;
+}
+.footer-line{
+    border-top: 1px solid #017ab0 ;
+    width: 100%;    
+}
+
+.links{
+    top: 50px;
+}
+.footer-box{
+    width: 30%;
+    left: 40%;
+    display: block;
+}
+
+div.content.text{
+
+    max-width: 960px;
+    margin: 0 auto;
+}
+.parents,.School{ 
+height: 60px; 
+width: 150px; 
+background-color: red; 
+margin-left: 30px; 
+ }

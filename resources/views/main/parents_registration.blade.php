@@ -24,11 +24,44 @@
 
           <input type="text" id="registration_phone" class="fadeIn third zero-raduis" name="login" placeholder="Phone"> 
           <input type="text" id="registration_password" class="fadeIn third zero-raduis" name="login" placeholder="Password"> 
-          <input type="text" id="registration_verify_password" class="fadeIn third zero-raduis" name="login" placeholder="Verify Password"> 
-         <input type="submit" id="register" class="fadeIn fourth zero-raduis" value="Register">
+          <input type="text" id="registration_verify_password" class="fadeIn third zero-raduis" name="login" placeholder="Verify Password">  
+          <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
+
+                      <label for="password" class="col-md-4 control-label">Captcha</label>
+
+
+                      <div class="col-md-12">footer
+
+                          <div class="captcha">
+
+                          <span>{!! captcha_img() !!}</span>
+
+                          <button type="button" class="btn btn-danger btn-refresh"><i class="fas fa-sync"></i></button>
+
+                          </div>
+
+                          <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+
+
+                          @if ($errors->has('captcha'))
+
+                              <span class="help-block">
+
+                                  <strong>{{ $errors->first('captcha') }}</strong>
+
+                              </span>
+
+                          @endif
+
+                      </div>
+
+                  </div>
+         <input type="submit" id="register" class="fadeIn fourth zero-raduis" value="Register"> 
+
+
           
         </form>
         
-
+        
       </div>
 @endsection
