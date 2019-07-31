@@ -48,62 +48,63 @@
         </div><!-- .top_header-->
 
         <!-- *****Bottom portion of the header**** -->
-        <div id="bottom_header">
+        <div id="{{ (Request::path() == '/') ? 'home_header' : '' }}">
+            <div id="bottom_header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <!-- Brand name -->
+                            <div id="brand_name">
+                                <div class="name_first_part">
+                                    <p>Domino
+                                        <code id="quote">&#10076;</code>s
+                                    </p>
+                                </div> <!--/first_part-->
 
-            <div class="container {{ (Request::path() == '/') ? 'home' : '' }}">
-                <div class="row">
-                    <div class="col">
-                        <!-- Brand name -->
-                        <div id="brand_name">
-                            <div class="name_first_part">
-                                <p>Domino
-                                    <code id="quote">&#10076;</code>s
-                                </p>
-                            </div> <!--/first_part-->
+                                <div class="name_second_part">
+                                    <p>School Lunch</p>
+                                </div><!--/second_part-->
 
-                            <div class="name_second_part">
-                                <p>School Lunch</p>
-                            </div><!--/second_part-->
+                            </div> <!--/brand_name-->
+                        </div><!-- .col-->
 
-                        </div> <!--/brand_name-->
-                    </div><!-- .col-->
+                        <!-- Main Navigation -->
+                        <div id="main_nav_bar" class="col">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="/">Home</a>
+                                    </li>
 
-                    <!-- Main Navigation -->
-                    <div id="main_nav_bar" class="col">
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
+                                    <li>
+                                        <a href="/schools">School Coordinator</a>
+                                    </li>
 
-                                <li>
-                                    <a href="/schools">School Coordinator</a>
-                                </li>
+                                    <li>
+                                        <a href="/parents">Parents</a>
+                                    </li>
 
-                                <li>
-                                    <a href="/parents">Parents</a>
-                                </li>
+                                    <li>
+                                        <a href="/about">About Us</a>
+                                    </li>
+                                </ul>
+                            </nav> <!--/nav-->
+                        </div><!-- .col-->
+                    </div><!-- .row-->
+                </div><!-- .container-->
 
-                                <li>
-                                    <a href="/about">About Us</a>
-                                </li>
-                            </ul>
-                        </nav> <!--/nav-->
-                    </div><!-- .col-->
-                </div><!-- .row-->
-            </div><!-- .container-->
+                <!--This content just show in home page-->
 
-            <div class="hero">
                 @if(request()->route()->getName() == 'home')
-                    <div class="cta">
-                        <h1>With Domino</h1>
-                        <h2>School Lunch is easier than ever</h2>
-                        <a class="button" href="">Lunch Order</a>
+                    <div class="hero">
+                        <div class="cta">
+                            <h1>With Domino</h1>
+                            <h2>School Lunch is easier than ever</h2>
+                            <a class="button cta_order" href="">Lunch Order</a>
+                        </div>
                     </div>
                 @endif
-            </div>
-        </div> <!-- /bottom header -->
-            
-        
+            </div> <!-- /bottom header -->
+        </div>
     </header><!--/header-->
     <div class="" id="main_content">

@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');//create name for home page, so that I can use it in header
 
 Route::get('/contact',function(){
     return view('main.contact');
