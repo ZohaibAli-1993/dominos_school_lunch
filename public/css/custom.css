@@ -150,6 +150,81 @@ header{
 
 /**END Monika*/
 
+
+/** -------------------AMANDEEP ------------------------------------- */
+
+/** hero-image */
+#about-hero-image{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/** about image */
+#about-image{
+    float:right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.row .col  h2{
+    color:#006491;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.row .col p{
+    font-size: 16px;
+    
+}
+
+
+
+/** Subscribe partial  */
+
+.subscription-layout{
+    position: static;
+}
+
+
+
+/** newsletter styles */
+.newsletter{
+    background-color: #d9e8ef; 
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.newsletter h4{
+    font-weight: bold;
+}
+
+.newsletter p{
+    font-weight: bold; 
+}
+
+form{
+    bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: absolute;
+    z-index: 1000;
+    
+}
+
+form button#join-btn{
+    border: 1px solid #e51937;
+    color: #fff;
+    background-color: #e51937;
+    border-radius: 3px;
+}
+
+
+
+/** ---------------------END Amandeep ----------------------------------------*/
+
 /**WILMER*/
 
 
