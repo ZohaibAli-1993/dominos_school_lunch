@@ -181,6 +181,14 @@ header{
 }
 
 
+/*---------------Nutrition guide ----------------*/
+
+.guide{
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 18px;
+            line-height: 2.5em;
+        }
+
 /*-------------- Menu for schools --------------*/
 
 h1,h2,h3{
