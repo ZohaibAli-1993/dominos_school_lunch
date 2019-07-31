@@ -17,81 +17,84 @@
     <body>
 
     <!-- Main container of the header -->
-    <header>
+    <!-- Main container of the header -->
+    <header id="container">
+
+        <!-- Top portion of header -->
         <div id="top_header">
-            <!-- Top portion of header -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <!-- Logo of the site -->
-                        <img id="logo" src="/img/logo.png" alt="logo" />
-                    </div><!-- .col-->
 
-                    <div class="col-lg-2">
-                        <!-- Header icons-->
-                        <div id="header_icons">
-                            <p class="user_icon">
-                                <a href="#">
-                                    <i class="far fa-user"></i>
-                                </a>
-                            </p>
+            <!-- Logo of the site -->
+            <img id="logo" src="/img/logo.png" alt="logo" />
 
-                            <p class="contact_icon">
-                                <a href="/contact">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </p>
-                        </div><!--/header_icons-->
-                    </div><!-- .col-->
-                </div><!-- .row-->
-            </div><!-- .container-->
-        </div><!-- .top_header-->
+            <!-- Header icons-->
+            <div id="header_icons">
+
+                <p class="user_icon">
+
+                    <a href="#"><i class="far fa-user"></i></a>
+
+                </p>
+
+                <p class="contact_icon">
+
+                    <a href="/contact"><i class="fas fa-envelope"></i></a>
+
+                </p>
+
+            </div><!--/header_icons-->
+
+        </div> <!--/top header -->
 
         <!-- *****Bottom portion of the header**** -->
         <div id="{{ (Request::path() == '/') ? 'home_header' : '' }}">
             <div id="bottom_header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <!-- Brand name -->
-                            <div id="brand_name">
-                                <div class="name_first_part">
-                                    <p>Domino
-                                        <code id="quote">&#10076;</code>s
-                                    </p>
-                                </div> <!--/first_part-->
 
-                                <div class="name_second_part">
-                                    <p>School Lunch</p>
-                                </div><!--/second_part-->
+            <!-- Brand name -->
+            <div id="brand_name">
 
-                            </div> <!--/brand_name-->
-                        </div><!-- .col-->
+                <div class="name_first_part">
 
-                        <!-- Main Navigation -->
-                        <div id="main_nav_bar" class="col">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="/">Home</a>
-                                    </li>
+                    <p>Domino<code id="quote">&#10076;</code>s</p>
 
-                                    <li>
-                                        <a href="/schools">School Coordinator</a>
-                                    </li>
+                </div> <!--/first_part-->
 
-                                    <li>
-                                        <a href="/parents">Parents</a>
-                                    </li>
+                <div class="name_second_part">
 
-                                    <li>
-                                        <a href="/about">About Us</a>
-                                    </li>
-                                </ul>
-                            </nav> <!--/nav-->
-                        </div><!-- .col-->
-                    </div><!-- .row-->
-                </div><!-- .container-->
+                    <p>School Lunch</p>
+
+                </div><!--/second_part-->
+
+            </div> <!--/brand_name-->
+
+            <!-- Main Navigation -->
+            <div id="main_nav_bar">
+
+                <div id="navbar">
+                    <nav class="navbar navbar-expand-lg navbar-light ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="/schools">School Coordinator</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="/parents">Parents</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link disabled" href="/about">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div><!-- /nav bar -->
+            </div><!-- /main nav bar -->
+
+        </div> <!-- /bottom header -->
 
                 <!--This content just show in home page-->
 
@@ -104,7 +107,6 @@
                         </div>
                     </div>
                 @endif
-            </div> <!-- /bottom header -->
         </div>
     </header><!--/header-->
     <div class="" id="main_content">
