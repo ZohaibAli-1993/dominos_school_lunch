@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="text content">
 
 <h1>Privacy Policy</h1>
 
@@ -80,5 +81,6 @@ Although we make every effort to preserve user privacy, we may need to disclose 
 <h3>Changes to this privacy policy</h3>
 Domino's Pizza of Canada Ltd. reserves the right to modify or supplement this policy at any time. If a material change to the terms of this policy is made, Domino's Pizza of Canada Ltd. will post a notice on its homepage and a link to the new policy. If you wish to change or delete your registration information or opt-out of any promotional materials please contact us via an email to Privacy Manager at privacymanager@dominos.ca or write to: Privacy Manager, Domino's Pizza of Canada Ltd., 1608 Sylvestre Drive, Unit 4, Tecumseh, Ontario N8N2L9 or call (519) 944-5288.
 
+</div>
 
 @endsection

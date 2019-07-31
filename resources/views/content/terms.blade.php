@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="text content">
 
 <h1>Terms and Conditions</h1>
 
@@ -84,5 +85,6 @@ The text, graphics and html code contained in this web site or applications are 
 
 The Domino's Pizza web site or applications may link to sites or applications not maintained by or related to Domino's Pizza. Hyper-text links are provided as a service to users and are not sponsored by or affiliated with this web site or applications or Domino's Pizza. Domino's Pizza has not reviewed the sites or applications hyper-linked to or from this web site or application and is not responsible for the content of any other site or application. These links are to be accessed at the user's own risk. Domino's Pizza makes no representations or warranties about the content, completeness, or accuracy of these links or the sites or applications hyper-linked to this web site or application. Furthermore, Domino's Pizza does not implicitly endorse third-party sites or applications hyper-linked to this web site or application.
 
+</div>
 
 @endsection

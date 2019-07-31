@@ -271,3 +271,9 @@ footer{
     left: 40%;
     display: block;
 }
+
+div.content.text{
+
+    max-width: 960px;
+    margin: 0 auto;
+}
