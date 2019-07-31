@@ -18,7 +18,15 @@ Route::get('/', function () {
 Route::get('/contact',function(){
     return view('main.contact');
 });
-
+Route::get('/school_registration',function(){
+    return view('main.school_registration');
+}); 
+Route::get('/login',function(){
+    return view('main.login');
+}); 
+Route::get('/parents_registration',function(){
+    return view('main.parents_registration');
+});
 Route::post('/contact','Home@contact');
 
 Route::get('/about',function(){

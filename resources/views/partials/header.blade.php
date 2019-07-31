@@ -31,7 +31,7 @@
                         <!-- Header icons-->
                         <div id="header_icons">
                             <p class="user_icon">
-                                <a href="#">
+                                <a href="#"  data-toggle="modal" data-target="#exampleModalCenter">
                                     <i class="far fa-user"></i>
                                 </a>
                             </p>
@@ -108,4 +108,70 @@
             
         
     </header><!--/header-->
+     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      <div id="loginformContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+          <h2 class="my-5">Sign In</h2>
+        </div>
+
+        <!-- Login Form -->
+        <form>
+          <input type="email" id="email" class="fadeIn second zero-raduis" name="email" placeholder="email">
+          <input type="text" id="password" class="fadeIn third zero-raduis" name="login" placeholder="password">
+              <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+          </div>
+          <input type="submit" class="fadeIn fourth zero-raduis" value="login">
+          <h3>You don't have a account ?</h2>
+          <input type="button" class="fadeIn fourth zero-raduis pc" value="register" data-toggle="modal" data-target="#exampleModalRegister" class="close" data-dismiss="modal" aria-label="Close">
+        </form>
+        
+
+      </div>
+  </div>
+     
+      
+    </div>
+  </div>
+</div> 
+    <div class="modal fade" id="exampleModalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <h2> Registration</h2>
+      <div class="modal-body" style="padding:45px">
+      <a href="/parents_registration">
+      <img src="/img/parents.jpg" alt="HTML tutorial" style="width:150px;height:150px;border:0; ">
+         </a> 
+         <a href="/school_registration">
+      <img src="/img/school.jpg" alt="HTML tutorial" style="width:150px;height:150px;border:0; ">
+         </a>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+       
+
     <div class="" id="main_content">
