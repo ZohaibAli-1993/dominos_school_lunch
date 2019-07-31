@@ -7,7 +7,7 @@
 				<img id="about-hero-image" src="img/pizza.jpg" alt="Pizza" />
 			</div>
 
-		</div><!-- end row -->
+		</div><!-- end row1 -->
 
 		<div class="row">
 			<div class="col">
@@ -31,9 +31,38 @@
 					With Domino's delivery kids will get fresh pizza very quickly.
 				</p>
 
-			</div>
+			</div><!-- end col -->
 
-		</div><!-- end row -->
+		</div><!-- end row2 -->
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+
 	</div><!-- end container -->
 
 @endsection
