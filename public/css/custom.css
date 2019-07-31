@@ -413,14 +413,16 @@ h2 {
   width: 90%;
   max-width: 1050px;  
   
-  height: 1050px;
+  height: 1300px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
   text-align: center; 
  
-  margin:0 auto;
+  margin:0 auto; 
+  margin-top: 10px; 
+    margin-bottom: 10px;
 } 
 #parents_registration{ 
     height: 900px; 
@@ -514,7 +516,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 #registration_first_name,#registration_last_name, 
 #registration_verify_password,#registration_phone, 
 #registration_school_name,#registration_city, 
-#registration_street,#registration_postal,#registration_province,#captcha{
+#registration_street,#registration_postal,#registration_province,#captcha,select{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;

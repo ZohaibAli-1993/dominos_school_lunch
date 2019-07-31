@@ -43,7 +43,37 @@
           <input type="text" id="registration_school_name" class="fadeIn third zero-raduis" name="login" placeholder="School Name"> 
           <input type="text" id="registration_street" class="fadeIn third zero-raduis" name="login" placeholder="Street Address"> 
           <input type="text" id="registration_postal" class="fadeIn third zero-raduis" name="login" placeholder="Postal Code">
-              
+        <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
+
+                      <label for="password" class="col-md-4 control-label">Captcha</label>
+
+
+                      <div class="col-md-12">footer
+
+                          <div class="captcha">
+
+                          <span>{!! captcha_img() !!}</span>
+
+                          <button type="button" class="btn btn-danger btn-refresh"><i class="fas fa-sync"></i></button>
+
+                          </div>
+
+                          <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+
+
+                          @if ($errors->has('captcha'))
+
+                              <span class="help-block">
+
+                                  <strong>{{ $errors->first('captcha') }}</strong>
+
+                              </span>
+
+                          @endif
+
+                      </div>
+
+                  </div> 
           <input type="submit" id="register" class="fadeIn fourth zero-raduis" value="Register">
           
         </form>

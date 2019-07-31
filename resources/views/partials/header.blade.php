@@ -162,7 +162,7 @@
       <a href="/parents_registration">
       <img src="/img/parents.jpg" alt="HTML tutorial" style="width:150px;height:150px;border:0; ">
          </a> 
-         <a href="/parents_registration">
+         <a href="/school_registration">
       <img src="/img/school.jpg" alt="HTML tutorial" style="width:150px;height:150px;border:0; ">
          </a>
       </div>
