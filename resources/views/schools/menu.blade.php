@@ -11,7 +11,7 @@
 <div class="row">
 
 	<div class="col">
-		<div class="menu-image"><img src="img/pizza_mix.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_mix.jpg" width="100%" height="200">
 		<h3>Cheese Pizza</h3>
 			  <strong>$ 2.25/piece</strong><br />
 			  	Products Details<br />
@@ -21,7 +21,7 @@
 	</div><!-- col ends -->
 
 	<div class="col">
-		<div class="menu-image"><img src="img/pizza_hawaii.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_hawaii.jpg" width="100%" height="200">
 		<h3>Ham & Pinnaple Pizza</h3>
 		<strong>$ 2.75/piece</strong><br />
 		Product Details:<br />
@@ -32,7 +32,7 @@
 	</div><!-- col ends -->
 
 	<div class="col">
-		<div class="menu-image"><img src="img/pizza_peperoni.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_peperoni.jpg" width="100%" height="200">
 		<h3>Pepperoni Pizza</h3>
 		<strong>$ 2.25/piece</strong><br />
 		Product Details:<br />
@@ -49,7 +49,7 @@
     
 <div class="row">
 	<div class="col">
-		<div class="menu-image"><img src="img/pizza_mix.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_mix.jpg" width="100%" height="200">
 		<h3>Cheese Pizza</h3>
 			  <strong>$ 1.10/piece</strong><br />
 			  	Products Details<br />
@@ -59,7 +59,7 @@
 	</div><!-- col ends -->
 
 	<div class="col" class="menu-image">
-		<div class="menu-image"><img src="img/pizza_hawaii.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_hawaii.jpg" width="100%" height="200">
 		<h3>Ham & Pinnaple Pizza</h3>
 		<strong>$ 1.20/piece</strong><br />
 		Product Details:<br />
@@ -69,7 +69,7 @@
 	</div><!-- col ends -->
 
 	<div class="col" class="menu-image">
-		<div class="menu-image"><img src="img/pizza_peperoni.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_peperoni.jpg" width="100%" height="200">
 		<h3>Pepperoni Pizza</h3>
 		<strong>$ 1.10/piece</strong><br />
 		Product Details:<br />
@@ -85,7 +85,7 @@
     
 <div class="row">
 	<div class="col">
-		<div class="menu-image"><img src="img/pizza_mix.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_mix.jpg" width="100%" height="200">
 		<h3>Cheese Pizza</h3>
 			  <strong>$ 1.10/piece</strong><br />
 			  	Products Details<br />
@@ -95,7 +95,7 @@
 	</div><!-- col ends -->
 
 	<div class="col">
-		<div class="menu-image"><img src="img/pizza_hawaii.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_hawaii.jpg" width="100%" height="200">
 		<h3>Ham & Pinnaple Pizza</h3>
 		<strong>$ 1.20/piece</strong><br />
 		Product Details:<br />
@@ -105,7 +105,7 @@
 	</div><!-- col ends -->
 
 	<div class="col">
-		<div class="menu-image"><img src="img/pizza_peperoni.jpg" width="100%" height="200">
+		<div class="menu-image"><img src="/img/pizza_peperoni.jpg" width="100%" height="200">
 		<h3>Pepperoni Pizza</h3>
 		<strong>$ 1.10/piece</strong><br />
 		Product Details:<br />
