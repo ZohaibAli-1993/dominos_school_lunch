@@ -147,6 +147,101 @@ header{
     min-height: 500px;
 }
 
+/********************************************RESPONSIVENESS****************************/
+
+@media screen and (min-width: 900px) and (max-width: 1100px) {
+
+    #logo{
+
+        position: absolute;
+        left: 30px;
+        top:0;
+        z-index:1;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 135px;
+    }
+
+    #brand_name .name_first_part{
+        margin-top: -3px;
+        font-weight: 700;
+        color: #006491;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+        font-size: 29px;
+    }
+
+    #brand_name .name_second_part{
+        margin-top: -30px;
+        font-size: 19px;
+        color: #fff;
+        -webkit-text-stroke: 0.5px #e51937;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    }
+
+    .fa{
+    font-size: 28px;
+    color: #006491;
+    position: relative;
+    left: 260px;
+    top: 10px;
+    display: block;
+    }
+
+    .main_nav_bar{
+        display: none;
+    }
+  
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 950px) {
+
+    body{
+
+        line-height: 1.6;
+    }
+
+    #bottom_header{
+        height: 50px;
+    }
+
+    #logo{
+
+        position: absolute;
+        left: 5px;
+        top:0;
+        z-index:1;
+        width: 100px;
+        height: 94px;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 84px;
+    }
+
+    #brand_name .name_first_part{
+        margin-top: -3px;
+        font-weight: 700;
+        color: #006491;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+        font-size: 25px;
+    }
+
+    #brand_name .name_second_part{
+        margin-top: -30px;
+        font-size: 17px;
+        color: #fff;
+        -webkit-text-stroke: 0.5px #e51937;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    }
+  
+}
+
 /**END Monika*/
 
 
