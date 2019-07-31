@@ -39,7 +39,7 @@ body{
 
 #bottom_header{
 
-    background-color: #fff;
+    background-color:rgba(255,255,255,0.85);
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
     top: 50px;
@@ -56,8 +56,8 @@ body{
 
 #main_nav_bar nav ul{
     position:absolute;
-    right: 70px;
-    padding-top: 20px;
+
+    top: 20px;
 }
 
 #main_nav_bar nav ul li{
@@ -71,8 +71,6 @@ body{
     text-decoration: none;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 24px;
-    padding-bottom: 20px;
     font-weight: 700;
     color: #006491;
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
@@ -245,11 +243,87 @@ header{
 
 /**END Monika*/
 
+
+/** -------------------AMANDEEP ------------------------------------- */
+
+/** hero-image */
+#about-hero-image{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/** about image */
+#about-image{
+    float:right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.row .col  h2{
+    color:#006491;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.row .col p{
+    font-size: 16px;
+    
+}
+
+
+
+/** Subscribe partial  */
+
+.subscription-layout{
+    position: static;
+}
+
+
+
+/** newsletter styles */
+.newsletter{
+    background-color: #d9e8ef; 
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.newsletter h4{
+    font-weight: bold;
+}
+
+.newsletter p{
+    font-weight: bold; 
+}
+
+form{
+    bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: absolute;
+    z-index: 1000;
+    
+}
+
+form button#join-btn{
+    border: 1px solid #e51937;
+    color: #fff;
+    background-color: #e51937;
+    border-radius: 3px;
+}
+
+
+
+/** ---------------------END Amandeep ----------------------------------------*/
+
 /**WILMER*/
 
 
 .contact.form{
-    width: 50%;
+    max-width: 960px;
+    min-width: 350px;
     margin:  0 auto;
 }
 
@@ -274,6 +348,14 @@ header{
 
 }
 
+
+/*---------------Nutrition guide ----------------*/
+
+.guide{
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 18px;
+            line-height: 2.5em;
+        }
 
 /*-------------- Menu for schools --------------*/
 
@@ -365,4 +447,10 @@ footer{
     width: 30%;
     left: 40%;
     display: block;
+}
+
+div.content.text{
+
+    max-width: 960px;
+    margin: 0 auto;
 }
