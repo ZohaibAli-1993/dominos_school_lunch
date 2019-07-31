@@ -17,74 +17,93 @@
     <body>
 
     <!-- Main container of the header -->
-    <header id="container">
-
-        <!-- Top portion of header -->
+    <header>
         <div id="top_header">
+            <!-- Top portion of header -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <!-- Logo of the site -->
+                        <img id="logo" src="/img/logo.png" alt="logo" />
+                    </div><!-- .col-->
 
-            <!-- Logo of the site -->
-            <img id="logo" src="/img/logo.png" alt="logo" />
+                    <div class="col-lg-2">
+                        <!-- Header icons-->
+                        <div id="header_icons">
+                            <p class="user_icon">
+                                <a href="#">
+                                    <i class="far fa-user"></i>
+                                </a>
+                            </p>
 
-            <!-- Header icons-->
-            <div id="header_icons">
+                            <p class="contact_icon">
+                                <a href="/contact">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </p>
+                        </div><!--/header_icons-->
+                    </div><!-- .col-->
+                </div><!-- .row-->
+            </div><!-- .container-->
+        </div><!-- .top_header-->
 
-                <p class="user_icon">
-
-                    <a href="#"><i class="far fa-user"></i></a>
-
-                </p>
-
-                <p class="contact_icon">
-
-                    <a href="/contact"><i class="fas fa-envelope"></i></a>
-
-                </p>
-
-            </div><!--/header_icons-->
-
-        </div> <!--/top header -->
-
-        <!-- Bottom portion of the header -->
+        <!-- *****Bottom portion of the header**** -->
         <div id="bottom_header">
 
-            <!-- Brand name -->
-            <div id="brand_name">
+            <div class="container {{ (Request::path() == '/') ? 'home' : '' }}">
+                <div class="row">
+                    <div class="col">
+                        <!-- Brand name -->
+                        <div id="brand_name">
+                            <div class="name_first_part">
+                                <p>Domino
+                                    <code id="quote">&#10076;</code>s
+                                </p>
+                            </div> <!--/first_part-->
 
-                <div class="name_first_part">
+                            <div class="name_second_part">
+                                <p>School Lunch</p>
+                            </div><!--/second_part-->
 
-                    <p>Domino<code id="quote">&#10076;</code>s</p>
+                        </div> <!--/brand_name-->
+                    </div><!-- .col-->
 
-                </div> <!--/first_part-->
+                    <!-- Main Navigation -->
+                    <div id="main_nav_bar" class="col">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
 
-                <div class="name_second_part">
+                                <li>
+                                    <a href="/schools">School Coordinator</a>
+                                </li>
 
-                    <p>School Lunch</p>
+                                <li>
+                                    <a href="/parents">Parents</a>
+                                </li>
 
-                </div><!--/second_part-->
+                                <li>
+                                    <a href="/about">About Us</a>
+                                </li>
+                            </ul>
+                        </nav> <!--/nav-->
+                    </div><!-- .col-->
+                </div><!-- .row-->
+            </div><!-- .container-->
 
-            </div> <!--/brand_name-->
-
-            <!-- Main Navigation -->
-            <div id="main_nav_bar">
-
-                <nav>
-
-                    <ul>
-                        <li><a href="/">Home</a></li>
-
-                        <li><a href="/schools">School Coordinator</a></li>
-
-                        <li><a href="/parents">Parents</a></li>
-
-                        <li><a href="/about">About Us</a></li>
-
-                    </ul>
-
-                </nav> <!--/nav-->
-
+            <div class="hero">
+                @if(request()->route()->getName() == 'home')
+                    <div class="cta">
+                        <h1>With Domino</h1>
+                        <h2>School Lunch is easier than ever</h2>
+                        <a class="button" href="">Lunch Order</a>
+                    </div>
+                @endif
             </div>
-
         </div> <!-- /bottom header -->
-
+            
+        
     </header><!--/header-->
     <div class="" id="main_content">
