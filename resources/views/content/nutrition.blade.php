@@ -11,79 +11,79 @@
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_2.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_2.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_1.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_1.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_3.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_3.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_4.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_4.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_5.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_5.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_6.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_6.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_7.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_7.png" width="100%" class="img-fluid">
 	</div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_9.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_9.png" width="100%" class="img-fluid">
 	</div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_10.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_10.png" width="100%" class="img-fluid">
 	</div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_11.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_11.png" width="100%" class="img-fluid">
 	</div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_12.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_12.png" width="100%" class="img-fluid">
 	</div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_13.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_13.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_14.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_14.png" width="100%" class="img-fluid">
     </div>
 </div>
 
@@ -91,85 +91,85 @@
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_15.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_15.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_16.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_16.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_17.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_17.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_18.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_18.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_19.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_19.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_20.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_20.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_21.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_21.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_22.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_22.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_23.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_23.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_24.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_24.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_25.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_25.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_26.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_26.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_27.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_27.png" width="100%" class="img-fluid">
     </div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<img src="img/guides/guide_28.png" width="100%" class="img-fluid">
+		<img src="/img/guides/guide_28.png" width="100%" class="img-fluid">
     </div>
 </div>
 
