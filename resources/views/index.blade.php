@@ -69,6 +69,6 @@
 </div>
 
 
-@include('partials.newsletter')
+@include('partials.subscribe')
 
 @endsection

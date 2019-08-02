@@ -38,7 +38,7 @@ body{
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
     top: 50px;
-    height: 50px;
+    height: 60px;
     width: 100%;
 }
 
@@ -143,6 +143,204 @@ header{
     padding: 0;
     min-height: 500px;
 }
+
+/********************************************RESPONSIVENESS****************************/
+
+@media screen and (min-width: 900px) and (max-width: 1100px) {
+
+    #logo{
+
+        position: absolute;
+        left: 30px;
+        top:0;
+        z-index:1;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 135px;
+    }
+
+    #brand_name .name_first_part{
+        margin-top: -3px;
+        font-weight: 700;
+        color: #006491;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+        font-size: 29px;
+    }
+
+    #brand_name .name_second_part{
+        margin-top: -30px;
+        font-size: 19px;
+        color: #fff;
+        -webkit-text-stroke: 0.5px #e51937;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    }
+
+    .fa{
+    font-size: 28px;
+    color: #006491;
+    position: relative;
+    left: 260px;
+    top: 10px;
+    display: block;
+    }
+
+    .main_nav_bar{
+        display: none;
+    }
+  
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 950px) {
+
+    body{
+
+        line-height: 1.6;
+    }
+
+    #bottom_header{
+        height: 50px;
+    }
+
+    #logo{
+
+        position: absolute;
+        left: 5px;
+        top:0;
+        z-index:1;
+        width: 100px;
+        height: 94px;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 84px;
+    }
+
+    #brand_name .name_first_part{
+        margin-top: -3px;
+        font-weight: 700;
+        color: #006491;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+        font-size: 25px;
+    }
+
+    #brand_name .name_second_part{
+        margin-top: -30px;
+        font-size: 17px;
+        color: #fff;
+        -webkit-text-stroke: 0.5px #e51937;
+        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    }
+  
+}
+
+/***********************adjusting positions for good look****************************/
+
+.navbar {
+
+    position relative;
+}
+
+button.navbar-toggler{
+    position: absolute;
+    top: 7px;
+    right: 12.5%;
+}
+
+
+
+
+/**END Monika*/
+
+
+/** -------------------AMANDEEP ------------------------------------- */
+
+/** hero-image */
+#about-hero-image{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/** about image */
+#about-image{
+    float:right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+#about .col  h2{
+    color:#006491;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.row .col p{
+    font-size: 16px;
+    
+}
+
+/** Subscribe partial  */
+
+.subscription-layout{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+
+/** newsletter styles */
+.newsletter{
+    background-color: #d9e8ef; 
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.newsletter h4{
+    font-weight: bold;
+}
+
+.newsletter p{
+    font-weight: 400; 
+}
+
+#join-form form input{
+    width: 80%;
+    height: 100%;
+}
+
+#join-form form{
+    top: 85%;
+    left:35%;
+    text-align: center;
+    margin-bottom: 30px;
+    position: absolute;
+    z-index: 1000;
+    width: 30%;
+    height: 35px;
+}
+
+form button#join-btn{
+    border: 1px solid #e51937;
+    color: #fff;
+    background-color: #e51937;
+    border-radius: 3px;
+    transition: all ease-in-out 0.4s;
+}
+
+form button#join-btn:hover{
+    box-shadow: inset 0 0 7px #fff;
+}
+
+/** ---------------------END Amandeep ----------------------------------------*/
 
 /**END Monika*/
 
