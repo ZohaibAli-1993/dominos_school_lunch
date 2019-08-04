@@ -19,7 +19,7 @@ class CreateMenuItemsTable extends Migration
             $table->string('description', 255);
             $table->decimal('price', 5, 2);
             $table->text('nutrition_facts');
-            $table->int('idcategory');
+            $table->integer('idcategory');
             $table->string('image', 255);
             $table->timestamps();
         });

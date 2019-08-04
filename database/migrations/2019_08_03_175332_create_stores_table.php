@@ -19,8 +19,9 @@ class CreateStoresTable extends Migration
             $table->string('address', 150);
             $table->string('city', 50);
             $table->string('province', 2);
-            $table->string('postal_code, 6');
+            $table->string('postal_code', 6);
             $table->string('phone', 15);
+            $table->string('email', 255);
             $table->timestamps();
         });
     }

@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('calculated_gst',7,2);
             $table->decimal('calculated_pst',7,2);
             $table->decimal('calculated_hst',7,2);
+            $table->decimal('calculated_qst',7,2);
             $table->decimal('total_amount',7,2);
             $table->string('order_status',1);
             $table->timestamps();

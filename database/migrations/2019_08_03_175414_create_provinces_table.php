@@ -19,6 +19,7 @@ class CreateProvincesTable extends Migration
             $table->decimal('gst_rate', 5, 3);
             $table->decimal('pst_rate', 5, 3);
             $table->decimal('hst_rate', 5, 3);
+            $table->decimal('qst_rate', 5, 3);
             $table->timestamps();
         });
     } 
