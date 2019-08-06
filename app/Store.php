@@ -12,4 +12,7 @@ class Store extends Model
      * @var string
      */
     protected $primaryKey = 'idstore';
+
 }
+
+

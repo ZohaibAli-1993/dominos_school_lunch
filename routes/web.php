@@ -13,22 +13,76 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
+
+/*
+|--------------------------------------------------------------------------
+| Contact Page
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/contact',function(){
     return view('main.contact');
 });
-Route::get('/school_registration',function(){
-    return view('main.school_registration');
+
+
+/*
+|--------------------------------------------------------------------------
+| Main registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/registration',function(){
+    return view('main.registration');
+});
+
+/*
+|--------------------------------------------------------------------------
+| school registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/school_registration', 'Schools\SchoolsController@create');
+
+Route::post('/school_registration', 'Schools\SchoolsController@store');
+
+/*
+|--------------------------------------------------------------------------
+| login Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/login',function(){
+    return view('main.login');
 }); 
+
+/*
+|--------------------------------------------------------------------------
+| parents registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/parents_registration',function(){
+    return view('main.parents_registration');
+});
+
+/*
+|--------------------------------------------------------------------------
+| contact Page
+|--------------------------------------------------------------------------
+*/
+
+
 Route::get('/login',function(){
     return view('main.login');
 }); 
 Route::get('/parents_registration',function(){
     return view('main.parents_registration');
 });
+
 Route::post('/contact','Home@contact');
 
+/*
+|--------------------------------------------------------------------------
+| about Page
+|--------------------------------------------------------------------------
+*/
 Route::get('/about',function(){
     return view('main.about')
 ;});
@@ -49,6 +103,8 @@ Route::get('/schools/events',function(){return view('schools.events');});
 
 /**PARENTS ROUTES */
 Route::get('/parents/', function(){return view('parents.index');});
+Route::get('/parents/order','Students\OrdersController@showOrder');
+Route::post('/parents/order','Students.OrdersController@store');
 
 /**FOOTER CONTENT LINKS */
 Route::get('/content/gift-card', function(){return view('content.cards');});

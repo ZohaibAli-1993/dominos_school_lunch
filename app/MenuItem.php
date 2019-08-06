@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MenuItem extends Model
 {
-    
+
     /**
      * The table associated with the model.
      *
