@@ -106,20 +106,6 @@
             </div> <!-- /bottom header -->
         </div><!-- /home_header-->
 
-        <!-- Login Form -->
-        <form action="" method="post"> 
-          @csrf
-          <input type="email" id="email" class="fadeIn second zero-raduis" name="email" placeholder="email">
-          <input type="text" id="password" class="fadeIn third zero-raduis" name="login" placeholder="password">
-              <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-          </div>
-          <input type="submit" class="fadeIn fourth zero-raduis" value="login">
-          <h3>You don't have a account ?</h3>
-          <input type="button" class="fadeIn fourth zero-raduis pc" value="register" data-toggle="modal" data-target="#exampleModalRegister" class="close" data-dismiss="modal" aria-label="Close">
-        </form>
-        
-
       </div>
   </div>
      
@@ -149,7 +135,8 @@
                         </div>
 
                         <!-- Login Form -->
-                        <form>
+                        <form action="" method="post">
+                            @csrf
                             <input type="email" id="email" class="fadeIn second zero-raduis" name="email"
                                 placeholder="email">
                             <input type="text" id="password" class="fadeIn third zero-raduis" name="login"
