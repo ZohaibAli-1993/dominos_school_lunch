@@ -35,7 +35,8 @@ class ParentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
+        var_dump($request);
         //vaidation for comments form
        $valid=$request->validate([  
         
@@ -50,7 +51,7 @@ class ParentsController extends Controller
         
        ]); 
      
-      var_dump($valid);
+      
      // Parent::create($valid);  
       //back to post through flash message
     }
