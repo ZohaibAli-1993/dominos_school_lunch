@@ -77,7 +77,7 @@ Route::get('/parents_registration',function(){
 });
 
 Route::post('/contact','Home@contact'); 
-Route::post('/registration','Parent@store');
+Route::post('/registration','students\ParentsController@store');
 
 /*
 |--------------------------------------------------------------------------
@@ -107,7 +107,8 @@ Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 Route::get('/schools/classrooms',function(){return view('schools.classrooms');});
 
 Route::get('/schools/menu',function(){return view('schools.menu');});
-Route::get('/schools/events',function(){return view('schools.events');});
+Route::get('/schools/events', 'Schools\EventsController@index');
+	//function(){return view('schools.events');});
 
 
 /**PARENTS ROUTES */
