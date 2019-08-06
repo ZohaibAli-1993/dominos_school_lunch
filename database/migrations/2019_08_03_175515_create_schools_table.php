@@ -25,6 +25,7 @@ class CreateSchoolsTable extends Migration
             $table->string('coordinator_last_name',30);
             $table->string('email',255);
             $table->string('password',255);
+            $table->integer('idstore');
             $table->string('token',8)->nullable();
             $table->string('markup',50)->nullable();
             $table->boolean('is_active')->default(1);
