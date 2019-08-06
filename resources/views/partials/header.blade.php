@@ -11,8 +11,13 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Gothic+A1:300,400,700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+<<<<<<< HEAD
         <script src="/js/custom.js" ></script>
 
+=======
+        <link rel="stylesheet" type="text/css" href="/css/calendarorganizer.css" />
+        
+>>>>>>> alessandra
     </head>
 
     <body>

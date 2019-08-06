@@ -45,6 +45,7 @@ Route::get('/send/email', 'Email@mail');
 /**SCHOOL ROUTES */
 Route::get('/schools/', function(){return view('schools.index');});
 Route::get('/schools/menu',function(){return view('schools.menu');});
+Route::get('/schools/events',function(){return view('schools.events');});
 
 /**PARENTS ROUTES */
 Route::get('/parents/', function(){return view('parents.index');});
