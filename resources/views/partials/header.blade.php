@@ -46,57 +46,58 @@
         </div> <!--/top header -->
 
         <!-- Bottom portion of the header -->
-        <div id="bottom_header">
+        <div id="{{ (Request::path() == '/') ? 'home_header' : 'not_home' }}">
+            <div id="bottom_header">
 
-            <!-- Brand name -->
-            <div id="brand_name">
+                <!-- Brand name -->
+                <div id="brand_name">
 
-                <div class="name_first_part">
+                    <div class="name_first_part">
 
-                    <p>Domino<code id="quote">&#10076;</code>s</p>
+                        <p>Domino<code id="quote">&#10076;</code>s</p>
 
-                </div> <!--/first_part-->
+                    </div> <!--/first_part-->
 
-                <div class="name_second_part">
+                    <div class="name_second_part">
 
-                    <p>School Lunch</p>
+                        <p>School Lunch</p>
 
-                </div><!--/second_part-->
+                    </div><!--/second_part-->
 
-            </div> <!--/brand_name-->
+                </div> <!--/brand_name-->
 
-            <!-- Main Navigation -->
-            <div id="main_nav_bar">
+                <!-- Main Navigation -->
+                <div id="main_nav_bar">
 
-                <nav>
+                    <nav>
 
-                    <ul id="menu_list">
-                        <li><a href="/">Home</a></li>
+                        <ul id="menu_list">
+                            <li><a href="/">Home</a></li>
 
-                        <li><a href="/schools">School Coordinator</a></li>
+                            <li><a href="/schools">School Coordinator</a></li>
 
-                        <li><a href="/parents">Parents</a></li>
+                            <li><a href="/parents">Parents</a></li>
 
-                        <li><a href="/about">About Us</a></li>
-                    </ul>
+                            <li><a href="/about">About Us</a></li>
+                        </ul>
 
-                </nav> <!--/nav-->
+                    </nav> <!--/nav-->
 
-                <p class="menu_icon" onclick="openMenu()"><i class="fas fa-bars"></i></p>
+                    <p class="menu_icon" onclick="openMenu()"><i class="fas fa-bars"></i></p>
 
-            </div>
+                </div>
 
-            <div class="hero">
-                @if(request()->route()->getName() == 'home')
-                    <div class="cta">
-                        <h1>With Domino</h1>
-                        <h2>School Lunch is easier than ever</h2>
-                        <a class="button" href="">Lunch Order</a>
-                    </div>
-                @endif
-            </div>
-        </div> <!-- /bottom header -->
-            
+                <div class="hero">
+                    @if(request()->route()->getName() == 'home')
+                        <div class="cta">
+                            <h1>With Domino</h1>
+                            <h2>School Lunch is easier than ever</h2>
+                            <a class="button" href="">Lunch Order</a>
+                        </div>
+                    @endif
+                </div>
+            </div> <!-- /bottom header -->
+        </div><!-- /home_header-->
         
     </header><!--/header-->
      
@@ -166,4 +167,4 @@
 </div>
        
 
-    <div class="" id="main_content"></div>
+    <div class="{{ (Request::path() == '/') ? 'home' : ''}}" id="main_content"></div>

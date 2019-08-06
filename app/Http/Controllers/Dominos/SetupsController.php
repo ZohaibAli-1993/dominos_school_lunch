@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Dominos;
 
-use App\Contact;
+use App\Setup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ContactsController extends Controller
+class SetupsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class ContactsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Setup  $setup
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Setup $setup)
     {
         //
     }
@@ -53,10 +53,10 @@ class ContactsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Setup  $setup
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Setup $setup)
     {
         //
     }
@@ -65,10 +65,10 @@ class ContactsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contact  $contact
+     * @param  \App\Setup  $setup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, Setup $setup)
     {
         //
     }
@@ -76,13 +76,11 @@ class ContactsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Setup  $setup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Setup $setup)
     {
         //
     }
-
 }
-
