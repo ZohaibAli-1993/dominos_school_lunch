@@ -76,7 +76,8 @@ Route::get('/parents_registration',function(){
     return view('main.parents_registration');
 });
 
-Route::post('/contact','Home@contact');
+Route::post('/contact','Home@contact'); 
+Route::post('/registration','Parent@store');
 
 /*
 |--------------------------------------------------------------------------
