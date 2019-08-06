@@ -110,7 +110,7 @@ Route::get('/schools/events',function(){return view('schools.events');});
 
 
 /**PARENTS ROUTES */
-Route::get('/parents/', function(){return view('parents.index');});
+Route::get('/parents', function(){return view('parents.index');});
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students.OrdersController@store');
 
