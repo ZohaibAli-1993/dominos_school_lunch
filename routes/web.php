@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('/contact',function(){
     return view('main.contact');
 });
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,15 @@ Route::get('/parents_registration',function(){
 | contact Page
 |--------------------------------------------------------------------------
 */
+
+
+Route::get('/login',function(){
+    return view('main.login');
+}); 
+Route::get('/parents_registration',function(){
+    return view('main.parents_registration');
+});
+
 Route::post('/contact','Home@contact');
 
 /*

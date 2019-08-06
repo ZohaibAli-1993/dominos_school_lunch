@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCalendarsTable extends Migration
+class CreateSubscriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCalendarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('calendars', function (Blueprint $table) {
-            $table->bigIncrements('idcalendar');
-            $table->string('school_year',9);
-            $table->date('begin_dt');
-            $table->date('end_dt');
-            $table->boolean('is_active');
+        Schema::create('subscriptions', function (Blueprint $table) {
+            $table->bigIncrements('idsubscription');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateCalendarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calendars');
+        Schema::dropIfExists('subscriptions');
     }
 }

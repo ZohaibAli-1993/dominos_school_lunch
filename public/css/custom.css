@@ -1,54 +1,56 @@
+
+
 /*font styles*/
 
 /**MONIKA*/
 
+/*font styles*/
 body{
-
     font-family: 'Gothic A1', sans-serif;
 }
+
 
 #container{
     position: relative;
 }
+#main_content{
+    margin-top: 140px;
+}
 
 /* Top part of header styles */
 #top_header{
-
     background-color: #006491;
     box-shadow: inset 0 0 10px #fff;
     width: 100%;
     height: 50px;
 }
 
+
 /* Logo styles*/
 
 #logo{
-
     position: absolute;
     left: 70px;
     top:0;
     z-index:1;
 }
 
-#logo:hover{
-    transform: scale(1.05);
-}
-
 /* Bottom part of header styles */
 
 #bottom_header{
     background-color: rgba(255, 255, 255, 0.8);
+    background-color: #fff;
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
+    opacity: 4;
     top: 50px;
-    height: 60px;
+    height: 90px;
     width: 100%;
 }
 
 /* Main Navigation styles */
 
 #main_nav_bar nav {
-
     position: relative;
 }
 
@@ -59,13 +61,11 @@ body{
 }
 
 #main_nav_bar nav ul li{
-
     list-style-type: none;
     display: inline-block;
 }
 
 #main_nav_bar nav ul li a {
-
     text-decoration: none;
     padding-left: 15px;
     padding-right: 15px;
@@ -75,7 +75,6 @@ body{
 }
 
 #main_nav_bar nav ul li a:hover{
-
     background-color: #a6c9d9;
     text-decoration: none;
     color: #fff;
@@ -84,6 +83,18 @@ body{
 #main_nav_bar{
     float: left;
     width: 50%;
+}
+
+#main_nav_bar .menu_icon{
+    margin-left: 95%;
+    margin-top: 20px;
+    padding: 0px;
+    font-weight: 700;
+    color: #006491;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    font-size: 0px;
+    visibility: hidden;
+    cursor: pointer;
 }
 
 /* contact and user icons */
@@ -110,7 +121,7 @@ body{
 #brand_name{
     float: left;
     width: 50%;
-    padding-left: 13.5%;
+    padding-left: 180px;
 }
 
 #brand_name .name_first_part{
@@ -136,19 +147,129 @@ body{
 }
 
 code#quote{
-
     color: #006491;
-
 }
 
-header{
-    height: 130px;
+/********************************************RESPONSIVENESS****************************/
+
+@media screen and (min-width: 900px) and (max-width: 1120px) {
+
+    #logo{
+        position: absolute;
+        left: 30px;
+        top:0;
+        z-index:1;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 135px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 29px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 19px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 20px;
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
 }
 
-#main_content{
-    padding: 0 100px;
-    min-height: 500px;
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+
+    body{
+        line-height: 1.6;
+    }
+
+    #bottom_header{
+        height: 50px;
+    }
+
+    #logo{
+        left: 5px;
+        width: 100px;
+        height: 94px;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 84px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 25px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 17px;
+    }
+    
+    #main_nav_bar{
+        float: none;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 0;
+        margin-top:45px;
+        padding-top: 5px;
+        background-color: #006491;
+        width: 100%;
+        padding:0;
+
+    }
+
+    #main_nav_bar nav ul li{
+        display: block;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px; 
+        padding-left:0;
+        border-bottom: 1px solid #eee; 
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color:#fff;
+    }
+
+    #main_nav_bar nav ul li:hover{
+        background-color: #a6c9d9;
+    }
+
+    #main_nav_bar nav ul li a:hover{
+        background: none;
+    }
+
+    #main_nav_bar .menu_icon{
+        margin-left: 90%;
+        margin-top: -30px;
+        padding-right: 10px;
+        font-size: 20px;
+        visibility: visible;
+    }
+
+    #menu_list{
+        visibility: hidden;
+    }
 }
+
 
 /********************************************RESPONSIVENESS****************************/
 
@@ -608,6 +729,97 @@ div#close_box{
 
 /*-----------------End School Registration Page-----------------*/
 
+=======
+
+/**END Monika*/
+
+/** -------------------AMANDEEP ------------------------------------- */
+
+/** hero-image */
+#about-hero-image{
+    width: 100%;
+    position: relative;
+    top: -80px;
+}
+
+
+/** about image */
+#about-image{
+    float:right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+#about .col  h2{
+    color:#006491;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: left;
+}
+
+#about .col p{
+    font-size: 16px;
+    
+}
+
+
+
+/** Subscribe partial  */
+/*
+.subscription-layout{
+    position: relative;
+    margin-bottom: 40px;
+}*/
+
+
+
+/** newsletter styles */
+.newsletter{
+    background-color: #d9e8ef; 
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    
+}
+
+.newsletter h4{
+    font-weight: bold;
+}
+
+.newsletter p{
+    font-weight: bold; 
+}
+
+.subscription-layout #join-form{
+    bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: absolute;
+    z-index: 1000;
+    bottom: -30px;
+    width: 100%;
+}
+
+.subscription-layout #join-form form legend{
+    border: 1px solid #006491;
+}
+
+
+
+.subscription-layout form button#join-btn{
+    border: 1px solid #e51937;
+    color: #fff;
+    background-color: #e51937;
+    border-radius: 3px;
+}
+
+
+
+/** ---------------------END Amandeep ----------------------------------------*/
+
 
 /**WILMER*/
 
@@ -617,7 +829,6 @@ div#close_box{
     min-width: 350px;
     margin:  0 auto;
 }
-<<<<<<< HEAD
 /***************************************************/ 
 .zero-raduis{
     border-radius: 0px !important;
@@ -970,6 +1181,350 @@ input::placeholder {
 /***************************************************************/
 =======
 
+/***************************************************/ 
+.zero-raduis{
+    border-radius: 0px !important;
+}
+
+a {
+  color: #92badd;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  display:inline-block;
+  color: #006491;;
+}
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+.modal-content{  
+    width: 400px;
+    
+ }
+#formContent,#loginformContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  text-align: center; 
+  
+}  
+#loginformContent{   
+    width:398px; 
+    border-radius: 0px;
+     
+ }  
+ #province_list * 
+ {  
+    opacity:0.5;
+  }
+ .modal-body{  
+    padding: 0px;
+  }
+#formContent{  
+    min-height: 1350px;
+ }
+#registration,#parents_registration{
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 1050px;  
+  
+  height: 1300px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  text-align: center; 
+ 
+  margin:0 auto; 
+  margin-top: 10px; 
+    margin-bottom: 10px;
+} 
+#parents_registration{ 
+    height: 900px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+ 
+
+}
+#formFooter {
+  padding: 2px ;
+  text-align: right;
+  width: 90%;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #006491;
+  border: none;
+  color: white;
+  width: 85%;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+} 
+input[type=button]{  
+background-color: red;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+#email,#password {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+#registration_email,#registration_password, 
+#registration_first_name,#registration_last_name, 
+#registration_verify_password,#registration_phone, 
+#registration_school_name,#registration_city, 
+#registration_street,#registration_postal,#registration_province,#captcha,select{
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 10px 25px;
+ 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px; 
+  width: 85%;
+  margin-bottom: 20px;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}   
+#captcha{ 
+ width: 30%;
+ }
+
+@media only screen and (max-width: 505px) {  
+    #registration_email,#registration_password, 
+#registration_first_name,#registration_last_name, 
+#registration_verify_password,#registration_phone, 
+#registration_school_name,#registration_city, 
+#registration_street,#registration_postal,#registration_province,select{ 
+width: 100%;  
+margin: 0;
+  margin-bottom: 20px;
+}
+    }
+input[type=text]:focus, input[type=email]:focus{
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder, input[type=email]:placeholder {
+  color: #cccccc;
+}
+
+#register{  
+    background-color: red;
+ }
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+#icon {
+  width:30%;
+} 
+input::placeholder {
+  opacity: 0.5;
+}
+/***************************************************************/
+=======
+
 .success.icon{
     font-size: 7em;
     color: #e51937;
@@ -1102,4 +1657,6 @@ height: 60px;
 width: 150px; 
 background-color: red; 
 margin-left: 30px; 
- }
+
+}
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Schools;
 
 use App\School;
+
 use App\Province;
 use App\Store;
 use App\Setup;
@@ -30,11 +31,13 @@ class SchoolsController extends Controller
      */
     public function create()
     {
+
         $provinces= Province::pluck('province_name','province');
 
         $stores= Store::pluck('name','idstore');
 
         return view('main.school_registration', compact('provinces', 'stores'));
+
     }
 
     /**
@@ -45,6 +48,7 @@ class SchoolsController extends Controller
      */
     public function store(Request $request)
     {
+
         $valid = $request->validate([
             'school_name' => 'required|string|min:10',
             'city' => 'required|string',
@@ -108,6 +112,7 @@ class SchoolsController extends Controller
         $new_user= User::create($user);
 
         return back()->with('success','School was added!');
+
     }
 
     /**
@@ -154,4 +159,6 @@ class SchoolsController extends Controller
     {
         //
     }
+
 }
+

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubscriptionsTable extends Migration
+class CreateClassroomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateSubscriptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscriptions', function (Blueprint $table) {
-            $table->bigIncrements('idsubscription');
-            $table->string('email');
+        Schema::create('classrooms', function (Blueprint $table) {
+            $table->bigIncrements('idclassroom');
+            $table->integer('idschool');
+            $table->string('classroom',6);     
+            $table->string('description',100);          
             $table->timestamps();
         });
-    }
+    }   
 
     /**
      * Reverse the migrations.
@@ -27,6 +29,6 @@ class CreateSubscriptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscriptions');
+        Schema::dropIfExists('classrooms');
     }
 }

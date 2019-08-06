@@ -2,4 +2,6 @@
 
 @yield('content')
 
+<!--@include('partials/subscribe')-->
+
 @include('partials/footer')
