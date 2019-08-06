@@ -111,7 +111,7 @@ $('.drop_down').click(function(){
 	    <label for="check_parent_token">Token Number</label>
 	    <input type="text" class="form-control" id="check_parent_token" placeholder="Token number">
 	  </div>
-	  <a type="button" id="check_parent_btn" href="add_student.php" class="btn btn-primary">Submit</button>
+	  <a type="button" id="check_parent_btn" href="add_student.php" class="btn btn-primary">Submit</a>
 	</form>
 </div>
 
