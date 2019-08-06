@@ -144,4 +144,3 @@ class seed_provinces_table extends Seeder
         ]);                                       
     }
 }
-

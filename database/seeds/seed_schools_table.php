@@ -51,4 +51,3 @@ class seed_schools_table extends Seeder
         ]);
     }
 }
-
