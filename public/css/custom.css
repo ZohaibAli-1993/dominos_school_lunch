@@ -1763,7 +1763,47 @@ margin-left: 30px;
       
       /* ------------CSS for modal box ends -------- */
 
+    .parent_account{
+      border: 1px solid #006491;
+      position: absolute;
+      z-index: 1000;
+      background-color: #fff;
+      opacity: 0.5;
+    }
 
+    #parent_account_button{
+      padding: 5px;
+      background-color: #e51937;
+      color: #fff;
+      margin-right: auto;
+      border: none;
+    }
+    .parent_account_para{
+      color: #000;
+      padding: 10px;
+    }
+
+    #parents_account_order{
+      border: none;
+      background-color: #fff;
+    }
+
+    .add_student{
+      color: #006491;
+      font-weight: 500;
+    }
+
+    #add_student_btn{
+      background-color: #e51937;
+      padding: 5px;
+      color: #fff;
+      margin-bottom: 10px;
+      border: 1px solid #e51937;
+    }
+    .add_student input,
+    .add_student select{
+      background-color: #ccd8de;
+    }
 
 
 

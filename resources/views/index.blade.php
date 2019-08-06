@@ -60,12 +60,11 @@
 
 
 <!--*******Section 4: call to action for instruction page********** -->
-<<<<<<< HEAD
+
 <img src="/img/pizza_making.jpg" alt="hero image">
 <h2>It's simple to get started</h2>
 <a class="button" href="">School Instruction</a>
 <a class="button" href="">Parents Instruction</a>
-=======
 <div id="section4">
 	<div class="container">
 		<div class="row">
@@ -77,8 +76,6 @@
 		</div><!-- .row-->
 	</div><!-- .container-->
 </div>
-
->>>>>>> 908677479dd68191daec1da19cb597ce9de34f12
 
 @include('partials.subscribe')
 

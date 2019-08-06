@@ -106,6 +106,7 @@ Route::get('/schools/events',function(){return view('schools.events');});
 Route::get('/parents/', function(){return view('parents.index');});
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students.OrdersController@store');
+Route::get('/parents/student/add', function(){return view('parents.add_student');});
 
 /**FOOTER CONTENT LINKS */
 Route::get('/content/gift-card', function(){return view('content.cards');});

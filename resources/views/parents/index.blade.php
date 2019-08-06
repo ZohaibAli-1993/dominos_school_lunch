@@ -75,8 +75,7 @@ $('.drop_down').click(function(){
     <div class="col-sm-8">
     	<div class="parent_account">
     		<h3>Welcome,</h3>
-    		<p class="parent_account_para">To get started please add your child or children to your account.You will then be able to view their
-	            up-coming lunch dates.                             
+    		<p class="parent_account_para">To get started please add your child or children to your account.You will then be able to view their up-coming lunch dates.                             
 	            <a type="button" id="display_modal">Add</a>
 	        </p>
             
@@ -111,7 +110,7 @@ $('.drop_down').click(function(){
 	    <label for="check_parent_token">Token Number</label>
 	    <input type="text" class="form-control" id="check_parent_token" placeholder="Token number">
 	  </div>
-	  <a type="button" id="check_parent_btn" href="add_student.php" class="btn btn-primary">Submit</button>
+	  <a type="button" id="check_parent_btn" href="/parents/student/add" class="btn btn-primary">Submit</button>
 	</form>
 </div>
 
