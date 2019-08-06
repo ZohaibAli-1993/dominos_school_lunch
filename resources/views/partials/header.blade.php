@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/css/custom.css" />
     <script src="/js/custom.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/calendarorganizer.css" />
+    <title>Dominos Lunch Manager System</title>
 </head>
 
 <body>
@@ -106,9 +107,6 @@
             </div> <!-- /bottom header -->
         </div><!-- /home_header-->
 
-      </div>
-  </div>
-     
 
     </header>
     <!--/header-->
@@ -145,10 +143,10 @@
                                 <a class="underlineHover" href="#">Forgot Password?</a>
                             </div>
                             <input type="submit" class="fadeIn fourth zero-raduis" value="login">
-                            <h3>You don't have a account ?</h2>
-                                <input type="button" class="fadeIn fourth zero-raduis pc" value="register"
-                                    data-toggle="modal" data-target="#exampleModalRegister" class="close"
-                                    data-dismiss="modal" aria-label="Close">
+                            <h3>You don't have a account ?</h3>
+                            <input type="button" class="fadeIn fourth zero-raduis pc close" value="register"
+                                data-toggle="modal" data-target="#exampleModalRegister" data-dismiss="modal"
+                                aria-label="Close">
                         </form>
 
 
@@ -187,4 +185,4 @@
     </div>
 
 
-    <div class="{{ (Request::path() == '/') ? 'home' : ''}}" id="main_content"></div>
+    <div class="{{ (Request::path() == '/') ? 'home' : ''}}" id="main_content">
