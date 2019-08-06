@@ -93,6 +93,11 @@ class OrdersController extends Controller
      */
     public function showOrder()
     {
-        var_dump('<h2>Shows form to submit new order</h2>COMING SOON');
+
+        
+
+
+
+        return view('parents.order');
     }
 }

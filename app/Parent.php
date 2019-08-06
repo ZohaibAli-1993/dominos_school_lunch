@@ -5,11 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Parent extends Model
-{
-    /**
-     * Defines primary key associated with the model.
-     *
-     * @var string
-     */
+{ 
     protected $primaryKey = 'idparent';
+    protected $fillable=['first_name','last_name','email','phone','password','captcha'];   
+    //protected $table = 'parents';
 }
