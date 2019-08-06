@@ -83,4 +83,16 @@ class OrdersController extends Controller
     {
         //
     }
+
+
+    /**
+     * Shows tha form to submit a new order
+     * 
+     * @param Vois
+     * @return view showing the form
+     */
+    public function showOrder()
+    {
+        var_dump('<h2>Shows form to submit new order</h2>COMING SOON');
+    }
 }

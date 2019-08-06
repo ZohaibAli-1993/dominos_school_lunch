@@ -31,34 +31,6 @@
 			</div><!-- end col -->
 
 		</div><!-- end row2 -->
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
 
 	</div><!-- end container -->
 

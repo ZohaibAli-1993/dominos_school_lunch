@@ -169,3 +169,4 @@ class seed_stores_table extends Seeder
 
     }
 }
+
