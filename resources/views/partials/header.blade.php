@@ -4,7 +4,8 @@
 
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Domino</title>
         <link rel="stylesheet" type="text/css" href="/css/app.css"  />
         <script src="/js/app.js" ></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -17,9 +18,7 @@
     <body>
 
     <!-- Main container of the header -->
-    <!-- Main container of the header -->
-    <header id="container">
-
+    <header>
         <!-- Top portion of header -->
         <div id="top_header">
 
@@ -31,7 +30,7 @@
 
                 <p class="user_icon">
 
-                    <a href="#"><i class="far fa-user"></i></a>
+                    <a href="registration"><i class="far fa-user"></i></a>
 
                 </p>
 
@@ -46,67 +45,64 @@
         </div> <!--/top header -->
 
         <!-- *****Bottom portion of the header**** -->
-        <div id="{{ (Request::path() == '/') ? 'home_header' : '' }}">
+        <div id="{{ (Request::path() == '/') ? 'home_header' : 'not_home' }}">
             <div id="bottom_header">
+                <!-- Brand name -->
+                <div id="brand_name">
 
-            <!-- Brand name -->
-            <div id="brand_name">
+                    <div class="name_first_part">
 
-                <div class="name_first_part">
+                        <p>Domino<code id="quote">&#10076;</code>s</p>
 
-                    <p>Domino<code id="quote">&#10076;</code>s</p>
+                    </div> <!--/first_part-->
 
-                </div> <!--/first_part-->
+                    <div class="name_second_part">
 
-                <div class="name_second_part">
+                        <p>School Lunch</p>
 
-                    <p>School Lunch</p>
+                    </div><!--/second_part-->
 
-                </div><!--/second_part-->
+                </div> <!--/brand_name-->
 
-            </div> <!--/brand_name-->
+                <!-- Main Navigation -->
+                <div id="main_nav_bar">
 
-            <!-- Main Navigation -->
-            <div id="main_nav_bar">
+                    <div id="navbar">
+                        <nav class="navbar navbar-expand-lg navbar-light ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active">
+                                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="/schools">School Coordinator</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="/parents">Parents</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link disabled" href="/about">About Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div><!-- /navbar-->
+                </div><!-- /main navbar-->
+            </div><!-- /bottom header-->
 
-                <div id="navbar">
-                    <nav class="navbar navbar-expand-lg navbar-light ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item active">
-                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="/schools">School Coordinator</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="/parents">Parents</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link disabled" href="/about">About Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div><!-- /nav bar -->
-            </div><!-- /main nav bar -->
-
-        </div> <!-- /bottom header -->
-
-                <!--This content just show in home page-->
-
+            <div class="hero">
                 @if(request()->route()->getName() == 'home')
-                    <div class="hero">
-                        <div class="cta">
-                            <h1>With Domino</h1>
-                            <h2>School Lunch is easier than ever</h2>
-                            <a class="button cta_order" href="">Lunch Order</a>
-                        </div>
+                    <div class="cta">
+                        <h1>With Domino</h1>
+                        <h2>School Lunch is easier than ever</h2>
+                        <a class="button" href="">Lunch Order</a>
                     </div>
                 @endif
-        </div>
+            </div>
+        </div> <!-- /home header -->
+        
     </header><!--/header-->
-    <div class="" id="main_content">
+    <div class="{{ (Request::path() == '/') ? 'home' : ''}}" id="main_content">

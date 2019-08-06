@@ -13,14 +13,66 @@
 
 Route::get('/', function () {
     return view('index');
-})->name('home');//create name for home page, so that I can use it in header
+});
+
+/*
+|--------------------------------------------------------------------------
+| Contact Page
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/contact',function(){
     return view('main.contact');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Main registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/registration',function(){
+    return view('main.registration');
+});
+
+/*
+|--------------------------------------------------------------------------
+| school registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/school_registration', 'Schools\SchoolsController@create');
+
+Route::post('/school_registration', 'Schools\SchoolsController@store');
+
+/*
+|--------------------------------------------------------------------------
+| login Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/login',function(){
+    return view('main.login');
+}); 
+
+/*
+|--------------------------------------------------------------------------
+| parents registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/parents_registration',function(){
+    return view('main.parents_registration');
+});
+
+/*
+|--------------------------------------------------------------------------
+| contact Page
+|--------------------------------------------------------------------------
+*/
 Route::post('/contact','Home@contact');
 
+/*
+|--------------------------------------------------------------------------
+| about Page
+|--------------------------------------------------------------------------
+*/
 Route::get('/about',function(){
     return view('main.about')
 ;});
@@ -36,6 +88,7 @@ Route::get('/send/email', 'Email@mail');
 
 /**SCHOOL ROUTES */
 Route::get('/schools/', function(){return view('schools.index');});
+Route::get('/schools/menu',function(){return view('schools.menu');});
 
 /**PARENTS ROUTES */
 Route::get('/parents/', function(){return view('parents.index');});
