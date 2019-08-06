@@ -24,20 +24,20 @@
         <div id="top_header">
 
             <!-- Logo of the site -->
-            <img id="logo" src="img/logo.png" alt="logo" />
+            <img id="logo" src="/img/logo.png" alt="logo" />
 
             <!-- Header icons-->
             <div id="header_icons">
 
                 <p class="user_icon">
 
-                    <a href="#"><i class="far fa-user"></i></a>
+                    <a href="/login"><i class="far fa-user"></i></a>
 
                 </p>
 
                 <p class="contact_icon">
 
-                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="/contact"><i class="fas fa-envelope"></i></a>
 
                 </p>
 
@@ -71,13 +71,13 @@
                 <nav>
 
                     <ul id="menu_list">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="/">Home</a></li>
 
-                        <li><a href="#">School Coordinator</a></li>
+                        <li><a href="/schools">School Coordinator</a></li>
 
-                        <li><a href="#">Parents</a></li>
+                        <li><a href="/parents">Parents</a></li>
 
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="/about">About Us</a></li>
                     </ul>
 
                 </nav> <!--/nav-->
