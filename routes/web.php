@@ -35,7 +35,8 @@ Route::get('/about',function(){
 
 //Captcha routes
 Route::get('my-captcha', 'Home@myCaptcha')->name('myCaptcha');
-Route::post('my-captcha', 'Home@myCaptchaPost')->name('myCaptcha.post');
+Route::post('my-captcha', 'Home@myCaptchaPost')->name('myCaptcha.post'); 
+
 Route::get('refresh_captcha', 'Home@refreshCaptcha')->name('refresh_captcha');
 
 

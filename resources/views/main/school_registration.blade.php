@@ -27,7 +27,7 @@
           <input type="text" id="registration_verify_password" class="fadeIn third zero-raduis" name="login" placeholder="Verify Password"> 
          <select id="province_list"> 
               <option value="">Select a Province</option>
-              <option value="Onatario">Onatario</option>
+              <option value="Ontario">Ontario</option>
               <option value="Manitoba">Manitoba</option>
               <option value="King Edward Island">King Edward Island</option>
               <option value="Alberta">Alberta</option> 
