@@ -28,7 +28,7 @@ body{
     position: absolute;
     left: 70px;
     top:0;
-    z-index:1;
+    z-index:1000;
 }
 
 #logo:hover{
@@ -40,11 +40,13 @@ body{
 #bottom_header{
 
     background-color: #fff;
+    opacity: .7;
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
     top: 50px;
     height: 60px;
     width: 100%;
+    z-index: 10;
 }
 
 /* Main Navigation styles */
@@ -144,7 +146,8 @@ header{
 }
 
 #main_content{
-    padding: 0 100px;
+
+    padding: 0;
 }
 
 /**END Monika*/
@@ -153,36 +156,45 @@ header{
 /** -------------------AMANDEEP ------------------------------------- */
 
 /** hero-image */
-#about-hero-image{
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.container-fluid #about-hero-image{
     width: 100%;
-    margin-bottom: 30px;
+    padding: 0px;
+    position: relative;
+    top: -80px;
+
 }
 
 /** about image */
-#about-image{
+.container #about-image{
     float:right;
     margin-bottom: 20px;
     margin-left: 20px;
 }
 
-.row .col  h2{
+.container .row .col  h2{
     color:#006491;
     font-family: 'Gothic A1', sans-serif;
     font-weight: bold;
     margin-top: 10px;
+    text-align: left;
 }
 
-.row .col p{
+.container .row .col p{
     font-size: 16px;
     
 }
 
 
 
-/** Subscribe partial  */
+/** ------------------- Subscribe partial --------------  */
 
 .subscription-layout{
-    position: static;
+    position: relative;
+    margin-bottom: 40px;
 }
 
 
@@ -193,6 +205,9 @@ header{
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+
     
 }
 
@@ -204,22 +219,27 @@ header{
     font-weight: bold; 
 }
 
-form{
+.subscription-layout #join-form{
     bottom: 20px;
     text-align: center;
     margin-bottom: 20px;
     position: absolute;
     z-index: 1000;
-    
+    bottom: -30px;
+    width: 100%;
 }
 
-form button#join-btn{
+.subscription-layout #join-form form legend{
+    border: 1px solid #006491;
+}
+
+
+.subscription-layout form button#join-btn{
     border: 1px solid #e51937;
     color: #fff;
     background-color: #e51937;
     border-radius: 3px;
 }
-
 
 
 /** ---------------------END Amandeep ----------------------------------------*/

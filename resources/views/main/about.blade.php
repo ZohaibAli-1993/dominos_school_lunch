@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row" id="hero-image">
 			<div class="col">
 				<img id="about-hero-image" src="img/pizza.jpg" alt="Pizza" />
 			</div>
 
 		</div><!-- end row1 -->
+	</div>
+	
 
+	<div class="container">
 		<div class="row">
 			<div class="col">
 				<h2>About Us</h2>
@@ -34,20 +37,6 @@
 			</div><!-- end col -->
 
 		</div><!-- end row2 -->
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
 		<br />
 		<br />
 		<br />
