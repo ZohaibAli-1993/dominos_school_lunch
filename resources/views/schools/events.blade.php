@@ -2,22 +2,29 @@
 
 @section('content')
 
-<div id='calendar_events' class="container">
-    @include('partials.errors')
+<div class="container">
 
+	@include('partials.errors')
 
-    <h1>Events</h1>
+	<h1>Events</h1>
 
+	@foreach($events as $event)
 
-	<div class="row">
-		<div class="col">
-			<div id="calendarContainer"></div>
-		</div><!-- col ends -->
-		<div class="col">
-			<div id="organizerContainer"></div>
-		</div><!-- col ends -->
+	    <p><span>Event: <a href="#">{{ $event->event_name }}</a></span></p>
+	@endforeach
 
-	</div><!-- row ends -->
+	<div id="calendar_events">
+
+		<div class="row">
+			<div class="col">
+				<div id="calendarContainer"></div>
+			</div><!-- col ends -->
+			<div class="col">
+				<div id="organizerContainer"></div>
+			</div><!-- col ends -->
+
+		</div><!-- row ends -->
+	</div>
 </div>
 
 <script src="{{asset('js/calendarorganizer.js')}}"></script>
@@ -57,6 +64,7 @@
 			}
 		}
 
+		console.log(data);
 		return data;
 	}
 

@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Schools;
+namespace App\Http\Controllers\Students;
 
-use App\Event;
+use App\ParentRegister;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Schools;
-
-use Illuminate\Support\Facades\DB;
-
-class EventsController extends Controller
+class ParentsRegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +15,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-
-        $school = 1;   // It is necessary to update according school logged in
-        //$events = Event::where('idschool', $school);
-        $events = DB::table('events')->get();
-
-        return view('schools.events', compact('events'));
+        //
     }
 
     /**
@@ -51,10 +42,10 @@ class EventsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Event  $event
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show(ParentRegister $parentRegister)
     {
         //
     }
@@ -62,10 +53,10 @@ class EventsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Event  $event
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit(ParentRegister $parentRegister)
     {
         //
     }
@@ -74,10 +65,10 @@ class EventsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Event  $event
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, ParentRegister $parentRegister)
     {
         //
     }
@@ -85,10 +76,10 @@ class EventsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Event  $event
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy(ParentRegister $parentRegister)
     {
         //
     }
