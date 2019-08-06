@@ -107,9 +107,6 @@
             </div> <!-- /bottom header -->
         </div><!-- /home_header-->
 
-        </div>
-        </div>
-
 
     </header>
     <!--/header-->
