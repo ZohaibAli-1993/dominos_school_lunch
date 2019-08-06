@@ -6,6 +6,8 @@ use App\Classroom;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Classroom;
+
 class ClassroomsController extends Controller
 {
     /**
@@ -15,7 +17,10 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
-        //
+        $classrooms = Classroom::all();
+          
+        return view('schools.classrooms', compact('classrooms'));
+
     }
 
     /**

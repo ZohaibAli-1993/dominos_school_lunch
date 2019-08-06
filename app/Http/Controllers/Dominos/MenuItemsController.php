@@ -6,6 +6,8 @@ use App\MenuItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Dominos;
+
 class MenuItemsController extends Controller
 {
     /**
@@ -15,7 +17,11 @@ class MenuItemsController extends Controller
      */
     public function index()
     {
-        //
+        
+        $menu = MenuItem::all();
+          
+        return view('schools.menu', compact('menu'));
+
     }
 
     /**
