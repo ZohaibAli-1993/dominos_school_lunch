@@ -36,7 +36,7 @@
             <div class="text-danger error">{{ $errors->first('postal_code') }}</div>
         @endif 
 
-<<<<<<< HEAD
+
         <!-- Login Form -->
         <form>
             @csrf 
@@ -68,8 +68,7 @@
           <input type="text" id="registration_school_name" class="fadeIn third zero-raduis" name="login" placeholder="School Name"> 
           <input type="text" id="registration_street" class="fadeIn third zero-raduis" name="login" placeholder="Street Address"> 
           <input type="text" id="registration_postal" class="fadeIn third zero-raduis" name="login" placeholder="Postal Code">
-=======
->>>>>>> dd5662ccfa166f7fed9a23c1cacba051befb990c
+
         <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
 
 
