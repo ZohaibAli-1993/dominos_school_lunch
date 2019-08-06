@@ -44,7 +44,10 @@ Route::get('/send/email', 'Email@mail');
 
 /**SCHOOL ROUTES */
 Route::get('/schools/', function(){return view('schools.index');});
-Route::get('/schools/menu',function(){return view('schools.menu');});
+
+Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
+
+Route::get('/schools/classrooms',function(){return view('schools.classrooms');});
 
 /**PARENTS ROUTES */
 Route::get('/parents/', function(){return view('parents.index');});
