@@ -112,7 +112,7 @@
     <!--/header-->
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -133,7 +133,7 @@
                         </div>
 
                         <!-- Login Form -->
-                        <form action="" method="post">
+                        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                             @csrf
                             <input type="email" id="email" class="fadeIn second zero-raduis" name="email"
                                 placeholder="email">
@@ -159,7 +159,7 @@
 
     </div>
     <div class="modal fade" id="exampleModalRegister" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+             aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
