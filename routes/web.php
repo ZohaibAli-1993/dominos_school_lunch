@@ -76,7 +76,8 @@ Route::get('/parents_registration',function(){
     return view('main.parents_registration');
 });
 
-Route::post('/contact','Home@contact');
+Route::post('/contact','Home@contact'); 
+Route::post('/registration','students\ParentsController@store');
 
 /*
 |--------------------------------------------------------------------------
@@ -111,7 +112,7 @@ Route::get('/schools/events', 'Schools\EventsController@index');
 
 
 /**PARENTS ROUTES */
-Route::get('/parents/', function(){return view('parents.index');});
+Route::get('/parents', function(){return view('parents.index');});
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students.OrdersController@store');
 
