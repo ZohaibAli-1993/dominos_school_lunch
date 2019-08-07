@@ -125,9 +125,15 @@ Route::get('/schools/events', 'Schools\EventsController@index');
 
 
 /**PARENTS ROUTES */
-Route::get('/parents', function(){return view('parents.index');});
+Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');
+
+
+
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students.OrdersController@store');
+Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
+
+Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
 
 /**FOOTER CONTENT LINKS */
 Route::get('/content/gift-card', function(){return view('content.cards');});

@@ -2,9 +2,7 @@
 
 @section('content')
 
-
-<h1>Parents Home Page</h1>
-
+<div class="text content">
 <script>
       
 
@@ -41,44 +39,46 @@
     });
   });
 
-/**
- * @param  two targeted divs
- * @return hidden divs can slode down, visible can slide toggle 
- */
-$('.drop_down').click(function(){
-  var target = $(this).data('target');
-  if ($(target).is(':hidden')){
-    $(target).slideDown();
-  } else{
-    $(target).slideToggle();
-    };
- });
+  /**
+   * @param  two targeted divs
+   * @return hidden divs can slode down, visible can slide toggle 
+   */
+  $('.drop_down').click(function(){
+    var target = $(this).data('target');
+    if ($(target).is(':hidden')){
+      $(target).slideDown();
+    } else{
+      $(target).slideToggle();
+      };
+   });
 
-}); // end of document. ready function 
-    
+  }); // end of document. ready function 
+      
     
         
 
-    </script>
-</head>
-<body>
+</script>
 
-<div class="container" style="min-height: 500px;">
+
 
 	<!--background-image: url(pizza_parent_account111.jpg); background-repeat: no-repeat; width: 100%;-->
-
+<div class="text content">
 <h1>Your account</h1>
+<img src="/img/pizza_parent_account111.jpg" width="100%">
+
 
 
 <div class="row">
- 
+    
     <div class="col-sm-8">
     	<div class="parent_account">
-    		<h3>Welcome,</h3>
-    		<p class="parent_account_para">To get started please add your child or children to your account.You will then be able to view their
-	            up-coming lunch dates.                             
-	            <a type="button" id="display_modal">Add</a>
-	        </p>
+    		
+    		<h3>Welcome, {{$parentRegister->first_name}}</h3>
+
+    		<p class="parent_account_para">To get started please add your child or children to your account.You will 
+              then be able to view their up-coming lunch dates.                             
+	            <a type="button" id="display_modal" href="/parents/{{$parentRegister->idparent}}/student/add">Add</a>
+	       </p>
             
     	</div>
     </div>
@@ -89,15 +89,17 @@ $('.drop_down').click(function(){
     	</div>
     	
     </div>
+
+
+
 </div>
-
-
-</div><!-- container ends -->
-
+</div></div>
 
 <noscript>
   This page required JavaScript. Please enable it
 </noscript>
+
+<div class="container">
 
 <div id="overlay"></div>
 <div id="modal">
@@ -105,14 +107,17 @@ $('.drop_down').click(function(){
 
 <div id="modal_content"></div>
 
-<p>Please enter your token number here <br />
+<p>Please enter your token number here </p><br />
 	<form class="check_parent" method="post" action="/token">
 	  <div class="form-group">
 	    <label for="check_parent_token">Token Number</label>
 	    <input type="text" class="form-control" id="check_parent_token" placeholder="Token number">
 	  </div>
-	  <a type="button" id="check_parent_btn" href="add_student.php" class="btn btn-primary">Submit</a>
+	  <a type="button" id="check_parent_btn" href="/parents/student/add" class="btn btn-primary">
+	  Submit</a>
 	</form>
+</div>
+</div>
 </div>
 
 @endsection

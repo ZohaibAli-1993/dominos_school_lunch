@@ -34,9 +34,19 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request ParentRegister $parentRegister)
+    {   
+        
+        $valid = $request->validate([
+            'first_name' =>'required|string' ,
+            'last_name' => 'required|string'
+
+        ]);  
+        $valid['idparent'] = $parentRegister['idparent'];
+        dd($valid); 
+        $student = Student::create($valid);
+
+        return redirect('/parents/'.$parentRegister['idparent'])->with('success', 'You added a new child!');
     }
 
     /**
