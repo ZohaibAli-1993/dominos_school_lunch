@@ -8,8 +8,14 @@
 <div class="row">
  
     <div class="col-8">
+
     	<form class="add_student" method="post" action="/parents"> 
     		@csrf
+
+    	<form class="add_student" method="post" action="/parents/"> 
+    		@csrf
+    		<input type="hidden"></input>
+
 		  <div class="form-group">
 		    <label for="add_student_first_name">First Name</label>
 		    <input type="text" class="form-control" id="add_student_first_name" placeholder="First name">

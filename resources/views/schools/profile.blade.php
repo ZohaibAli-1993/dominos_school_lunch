@@ -3,7 +3,7 @@
 @section('content')
 
 @include('partials.flash')
-<h1>{{$school->school_name}} Profile</h1>
+<h1 id="school_profile_tile">{{$school->school_name}} Profile</h1>
 
 <div id="school_profile" class="container">
 	<div class="row">

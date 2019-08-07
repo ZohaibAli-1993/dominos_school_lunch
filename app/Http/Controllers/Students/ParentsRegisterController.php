@@ -47,7 +47,7 @@ class ParentsRegisterController extends Controller
      */
     public function show(ParentRegister $parentRegister)
     {
-        //
+        return view('parents.index', compact('parentRegister')) ;
     }
 
     /**

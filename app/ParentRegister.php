@@ -18,5 +18,5 @@ class ParentRegister extends Model
      *
      * @var string
      */
-    protected $table = 'parents_register';
+    protected $table = 'parents';
 }
