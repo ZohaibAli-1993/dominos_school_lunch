@@ -102,6 +102,7 @@ Route::get('/schools/', function(){return view('schools.index');});
 
 
 Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
+//Route::get('/parents/index', 'Students\ParentsController@index');
 
 Route::get('/schools/classrooms',function(){return view('schools.classrooms');});
 
@@ -111,9 +112,14 @@ Route::get('/schools/events',function(){return view('schools.events');});
 
 /**PARENTS ROUTES */
 Route::get('/parents/', function(){return view('parents.index');});
+
+
+
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students.OrdersController@store');
 Route::get('/parents/student/add', function(){return view('parents.add_student');});
+
+Route::post('/parents/student/add', 'Students\StudentsController@store');
 
 /**FOOTER CONTENT LINKS */
 Route::get('/content/gift-card', function(){return view('content.cards');});
