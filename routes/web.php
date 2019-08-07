@@ -1,95 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::middleware(['school'])->group(function(){
-
-	//show school profile
-	Route::get('/school/{school}', 'Schools\SchoolsController@show');
-
-	//show form to edit school profile
-	Route::get('/school/{school}/edit', 'Schools\SchoolsController@edit');
-
-	//update school profile
-	Route::PUT('/school/{school}/edit', 'Schools\SchoolsController@update');
-
-});
-
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
-/*
-|--------------------------------------------------------------------------
-| Contact Page
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/contact',function(){
-    return view('main.contact');
-});
-
-
-/*
-|--------------------------------------------------------------------------
-| Main registration Page
-|--------------------------------------------------------------------------
-*/
-Route::get('/registration',function(){
-    return view('main.registration');
-});
-
-/*
-|--------------------------------------------------------------------------
-| school registration Page
-|--------------------------------------------------------------------------
-*/
-Route::get('/school_registration', 'Schools\SchoolsController@create');
-
-Route::post('/school_registration', 'Schools\SchoolsController@store');
-
-/*
-|--------------------------------------------------------------------------
-| login Page
-|--------------------------------------------------------------------------
-*/
-Route::get('/login',function(){
-    return view('main.login');
-}); 
-
-/*
-|--------------------------------------------------------------------------
-| parents registration Page
-|--------------------------------------------------------------------------
-*/
-Route::get('/parents_registration',function(){
-    return view('main.parents_registration');
-});
-
-/*
-|--------------------------------------------------------------------------
-| contact Page
-|--------------------------------------------------------------------------
-*/
-
-
-Route::get('/login',function(){
-    return view('main.login');
-}); 
-Route::get('/parents_registration',function(){
-    return view('main.parents_registration');
-});
-?php
-
 
 
 /*
@@ -418,4 +328,5 @@ Auth::routes();
 
 Route::get('/home',
 'HomeController@index')->name('home');
+
 
