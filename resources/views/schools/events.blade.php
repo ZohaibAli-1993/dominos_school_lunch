@@ -8,10 +8,7 @@
 
 	<h1>Events</h1>
 
-	@foreach($events as $event)
 
-	    <p><span>Event: <a href="#">{{ $event->event_name }}</a></span></p>
-	@endforeach
 
 	<div id="calendar_events">
 
@@ -63,9 +60,14 @@
 				}
 			}
 		}
+		
+	
 
+        var data2 = {!! json_encode($events) !!};
+        
+		console.log(data2);
 		console.log(data);
-		return data;
+		return data2;
 	}
 
 	// creating the dummy static data
