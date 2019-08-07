@@ -2,22 +2,26 @@
 
 @section('content')
 
-<div id='calendar_events' class="container">
-    @include('partials.errors')
+<div class="container">
+
+	@include('partials.errors')
+
+	<h1>Events</h1>
 
 
-    <h1>Events</h1>
 
+	<div id="calendar_events">
 
-	<div class="row">
-		<div class="col">
-			<div id="calendarContainer"></div>
-		</div><!-- col ends -->
-		<div class="col">
-			<div id="organizerContainer"></div>
-		</div><!-- col ends -->
+		<div class="row">
+			<div class="col">
+				<div id="calendarContainer"></div>
+			</div><!-- col ends -->
+			<div class="col">
+				<div id="organizerContainer"></div>
+			</div><!-- col ends -->
 
-	</div><!-- row ends -->
+		</div><!-- row ends -->
+	</div>
 </div>
 
 <script src="{{asset('js/calendarorganizer.js')}}"></script>
@@ -56,8 +60,14 @@
 				}
 			}
 		}
+		
+	
 
-		return data;
+        var data2 = {!! json_encode($events) !!};
+        
+		console.log(data2);
+		console.log(data);
+		return data2;
 	}
 
 	// creating the dummy static data

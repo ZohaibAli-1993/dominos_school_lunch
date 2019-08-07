@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Students;
 
-use App\Parent;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Parent;
 class ParentsController extends Controller
 {
     /**
@@ -36,8 +36,25 @@ class ParentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        var_dump($request);
+        //vaidation for comments form
+       $valid=$request->validate([  
+        
+        'first_name'=> 'required|string' , 
+        'last_name'=> 'required|string' ,  
+        'email'=>'required|string', 
+        'phone'=>'required|string',  
+        'password'=>'required|string',
+        'captcha'=>'required|string'
+
+        
+        
+       ]); 
+     
+      
+     // Parent::create($valid);  
+      //back to post through flash message
     }
 
     /**

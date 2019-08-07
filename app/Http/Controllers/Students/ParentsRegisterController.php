@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Students;
 
-use App\Order;
+use App\ParentRegister;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Student;
 
-class OrdersController extends Controller
+class ParentsRegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,10 +42,10 @@ class OrdersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(ParentRegister $parentRegister)
     {
         //
     }
@@ -54,10 +53,10 @@ class OrdersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(ParentRegister $parentRegister)
     {
         //
     }
@@ -66,10 +65,10 @@ class OrdersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, ParentRegister $parentRegister)
     {
         //
     }
@@ -77,27 +76,11 @@ class OrdersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(ParentRegister $parentRegister)
     {
         //
-    }
-
-
-    /**
-     * Shows tha form to submit a new order
-     * 
-     * @param Vois
-     * @return view showing the form
-     */
-    public function showOrder()
-    {
-
-        $parent_id = 1;
-
-        $students = Student::all();
-        return view('parents.order', compact('students'));
     }
 }

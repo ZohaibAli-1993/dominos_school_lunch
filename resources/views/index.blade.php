@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partials.flash')
 <!--*******Section 1: shipping, call number and Gift Cards********** -->
 <div class="container" id="section1">
 	<div class="row">
@@ -25,10 +26,6 @@
 </div><!-- .container-->
 
 <!--*******Section 2: call to action for sign up********** -->
-<img src="/img/pizza_piecee.jpg" alt="hero image">
-<h2>Register FREE account to Get Started</h2>
-<a class="button" href="">School Sign up</a>
-<a class="button" href="">Parents Sign up</a>
 <div id="section2">
 	<div class="container">
 		<div class="row">
@@ -61,10 +58,13 @@
 
 <!--*******Section 4: call to action for instruction page********** -->
 
+<<<<<<< HEAD
 <img src="/img/pizza_making.jpg" alt="hero image">
 <h2>It's simple to get started</h2>
 <a class="button" href="">School Instruction</a>
 <a class="button" href="">Parents Instruction</a>
+=======
+>>>>>>> 3f10f81e35dcb2af7b55955de8c230af9e7754c3
 <div id="section4">
 	<div class="container">
 		<div class="row">
@@ -77,6 +77,10 @@
 	</div><!-- .container-->
 </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3f10f81e35dcb2af7b55955de8c230af9e7754c3
 @include('partials.subscribe')
 
 @endsection

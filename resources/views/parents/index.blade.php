@@ -115,6 +115,9 @@
 	  </div>
 	  <a type="button" id="check_parent_btn" href="/parents/student/add" class="btn btn-primary">
 	  Submit</a>
+
+	  <a type="button" id="check_parent_btn" href="add_student.php" class="btn btn-primary">Submit</a>
+
 	</form>
 </div>
 </div>

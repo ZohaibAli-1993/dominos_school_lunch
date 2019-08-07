@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('event_name',100);     
             $table->date('event_date');      
             $table->date('cutoff_date');  
-            $table->date('event_time');     
+            $table->time('event_time');     
             $table->boolean('is_active');      
             $table->timestamps();
         });

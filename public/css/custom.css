@@ -1,80 +1,90 @@
-
-
 /*font styles*/
 
 /**MONIKA*/
 
-/*font styles*/
 body{
+
     font-family: 'Gothic A1', sans-serif;
 }
 
-
 #container{
+
     position: relative;
 }
-#main_content{
-    margin-top: 140px;
+
+.text.content{
+    max-width: 1080px;
+    margin: 0 auto;
 }
 
 /* Top part of header styles */
 #top_header{
+
     background-color: #006491;
     box-shadow: inset 0 0 10px #fff;
     width: 100%;
     height: 50px;
 }
 
-
 /* Logo styles*/
 
 #logo{
+
     position: absolute;
     left: 70px;
     top:0;
     z-index:1;
 }
 
+#logo:hover{
+    transform: scale(1.05);
+}
+
 /* Bottom part of header styles */
 
 #bottom_header{
-    background-color: rgba(255, 255, 255, 0.8);
+
     background-color: #fff;
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
-    opacity: 4;
     top: 50px;
-    height: 90px;
+    height: 60px;
     width: 100%;
 }
 
 /* Main Navigation styles */
 
 #main_nav_bar nav {
+
     position: relative;
 }
 
 #main_nav_bar nav ul{
     position:absolute;
-
-    top: 20px;
+    right: 70px;
+    padding-top: 20px;
 }
 
 #main_nav_bar nav ul li{
+
     list-style-type: none;
     display: inline-block;
 }
 
 #main_nav_bar nav ul li a {
+
     text-decoration: none;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 24px;
+    padding-bottom: 20px;
     font-weight: 700;
     color: #006491;
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
 #main_nav_bar nav ul li a:hover{
+
     background-color: #a6c9d9;
     text-decoration: none;
     color: #fff;
@@ -83,18 +93,6 @@ body{
 #main_nav_bar{
     float: left;
     width: 50%;
-}
-
-#main_nav_bar .menu_icon{
-    margin-left: 95%;
-    margin-top: 20px;
-    padding: 0px;
-    font-weight: 700;
-    color: #006491;
-    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
-    font-size: 0px;
-    visibility: hidden;
-    cursor: pointer;
 }
 
 /* contact and user icons */
@@ -121,7 +119,7 @@ body{
 #brand_name{
     float: left;
     width: 50%;
-    padding-left: 180px;
+    padding-left: 13.5%;
 }
 
 #brand_name .name_first_part{
@@ -136,260 +134,33 @@ body{
     margin-top: -30px;
     font-size: 21px;
     color: #fff;
-    font-weight: bold;
     -webkit-text-stroke: 0.5px #e51937;
-    text-shadow: 1.5px 2px rgba(0,0,0,0.3);
-    transition: all ease-in-out 0.4s;
-    width:200px;
-}
-#brand_name .name_second_part:hover{
-    text-shadow: none;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
 code#quote{
+
     color: #006491;
+
 }
 
-/********************************************RESPONSIVENESS****************************/
-
-@media screen and (min-width: 900px) and (max-width: 1120px) {
-
-    #logo{
-        position: absolute;
-        left: 30px;
-        top:0;
-        z-index:1;
-    }
-
-    #brand_name{
-        float: left;
-        width: 50%;
-        padding-left: 135px;
-    }
-
-    #brand_name .name_first_part{
-        font-size: 29px;
-    }
-
-    #brand_name .name_second_part{
-        font-size: 19px;
-    }
-
-    #main_nav_bar nav ul{
-        right: 20px;
-    }
-
-    #main_nav_bar nav ul li a {
-        padding-left: 7px;
-        padding-right: 7px;
-    }
+header{
+    height: 130px;
 }
 
-
-@media screen and (min-width: 300px) and (max-width: 900px) {
-
-    body{
-        line-height: 1.6;
-    }
-
-    #bottom_header{
-        height: 50px;
-    }
-
-    #logo{
-        left: 5px;
-        width: 100px;
-        height: 94px;
-    }
-
-    #brand_name{
-        float: left;
-        width: 50%;
-        padding-left: 84px;
-    }
-
-    #brand_name .name_first_part{
-        font-size: 25px;
-    }
-
-    #brand_name .name_second_part{
-        font-size: 17px;
-    }
-    
-    #main_nav_bar{
-        float: none;
-        width: 100%;
-        margin-top: 40px;
-    }
-
-    #main_nav_bar nav ul{
-        right: 0;
-        margin-top:45px;
-        padding-top: 5px;
-        background-color: #006491;
-        width: 100%;
-        padding:0;
-
-    }
-
-    #main_nav_bar nav ul li{
-        display: block;
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 15px; 
-        padding-left:0;
-        border-bottom: 1px solid #eee; 
-    }
-
-    #main_nav_bar nav ul li a {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-        color:#fff;
-    }
-
-    #main_nav_bar nav ul li:hover{
-        background-color: #a6c9d9;
-    }
-
-    #main_nav_bar nav ul li a:hover{
-        background: none;
-    }
-
-    #main_nav_bar .menu_icon{
-        margin-left: 90%;
-        margin-top: -30px;
-        padding-right: 10px;
-        font-size: 20px;
-        visibility: visible;
-    }
-
-    #menu_list{
-        visibility: hidden;
-    }
+#main_content{
+    /**padding: 0 100px; */
+    padding: 0;
 }
-
-
-/********************************************RESPONSIVENESS****************************/
-
-@media screen and (min-width: 900px) and (max-width: 1100px) {
-
-    #logo{
-
-        position: absolute;
-        left: 30px;
-        top:0;
-        z-index:1;
-    }
-
-    #brand_name{
-        float: left;
-        width: 50%;
-        padding-left: 135px;
-    }
-
-    #brand_name .name_first_part{
-        margin-top: -3px;
-        font-weight: 700;
-        color: #006491;
-        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
-        font-size: 29px;
-    }
-
-    #brand_name .name_second_part{
-        margin-top: -30px;
-        font-size: 19px;
-        color: #fff;
-        -webkit-text-stroke: 0.5px #e51937;
-        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
-    }
-
-    .fa{
-    font-size: 28px;
-    color: #006491;
-    position: relative;
-    left: 260px;
-    top: 10px;
-    display: block;
-    }
-
-    .main_nav_bar{
-        display: none;
-    }
-  
-}
-
-
-@media screen and (min-width: 300px) and (max-width: 950px) {
-
-    body{
-
-        line-height: 1.6;
-    }
-
-    #bottom_header{
-        height: 50px;
-    }
-
-    #logo{
-
-        position: absolute;
-        left: 5px;
-        top:0;
-        z-index:1;
-        width: 100px;
-        height: 94px;
-    }
-
-    #brand_name{
-        float: left;
-        width: 50%;
-        padding-left: 84px;
-    }
-
-    #brand_name .name_first_part{
-        margin-top: -3px;
-        font-weight: 700;
-        color: #006491;
-        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
-        font-size: 25px;
-    }
-
-    #brand_name .name_second_part{
-        margin-top: -30px;
-        font-size: 17px;
-        color: #fff;
-        -webkit-text-stroke: 0.5px #e51937;
-        text-shadow: 0px 1.5px rgba(0,0,0,0.2);
-    }
-  
-}
-
-/***********************adjusting positions for good look****************************/
-
-.navbar {
-
-    position relative;
-}
-
-button.navbar-toggler{
-    position: absolute;
-    top: 7px;
-    right: 12.5%;
-}
-
-
-
 
 /**END Monika*/
 
 
-/** -------------------AMANDEEP ------------------------------------- */
 
 /** hero-image */
 #about-hero-image{
     width: 100%;
+    padding: 0px;
     margin-bottom: 30px;
 }
 
@@ -400,7 +171,7 @@ button.navbar-toggler{
     margin-left: 20px;
 }
 
-#about .col  h2{
+.row .col  h2{
     color:#006491;
     font-family: 'Gothic A1', sans-serif;
     font-weight: bold;
@@ -525,7 +296,8 @@ form button#join-btn:hover{
 #section2 a.button:hover,
 #section4 a.button:hover,
 #box_cover a.button:hover,
-#register_main a.button:hover{
+#register_main a.button:hover,
+#school_profile a.button:hover{
     text-decoration: none;
     box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
 }
@@ -544,7 +316,8 @@ form button#join-btn:hover{
 #section2 a.button,
 #section4 a.button,
 #box_cover a.button,
-#register_main a.button{
+#register_main a.button,
+#school_profile a.button{
     display: inline-block;
     color: #fff;
     padding: 5px;
@@ -560,7 +333,8 @@ form button#join-btn:hover{
 #section2 a.button.school,
 #section4 a.button.school,
 #box_cover a.button.school,
-#register_main a.button.school{
+#register_main a.button.school,
+#school_profile a.button.edit{
     background-color: rgba(0, 100, 145,0.8);
     margin-right:10px;
 }
@@ -568,7 +342,8 @@ form button#join-btn:hover{
 #section2 a.button.parents,
 #section4 a.button.parents,
 #box_cover a.button.parents,
-#register_main a.button.parents{
+#register_main a.button.parents,
+#school_profile a.button.changepass{
     background-color: rgba(227,24,55,0.8);
     width: auto;
     margin-left: 0;
@@ -725,11 +500,92 @@ div#close_box{
 }
 /*-----------------End Registration Page-----------------*/
 
-/*-----------------School Registration Page-----------------*/
+/*-----------------School Profile Page-----------------*/
+#school_profile table{
+    width: 100%;
+    height: 60vh;
+    border-collapse: separate;
+}
+#school_profile th{
+    background-color: rgba(227,24,55,.4);
+    border: solid 1px #fff;
+    border-radius: 3px;
+    box-shadow: 0 5px 6px rgba(0,0,0,0.2);
+}
 
-/*-----------------End School Registration Page-----------------*/
+#school_profile td{
+    box-shadow: inset 0 0 5px rgba(227,24,55,.8);
+    border-radius: 3px;
+}
 
-=======
+#school_profile th,
+#school_profile td{
+    padding-left:10px;
+}
+
+#school_profile th{
+    width: 30%;
+}
+
+/*#school_profile table caption{
+    font-size: 1.4em;
+    color: #006491;
+    width: 100%;
+    caption-side: initial;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 4px 4px 7px rgba(227,24,55,0.3);
+    width: 100%;
+}*/
+
+#school_profile #profile_table,
+#school_profile #button{
+    margin: 0 auto;
+}
+
+#school_profile #button{
+    margin-bottom: 20px;
+}
+
+#school_profile #button a.edit{
+    width: 100px;
+    text-align: center;
+}
+
+/*-----------------End School Profile Page-----------------*/
+
+/*-----------------School Edit School Profile Page-----------------*/
+
+#edit form #edit_butt{
+    background-color: rgba(0, 100, 145,0.8);
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px #fff;
+    width:50%;
+    margin-left: 0;
+}
+
+#edit .notice{
+    font-size: 0.8em;
+    color:#e31837;
+    text-align: left;
+    padding-left:10px;
+}
+
+#edit label{
+    display: block;
+    text-align: left;
+    padding-left:10px;
+    margin-bottom: 0;
+    color: #006491;
+    font-weight: bold;
+}
+
+#edit label[for=password]{
+    display: inline;
+    color:#000;
+}
+
+/*-----------------End Edit School Profile Page-----------------*/
 
 /**END Monika*/
 
@@ -743,34 +599,12 @@ div#close_box{
 }
 
 
-/** about image */
-#about-image{
-    float:right;
-    margin-bottom: 20px;
-    margin-left: 20px;
-}
+/** ------------------- Subscribe partial --------------  */
 
-#about .col  h2{
-    color:#006491;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: left;
-}
-
-#about .col p{
-    font-size: 16px;
-    
-}
-
-
-
-/** Subscribe partial  */
-/*
 .subscription-layout{
-    position: relative;
-    margin-bottom: 40px;
-}*/
+    position: static;
+    margin-bottom: :;
+}
 
 
 
@@ -780,8 +614,6 @@ div#close_box{
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-right: 10px;
-    padding-left: 10px;
     
 }
 
@@ -793,23 +625,16 @@ div#close_box{
     font-weight: bold; 
 }
 
-.subscription-layout #join-form{
+#join-form form{
     bottom: 20px;
     text-align: center;
     margin-bottom: 20px;
     position: absolute;
     z-index: 1000;
-    bottom: -30px;
-    width: 100%;
+    
 }
 
-.subscription-layout #join-form form legend{
-    border: 1px solid #006491;
-}
-
-
-
-.subscription-layout form button#join-btn{
+form button#join-btn{
     border: 1px solid #e51937;
     color: #fff;
     background-color: #e51937;
@@ -820,15 +645,14 @@ div#close_box{
 
 /** ---------------------END Amandeep ----------------------------------------*/
 
-
 /**WILMER*/
 
 
 .contact.form{
-    max-width: 960px;
-    min-width: 350px;
+    width: 75%;
     margin:  0 auto;
 }
+
 /***************************************************/ 
 .zero-raduis{
     border-radius: 0px !important;
@@ -896,7 +720,8 @@ h2 {
 #formContent{  
     min-height: 1350px;
  }
-#registration,#parents_registration{
+#registration,#parents_registration,
+#edit{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
@@ -904,7 +729,8 @@ h2 {
   width: 90%;
   max-width: 1050px;  
   
-  height: 1300px;
+  height: auto;
+  /*height: 1300px;*/
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
@@ -944,13 +770,7 @@ h2.active {
 
 
 
-/** hero-image */
-#about-hero-image{
-    width: 100%;
-    position: relative;
-    top: -49px;
 /* FORM TYPOGRAPHY*/
-}
 
 input[type=button], input[type=submit], input[type=reset]  {
   background-color: #006491;
@@ -1015,7 +835,14 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 #registration_verify_password,#registration_phone, 
 #registration_school_name,#registration_city,
 #province_list, #store_list, 
-#registration_address,#registration_postal,#registration_province,#captcha,select{
+#registration_address,#registration_postal,#registration_province,#captcha,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -1035,7 +862,18 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-}   
+}
+
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+    width:100%;
+}
+
 #captcha{ 
  width: 30%;
  }
@@ -1044,9 +882,17 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
     #registration_email,#registration_password,
     #registration_first_name,#registration_last_name,
     #coordinator_first_name,#coordinator_last_name,
-    #registration_verify_password,#registration_phone, 
+    #registration_verify_password,#registration_phone,
+    #province_list, #store_list,
     #registration_school_name,#registration_city, 
-    #registration_street,#registration_postal,#registration_province,select{ 
+    #registration_address,#registration_postal,#registration_province,select,
+    #edit_email,
+    #edit_first_name,#edit_last_name, 
+    #edit_phone, 
+    #edit_school_name,#edit_city,
+    #edit_province, #edit_store, 
+    #edit_address,#edit_postal,
+    #edit #markup{ 
     width: 100%;  
     margin: 0;
     margin-bottom: 20px;
@@ -1170,8 +1016,6 @@ input#register{
   width: 100%;
 }
 
-
-
 /* OTHERS */
 
 *:focus {
@@ -1185,7 +1029,6 @@ input::placeholder {
   opacity: 0.5;
 }
 /***************************************************************/
-
 
 /***************************************************/ 
 .zero-raduis{
@@ -1205,7 +1048,7 @@ h2 {
   font-weight: 500;
   text-transform: uppercase;
   display:inline-block;
-  color: #006491;;
+  color: #006491;
 }
 
 
@@ -1254,7 +1097,8 @@ h2 {
 #formContent{  
     min-height: 1350px;
  }
-#registration,#parents_registration{
+#registration,#parents_registration,
+#edit{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
@@ -1262,7 +1106,8 @@ h2 {
   width: 90%;
   max-width: 1050px;  
   
-  height: 1300px;
+  height: auto;
+  /*height: 1300px;*/
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
@@ -1271,7 +1116,7 @@ h2 {
  
   margin:0 auto; 
   margin-top: 10px; 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 } 
 #parents_registration{ 
     height: 900px; 
@@ -1363,9 +1208,17 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 #registration_email,#registration_password, 
 #registration_first_name,#registration_last_name, 
-#registration_verify_password,#registration_phone, 
+#registration_verify_password,#registration_phone,
+#province_list, #store_list,
 #registration_school_name,#registration_city, 
-#registration_street,#registration_postal,#registration_province,#captcha,select{
+#registration_address,#registration_postal,#registration_province,#captcha,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -1385,20 +1238,39 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-}   
+}
+
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+    width:100%;
+}
+
 #captcha{ 
  width: 30%;
  }
 
 @media only screen and (max-width: 505px) {  
-    #registration_email,#registration_password, 
+#registration_email,#registration_password, 
 #registration_first_name,#registration_last_name, 
-#registration_verify_password,#registration_phone, 
+#registration_verify_password,#registration_phone,
+#province_list, #store_list,
 #registration_school_name,#registration_city, 
-#registration_street,#registration_postal,#registration_province,select{ 
+#registration_address,#registration_postal,#registration_province,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{ 
 width: 100%;  
 margin: 0;
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
     }
 input[type=text]:focus, input[type=email]:focus{
@@ -1530,7 +1402,6 @@ input::placeholder {
 }
 /***************************************************************/
 
-
 .success.icon{
     font-size: 7em;
     color: #e51937;
@@ -1553,51 +1424,64 @@ input::placeholder {
 }
 
 
-/*---------------Nutrition guide ----------------*/
+/*******TABS ORDER PAGE***********************/
+nav > .nav.nav-tabs{
 
-.guide{
-            font-family: 'Gothic A1', sans-serif;
-            font-size: 18px;
-            line-height: 2.5em;
-        }
+    border: none;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  
+  }
+  nav > div a.nav-item.nav-link,
+  nav > div a.nav-item.nav-link.active
+  {
+    border: none;
+      padding: 18px 25px;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  }
+  
+  nav > div a.nav-item.nav-link.active:after
+   {
+    content: "";
+    position: relative;
+    bottom: -60px;
+    left: -10%;
+    border: 15px solid transparent;
+    border-top-color: #e74c3c ;
+  }
+  .tab-content{
+    background: #fdfdfd;
+      line-height: 25px;
+      border: 1px solid #ddd;
+      border-top:5px solid #e51937;
+      border-bottom:5px solid #e51937;
+      padding:30px 25px;
+  }
+  
+  nav > div a.nav-item.nav-link:hover,
+  nav > div a.nav-item.nav-link:focus
+  {
+    border: none;
+      background: #e74c3c;
+      color:#fff;
+      border-radius:0;
+      transition:background 0.20s linear;
+  }
 
-/*-------------- Menu for schools --------------*/
+  .main-tab{
+      width:100%;
+      margin: 15px 0;
+  }
 
-h1,h2,h3{
-    padding: 10px;
-    color: #006491;
-    text-align: center;
-    font-family: 'Gothic A1', sans-serif;   
-    font-weight: 800;
-
-}
+  .tab-pane{
+      padding: 15px;
+  }
 
 
-.menu-image{
-    margin-bottom: 10px;
-    border: 1px solid #006491;
-    text-align: center;
-}
-#menu-add-btn{
-    background-color: #017ab0;
-    padding: 6px;
-    margin-bottom: 15px;
-    color: #fff;
-    border-radius: 15px;
-    width: 80px;
-    font-weight: 800;
-}
-#menu-add-btn:hover{
-    text-decoration: none;
-}
-
-div.menu-items{
-    text-align: center;
-}
-
-
-/*--------------Footer --------------------*/
-
+/*-----------------------------Maryna Footer Part -------------------------------------*/
 footer{
     width: 100%;
     min-height: 200px;
@@ -1611,23 +1495,23 @@ footer{
     font-size: 26px;
     padding-top: 5px;
     margin:0 auto;
-    /*padding-left: 70px;*/
+    padding-left: 70px;
 }
 .nutrition{
-    -webkit-text-stroke: 0.5px #e51937;
+    -webkit-text-stroke: 0.75px #e51937;
     margin-left: 60px;
-    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px #000;
 }
 .footer-para{
     font-size: 18px;
     color: #fff;
     font-weight: 400;
-    /*padding-left: 70px;*/
+    padding-left: 70px;
 }
 .footer-copyright{
     font-size: 16px;
     color: #fff;
-    /*padding-left: 70px;*/
+    padding-left: 70px;
 } 
 
 .page-footer .footer-links a:hover{
@@ -1640,7 +1524,7 @@ footer{
     font-size: 18px;
     margin-top: 20px;
     text-align: left;
-    /*padding-left: 70px;*/
+    padding-left: 70px;
     display: inline-block;
 }
 .footer-line{
@@ -1655,6 +1539,7 @@ footer{
     width: 30%;
     left: 40%;
     display: block;
+
 }
 
 div.content.text{
@@ -1788,4 +1673,7 @@ margin-left: 30px;
 
 }
 
+
+
+}
 

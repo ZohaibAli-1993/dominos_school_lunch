@@ -6,6 +6,10 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Schools;
+
+use Illuminate\Support\Facades\DB;
+
 class EventsController extends Controller
 {
     /**
@@ -15,7 +19,39 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
+
+        $school = 1;   // It is necessary to update according school logged in
+       // $events = Event::where('idschool', $school);
+        $events_list = DB::table('events_vw')->get();
+
+        $year_prev = 0;
+        $month_prev = 0;
+        $day_prev = 0;
+
+        $events = array();
+
+        foreach ($events_list as $event) {
+            if (($event->year_event != $year_prev) or
+                ($event->month_event != $month_prev) or
+                ($event->day_event != $day_prev)) {
+                $year_prev = $event->year_event;
+                $month_prev = $event->month_event;
+                $day_prev = $event->day_event;
+                $events[$event->year_event]
+                       [$event->month_event]
+                       [$event->day_event]= array();
+            }
+            $values = array('startTime' => $event->event_time,
+                            'endTime' => $event->event_time,
+                            'text'=> $event->event_name,
+                            'idevent'=> $event->idevent );
+            array_push($events[$event->year_event]
+                              [$event->month_event]
+                              [$event->day_event], $values);
+        }
+
+
+        return view('schools.events', compact('events'));
     }
 
     /**
