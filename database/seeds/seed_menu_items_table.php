@@ -18,7 +18,7 @@ class seed_menu_items_table extends Seeder
             'price' => 3.00, 
             'nutrition_facts' => 'Calories 100',
             'idcategory' => 1, 
-            'image' => 'cheese.jpg', 
+            'image' => '/img/pizza_mix.jpg', 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);   
@@ -28,7 +28,7 @@ class seed_menu_items_table extends Seeder
             'price' => 3.00, 
             'nutrition_facts' => 'Calories 100',
             'idcategory' => 1, 
-            'image' => 'pepperoni.jpg', 
+            'image' => '/img/pizza_pepperoni.jpg', 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);     
@@ -38,7 +38,7 @@ class seed_menu_items_table extends Seeder
             'price' => 10.00, 
             'nutrition_facts' => 'Calories 500',
             'idcategory' => 2, 
-            'image' => 'cheese.jpg', 
+            'image' => '/img/pizza_mix.jpg', 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);   
@@ -48,7 +48,7 @@ class seed_menu_items_table extends Seeder
             'price' => 10.00, 
             'nutrition_facts' => 'Calories 500',
             'idcategory' => 2, 
-            'image' => 'pepperoni.jpg', 
+            'image' => '/img/pizza_pepperoni.jpg', 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);   
@@ -58,7 +58,7 @@ class seed_menu_items_table extends Seeder
             'price' => 15.00, 
             'nutrition_facts' => 'Calories 800',
             'idcategory' => 3, 
-            'image' => 'cheese.jpg', 
+            'image' => '/img/pizza_mix.jpg', 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);   
@@ -68,7 +68,7 @@ class seed_menu_items_table extends Seeder
             'price' => 15.00, 
             'nutrition_facts' => 'Calories 800',
             'idcategory' => 3, 
-            'image' => 'pepperoni.jpg', 
+            'image' => '/img/pizza_pepperoni.jpg', 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);                    

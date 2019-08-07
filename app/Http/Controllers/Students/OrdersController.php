@@ -83,4 +83,21 @@ class OrdersController extends Controller
     {
         //
     }
+
+
+    /**
+     * Shows tha form to submit a new order
+     * 
+     * @param Vois
+     * @return view showing the form
+     */
+    public function showOrder()
+    {
+
+        
+
+
+
+        return view('parents.order');
+    }
 }

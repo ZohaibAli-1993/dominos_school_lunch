@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Schools;
+namespace App\Http\Controllers\Students;
 
-use App\Classroom;
+use App\ParentRegister;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Classroom;
-
-class ClassroomsController extends Controller
+class ParentsRegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,7 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
-        $classrooms = Classroom::all();
-          
-        return view('schools.classrooms', compact('classrooms'));
-
+        //
     }
 
     /**
@@ -47,10 +42,10 @@ class ClassroomsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Classroom  $classroom
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function show(Classroom $classroom)
+    public function show(ParentRegister $parentRegister)
     {
         //
     }
@@ -58,10 +53,10 @@ class ClassroomsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Classroom  $classroom
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function edit(Classroom $classroom)
+    public function edit(ParentRegister $parentRegister)
     {
         //
     }
@@ -70,10 +65,10 @@ class ClassroomsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Classroom  $classroom
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Classroom $classroom)
+    public function update(Request $request, ParentRegister $parentRegister)
     {
         //
     }
@@ -81,10 +76,10 @@ class ClassroomsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Classroom  $classroom
+     * @param  \App\ParentRegister  $parentRegister
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Classroom $classroom)
+    public function destroy(ParentRegister $parentRegister)
     {
         //
     }

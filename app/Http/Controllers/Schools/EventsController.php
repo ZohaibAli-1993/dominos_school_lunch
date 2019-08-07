@@ -6,6 +6,10 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Schools;
+
+use Illuminate\Support\Facades\DB;
+
 class EventsController extends Controller
 {
     /**
@@ -15,7 +19,12 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
+
+        $school = 1;   // It is necessary to update according school logged in
+        //$events = Event::where('idschool', $school);
+        $events = DB::table('events')->get();
+
+        return view('schools.events', compact('events'));
     }
 
     /**

@@ -32,5 +32,6 @@
 </div>
 
 <a href="/schools/menu">Show Menu</a>
+<a href="/schools/events">Events</a>
 
 @endsection

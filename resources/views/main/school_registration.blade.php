@@ -36,7 +36,6 @@
             <div class="text-danger error">{{ $errors->first('postal_code') }}</div>
         @endif 
 
-
         <select id="province_list" name="province"> 
             <option value="">Select a Province</option>
             @foreach ($provinces as $key=>$value)

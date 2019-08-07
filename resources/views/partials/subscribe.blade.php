@@ -5,11 +5,10 @@
 		We promise to send emails you will love.</p>
 	</div>
 
-	<div id="join-form">
-		<form action="" method="post">
-			@csrf
-			<input type="text" name="subscription" placeholder="Enter your email address">
+	<form id="join-form" action="" method="post">
+			<input type="text" name="subscription" placeholder="Enter your email address" value="">
 			<button id="join-btn" >Join</button>
-	</div>
+
+	</form>
 </div><!-- end col-->
 
