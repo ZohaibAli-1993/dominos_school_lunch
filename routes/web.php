@@ -124,13 +124,16 @@ Route::get('/schools/events', 'Schools\EventsController@index');
 	//function(){return view('schools.events');});
 
 
+    
+
 /**PARENTS ROUTES */
+Route::get('/parents/order','Students\OrdersController@showOrder');
+Route::post('/parents/order','Students.OrdersController@store');
 Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');
 
 
 
-Route::get('/parents/order','Students\OrdersController@showOrder');
-Route::post('/parents/order','Students.OrdersController@store');
+
 Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
 
 Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
