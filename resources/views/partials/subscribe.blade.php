@@ -6,7 +6,7 @@
 	</div>
 
 	<form id="join-form" action="" method="post">
-			<input type="text" name="subscription" placeholder="Enter your email address" value="">
+			<input type="text" name="subscription" placeholder="Enter your email address" value="subscription_email">
 			<button id="join-btn" >Join</button>
 
 	</form>
