@@ -12,6 +12,11 @@ body{
     position: relative;
 }
 
+.text.content{
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
 /* Top part of header styles */
 #top_header{
 
@@ -152,7 +157,6 @@ header{
 
 
 
-<<<<<<< HEAD
 /** hero-image */
 #about-hero-image{
     width: 100%;
@@ -652,7 +656,7 @@ form button#join-btn{
 
 
 .contact.form{
-    width: 50%;
+    width: 75%;
     margin:  0 auto;
 }
 
@@ -1426,6 +1430,66 @@ input::placeholder {
 
 }
 
+<<<<<<< HEAD
+/*******TABS ORDER PAGE***********************/
+nav > .nav.nav-tabs{
+
+    border: none;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  
+  }
+  nav > div a.nav-item.nav-link,
+  nav > div a.nav-item.nav-link.active
+  {
+    border: none;
+      padding: 18px 25px;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  }
+  
+  nav > div a.nav-item.nav-link.active:after
+   {
+    content: "";
+    position: relative;
+    bottom: -60px;
+    left: -10%;
+    border: 15px solid transparent;
+    border-top-color: #e74c3c ;
+  }
+  .tab-content{
+    background: #fdfdfd;
+      line-height: 25px;
+      border: 1px solid #ddd;
+      border-top:5px solid #e51937;
+      border-bottom:5px solid #e51937;
+      padding:30px 25px;
+  }
+  
+  nav > div a.nav-item.nav-link:hover,
+  nav > div a.nav-item.nav-link:focus
+  {
+    border: none;
+      background: #e74c3c;
+      color:#fff;
+      border-radius:0;
+      transition:background 0.20s linear;
+  }
+
+  .main-tab{
+      width:100%;
+      margin: 15px 0;
+  }
+
+  .tab-pane{
+      padding: 15px;
+  }
+
+
+=======
+>>>>>>> 87763f548180813b030cad0d3da523ad68875912
 /*-----------------------------Maryna Footer Part -------------------------------------*/
 footer{
     width: 100%;

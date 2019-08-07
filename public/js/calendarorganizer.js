@@ -496,7 +496,10 @@ Organizer.prototype.list = function (data) {
         var span = document.createElement("SPAN");
         span.id = this.id + "-list-item-" + i + "-time";
         span.class = this.id + " time";
-        span.appendChild(document.createTextNode(data[i].startTime + ' - ' + data[i].endTime));
+
+        // Alessandra - Display only startTime
+        //span.appendChild(document.createTextNode(data[i].startTime + ' - ' + data[i].endTime));
+        span.appendChild(document.createTextNode(data[i].startTime));
 
         division.appendChild(span);
 

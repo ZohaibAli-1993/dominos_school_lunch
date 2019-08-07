@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Students;
 use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Student;
 
 class OrdersController extends Controller
 {
@@ -94,10 +95,9 @@ class OrdersController extends Controller
     public function showOrder()
     {
 
-        
+        $parent_id = 1;
 
-
-
-        return view('parents.order');
+        $students = Student::all();
+        return view('parents.order', compact('students'));
     }
 }
