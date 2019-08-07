@@ -7,7 +7,7 @@
 
     <!-- Material form contact -->
     <!-- Default form contact -->
-    <form class="form contact text-center border border-light p-5" method="post">
+    <form class="form contact text-center border border-light p-5" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
         @csrf
         <p class="h4 mb-4">Contact us</p>
 
