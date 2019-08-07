@@ -11,6 +11,19 @@
 |
 */
 
+Route::middleware(['school'])->group(function(){
+
+	//show school profile
+	Route::get('/school/{school}', 'Schools\SchoolsController@show');
+
+	//show form to edit school profile
+	Route::get('/school/{school}/edit', 'Schools\SchoolsController@edit');
+
+	//update school profile
+	Route::PUT('/school/{school}/edit', 'Schools\SchoolsController@update');
+
+});
+
 Route::get('/', function () {
     return view('index');
 })->name('home');
@@ -121,3 +134,6 @@ Route::get('/content/gift-card', function(){return view('content.cards');});
 Route::get('/content/terms', function(){return view('content.terms');});
 Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
 Route::get('/content/privacy', function(){return view('content.privacy');});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
