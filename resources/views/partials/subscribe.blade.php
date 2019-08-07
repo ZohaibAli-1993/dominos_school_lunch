@@ -8,7 +8,7 @@
 			We promise to send emails you will love.</p>
 		</div>
 
-		<form action="">
+		<form id="join-form" action="">
 			<input type="text" name="subscription" value="">
 			<button id="join-btn" >Join</button>
 		</form>
