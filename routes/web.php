@@ -125,7 +125,9 @@ Route::get('/schools/events', 'Schools\EventsController@index');
 	//function(){return view('schools.events');});
 
 
-/**PARENTS ROUTES */
+    
+
+/**PARENTS ROUTES */ 
 
 
 Route::get('/parents/', function(){return view('parents.index');});
@@ -140,12 +142,13 @@ Route::get('/parents/student/add', function(){return view('parents.add_student')
 
 Route::post('/parents/student/add', 'Students\StudentsController@store');
 
+Route::get('/parents/order','Students\OrdersController@showOrder');
+Route::post('/parents/order','Students.OrdersController@store');
 Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');
 
 
 
-Route::get('/parents/order','Students\OrdersController@showOrder');
-Route::post('/parents/order','Students.OrdersController@store');
+
 Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
 
 Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
