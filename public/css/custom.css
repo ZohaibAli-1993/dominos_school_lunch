@@ -603,7 +603,7 @@ div#close_box{
 
 .subscription-layout{
     position: static;
-    margin-bottom: :;
+    
 }
 
 
@@ -748,7 +748,7 @@ h2 {
 }
  
 
-}
+
 #formFooter {
   padding: 2px ;
   text-align: right;
@@ -1125,7 +1125,7 @@ h2 {
 }
  
 
-}
+
 #formFooter {
   padding: 2px ;
   text-align: right;
@@ -1423,7 +1423,6 @@ input::placeholder {
 
 }
 
-<<<<<<< HEAD
 /*******TABS ORDER PAGE***********************/
 nav > .nav.nav-tabs{
 
@@ -1481,8 +1480,6 @@ nav > .nav.nav-tabs{
   }
 
 
-=======
->>>>>>> 87763f548180813b030cad0d3da523ad68875912
 /*-----------------------------Maryna Footer Part -------------------------------------*/
 footer{
     width: 100%;
