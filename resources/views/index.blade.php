@@ -76,10 +76,6 @@
 	</div><!-- .container-->
 </div>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3f10f81e35dcb2af7b55955de8c230af9e7754c3
 @include('partials.subscribe')
 
 @endsection
