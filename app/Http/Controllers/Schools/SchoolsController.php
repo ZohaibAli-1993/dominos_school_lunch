@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Schools;
 
 use App\School;
-
 use App\Province;
 use App\Store;
 use App\Setup;
@@ -31,7 +30,7 @@ class SchoolsController extends Controller
      */
     public function create()
     {
-
+        //combine province as a key and province_name as a value in 1 array to show province name instead of province acronym
         $provinces= Province::pluck('province_name','province');
 
         $stores= Store::pluck('name','idstore');
@@ -59,7 +58,7 @@ class SchoolsController extends Controller
             'coordinator_first_name' => 'required|string|min:3',
             'coordinator_last_name' => 'required|string|min:3',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^[0-9]{3}[\-\s]?[0-9]{3}[\-\s]?[0-9]{4}$/',
+            'phone' => 'required|regex:/^(?(?=.*\))\()[0-9]{3}[\)]?[\-\s]?[0-9]{3}[\-\s]?[0-9]{4}$/',
             'password' => 'required|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/',
             'verify_password' => 'required_with:password|same:password|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/'
         ]);
@@ -123,7 +122,8 @@ class SchoolsController extends Controller
      */
     public function show(School $school)
     {
-        //
+        $stores= Store::pluck('name','idstore');
+        return view('schools.profile', compact('school','stores'));
     }
 
     /**
@@ -134,7 +134,12 @@ class SchoolsController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        //combine province as a key and province_name as a value in 1 array to show province name instead of province acronym
+        $provinces= Province::pluck('province_name','province');
+
+        $stores= Store::pluck('name','idstore');
+
+        return view('schools.edit', compact('school','provinces','stores'));
     }
 
     /**
@@ -146,7 +151,35 @@ class SchoolsController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        //
+        $valid = $request->validate([
+            'school_name' => 'required|string|min:10',
+            'city' => 'required|string',
+            'province'=>'required',
+            'idstore' => 'required',
+            'address' => 'required|string',
+            'postal_code' => 'required|string',
+            'coordinator_first_name' => 'required|string|min:3',
+            'coordinator_last_name' => 'required|string|min:3',
+            'email' => 'required|email',
+            'phone' => 'required|regex:/^(?(?=.*\))\()[0-9]{3}[\)]?[\-\s]?[0-9]{3}[\-\s]?[0-9]{4}$/',
+            'markup' => 'required|regex:/^[0-9]{1,2}[\.]?[0-9]{0,2}$/'
+        ]);
+
+        $school = School::find($school['idschool']);
+
+        $school['city'] = $valid['city'];
+        $school['province'] = $valid['province'];
+        $school['idstore'] = $valid['idstore'];
+        $school['address'] = $valid['address'];
+        $school['postal_code'] = $valid['postal_code'];
+        $school['coordinator_first_name'] = $valid['coordinator_first_name'];
+        $school['email'] = $valid['email'];
+        $school['phone'] = $valid['phone'];
+        $school['markup'] = $valid['markup'];
+
+        $school->save();
+
+        return redirect('/school/'.$school['idschool'])->with('success','School\'s profile was changed!');
     }
 
     /**
