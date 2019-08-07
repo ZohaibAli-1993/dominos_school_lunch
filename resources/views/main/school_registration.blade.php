@@ -21,22 +21,20 @@
             <div class="text-danger error">{{ $errors->first('school_name') }}</div>
         @endif
 
-        <input type="text" id="registration_city" class="fadeIn third zero-raduis" name="city" placeholder="City" value="{{old('city')}}">
-        @if($errors->has('city'))
-            <div class="text-danger error">{{ $errors->first('city') }}</div>
-        @endif 
-        
         <input type="text" id="registration_address" class="fadeIn third zero-raduis" name="address" placeholder="Address" value="{{old('address')}}"> 
         @if($errors->has('address'))
             <div class="text-danger error">{{ $errors->first('address') }}</div>
+        @endif 
+
+        <input type="text" id="registration_city" class="fadeIn third zero-raduis" name="city" placeholder="City" value="{{old('city')}}">
+        @if($errors->has('city'))
+            <div class="text-danger error">{{ $errors->first('city') }}</div>
         @endif 
 
         <input type="text" id="registration_postal" class="fadeIn third zero-raduis" name="postal_code" placeholder="Postal Code" value="{{old('postal_code')}}">
         @if($errors->has('postal_code'))
             <div class="text-danger error">{{ $errors->first('postal_code') }}</div>
         @endif 
-
-        <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
 
 
         <select id="province_list" name="province"> 
@@ -88,34 +86,38 @@
             <div class="text-danger error">{{ $errors->first('verify_password') }}</div>
         @endif  
 
-        <label for="captcha" class="col-md-4 control-label">Captcha</label>
+        <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
+
+            <label for="password" class="col-md-4 control-label">Captcha</label>
 
 
-        <div class="col-md-12">footer
+            <div class="col-md-12">footer
 
-            <div class="captcha">
+                <div class="captcha">
 
-            <span>{!! captcha_img() !!}</span>
+                    <span>{!! captcha_img() !!}</span>
 
-            <button type="button" class="btn btn-danger btn-refresh"><i class="fas fa-sync"></i></button>
+                    <button type="button" class="btn btn-danger btn-refresh"><i class="fas fa-sync"></i></button>
+
+                </div>
+
+                <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+
+
+                @if ($errors->has('captcha'))
+
+                    <span class="help-block">
+
+                        <strong>{{ $errors->first('captcha') }}</strong>
+
+                    </span>
+
+                @endif
 
             </div>
 
-            <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+          </div>
 
-
-            @if ($errors->has('captcha'))
-
-                <span class="help-block">
-
-                    <strong>{{ $errors->first('captcha') }}</strong>
-
-                </span>
-
-            @endif
-
-        </div>
-    </div>
         <input type="submit" id="register" class="fadeIn fourth zero-raduis" value="Register">
     </form>
 

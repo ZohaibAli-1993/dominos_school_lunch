@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partials.flash')
 <!--*******Section 1: shipping, call number and Gift Cards********** -->
 <div class="container" id="section1">
 	<div class="row">

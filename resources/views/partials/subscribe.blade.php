@@ -7,7 +7,9 @@
 
 	<div id="join-form">
 		<form action="" method="post">
+			@csrf
 			<input type="text" name="subscription" placeholder="Enter your email address">
+			<button id="join-btn" >Join</button>
 	</div>
 </div><!-- end col-->
 

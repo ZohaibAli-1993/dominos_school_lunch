@@ -123,6 +123,7 @@
 
         <!-- Login Form -->
         <form>
+          @csrf
           <input type="email" id="email" class="fadeIn second zero-raduis" name="email" placeholder="email">
           <input type="text" id="password" class="fadeIn third zero-raduis" name="login" placeholder="password">
               <div id="formFooter">

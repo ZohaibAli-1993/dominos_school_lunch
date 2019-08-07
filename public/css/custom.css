@@ -525,7 +525,8 @@ form button#join-btn:hover{
 #section2 a.button:hover,
 #section4 a.button:hover,
 #box_cover a.button:hover,
-#register_main a.button:hover{
+#register_main a.button:hover,
+#school_profile a.button:hover{
     text-decoration: none;
     box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
 }
@@ -544,7 +545,8 @@ form button#join-btn:hover{
 #section2 a.button,
 #section4 a.button,
 #box_cover a.button,
-#register_main a.button{
+#register_main a.button,
+#school_profile a.button{
     display: inline-block;
     color: #fff;
     padding: 5px;
@@ -560,7 +562,8 @@ form button#join-btn:hover{
 #section2 a.button.school,
 #section4 a.button.school,
 #box_cover a.button.school,
-#register_main a.button.school{
+#register_main a.button.school,
+#school_profile a.button.edit{
     background-color: rgba(0, 100, 145,0.8);
     margin-right:10px;
 }
@@ -568,7 +571,8 @@ form button#join-btn:hover{
 #section2 a.button.parents,
 #section4 a.button.parents,
 #box_cover a.button.parents,
-#register_main a.button.parents{
+#register_main a.button.parents,
+#school_profile a.button.changepass{
     background-color: rgba(227,24,55,0.8);
     width: auto;
     margin-left: 0;
@@ -725,11 +729,92 @@ div#close_box{
 }
 /*-----------------End Registration Page-----------------*/
 
-/*-----------------School Registration Page-----------------*/
+/*-----------------School Profile Page-----------------*/
+#school_profile table{
+    width: 100%;
+    height: 60vh;
+    border-collapse: separate;
+}
+#school_profile th{
+    background-color: rgba(227,24,55,.4);
+    border: solid 1px #fff;
+    border-radius: 3px;
+    box-shadow: 0 5px 6px rgba(0,0,0,0.2);
+}
 
-/*-----------------End School Registration Page-----------------*/
+#school_profile td{
+    box-shadow: inset 0 0 5px rgba(227,24,55,.8);
+    border-radius: 3px;
+}
 
-=======
+#school_profile th,
+#school_profile td{
+    padding-left:10px;
+}
+
+#school_profile th{
+    width: 30%;
+}
+
+/*#school_profile table caption{
+    font-size: 1.4em;
+    color: #006491;
+    width: 100%;
+    caption-side: initial;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 4px 4px 7px rgba(227,24,55,0.3);
+    width: 100%;
+}*/
+
+#school_profile #profile_table,
+#school_profile #button{
+    margin: 0 auto;
+}
+
+#school_profile #button{
+    margin-bottom: 20px;
+}
+
+#school_profile #button a.edit{
+    width: 100px;
+    text-align: center;
+}
+
+/*-----------------End School Profile Page-----------------*/
+
+/*-----------------School Edit School Profile Page-----------------*/
+
+#edit form #edit_butt{
+    background-color: rgba(0, 100, 145,0.8);
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px #fff;
+    width:50%;
+    margin-left: 0;
+}
+
+#edit .notice{
+    font-size: 0.8em;
+    color:#e31837;
+    text-align: left;
+    padding-left:10px;
+}
+
+#edit label{
+    display: block;
+    text-align: left;
+    padding-left:10px;
+    margin-bottom: 0;
+    color: #006491;
+    font-weight: bold;
+}
+
+#edit label[for=password]{
+    display: inline;
+    color:#000;
+}
+
+/*-----------------End Edit School Profile Page-----------------*/
 
 /**END Monika*/
 
@@ -896,7 +981,8 @@ h2 {
 #formContent{  
     min-height: 1350px;
  }
-#registration,#parents_registration{
+#registration,#parents_registration,
+#edit{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
@@ -904,7 +990,8 @@ h2 {
   width: 90%;
   max-width: 1050px;  
   
-  height: 1300px;
+  height: auto;
+  /*height: 1300px;*/
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
@@ -1009,7 +1096,14 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 #registration_verify_password,#registration_phone, 
 #registration_school_name,#registration_city,
 #province_list, #store_list, 
-#registration_address,#registration_postal,#registration_province,#captcha,select{
+#registration_address,#registration_postal,#registration_province,#captcha,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -1029,7 +1123,18 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-}   
+}
+
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+    width:100%;
+}
+
 #captcha{ 
  width: 30%;
  }
@@ -1038,9 +1143,17 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
     #registration_email,#registration_password,
     #registration_first_name,#registration_last_name,
     #coordinator_first_name,#coordinator_last_name,
-    #registration_verify_password,#registration_phone, 
+    #registration_verify_password,#registration_phone,
+    #province_list, #store_list,
     #registration_school_name,#registration_city, 
-    #registration_street,#registration_postal,#registration_province,select{ 
+    #registration_address,#registration_postal,#registration_province,select,
+    #edit_email,
+    #edit_first_name,#edit_last_name, 
+    #edit_phone, 
+    #edit_school_name,#edit_city,
+    #edit_province, #edit_store, 
+    #edit_address,#edit_postal,
+    #edit #markup{ 
     width: 100%;  
     margin: 0;
     margin-bottom: 20px;
@@ -1179,7 +1292,6 @@ input::placeholder {
   opacity: 0.5;
 }
 /***************************************************************/
-=======
 
 /***************************************************/ 
 .zero-raduis{
@@ -1248,7 +1360,8 @@ h2 {
 #formContent{  
     min-height: 1350px;
  }
-#registration,#parents_registration{
+#registration,#parents_registration,
+#edit{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
@@ -1256,7 +1369,8 @@ h2 {
   width: 90%;
   max-width: 1050px;  
   
-  height: 1300px;
+  height: auto;
+  /*height: 1300px;*/
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
@@ -1265,7 +1379,7 @@ h2 {
  
   margin:0 auto; 
   margin-top: 10px; 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 } 
 #parents_registration{ 
     height: 900px; 
@@ -1357,9 +1471,17 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 #registration_email,#registration_password, 
 #registration_first_name,#registration_last_name, 
-#registration_verify_password,#registration_phone, 
+#registration_verify_password,#registration_phone,
+#province_list, #store_list,
 #registration_school_name,#registration_city, 
-#registration_street,#registration_postal,#registration_province,#captcha,select{
+#registration_address,#registration_postal,#registration_province,#captcha,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -1379,20 +1501,39 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-}   
+}
+
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+    width:100%;
+}
+
 #captcha{ 
  width: 30%;
  }
 
 @media only screen and (max-width: 505px) {  
-    #registration_email,#registration_password, 
+#registration_email,#registration_password, 
 #registration_first_name,#registration_last_name, 
-#registration_verify_password,#registration_phone, 
+#registration_verify_password,#registration_phone,
+#province_list, #store_list,
 #registration_school_name,#registration_city, 
-#registration_street,#registration_postal,#registration_province,select{ 
+#registration_address,#registration_postal,#registration_province,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{ 
 width: 100%;  
 margin: 0;
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
     }
 input[type=text]:focus, input[type=email]:focus{
@@ -1523,7 +1664,6 @@ input::placeholder {
   opacity: 0.5;
 }
 /***************************************************************/
-=======
 
 .success.icon{
     font-size: 7em;
