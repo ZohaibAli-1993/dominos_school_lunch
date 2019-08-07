@@ -7,10 +7,6 @@
 
 	<form id="join-form" action="" method="post">
 
-			<input type="text" name="subscription" placeholder="Enter your email address" value="subscription_email">
-			<button id="join-btn" >Join</button>
-
-
 		<input type="text" name="subscription" placeholder="Enter your email address" value="">
 		<button id="join-btn" >Join</button>
 
