@@ -76,8 +76,8 @@ Route::get('/parents_registration',function(){
     return view('main.parents_registration');
 });
 
-Route::post('/contact','Home@contact'); 
-Route::post('/registration','students\ParentsController@store');
+Route::post('/contact','Home@contact');  
+
 
 /*
 |--------------------------------------------------------------------------
@@ -120,4 +120,9 @@ Route::post('/parents/order','Students.OrdersController@store');
 Route::get('/content/gift-card', function(){return view('content.cards');});
 Route::get('/content/terms', function(){return view('content.terms');});
 Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
-Route::get('/content/privacy', function(){return view('content.privacy');});
+Route::get('/content/privacy', function(){return view('content.privacy');}); 
+/**Parents Registration */ 
+Route::middleware(['parents'])->group(function() 
+{
+Route::post('/registration','students\ParentsRegisterController@store'); 
+});
