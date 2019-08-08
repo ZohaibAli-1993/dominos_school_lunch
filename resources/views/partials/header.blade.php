@@ -36,7 +36,7 @@
 
                 <p class="user_icon">
 
-                    <a href="/login"><i class="far fa-user"></i></a>
+                    <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-user"></i></a>
 
                 </p>
 
@@ -146,10 +146,10 @@
                                 <a class="underlineHover" href="#">Forgot Password?</a>
                             </div>
                             <input type="submit" class="fadeIn fourth zero-raduis" value="login">
-                            <h3>You don't have a account ?</h3>
-                            <input type="button" class="fadeIn fourth zero-raduis pc close" value="register"
-                                data-toggle="modal" data-target="#exampleModalRegister" data-dismiss="modal"
-                                aria-label="Close">
+                            <p>You don't have a account ?</p> 
+                            <a href="/registration">
+                            <input type="button" class="fadeIn fourth zero-raduis pc close" value="register"> 
+                            </a>
                         </form>
 
 
