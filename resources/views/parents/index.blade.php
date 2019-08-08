@@ -113,7 +113,7 @@
 	    <label for="check_parent_token">Token Number</label>
 	    <input type="text" class="form-control" id="check_parent_token" placeholder="Token number">
 	  </div>
-	  <a type="button" id="check_parent_btn" href="/parents/student/add" class="btn btn-primary">
+	  <a type="button" id="check_parent_btn" href="/parents/{{$parentRegister->idparent}}/student/add" class="btn btn-primary">
 	  Submit</a>
 	</form>
 </div>
