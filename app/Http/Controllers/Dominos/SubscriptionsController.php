@@ -47,7 +47,7 @@ class SubscriptionsController extends Controller
      */
     public function show(Subscription $subscription)
     {
-        //
+        return view('partials.subscribe');
     }
 
     /**
