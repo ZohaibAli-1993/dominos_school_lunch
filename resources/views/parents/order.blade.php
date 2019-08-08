@@ -9,6 +9,7 @@
 </script>
 
 <div class="text content">
+    <h2>Orders</h2>
     <div>
         <a class="btn btn-danger" href="">Upcoming Orders</a>
         <a class="btn btn-danger" href="">Previous Orders</a>
@@ -66,7 +67,7 @@
                                     <td><?= ($pendient) ? 'Pendient' : '$ 20.00' ?></td>
                                     <td><?= ($pendient) ? 'Pendient' : 'order-id' ?></td>
                                     <td>
-                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='/parents/order/neworder/" . $event->idevent . "'>Order</a>" ?>
+                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='/parents/order/neworder/" . $event->idevent . "/" . $student->idstudent . "'>Order</a>" ?>
                                         <?= ($pendient) ? $order_button : 'Pendient' ?>
                                         <!--<a href="#">Download</a>--></td>
                                 </tr>
