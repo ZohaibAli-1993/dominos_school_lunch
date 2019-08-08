@@ -265,6 +265,10 @@ view('schools.classrooms');});
 Route::get('/schools/menu',function(){return
 view('schools.menu');});
 
+Route::get('/schools/events',
+'Schools\EventsController@index');
+
+
 /**SCHOOL EVENTS ROUTES */
 Route::get('/schools/events', 'Schools\EventsController@index');
 Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
