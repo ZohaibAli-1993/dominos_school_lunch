@@ -174,6 +174,7 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
 Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
 
 
 Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');

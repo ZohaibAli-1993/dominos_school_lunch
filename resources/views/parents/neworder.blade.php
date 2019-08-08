@@ -22,60 +22,63 @@
                 <?php $i++; ?>
                 <div class="tab-pane fade show active">
                     <div class="table-responsive text-nowrap">
+                        <form action="/parents/order/checkout" method="post">
+                            @csrf
+                        
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Item ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $cursor=0; ?>
+                                    @foreach ($data['items'] as $item)
+                                    <tr>
+                                        <td>{{$item->iditem}}</td>
+                                        <td>
+                                            <?php if ($data['item_description'][$cursor]) :?>
+                                                {{ $data['item_description'][$cursor]->item_name }}
+                                            <?php else :?>
+                                                Not available
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>{{ $item->final_price }}</td>
+                                        <td><input type="text" class="qty" name="qty{{$item->iditem}}"></td>
+                                    </tr>
+                                    <?php $cursor++; ?>
+                                    @endforeach
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Item ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $cursor=0; ?>
-                                @foreach ($data['items'] as $item)
-                                <tr>
-                                    <td>{{$item->iditem}}</td>
-                                    <td>
-                                        <?php if ($data['item_description'][$cursor]) :?>
-                                            {{ $data['item_description'][$cursor]->item_name }}
-                                        <?php else :?>
-                                            Not available
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>{{ $item->final_price }}</td>
-                                    <td><input type="text" class="qty" name="qty{{$item->iditem}}"></td>
-                                </tr>
-                                <?php $cursor++; ?>
-                                @endforeach
+                                    <tr>
+                                        <td class="alignrigth" colspan="3">
+                                            Subtotal
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="alignrigth" colspan="3">
+                                            Tax(es)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="alignrigth" colspan="3">
+                                            Total
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="alignrigth" colspan="4">
+                                            <button class="btn btn-danger" href="">Pay Now</button>
+                                        </td>
+                                    </tr>
 
-                                <tr>
-                                    <td class="alignrigth" colspan="3">
-                                        Subtotal
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class="alignrigth" colspan="3">
-                                        Tax(es)
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class="alignrigth" colspan="3">
-                                        Total
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class="alignrigth" colspan="4">
-                                        <a class="btn btn-danger" href="">Pay Now</a>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </form>
 
                     </div>
 
