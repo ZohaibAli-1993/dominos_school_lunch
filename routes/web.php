@@ -135,12 +135,7 @@ Route::post('/school_registration',
 
 */
 
-Route::get('/login',function(){
-
-return
-view('main.login');
-
-}); 
+Route::get('/login',function(){ return view('main.login'); }); 
 
 
 
@@ -154,12 +149,7 @@ view('main.login');
 
 */
 
-Route::get('/parents_registration',function(){
-
-return
-view('main.parents_registration');
-
-});
+Route::get('/parents_registration',function(){ return view('main.parents_registration');});
 
 
 
@@ -177,19 +167,9 @@ view('main.parents_registration');
 
 
 
-Route::get('/login',function(){
+Route::get('/login',function(){ return view('main.login'); }); 
 
-return
-view('main.login');
-
-}); 
-
-Route::get('/parents_registration',function(){
-
-return
-view('main.parents_registration');
-
-});
+Route::get('/parents_registration',function(){ return view('main.parents_registration'); });
 
 
 
@@ -209,34 +189,25 @@ Route::post('/registration','students\ParentsController@store');
 
 */
 
-Route::get('/about',function(){
-
-return
-view('main.about')
-
-;});
+Route::get('/about',function(){ return view('main.about');});
 
 
 
 //Captcha routes
 
-Route::get('my-captcha',
-'Home@myCaptcha')->name('myCaptcha');
+Route::get('my-captcha', 'Home@myCaptcha')->name('myCaptcha');
 
-Route::post('my-captcha',
-'Home@myCaptchaPost')->name('myCaptcha.post');
+Route::post('my-captcha', 'Home@myCaptchaPost')->name('myCaptcha.post');
 
 
 
-Route::get('refresh_captcha',
-'Home@refreshCaptcha')->name('refresh_captcha');
+Route::get('refresh_captcha','Home@refreshCaptcha')->name('refresh_captcha');
 
 
 
 
 
-Route::get('/send/email',
-'Email@mail');
+Route::get('/send/email', 'Email@mail');
 
 
 
@@ -244,37 +215,26 @@ Route::get('/send/email',
 
 /**SCHOOL ROUTES */
 
-Route::get('/schools/',
-function(){return
-view('schools.index');});
+Route::get('/schools/', function(){return view('schools.index');});
 
 
 
 
 
-Route::get('/schools/menu',
-'Dominos\MenuItemsController@index');
+Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
 
 
-Route::get('/schools/classrooms',function(){return
-view('schools.classrooms');});
+Route::get('/schools/classrooms',function(){return view('schools.classrooms');});
 
 
 
 Route::get('/schools/menu',function(){return
 view('schools.menu');});
 
-Route::get('/schools/events',
-'Schools\EventsController@index');
+Route::get('/schools/events','Schools\EventsController@index');
 
-    //function(){return view('schools.events');});
-
-
-
-
-
-
+//function(){return view('schools.events');});
 
 
 /**PARENTS ROUTES */
@@ -283,50 +243,29 @@ Route::get('/parents/order','Students\OrdersController@showOrder');
 
 Route::post('/parents/order','Students.OrdersController@store');
 
-Route::get('/parents/{parentRegister}',
-'Students\ParentsRegisterController@show');
+Route::get('/parents/{parentRegister}','Students\ParentsRegisterController@show');
 
 
+Route::get('/parents/{parentRegister}/student/add','Students\ParentsRegisterController@index');
 
 
-
-
-
-
-
-Route::get('/parents/{parentRegister}/student/add',
-'Students\ParentsRegisterController@index');
-
-
-
-Route::post('/parents/{parentRegister}/student/add',
-'Students\StudentsController@store');
-
+Route::post('/parents/{parentRegister}/student/add','Students\StudentsController@store');
 
 
 /**FOOTER CONTENT LINKS */
 
-Route::get('/content/gift-card',
-function(){return
-view('content.cards');});
+Route::get('/content/gift-card',function(){return view('content.cards');});
 
-Route::get('/content/terms',
-function(){return
-view('content.terms');});
+Route::get('/content/terms', function(){return view('content.terms');});
 
-Route::get('/content/nutricion-guide',
-function(){return
-view('content.nutrition');});
+Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
 
-Route::get('/content/privacy',
-function(){return
-view('content.privacy');});
+Route::get('/content/privacy', function(){return view('content.privacy');});
 
 Auth::routes();
 
 
 
-Route::get('/home',
-'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 

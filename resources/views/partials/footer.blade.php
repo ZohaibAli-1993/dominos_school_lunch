@@ -1,8 +1,7 @@
-</div>
+
 <!--End main_content-->
 <!-- Footer -->
 <footer class="page-footer">
-    <div class="container">
         <div class="row">
             <div class="col-8">
                 <div class="footer-logo"><span>Domino's</span><br />
@@ -57,7 +56,7 @@
 
         </div><!-- /row-->
 
-    </div><!-- /container -->
+    
 
     <script>
     $(document).ready(function() {
@@ -75,4 +74,5 @@
     });
     </script>
 </footer>
+</div><!-- /container -->
 <!-- Footer -->
