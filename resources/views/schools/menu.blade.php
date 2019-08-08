@@ -2,138 +2,80 @@
 
 @section('content')
 
-<h1>Menu</h1>
+<h1>School Lunch Menu</h1>
 
 <div class="container">
-	<div class="row">
-
-		@foreach($menu as $result)
-			<div class="col-lg-4">
-				<div class="menu-image"><img src="{{$result['image']}}" width="100%" height="200">
-				<h3>{{$result['item_name']}}</h3>
-					  <strong>{{$result['price']}}</strong><br />
-					  	{{$result['description']}}<br />
-					  	<em>Nutrition Facts: {{$result['nutrition_facts']}}</em><br />
-				</div>
-
-			</div><!-- col ends -->
-		@endforeach
-
-	</div><!-- row ends -->
-</div>
-
-<h2>12'' pizza cut into 1/4</h2>
-
-
-
-<div class="row">
-
-	<div class="col">
-		<div class="menu-image"><img src="img/pizza_mix.jpg" width="100%" height="200">
-		<h3>Cheese Pizza</h3>
-			  <strong>$ 2.25/piece</strong><br />
-			  	Products Details<br />
-			  	Big Slice Cheese Pizza<br />
-			    <a href="#" type="button" id="menu-add-btn">Add</a></div>
-
-	</div><!-- col ends -->
-
-	<div class="col">
-		<div class="menu-image"><img src="img/pizza_hawaii.jpg" width="100%" height="200">
-		<h3>Ham & Pinnaple Pizza</h3>
-		<strong>$ 2.75/piece</strong><br />
-		Product Details:<br />
-		Ham & Pinnaple Pizza<br />
-		<a type="button" id="menu-add-btn">Add</a></div>
-
-
-	</div><!-- col ends -->
-
-	<div class="col">
-		<div class="menu-image"><img src="img/pizza_peperoni.jpg" width="100%" height="200">
-		<h3>Pepperoni Pizza</h3>
-		<strong>$ 2.25/piece</strong><br />
-		Product Details:<br />
-		Big Slice Pepperoni Pizza<br />
-		<a type="button" id="menu-add-btn">Add</a></div>
-
-	</div><!-- col ends -->
-
 	
-</div><!-- row ends -->
+	@foreach($category as $cat_result)
 
+		<?php 
 
-<h2>14'' pizza cut into 1/8</h2>
-    
-<div class="row">
-	<div class="col">
-		<div class="menu-image"><img src="img/pizza_mix.jpg" width="100%" height="200">
-		<h3>Cheese Pizza</h3>
-			  <strong>$ 1.10/piece</strong><br />
-			  	Products Details<br />
-			  	Big Slice Cheese Pizza<br />
-			    <a type="button" id="menu-add-btn">Add</a></div>
+			$idcategory = $cat_result['idcategory'];
 
-	</div><!-- col ends -->
+			$count = 0;
 
-	<div class="col" class="menu-image">
-		<div class="menu-image"><img src="img/pizza_hawaii.jpg" width="100%" height="200">
-		<h3>Ham & Pinnaple Pizza</h3>
-		<strong>$ 1.20/piece</strong><br />
-		Product Details:<br />
-		Ham & Pinnaple Pizza<br />
-		<a type="button"  id="menu-add-btn">Add</a></div>
+			foreach($menu as $menu_item)
+			{
 
-	</div><!-- col ends -->
+				$item_idcategory = $menu_item['idcategory'];
 
-	<div class="col" class="menu-image">
-		<div class="menu-image"><img src="img/pizza_peperoni.jpg" width="100%" height="200">
-		<h3>Pepperoni Pizza</h3>
-		<strong>$ 1.10/piece</strong><br />
-		Product Details:<br />
-		Big Slice Pepperoni Pizza<br />
-		<a type="button"  id="menu-add-btn">Add</a></div>
+				if($item_idcategory == $idcategory) 
+				{
+					$count++;
+				}
 
-	</div><!-- col ends -->
+			}
 
+			if($count > 0)
+			{
 
-</div><!-- row ends -->
+		?>
 
-<h2>10'' pizza cut into 1/4 Gluten Free</h2>
-    
-<div class="row">
-	<div class="col">
-		<div class="menu-image"><img src="img/pizza_mix.jpg" width="100%" height="200">
-		<h3>Cheese Pizza</h3>
-			  <strong>$ 1.10/piece</strong><br />
-			  	Products Details<br />
-			  	Big Slice Cheese Pizza<br />
-			    <a type="button"  id="menu-add-btn">Add</a></div>
+		<div class="row">
 
-	</div><!-- col ends -->
+			<h3 id="lunch_menu_category">{{$cat_result->category}}</h3>
 
-	<div class="col">
-		<div class="menu-image"><img src="img/pizza_hawaii.jpg" width="100%" height="200">
-		<h3>Ham & Pinnaple Pizza</h3>
-		<strong>$ 1.20/piece</strong><br />
-		Product Details:<br />
-		Ham & Pinnaple Pizza<br />
-		<a type="button"  id="menu-add-btn">Add</a></div>
+		</div>
 
-	</div><!-- col ends -->
+		<div class="row">
 
-	<div class="col">
-		<div class="menu-image"><img src="img/pizza_peperoni.jpg" width="100%" height="200">
-		<h3>Pepperoni Pizza</h3>
-		<strong>$ 1.10/piece</strong><br />
-		Product Details:<br />
-		Big Slice Pepperoni Pizza<br />
-		<a type="button"  id="menu-add-btn">Add</a></p></div>
+			@foreach($menu as $result)
 
-	</div><!-- col ends -->
+				<?php
 
+					$menu_idcategory = $result['idcategory'];
 
-</div><!-- row ends -->
+					if($menu_idcategory == $idcategory)
+					{
 
+				?>
+
+				<div class="col-lg-6">
+
+					<div class="menu-image"><img src="{{$result->image}}" width="100%" height="auto">
+
+					<h3>{{$result->item_name}}</h3>
+
+						  <strong>Price: </strong>${{$result->price}}<br />
+
+						  	{{$result->description}}<br />
+
+						  	<em><strong>Nutrition Facts: </strong>{{$result->nutrition_facts}}</em><br />
+
+					</div>
+
+				</div><!-- col ends -->
+
+				<?php } ?>
+
+			@endforeach
+
+		</div><!-- row ends -->
+
+		<?php } ?>
+
+	@endforeach
+	
+</div>
 
 @endsection
