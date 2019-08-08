@@ -87,4 +87,6 @@ The Domino's Pizza web site or applications may link to sites or applications no
 
 </div>
 
+@include('partials.subscribe')
+
 @endsection

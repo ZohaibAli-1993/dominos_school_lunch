@@ -2,6 +2,7 @@
 <!--End main_content-->
 <!-- Footer -->
 <footer class="page-footer">
+    <div class="contatiner">
         <div class="row">
             <div class="col-8">
                 <div class="footer-logo"><span>Domino's</span><br />
