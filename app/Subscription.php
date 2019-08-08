@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 namespace App;
 
@@ -13,4 +13,5 @@ class Subscription extends Model
      * @var string
      */
     protected $primaryKey = 'idsubscription';
+    protected $fillable=['subscription_email'];
 }
