@@ -27,39 +27,24 @@
 Route::middleware(['school'])->group(function(){
 
 
+//show school profile
 
-    //show school profile
-
-    Route::get('/school/{school}',
-'Schools\SchoolsController@show');
+Route::get('/school/{school}', 'Schools\SchoolsController@show');
 
 
 
     //show form to edit school profile
 
-    Route::get('/school/{school}/edit',
-'Schools\SchoolsController@edit');
+Route::get('/school/{school}/edit', 'Schools\SchoolsController@edit');
 
 
 
     //update school profile
 
-    Route::PUT('/school/{school}/edit',
-'Schools\SchoolsController@update');
+Route::PUT('/school/{school}/edit', 'Schools\SchoolsController@update'); });
 
 
-
-});
-
-
-
-Route::get('/',
-function () {
-
-return
-view('index');
-
-})->name('home');
+Route::get('/', function () { return view('index'); })->name('home');
 
 
 
@@ -75,14 +60,7 @@ view('index');
 
 
 
-Route::get('/contact',function(){
-
-return
-view('main.contact');
-
-});
-
-
+Route::get('/contact',function() { return view('main.contact'); });
 
 
 
@@ -96,12 +74,7 @@ view('main.contact');
 
 */
 
-Route::get('/registration',function(){
-
-return
-view('main.registration');
-
-});
+Route::get('/registration',function(){ return view('main.registration'); });
 
 
 
@@ -115,13 +88,11 @@ view('main.registration');
 
 */
 
-Route::get('/school_registration',
-'Schools\SchoolsController@create');
+Route::get('/school_registration','Schools\SchoolsController@create');
 
 
 
-Route::post('/school_registration',
-'Schools\SchoolsController@store');
+Route::post('/school_registration','Schools\SchoolsController@store');
 
 
 
@@ -259,6 +230,11 @@ Route::get('/parents/{parentRegister}/student/add','Students\ParentsRegisterCont
 
 Route::post('/parents/{parentRegister}/student/add','Students\StudentsController@store');
 
+
+
+/** Subscription routes  */
+Route::get('/home', 'Dominos\SubscriptionsController@index')->name('home');
+Route::post('/home', 'Dominos\SubscriptionsController@store');
 
 /**FOOTER CONTENT LINKS */
 

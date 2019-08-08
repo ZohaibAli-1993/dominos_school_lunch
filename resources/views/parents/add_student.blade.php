@@ -9,8 +9,6 @@
  
     <div class="col-8">
 
-    	<form class="add_student" method="post" action="/parents"> 
-    		@csrf
 
     	<form class="add_student" method="post" action="/parents/"> 
     		@csrf

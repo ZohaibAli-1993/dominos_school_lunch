@@ -15,7 +15,7 @@ class SubscriptionsController extends Controller
      */
     public function index()
     {
-        //
+        return view('/home', compact('subscription')) ;
     }
 
     /**
@@ -24,8 +24,9 @@ class SubscriptionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+
+        
     }
 
     /**
@@ -36,7 +37,12 @@ class SubscriptionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'email' =>'required|email' 
+
+        ]);
+        $email = Subscription::create($valid);
+        return redirect('/')->with('success', 'You successfully subscribed for Domino\'s lunches newsletters!');
     }
 
     /**
@@ -47,7 +53,7 @@ class SubscriptionsController extends Controller
      */
     public function show(Subscription $subscription)
     {
-        return view('partials.subscribe');
+        //
     }
 
     /**
