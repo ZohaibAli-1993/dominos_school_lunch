@@ -248,6 +248,7 @@ form button#join-btn:hover{
 /* Hero image for home page*/
 #home_header{
     background-image: url(/img/hero_img.jpg);
+    /**background-image: url(/img/image_home.jpg);**/
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;

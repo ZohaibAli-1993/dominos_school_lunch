@@ -1,8 +1,7 @@
 
 <!--End main_content-->
 <!-- Footer -->
-<footer class="page-footer">
-    <div class="contatiner">
+<footer class="page-footer mt-5">
         <div class="row">
             <div class="col-8">
                 <div class="footer-logo"><span>Domino's</span><br />
