@@ -57,8 +57,8 @@
                                         <?php endif; ?>
                                     
                                     </td>
-                                    <td>$ 20.00</td>
-                                    <td>001</td>
+                                    <td><?= ($pendient) ? 'Pendient' : '$ 20.00' ?></td>
+                                    <td><?= ($pendient) ? 'Pendient' : 'order-id' ?></td>
                                     <td>
                                         <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='#'>Order</a>" ?>
                                         <?= ($pendient) ? $order_button : 'Pendient' ?>
