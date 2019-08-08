@@ -12,7 +12,7 @@
 
 	@include('partials.errors')
 
-	<h1>Events</h1>
+	<h1 class="h1">Events</h1>
 
 
 
@@ -31,13 +31,14 @@
 
 	</div>
 
-    <div class="container" style="text-align: center;">
+    <div class="container text-center">
 	    <div class="col">
 		    <form class="form" action="/posts" method="post">
 
 	            @csrf
 	            <div class="form-group">
-	                <button class="btn btn-primary">Add New Event</button>
+	                <a class="btn btn-primary" 
+	                   href="/schools/events/create">Add New Event</a>
 	            </div>
             </form>
 
@@ -52,7 +53,7 @@
 	    </div>
 
 		@foreach($events_list as $event)
-	    <div class="row border-bottom" style="margin-top: 15px;">
+	    <div class="row border-bottom mt-3">
 	    	<div class="col-3">
 	    		<h4>{{ $event->event_date_formated  }}</h4>
 	    	</div>
@@ -107,8 +108,6 @@
 		data // giving the organizer the static data that should be displayed
 	);
 </script>
-
-
 
 
 

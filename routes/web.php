@@ -143,11 +143,23 @@ Route::get('/schools/classrooms',function(){return
 view('schools.classrooms');});
 
 
+Route::get('/schools/menu',function(){return
+view('schools.menu');});
+
+
+/**SCHOOL EVENTS ROUTES */
+Route::get('/schools/events/create', 'Schools\EventsController@create');
+Route::post('/schools/events/create', 'Schools\EventsController@store');
+Route::get('/schools/events', 'Schools\EventsController@index');
+Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
+Route::put('/schools/events', 'Schools\EventsController@update');
+
 /*
 |--------------------------------------------------------------------------
 | PARENTS ROUTES
 |--------------------------------------------------------------------------
 */
+>>>>>>> 2dc7d2db5f544b40b93231aba69c9552c125b6a5
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
 Route::get('/parents/order/neworder/{event}', 'Students\OrdersController@newOrder');
