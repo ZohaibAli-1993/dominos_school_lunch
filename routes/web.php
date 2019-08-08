@@ -150,12 +150,29 @@ Route::get('/schools/', function(){
 Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
 
-Route::get('/schools/classrooms',function(){return
-view('schools.classrooms');});
 
 
-Route::get('/schools/menu',function(){return
-view('schools.menu');});
+//Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
+
+Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
+
+Route::post('/schools/classrooms','Schools\ClassroomsController@store');
+
+Route::put('/schools/classrooms','Schools\ClassroomsController@update');
+
+Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+
+
+//Route::get('/schools/menu',function(){return view('schools.menu');});
+Route::get('/schools/events',function(){return view('schools.events');});
+
+//Route::get('/schools/classrooms',function(){return
+//view('schools.classrooms');});
+
+
+//Route::get('/schools/menu',function(){return
+//view('schools.menu');});
+
 
 
 /**SCHOOL EVENTS ROUTES */

@@ -632,16 +632,18 @@ div#close_box{
     font-weight: bold; 
 }
 
-#join-form form{
-    bottom: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: absolute;
+
+.subscription-layout #join-form{
+    margin-top: -15px;
     z-index: 1000;
-    
+    text-align: center;
 }
 
-form button#join-btn{
+.subscription-layout #join-form form legend{
+    border: 1px solid #006491;
+}
+
+.subscription-layout #join-form button#join-btn{
     border: 1px solid #e51937;
     color: #fff;
     background-color: #e51937;
@@ -1676,6 +1678,34 @@ margin-left: 30px;
     }
 
 
+
+
+
+
+
+/*********************School Lunch Menu page styles**************************/
+
+h3#lunch_menu_category{
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+}
+
+div#classrooms-buttons a{
+    color: #fff;
+}
+
+div#classrooms-buttons a.classrooms-add,
+div#classrooms-buttons a.classrooms-file-upload{
+    background-color: #006491;
+}
+
+
+
+
+
+
 .alignrigth{
   text-align: right;
 }
+
