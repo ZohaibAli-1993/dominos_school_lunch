@@ -36,7 +36,16 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        $new_contact = Contact::create($valid);
+
+        return redirect('/contact'); 
     }
 
     /**
