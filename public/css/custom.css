@@ -207,16 +207,18 @@ header{
     font-weight: bold; 
 }
 
-form{
-    bottom: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    position: absolute;
+
+.subscription-layout #join-form{
+    margin-top: -15px;
     z-index: 1000;
-    
+    text-align: center;
 }
 
-form button#join-btn{
+.subscription-layout #join-form form legend{
+    border: 1px solid #006491;
+}
+
+.subscription-layout #join-form button#join-btn{
     border: 1px solid #e51937;
     color: #fff;
     background-color: #e51937;
