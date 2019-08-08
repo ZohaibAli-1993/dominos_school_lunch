@@ -72,4 +72,7 @@
     </form>
     <!-- Default form contact -->
 </div>
+
+@include('partials.subscribe')
+
 @endsection
