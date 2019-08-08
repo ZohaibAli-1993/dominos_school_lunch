@@ -70,7 +70,6 @@
 	</div><!-- .container-->
 </div>
 
-
 @include('partials.subscribe')
 
 @endsection

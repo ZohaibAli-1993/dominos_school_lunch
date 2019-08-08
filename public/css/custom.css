@@ -501,6 +501,13 @@ div#close_box{
 /*-----------------End Registration Page-----------------*/
 
 /*-----------------School Profile Page-----------------*/
+#school_profile_tile{
+    text-align: center;
+    color: #006491;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
 #school_profile table{
     width: 100%;
     height: 60vh;
@@ -603,7 +610,7 @@ div#close_box{
 
 .subscription-layout{
     position: static;
-    margin-bottom: :;
+    
 }
 
 
@@ -748,7 +755,7 @@ h2 {
 }
  
 
-}
+
 #formFooter {
   padding: 2px ;
   text-align: right;
@@ -1125,7 +1132,7 @@ h2 {
 }
  
 
-}
+
 #formFooter {
   padding: 2px ;
   text-align: right;
@@ -1423,7 +1430,6 @@ input::placeholder {
 
 }
 
-<<<<<<< HEAD
 /*******TABS ORDER PAGE***********************/
 nav > .nav.nav-tabs{
 
@@ -1481,8 +1487,6 @@ nav > .nav.nav-tabs{
   }
 
 
-=======
->>>>>>> 87763f548180813b030cad0d3da523ad68875912
 /*-----------------------------Maryna Footer Part -------------------------------------*/
 footer{
     width: 100%;
@@ -1541,4 +1545,134 @@ footer{
     width: 30%;
     left: 40%;
     display: block;
+
 }
+
+div.content.text{
+
+    max-width: 960px;
+    margin: 0 auto;
+}
+.parents,.School{ 
+height: 60px; 
+width: 150px; 
+background-color: red; 
+margin-left: 30px; 
+
+ }
+
+/***************** CSS for parents details page and paremts add student page ***************/
+
+.parent_account{
+    /**border: 1px solid #006491;
+    position: absolute;
+    z-index: 1000;**/
+    background-color: #fff;
+  }
+
+  #parent_account_button{
+    padding: 5px;
+    background-color: #e51937;
+    color: #fff;
+    margin-right: auto;
+    border: none;
+  }
+  .parent_account_para{
+    color: #000;
+    padding: 10px;
+  }
+
+  #parents_account_order{
+    border: none;
+    background-color: #fff;
+  }
+
+
+  /* ----- CSS for modal box ---------- */
+
+    #overlay{
+        background: #000;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        pointer-events: none;
+      }
+
+    #modal{
+        width: 450px;
+        height: 250px;
+        position: absolute;
+        top: 410px;
+        left: -150px;
+        background: #fff;
+        border: 3px solid #006491;
+        border-radius: 15px;
+        z-index: 10000;
+        display: none;
+        padding: 15px;
+      }
+    #close_modal{
+        width: 55px;
+        height: 25px;
+        line-height: 20px;
+        position: absolute;
+        border: 2px solid #e51937;
+        border-radius: 5px;
+        background: #fff;
+        color: #f00;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+        top: 3px;
+        right: 5px;
+      }
+    #display_modal{
+        background-color: #006491;
+        color: #fff;
+        margin-right: auto;
+        border: none;
+        margin-left: 17px;
+        width: 50px;
+        height: 35px;
+        padding-left: 10px;
+        font-size: 18px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-radius: 10px;
+        margin-top: 7px;
+        margin-bottom: 20px;
+        display: inline-block;
+        cursor: pointer;
+        font-style: italic;
+
+      }
+    #display_modal:hover{
+        color: #fff;
+        opacity: 0.65;
+
+      }
+      
+      /* ------------CSS for modal box ends -------- */
+
+    .add_student{
+      color: #006491;
+      font-weight: 500;
+    }
+
+    #add_student_btn{
+      background-color: #e51937;
+      padding: 5px;
+      color: #fff;
+      margin-bottom: 10px;
+      border: 1px solid #e51937;
+    }
+    .add_student input,
+    .add_student select{
+      background-color: #ccd8de;
+    }
+
+

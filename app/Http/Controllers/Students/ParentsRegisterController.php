@@ -14,9 +14,9 @@ class ParentsRegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ParentRegister $parentRegister)
     {
-        //
+        return view('parents.add_student', compact('parentRegister'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ParentsRegisterController extends Controller
      */
     public function show(ParentRegister $parentRegister)
     {
-        //
+        return view('parents.index', compact('parentRegister')) ;
     }
 
     /**

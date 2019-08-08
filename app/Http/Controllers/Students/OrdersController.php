@@ -6,6 +6,8 @@ use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Student;
+use App\Event;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
@@ -98,6 +100,38 @@ class OrdersController extends Controller
         $parent_id = 1;
 
         $students = Student::all();
-        return view('parents.order', compact('students'));
+
+        $all_events = [];
+        $all_orders = [];
+        
+        
+        foreach($students as $student){
+            $events = DB::table('events_vw')->where('idschool','=',$student->idschool)->get();
+            $all_events[] = $events;
+
+            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get();
+            $all_orders = $orders;
+        }
+
+        $data = [
+            'students' => $students,
+            'all_events' => $all_events,
+            'all_orders' => $all_orders
+        ];
+        
+
+        return view('parents.order', compact('data'));
+    }
+
+    public function newOrder(Event $event)
+    {
+
+        $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        //var_dump($school);die;
+        $data = [
+            'event' => $event,
+            'school' => $school
+        ];
+        return view('parents.neworder', compact('data'));
     }
 }

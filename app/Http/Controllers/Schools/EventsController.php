@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Schools;
+use App\Setup;
+use App\Calendar;
 
 use Illuminate\Support\Facades\DB;
 
@@ -51,7 +53,7 @@ class EventsController extends Controller
         }
 
 
-        return view('schools.events', compact('events'));
+        return view('events.index', compact('events'), compact('events_list'));
     }
 
     /**
@@ -61,7 +63,19 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        /**
+         * Read setup table to get cutoff_days
+         * 
+         */
+        $setup = Setup::find(1);
+
+        /**
+         * Read calendar table to get begin and end dates
+         * 
+         */
+        $calendar = Calendar::find(1);  //////****** alter to get next calendar
+
+        return view('events.create', compact('setup', 'calendar' ));
     }
 
     /**
@@ -72,7 +86,20 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // Validate form submition
+        $valid = $request->validate([
+            'idschool' => 'required|integer',
+            'event_name' => 'required|string',
+            'event_date' => 'required|date',
+            'cutoff_date' => 'required|date',
+            'event_time' => 'required'
+        ]);
+
+       //Insert new Event in the table
+       $event = Post::create($valid);
+
+       return redirect('/schools/events')->with('success', 'Event was added');
     }
 
     /**
@@ -94,7 +121,20 @@ class EventsController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+
+        /**
+         * Read setup table to get cutoff_days
+         * 
+         */
+        $setup = Setup::find(1);
+
+        /**
+         * Read calendar table to get begin and end dates
+         * 
+         */
+        $calendar = Calendar::find(1);  //////****** alter to get next calendar
+
+        return view('events.edit', compact('event', 'setup', 'calendar' ));
     }
 
     /**
@@ -106,7 +146,28 @@ class EventsController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+
+        // Validate form submition
+        $valid = $request->validate([
+            'idevent' => 'required|integer',
+            'idschool' => 'required|integer',
+            'event_name' => 'required|string',
+            'event_date' => 'required|date',
+            'cutoff_date' => 'required|date',
+            'event_time' => 'required'
+        ]);
+      
+        //Update values for the event
+        $event = Event::find($valid['idevent']);
+        $event->event_name = $valid['event_name'];
+        $event->event_date = $valid['event_date'];
+        $event->cutoff_date = $valid['cutoff_date'];
+        $event->event_time = $valid['event_time'];
+        $event->save();
+
+        
+        return redirect('/schools/events')->with('success', 'Event was updated');
+
     }
 
     /**
