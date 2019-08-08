@@ -97,7 +97,6 @@ Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
 });
 
-
 Route::post('/contact','Home@contact');  
 
 
@@ -106,7 +105,7 @@ Route::post('/contact','Home@contact');
 Route::post('/contact','Home@contact');
 
 Route::post('/registration','students\ParentsController@store');
->>>>>>> cffa4e5848fca63b1948f72608a8a958df8becab
+
 
 /*
 |--------------------------------------------------------------------------
@@ -121,8 +120,8 @@ Route::get('/new',function(){
     return view('captcha')
 ;});
 
-	return view('main.about');
-});
+
+
 
 
 /*
