@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Students;
 
-use App\Student;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-class StudentsController extends Controller
+use App\Parent;
+class ParentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //
+        //$parent = Parent::all();
+        //return view('parents.index', compact('parent'));
     }
 
     /**
@@ -34,39 +35,35 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
-
-    public function store(Request $request ParentRegister $parentRegister)
-
-    {   
+    { 
+        var_dump($request);
+        //vaidation for comments form
+       $valid=$request->validate([  
         
-        $valid = $request->validate([
-            'first_name' =>'required|string' ,
-            'last_name' => 'required|string'
+        'first_name'=> 'required|string' , 
+        'last_name'=> 'required|string' ,  
+        'email'=>'required|string', 
+        'phone'=>'required|string',  
+        'password'=>'required|string',
+        'captcha'=>'required|string'
 
-        ]);  
-
-        dd($valid); 
-        $student = Student::create($valid);
-
-        return redirect('/parents/')->with('success', 'You added a new child!');
-
-        $valid['idparent'] = $parentRegister['idparent'];
-        dd($valid); 
-        $student = Student::create($valid);
-
-        return redirect('/parents/'.$parentRegister['idparent'])->with('success', 'You added a new child!');
-
+        
+        
+       ]); 
+     
+      
+     // Parent::create($valid);  
+      //back to post through flash message
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Parent  $parent
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(Parent $parent)
     {
         //
     }
@@ -74,10 +71,10 @@ class StudentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Parent  $parent
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Parent $parent)
     {
         //
     }
@@ -86,10 +83,10 @@ class StudentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  \App\Parent  $parent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Parent $parent)
     {
         //
     }
@@ -97,10 +94,10 @@ class StudentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Parent  $parent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Parent $parent)
     {
         //
     }

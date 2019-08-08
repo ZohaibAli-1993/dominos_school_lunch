@@ -24,7 +24,9 @@ class CreateViews extends Migration
                 year(event_date) as year_event, 
                 month(event_date) as month_event,
                 day(event_date) as day_event,
+                DATE_FORMAT(event_date, '%M %d %Y') as event_date_formated,
                 event_time, 
+                TIME_FORMAT(event_time, '%h:%i %p') as event_time_formated,
                 event_name,
                 idevent
                 from events

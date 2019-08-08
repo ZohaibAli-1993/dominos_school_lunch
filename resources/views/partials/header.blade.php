@@ -13,7 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/custom.css" />
     <script src="/js/custom.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/calendarorganizer.css" />
+    
+
+    @yield('links_events')
+
     <title>Dominos Lunch Manager System</title>
 </head>
 
