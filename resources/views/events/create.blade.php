@@ -45,20 +45,19 @@
 
 	<div class="col">
 
-		    <h1>Edit Event</h1>
+		    <h1>Add New Event</h1>
 
 		    @include('partials.errors')
 
-		    <form id="form" action="/schools/events" method="post">
-
+		    <form id="form" 
+		          action="/schools/events/create" 
+		          method="post"
+		          autocomplete="off">
 
 		    	@csrf <!-- to create csrf token in the form -->
 
-		    	@method('PUT')
-
-		    	<input id="idevent" name="idevent" type="hidden" value="{{ $event->idevent }}">
-
-		    	<input id="idschool" name="idschool" type="hidden" value="{{ $event->idschool }}">
+		    	<!---------- change to school connected -------> 
+		    	<input id="idschool" name="idschool" type="hidden" value="1">
 
 		        <div class ="form-group">
 					<label for="event_name">Event Name</label>
@@ -66,7 +65,7 @@
 					       name="event_name"
 					       type="text" 
 					       class="form-control col-lg-4" 
-					       value="{{ old('event_name', $event->event_name) }}">
+					       value="{{ old('event_name') }}">
 					@if($errors->has('event_name'))
 				    <span class="error text-danger">{{ $errors->first('event_name') }}</span>
 				    @endif					
@@ -78,7 +77,7 @@
 						<input id="event_date" 
 						       name="event_date" 
 						       type="text" class="form-control col-lg-2" 
-						       value="{{ old('event_date', $event->event_date) }}">
+						       value="{{ old('event_date') }}">
 					    <!--<span class="input-group-addon px-md-1">
 		                    <span class="fa fa-calendar">
 		                    </span>
@@ -96,7 +95,7 @@
 						<input id="cutoff_date" 
 						       name="cutoff_date" 
 						       type="text" class="form-control col-lg-2" 
-						       value="{{ old('cutoff_date', $event->cutoff_date) }}">
+						       value="{{ old('cutoff_date') }}">
 					    <!--<span class="input-group-addon px-md-1">
 		                    <span class="fa fa-calendar">
 		                    </span>
@@ -113,7 +112,7 @@
 					<input id="event_time" 
 					       name="event_time" 
 					       type="time" class="form-control col-lg-2" 
-					       value="{{ old('event_time', $event->event_time) }}">
+					       value="{{ old('event_time') }}">
 
 					@if($errors->has('event_time'))
 				    <span class="error text-danger">{{ $errors->first('event_time') }}</span>
@@ -129,7 +128,6 @@
 				        id="btn-cancel"
 				        class="btn btn-primary"
 				        href="/schools/events">Cancel</a>
-								        
 				
 			</form>
 

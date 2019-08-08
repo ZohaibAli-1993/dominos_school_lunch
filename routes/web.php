@@ -270,6 +270,8 @@ Route::get('/schools/events',
 
 
 /**SCHOOL EVENTS ROUTES */
+Route::get('/schools/events/create', 'Schools\EventsController@create');
+Route::post('/schools/events/create', 'Schools\EventsController@store');
 Route::get('/schools/events', 'Schools\EventsController@index');
 Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
 Route::put('/schools/events', 'Schools\EventsController@update');
