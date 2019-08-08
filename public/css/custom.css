@@ -1771,6 +1771,27 @@ margin-left: 30px;
 
 
 
+
+
+
+/*********************School Lunch Menu page styles**************************/
+
+h3#lunch_menu_category{
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
 }
+
+div#classrooms-buttons a{
+    color: #fff;
+}
+
+div#classrooms-buttons a.classrooms-add,
+div#classrooms-buttons a.classrooms-file-upload{
+    background-color: #006491;
+}
+
+
+
 
 
