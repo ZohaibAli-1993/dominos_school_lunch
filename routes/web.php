@@ -12,7 +12,7 @@
 */
 
 Route::middleware(['school'])->group(function()
-{
+{   
     //show school profile
     Route::get('/school/{school}', 'Schools\SchoolsController@show');
 
@@ -89,9 +89,7 @@ view('main.parents_registration');
 | contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/login',function(){
-	return view('main.login');
-}); 
+
 
 Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
@@ -208,10 +206,11 @@ Route::get('/content/privacy', function(){return view('content.privacy');});
 /**Parents Registration */  
 Route::post('/registration','students\ParentsRegisterController@store'); 
 Route::middleware(['parents'])->group(function() 
-{
+{ 
+
 
 });
-
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/content/privacy', function(){return view('content.privacy');});
 Auth::routes();
 
