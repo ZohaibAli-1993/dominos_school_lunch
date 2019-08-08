@@ -120,8 +120,11 @@ Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 Route::get('/schools/classrooms',function(){return view('schools.classrooms');});
 
 Route::get('/schools/menu',function(){return view('schools.menu');});
+
+/**SCHOOL EVENTS ROUTES */
 Route::get('/schools/events', 'Schools\EventsController@index');
-	//function(){return view('schools.events');});
+Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
+Route::put('/schools/events', 'Schools\EventsController@update');
 
 
 /**PARENTS ROUTES */
