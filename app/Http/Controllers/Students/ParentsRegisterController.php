@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Students;
-
+use Illuminate\Support\Facades\Hash; 
+use App\User;
 use App\ParentRegister;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,7 +37,15 @@ class ParentsRegisterController extends Controller
      */
     public function store(Request $request)
     {
-         
+         request()->validate([
+
+            
+
+            'captcha' => 'required|captcha'
+
+        ],
+
+        ['captcha.captcha'=>'Invalid captcha code.']);
         //vaidation for comments form
        $valid=$request->validate([  
         
@@ -47,6 +56,7 @@ class ParentsRegisterController extends Controller
         'password' => 'required|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/',
         'verify_password' => 'required_with:password|same:password|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/'
       ]);  
+       
        $valid['password'] = Hash::make($valid['password']);
        $parent=ParentRegister::create($valid); 
         $user['name'] = $parent['first_name']. ' '. $parent['last_name'];
@@ -58,7 +68,10 @@ class ParentsRegisterController extends Controller
         $user['type'] = 'Parents';
 
         $new_user= User::create($user);
-      return back()->with('success','Parent was added!');
+      return back()->with('success','Parent was added!'); 
+      
+
+        
     }
 
     /**
