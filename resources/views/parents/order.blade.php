@@ -2,6 +2,12 @@
 
 @section('content')
 
+<script>
+
+    $()
+
+</script>
+
 <div class="text content">
     <div>
         <a class="btn btn-danger" href="">Upcoming Orders</a>
@@ -60,7 +66,7 @@
                                     <td><?= ($pendient) ? 'Pendient' : '$ 20.00' ?></td>
                                     <td><?= ($pendient) ? 'Pendient' : 'order-id' ?></td>
                                     <td>
-                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='#'>Order</a>" ?>
+                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='/parents/order/neworder/" . $event->idevent . "'>Order</a>" ?>
                                         <?= ($pendient) ? $order_button : 'Pendient' ?>
                                         <!--<a href="#">Download</a>--></td>
                                 </tr>

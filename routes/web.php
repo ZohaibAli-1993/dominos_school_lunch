@@ -149,8 +149,9 @@ view('schools.classrooms');});
 |--------------------------------------------------------------------------
 */
 Route::get('/parents/order','Students\OrdersController@showOrder');
+Route::post('/parents/order','Students\OrdersController@store');
+Route::get('/parents/order/neworder/{event}', 'Students\OrdersController@newOrder');
 
-Route::post('/parents/order','Students.OrdersController@store');
 
 Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');
 

@@ -122,4 +122,16 @@ class OrdersController extends Controller
 
         return view('parents.order', compact('data'));
     }
+
+    public function newOrder(Event $event)
+    {
+
+        $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        //var_dump($school);die;
+        $data = [
+            'event' => $event,
+            'school' => $school
+        ];
+        return view('parents.neworder', compact('data'));
+    }
 }
