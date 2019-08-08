@@ -8,26 +8,28 @@
 <div class="row">
  
     <div class="col-8">
-
-    	<form class="add_student" method="post" action="/parents"> 
+    	@include('partials.errors')
+    	<form class="add_student" method="post" action="/parents/{{$parentRegister->idparent}}/student/add"> 
     		@csrf
+    		<input type="hidden" value="{{$parentRegister->idparent}} " name="idparent"></input>
 
-    	<form class="add_student" method="post" action="/parents/"> 
-    		@csrf
-    		<input type="hidden"></input>
+    		<div class="form-group">
+		    <label for="add_student_first_name">Token Field</label>
+		    <input type="text" class="form-control" id="add_student_first_name" placeholder="First name" name="first_name">
+		  </div>
 
 		  <div class="form-group">
 		    <label for="add_student_first_name">First Name</label>
-		    <input type="text" class="form-control" id="add_student_first_name" placeholder="First name">
+		    <input type="text" class="form-control" id="add_student_first_name" placeholder="First name" name="first_name">
 		  </div>
 		  <div class="form-group">
 		    <label for="add_student_last_name">Last Name</label>
-		    <input type="text" class="form-control" id="add_student_last_name" placeholder="Last name">
+		    <input type="text" class="form-control" id="add_student_last_name" placeholder="Last name" name="last_name">
 		  </div>
 		  <div class="form-group">
 		    <label for="add_student_classroom">Classroom</label>
 		    
-		    <select class="form-control" id="add_student_classroom">
+		    <select class="form-control" id="add_student_classroom" name="idclassroom">
 		      <option>Room_1</option>
 		      <option>Room_2</option>
 		      <option>Room_3</option>
