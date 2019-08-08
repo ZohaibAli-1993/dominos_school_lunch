@@ -12,4 +12,10 @@ class Event extends Model
      * @var string
      */
     protected $primaryKey = 'idevent';
+
+    protected $fillable=['idschool', 
+                         'event_name',
+                         'event_date',
+                         'cutoff_date',
+                         'event_time']; 
 }

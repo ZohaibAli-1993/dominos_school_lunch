@@ -58,12 +58,6 @@
 
 <!--*******Section 4: call to action for instruction page********** -->
 
-
-<img src="/img/pizza_making.jpg" alt="hero image">
-<h2>It's simple to get started</h2>
-<a class="button" href="">School Instruction</a>
-<a class="button" href="">Parents Instruction</a>
-
 <div id="section4">
 	<div class="container">
 		<div class="row">

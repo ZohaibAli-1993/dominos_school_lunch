@@ -44,13 +44,25 @@
                             </thead>
                             <tbody>
                                 @foreach ($data['all_events'][$i-1] as $event)
+                                <?php $pendient = true; ?>
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>{{ $event->event_time }}</td>
-                                    <td><?= (in_array($vent->idevent,$data['all_orders'][$i] ? ))   </td>
-                                    <td>$ 20.00</td>
-                                    <td>001</td>
-                                    <td><a href="#">Download</a></td>
+                                    <td>
+                                        <?php if(count($data['all_orders'])>0) :?>
+                                            <?= (in_array($event->idevent,$data['all_orders'][$i]) ? 'Completed' : 'Pendient') ?>
+                                            <?php if(in_array($event->idevent,$data['all_orders'][$i])){$pendient=false;} ?> 
+                                        <?php else : ?>
+                                            Pendient
+                                        <?php endif; ?>
+                                    
+                                    </td>
+                                    <td><?= ($pendient) ? 'Pendient' : '$ 20.00' ?></td>
+                                    <td><?= ($pendient) ? 'Pendient' : 'order-id' ?></td>
+                                    <td>
+                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='#'>Order</a>" ?>
+                                        <?= ($pendient) ? $order_button : 'Pendient' ?>
+                                        <!--<a href="#">Download</a>--></td>
                                 </tr>
                                 @endforeach
 
@@ -66,7 +78,7 @@
 
             </div>
             <div class="alignleft">
-            <a class="btn btn-danger " href="">Add New</a>
+            
             </div>
 
         </div>

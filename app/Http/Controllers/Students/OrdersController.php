@@ -109,7 +109,7 @@ class OrdersController extends Controller
             $events = DB::table('events_vw')->where('idschool','=',$student->idschool)->get();
             $all_events[] = $events;
 
-            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent);
+            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get();
             $all_orders = $orders;
         }
 
