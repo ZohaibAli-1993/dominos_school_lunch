@@ -232,15 +232,13 @@ Route::get('/schools/classrooms',function(){return view('schools.classrooms');})
 Route::get('/schools/menu',function(){return
 view('schools.menu');});
 
-<<<<<<< HEAD
+
 Route::get('/schools/events','Schools\EventsController@index');
 
 //function(){return view('schools.events');});
-=======
+
 Route::get('/schools/events',
 'Schools\EventsController@index');
-
->>>>>>> 8a1c68c6531e920295f0de475805ab0e66df7469
 
 /**SCHOOL EVENTS ROUTES */
 Route::get('/schools/events', 'Schools\EventsController@index');
