@@ -47,7 +47,7 @@
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>{{ $event->event_time }}</td>
-                                    <td>Paid</td>
+                                    <td><?= (in_array($vent->idevent,$data['all_orders'][$i] ? ))   </td>
                                     <td>$ 20.00</td>
                                     <td>001</td>
                                     <td><a href="#">Download</a></td>
