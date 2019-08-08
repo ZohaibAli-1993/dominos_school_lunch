@@ -97,10 +97,10 @@ Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
 });
 
-<<<<<<< HEAD
+
 Route::post('/contact','Home@contact');  
 
-=======
+
 
 
 Route::post('/contact','Home@contact');
@@ -114,17 +114,16 @@ Route::post('/registration','students\ParentsController@store');
 |--------------------------------------------------------------------------
 */
 Route::get('/about',function(){
-<<<<<<< HEAD
+
     return view('main.about')
 ;}); 
 Route::get('/new',function(){
     return view('captcha')
 ;});
-=======
+
 	return view('main.about');
 });
 
->>>>>>> cffa4e5848fca63b1948f72608a8a958df8becab
 
 /*
 |--------------------------------------------------------------------------
@@ -201,7 +200,7 @@ Route::get('/schools/events','Schools\EventsController@index');
 
 
 /**FOOTER CONTENT LINKS */
-<<<<<<< HEAD
+
 Route::get('/content/gift-card', function(){return view('content.cards');});
 Route::get('/content/terms', function(){return view('content.terms');});
 Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
@@ -218,7 +217,7 @@ Route::get('/content/privacy', function(){return view('content.privacy');});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-=======
+
 
 Route::get('/content/gift-card',
 function(){return
@@ -243,5 +242,5 @@ Auth::routes();
 Route::get('/home',
 'HomeController@index')->name('home');
 
->>>>>>> cffa4e5848fca63b1948f72608a8a958df8becab
+
 
