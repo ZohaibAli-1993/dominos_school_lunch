@@ -18,5 +18,11 @@ class ParentRegister extends Model
      *
      * @var string
      */
-    protected $table = 'parents_register';
+
+    protected $table = 'parents_register'; 
+ 
+    protected $fillable=['first_name','last_name','email','phone','password','captcha'];
+
+    protected $table = 'parents';
+
 }

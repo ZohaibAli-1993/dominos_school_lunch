@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Students;
 
 use App\Student;
+use App\ParentRegister;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -34,9 +35,23 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+
+    public function store(Request $request, ParentRegister $parentRegister)
+    {   
+
+        
+        $valid = $request->validate([
+            'first_name' =>'required|string' ,
+            'last_name' => 'required|string',
+            'idparent' => 'required|integer'
+
+        ]);
+
+        $valid['idparent'] = $parentRegister['idparent'];
+
+        $student = Student::create($valid);
+        return redirect('/parents/'.$parentRegister['idparent'])->with('success', 'You added a new child!');
+
     }
 
     /**

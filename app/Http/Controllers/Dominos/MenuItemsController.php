@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 
 use App\Dominos;
 
+use App\Category;
+
 class MenuItemsController extends Controller
 {
     /**
@@ -18,9 +20,11 @@ class MenuItemsController extends Controller
     public function index()
     {
         
-        $menu = MenuItem::all();
+        $menu = MenuItem::all(); 
+
+        $category = Category::all();
           
-        return view('schools.menu', compact('menu'));
+        return view('schools.menu', compact('category', 'menu'));
 
     }
 

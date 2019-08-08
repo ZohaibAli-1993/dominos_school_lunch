@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(seed_subscriptions_table::class);
         $this->call(seed_categories_table::class);
         $this->call(seed_schools_table::class);
+        $this->call(seed_classrooms_table::class);
         $this->call(seed_provinces_table::class);
         $this->call(seed_setups_table::class);
         $this->call(seed_stores_table::class);

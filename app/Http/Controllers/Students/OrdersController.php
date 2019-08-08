@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Students;
 use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Student;
+use App\Event;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
@@ -94,10 +97,51 @@ class OrdersController extends Controller
     public function showOrder()
     {
 
+        $parent_id = 1;
+
+        $students = Student::all();
+
+        $all_events = [];
+        $all_orders = [];
+        
+        
+        foreach($students as $student){
+            $events = DB::table('events_vw')->where('idschool','=',$student->idschool)->get();
+            $all_events[] = $events;
+
+            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get();
+            $all_orders = $orders;
+        }
+
+        $data = [
+            'students' => $students,
+            'all_events' => $all_events,
+            'all_orders' => $all_orders
+        ];
         
 
+        return view('parents.order', compact('data'));
+    }
 
+    public function newOrder(Event $event, Student $student)
+    {
 
-        return view('parents.order');
+        $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        $items = DB::table('event_items')->where('idevent','=',$event->idevent)->get();
+        $item_description = [];
+        
+        foreach ($items as $item)
+        {
+            $item_description[] = DB::table('menu_items')->where('iditem','=', $item->iditem)->first(['item_name']);
+        }
+
+        $data = [
+            'event' => $event,
+            'school' => $school,
+            'items' => $items,
+            'student' =>$student,
+            'item_description' => $item_description
+        ];
+        return view('parents.neworder', compact('data'));
     }
 }

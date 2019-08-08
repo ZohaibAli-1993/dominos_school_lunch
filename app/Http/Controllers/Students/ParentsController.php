@@ -15,7 +15,8 @@ class ParentsController extends Controller
      */
     public function index()
     {
-        //
+        //$parent = Parent::all();
+        //return view('parents.index', compact('parent'));
     }
 
     /**
