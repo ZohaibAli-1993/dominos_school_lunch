@@ -33,11 +33,8 @@ Route::get('/', function () {
 | Contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/contact',function(){
+Route::post('/contact', 'Dominos\ContactsController@store');
 
-	return view('main.contact');
-
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +43,6 @@ Route::get('/contact',function(){
 */
 Route::get('/registration',function(){
 return view('main.registration');
-<<<<<<< HEAD
 });
 
 /*
@@ -85,12 +81,8 @@ view('main.parents_registration');
 
 });
 
-/*
-=======
-});
 
 /*
-
 |--------------------------------------------------------------------------
 | school registration Page
 |--------------------------------------------------------------------------
@@ -137,12 +129,12 @@ Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
 });
 
-Route::post('/contact','Home@contact');  
+//Route::post('/contact','Home@contact');  
 
 
 
 
-Route::post('/contact','Home@contact');
+//Route::post('/contact','Home@contact');
 
 Route::post('/registration','students\ParentsController@store');
 
@@ -227,7 +219,6 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 | PARENTS ROUTES
 |--------------------------------------------------------------------------
 */
-<<<<<<< HEAD
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
@@ -242,6 +233,9 @@ Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterCon
 
 Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
 
+/** Subscription routes  */
+Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
+Route::post('/home', 'Dominos\SubscriptionsController@store');
 
 /*
 |--------------------------------------------------------------------------
@@ -256,7 +250,6 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
-=======
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
@@ -290,7 +283,6 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
->>>>>>> Daphne
 
 /**FOOTER CONTENT LINKS */
 
@@ -335,6 +327,3 @@ Auth::routes();
 
 Route::get('/home',
 'HomeController@index')->name('home');
-
-
-
