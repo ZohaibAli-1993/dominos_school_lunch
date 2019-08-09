@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2>About Us</h2>
+				<h1 class="h1">About Us</h1>
 
 				<img id="about-image" src="img/Pizza_500.png" alt="Pizza Girl" />
 
