@@ -17,7 +17,7 @@
     			<input type="hidden"></input>
        
 				<input type="text" name="email" placeholder="Enter your email address" value="">
-				<button style="border: none;" id="join-btn" >Join</button>
+				<button id="join-btn">Join</button>
 
 			</form>
 		</div>
