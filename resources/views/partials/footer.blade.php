@@ -1,8 +1,7 @@
-</div>
+
 <!--End main_content-->
 <!-- Footer -->
-<footer class="page-footer">
-    <div class="container">
+<footer class="page-footer mt-5">
         <div class="row">
             <div class="col-8">
                 <div class="footer-logo"><span>Domino's</span><br />
@@ -57,7 +56,7 @@
 
         </div><!-- /row-->
 
-    </div><!-- /container -->
+    
 
     <noscript>
         This page required JavaScript. Please enable it
@@ -105,4 +104,5 @@ $(".btn-refresh").click(function(){
 
     </script>
 </footer>
+</div><!-- /container -->
 <!-- Footer -->

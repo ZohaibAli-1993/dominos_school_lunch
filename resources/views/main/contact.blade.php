@@ -7,24 +7,24 @@
     
     <!-- Material form contact -->
     <!-- Default form contact -->
-    <form class="form contact text-center border border-light p-5" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+    <form class="form contact text-center border border-light p-5" action="/contact" method="post">
         @csrf
         <p class="h4 mb-4">Contact us</p>
 
         <h5>Please fill out the fields below and we will contact you shortly</h5>
 
         <!-- Name -->
-        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+        <input type="text" id="name" name="name" class="form-control mb-4" placeholder="Name">
 
         <!-- Email -->
-        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+        <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
 
         <!-- Subject -->
         <input type="text" id="subject" name="subject" class="form-control mb-4" placeholder="Subject">
 
         <!-- Message -->
         <div class="form-group">
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"
+            <textarea class="form-control rounded-0" id="message" name="message" rows="3"
                 placeholder="Message"></textarea>
         </div>
 
@@ -39,7 +39,7 @@
             <label for="password" class="col-md-4 control-label">Captcha</label>
 
 
-            <div class="col-md-12">footer
+            <div class="col-md-12">
 
                 <div class="captcha">
 
@@ -72,4 +72,7 @@
     </form>
     <!-- Default form contact -->
 </div>
+
+@include('partials.subscribe')
+
 @endsection
