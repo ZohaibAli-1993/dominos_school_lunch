@@ -12,11 +12,8 @@ class seed_parents_register_table extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        DB::table('parents_register')->insert([
-=======
+
         DB::table('parents')->insert([
->>>>>>> Daphne
             'first_name' => 'Diana', 
             'last_name' => 'Robert', 
             'email' => 'diana@email.com', 
@@ -25,11 +22,8 @@ class seed_parents_register_table extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);  
-<<<<<<< HEAD
-        DB::table('parents_register')->insert([
-=======
+
         DB::table('parents')->insert([
->>>>>>> Daphne
             'first_name' => 'Katrina', 
             'last_name' => 'Regina', 
             'email' => 'katrina@email.com', 
