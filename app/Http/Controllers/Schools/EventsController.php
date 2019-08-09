@@ -24,7 +24,6 @@ class EventsController extends Controller
     public function index()
     {
 
-
         $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
 
         //Get school data

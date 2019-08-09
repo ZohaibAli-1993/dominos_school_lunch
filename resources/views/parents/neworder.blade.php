@@ -24,7 +24,7 @@
                     <div class="table-responsive text-nowrap">
                         <form action="/parents/order/checkout" method="post">
                             @csrf
-                        
+                            <input type="hidden" name="idevent" value="{{$data['event']->idevent}}">
                             <table class="table">
                                 <thead>
                                     <tr>

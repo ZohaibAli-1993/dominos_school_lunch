@@ -196,7 +196,7 @@ Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@de
 
 
 //Route::get('/schools/menu',function(){return view('schools.menu');});
-Route::get('/schools/events',function(){return view('schools.events');});
+
 
 //Route::get('/schools/classrooms',function(){return
 //view('schools.classrooms');});
@@ -237,18 +237,6 @@ Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsControlle
 Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
 Route::post('/home', 'Dominos\SubscriptionsController@store');
 
-/*
-|--------------------------------------------------------------------------
-| SCHOOL EVENTS ROUTES
-|--------------------------------------------------------------------------
-*/
-Route::get('/schools/events', 'Schools\EventsController@index');
-
-Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
-
-Route::put('/schools/events', 'Schools\EventsController@update');
-
-Route::get('/schools/events','Schools\EventsController@index');
 
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
@@ -268,20 +256,6 @@ Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsControl
 Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
 
 Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
-
-
-/*
-|--------------------------------------------------------------------------
-| SCHOOL EVENTS ROUTES
-|--------------------------------------------------------------------------
-*/
-Route::get('/schools/events', 'Schools\EventsController@index');
-
-Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
-
-Route::put('/schools/events', 'Schools\EventsController@update');
-
-Route::get('/schools/events','Schools\EventsController@index');
 
 
 /**FOOTER CONTENT LINKS */
