@@ -191,15 +191,23 @@ Route::post('/parents/order','Students\OrdersController@store');
 Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
 Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
 
-
+/**
+ * Parents home page route
+ */
 Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
 Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
 
+/**
+ * Parents edit student page route
+ */
 Route::get('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@edit');
 
 Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@update');
 
+/**
+ * Parents add student page route
+ */
 Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
 
 Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
