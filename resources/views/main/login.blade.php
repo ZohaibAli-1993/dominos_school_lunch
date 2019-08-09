@@ -19,7 +19,7 @@
         <!-- Icon -->
         <div class="fadeIn first">
           <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
-          <h2 class="my-5">Sign In</h2>
+          <h2 class="h2 mt-3 my-5">Sign In</h2>
         </div>
 
         <!-- Login Form -->
@@ -41,7 +41,7 @@
             <a class="underlineHover" href="#">Forgot Password?</a>
           </div>
           <input type="submit" class="fadeIn fourth zero-raduis" value="login">
-          <h3>You don't have a account ?</h2>
+          <h3 class="h3">You don't have a account ?</h2>
           <input type="button" class="fadeIn fourth zero-raduis pc" value="register">
         </form>
         

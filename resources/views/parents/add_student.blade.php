@@ -8,14 +8,12 @@
 <div class="row">
  
     <div class="col-8">
-<<<<<<< HEAD
 
-=======
     	@include('partials.errors')
     	<form class="add_student" method="post" action="/parents/{{$parentRegister->idparent}}/student/add"> 
     		@csrf
     		<input type="hidden" value="{{$parentRegister->idparent}} " name="idparent"></input>
->>>>>>> 74d9d7630154e004e415cf75d1c1090b0e59eeb4
+
 
     		<div class="form-group">
 		    <label for="add_student_first_name">Token Field</label>

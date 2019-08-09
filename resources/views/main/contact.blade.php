@@ -11,7 +11,7 @@
         @csrf
         <p class="h4 mb-4">Contact us</p>
 
-        <h5>Please fill out the fields below and we will contact you shortly</h5>
+        <h5 class="h5 mt-3">Please fill out the fields below and we will contact you shortly</h5>
 
         <!-- Name -->
         <input type="text" id="name" name="name" class="form-control mb-4" placeholder="Name">

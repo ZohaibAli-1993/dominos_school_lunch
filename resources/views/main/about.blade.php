@@ -3,9 +3,8 @@
 @section('content')
 	<div class="container-fluid">
 		<div class="row" id="hero-image">
-			<div class="col">
+			
 				<img id="about-hero-image" src="img/pizza.jpg" alt="Pizza" />
-			</div>
 
 		</div><!-- end row1 -->
 	</div>
@@ -14,7 +13,7 @@
 	<div class="container">
 		<div class="row" id="about">
 			<div class="col">
-				<h2>About Us</h2>
+				<h1 class="h1">About Us</h1>
 
 				<img id="about-image" src="img/Pizza_500.png" alt="Pizza Girl" />
 

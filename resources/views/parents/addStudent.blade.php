@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
 @include('partials.flash')
 <div class="text content">
-<h3>Add student</h3>
+<h3 class="h3">Add student</h3>
 
 <div class="row">
  

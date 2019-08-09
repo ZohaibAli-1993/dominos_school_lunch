@@ -4,7 +4,7 @@
 
 <div class="text content">
 
-<<<<<<< HEAD
+
 
 	<!--background-image: url(pizza_parent_account111.jpg); background-repeat: no-repeat; width: 100%;-->
 <h1>Welcome, {{$parentRegister->first_name}} {{$parentRegister->last_name}}</h1>
@@ -58,7 +58,7 @@
 	</div><!-- /row-->
 </div><!-- /container-->
 
-=======
+
 	@include('partials.flash')
 	<!--background-image: url(pizza_parent_account111.jpg); background-repeat: no-repeat; width: 100%;-->
 	<h1>Welcome, {{$parentRegister->first_name}} {{$parentRegister->last_name}}</h1>
@@ -114,7 +114,7 @@
 			<button type="submit">Submit</button>
 		</form>
 	</div>
->>>>>>> Daphne
+
 
 </div>
 

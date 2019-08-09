@@ -6,7 +6,7 @@ body{
     font-family: 'Gothic A1', sans-serif;
 }
 
-.h1, .h2, .h3, .h4{
+.h1, .h2, .h3, .h4, .h5{
   font-weight: 500;
   color: #006491;
 }
@@ -250,7 +250,7 @@ header{
  * Button style
  */
 
-a.button{
+.button{
 
     display: inline-block;
     color: #fff;
@@ -644,8 +644,8 @@ div#close_box{
 /** hero-image */
 #about-hero-image{
     width: 100%;
+    color:#fff;
     position: relative;
-    top: -80px;
 }
 
 
