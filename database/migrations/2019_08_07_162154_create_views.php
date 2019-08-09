@@ -55,6 +55,7 @@ class CreateViews extends Migration
                       on (students.idclassroom = classrooms.idclassroom)
             )
         ");
+<<<<<<< HEAD
 
         DB::statement("
             CREATE VIEW calendars_act_vw  AS
@@ -85,6 +86,8 @@ class CreateViews extends Migration
             INNER JOIN categories
             on (menu_items.idcategory = categories.idcategory)
         ");
+=======
+>>>>>>> Daphne
     }
 
     /**
@@ -97,7 +100,10 @@ class CreateViews extends Migration
 
         DB::statement("DROP VIEW IF EXISTS events_vw");
         DB::statement("DROP VIEW IF EXISTS classrooms_students_vw");
+<<<<<<< HEAD
         DB::statement("DROP VIEW IF EXISTS calendars_act_vw");
         DB::statement("DROP VIEW IF EXISTS menu_items_vw");
+=======
+>>>>>>> Daphne
     }
 }

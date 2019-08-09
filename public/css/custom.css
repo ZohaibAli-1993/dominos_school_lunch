@@ -245,7 +245,11 @@ form button#join-btn:hover{
 /**
  * Button style
  */
+<<<<<<< HEAD
 a.button{
+=======
+.button{
+>>>>>>> Daphne
     display: inline-block;
     color: #fff;
     background-color: rgba(0, 100, 145,0.8);
@@ -260,11 +264,24 @@ a.button{
     padding: 5px;
 }
 
+<<<<<<< HEAD
 a.button:hover{
+=======
+.button:hover{
+>>>>>>> Daphne
     text-decoration: none;
     box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
 }
 
+<<<<<<< HEAD
+=======
+.button.red{
+    background-color: rgba(227,24,55,0.8);
+    width: auto;
+    margin-left: 0;
+}
+
+>>>>>>> Daphne
 /*-----------------Home Page -  Nguyen Truong (Daphne)-----------------*/
 .home#main_content{
     padding:0;
