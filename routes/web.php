@@ -46,47 +46,7 @@ Route::get('/contact',function(){
 */
 Route::get('/registration',function(){
 return view('main.registration');
-<<<<<<< HEAD
-});
 
-/*
-
-|--------------------------------------------------------------------------
-| school registration Page
-|--------------------------------------------------------------------------
-*/
-Route::get('/school_registration', 'Schools\SchoolsController@create');
-
-Route::post('/school_registration', 'Schools\SchoolsController@store');
-
-/*
-|-------------------------------------------------------------------------
-| login Page
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/login',function(){
-	return view('main.login');
-}); 
-
-
-
-/*
-
-|--------------------------------------------------------------------------
-| parents registration Page
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/parents_registration',function(){
-
-return
-view('main.parents_registration');
-
-});
-
-/*
-=======
 });
 
 /*
