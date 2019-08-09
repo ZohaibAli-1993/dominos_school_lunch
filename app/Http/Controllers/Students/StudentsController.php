@@ -36,7 +36,7 @@ class StudentsController extends Controller
     {
         //
 
-        return view('parents.add_student', compact('parentRegister', 'token'));
+        return view('parents.addStudent', compact('parentRegister', 'token'));
     }
 
     /**
@@ -99,6 +99,7 @@ class StudentsController extends Controller
     public function edit(ParentRegister $parentRegister ,Student $student)
     {
         $classrooms = Classroom::where('idschool', $student['idschool'])->get();
+
         return view('parents.editStudent', compact('parentRegister', 'student', 'classrooms'));
     }
 
