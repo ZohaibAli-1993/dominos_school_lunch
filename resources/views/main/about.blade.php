@@ -12,7 +12,7 @@
 	
 
 	<div class="container">
-		<div class="row">
+		<div class="row" id="about">
 			<div class="col">
 				<h1 class="h1">About Us</h1>
 
