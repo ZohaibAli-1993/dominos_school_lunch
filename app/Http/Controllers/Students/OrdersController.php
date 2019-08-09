@@ -110,7 +110,7 @@ class OrdersController extends Controller
             $all_events[] = $events;
 
             $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get();
-            $all_orders = $orders;
+            $all_orders[] = $orders;
         }
 
         $data = [
