@@ -12,7 +12,7 @@
 */
 
 Route::middleware(['school'])->group(function()
-{
+{   
     //show school profile
     Route::get('/school/{school}', 'Schools\SchoolsController@show');
 
@@ -46,6 +46,7 @@ Route::get('/contact',function(){
 */
 Route::get('/registration',function(){
 return view('main.registration');
+<<<<<<< HEAD
 });
 
 /*
@@ -85,13 +86,52 @@ view('main.parents_registration');
 });
 
 /*
+=======
+});
+
+/*
+
+|--------------------------------------------------------------------------
+| school registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/school_registration', 'Schools\SchoolsController@create');
+
+Route::post('/school_registration', 'Schools\SchoolsController@store');
+
+/*
+|-------------------------------------------------------------------------
+| login Page
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/login',function(){
+	return view('main.login');
+}); 
+
+
+
+/*
+
+|--------------------------------------------------------------------------
+| parents registration Page
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/parents_registration',function(){
+
+return
+view('main.parents_registration');
+
+});
+
+/*
+>>>>>>> Daphne
 |--------------------------------------------------------------------------
 | contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/login',function(){
-	return view('main.login');
-}); 
+
 
 Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
@@ -187,6 +227,7 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 | PARENTS ROUTES
 |--------------------------------------------------------------------------
 */
+<<<<<<< HEAD
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
@@ -194,7 +235,7 @@ Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersControll
 Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
 
 
-Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');
+Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
 
 Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
@@ -218,6 +259,41 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
+=======
+
+Route::get('/parents/order','Students\OrdersController@showOrder');
+Route::post('/parents/order','Students\OrdersController@store');
+Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
+
+
+Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
+
+Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
+
+Route::get('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@edit');
+
+Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@update');
+
+Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
+
+Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
+
+
+/*
+|--------------------------------------------------------------------------
+| SCHOOL EVENTS ROUTES
+|--------------------------------------------------------------------------
+*/
+Route::get('/schools/events', 'Schools\EventsController@index');
+
+Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
+
+Route::put('/schools/events', 'Schools\EventsController@update');
+
+Route::get('/schools/events','Schools\EventsController@index');
+
+>>>>>>> Daphne
 
 /**FOOTER CONTENT LINKS */
 
@@ -229,10 +305,11 @@ Route::get('/content/privacy', function(){return view('content.privacy');});
 /**Parents Registration */  
 Route::post('/registration','students\ParentsRegisterController@store'); 
 Route::middleware(['parents'])->group(function() 
-{
+{ 
+
 
 });
-
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/content/privacy', function(){return view('content.privacy');});
 Auth::routes();
 

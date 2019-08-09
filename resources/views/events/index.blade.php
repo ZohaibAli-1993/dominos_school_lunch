@@ -10,12 +10,21 @@
 
 <div class="container">
 
+<<<<<<< HEAD
+    <h1 class="h1"> {{ $school->school_name }} </h1>
+	<h2 class="h2">Events</h2>
+
+	@include('partials.flash')
+	@include('partials.errors')
+
+=======
 	@include('partials.errors')
 
 	<h1 class="h1">Events</h1>
 
 
 
+>>>>>>> Daphne
 	<div id="calendar_events">
 
 		<div class="row">
