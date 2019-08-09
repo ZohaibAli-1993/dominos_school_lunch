@@ -19,16 +19,16 @@
 
     		<div class="form-group">
 		    <label for="add_student_first_name">Token Field</label>
-		    <input type="text" class="form-control" id="add_student_first_name" placeholder="First name" name="first_name">
+		    <input type="text" class="form-control col-lg-4" id="add_student_first_name" placeholder="First name" name="first_name">
 		  </div>
 
 		  <div class="form-group">
 		    <label for="add_student_first_name">First Name</label>
-		    <input type="text" class="form-control" id="add_student_first_name" placeholder="First name" name="first_name">
+		    <input type="text" class="form-control col-lg-4" id="add_student_first_name" placeholder="First name" name="first_name">
 		  </div>
 		  <div class="form-group">
 		    <label for="add_student_last_name">Last Name</label>
-		    <input type="text" class="form-control" id="add_student_last_name" placeholder="Last name" name="last_name">
+		    <input type="text" class="form-control col-lg-4" id="add_student_last_name" placeholder="Last name" name="last_name">
 		  </div>
 		  <div class="form-group">
 		    <label for="add_student_classroom">Classroom</label>
