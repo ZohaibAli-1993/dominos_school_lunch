@@ -4,6 +4,7 @@
 
 body{
     font-family: 'Gothic A1', sans-serif;
+    font-size: 16px;
 }
 
 .h1, .h2, .h3, .h4, .h5{
@@ -167,25 +168,11 @@ header{
     top: -40px;
 }
 
-/** about image */
+/** about image 
 #about-image{
-    float:right;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
+    top: -40px;
+}*/
 
-#about.row .col  h2{
-    color:#006491;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-#about.row .col p{
-    font-size: 16px;
-    
-}
 
 /** Subscribe partial  */
 
@@ -640,7 +627,7 @@ div#close_box{
 
 /** hero-image */
 #about-hero-image{
-    width: 100%;
+    height: 85vh;
     color:#fff;
     position: relative;
 }

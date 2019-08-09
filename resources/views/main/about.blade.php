@@ -4,7 +4,7 @@
 	<div class="container-fluid">
 		<div class="row" id="hero-image">
 			
-				<img id="about-hero-image" src="img/pizza.jpg" alt="Pizza" width="100%" />
+				<img id="about-hero-image" src="img/hero_about.png" alt="Pizza" width="100%" />
 
 		</div><!-- end row1 -->
 	</div>
