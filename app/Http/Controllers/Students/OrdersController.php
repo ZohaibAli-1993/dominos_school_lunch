@@ -149,6 +149,7 @@ class OrdersController extends Controller
     {   
         $input = $request->all();
         $order =[];
+        $idevent = $request->input('idevent');
 
         foreach($input as $field=>$value )
         {
@@ -156,9 +157,11 @@ class OrdersController extends Controller
             {
 
                 $iditem = str_replace("qty","",$field);
+                $final_price= DB::table('event_items')->where('idevent','=',$idevent)->where('iditem','=',$iditem)->get();
                 $row = [
                     'iditem' => $iditem,
-                    'description' => DB::table('menu_items')->where('iditem','=', $iditem)->first(['item_name']),
+                    'item_name' => DB::table('menu_items')->where('iditem','=', $iditem)->first(['item_name']),
+                    'final_price' => $final_price,
                     'qty' => $value
                 ];
                 $order[] = $row;
@@ -166,7 +169,7 @@ class OrdersController extends Controller
         }
         
 
-        var_dump($order);die;
+        //var_dump($order);die;
 
         return view('parents.checkout', compact('order'));
     }
