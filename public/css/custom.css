@@ -245,7 +245,7 @@ form button#join-btn:hover{
 /**
  * Button style
  */
-a.button{
+.button{
     display: inline-block;
     color: #fff;
     background-color: rgba(0, 100, 145,0.8);
@@ -260,9 +260,15 @@ a.button{
     padding: 5px;
 }
 
-a.button:hover{
+.button:hover{
     text-decoration: none;
     box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
+}
+
+.button.red{
+    background-color: rgba(227,24,55,0.8);
+    width: auto;
+    margin-left: 0;
 }
 
 /*-----------------Home Page -  Nguyen Truong (Daphne)-----------------*/

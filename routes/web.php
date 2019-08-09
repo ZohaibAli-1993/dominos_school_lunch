@@ -194,10 +194,15 @@ Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
 
 Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
+Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
 
-Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
+Route::get('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@edit');
 
-Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
+Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@update');
+
+Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
+
+Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
 
 
 /*
