@@ -33,11 +33,8 @@ Route::get('/', function () {
 | Contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/contact',function(){
+Route::post('/contact', 'Dominos\ContactsController@store');
 
-	return view('main.contact');
-
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -97,12 +94,12 @@ Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
 });
 
-Route::post('/contact','Home@contact');  
+//Route::post('/contact','Home@contact');  
 
 
 
 
-Route::post('/contact','Home@contact');
+//Route::post('/contact','Home@contact');
 
 Route::post('/registration','students\ParentsController@store');
 

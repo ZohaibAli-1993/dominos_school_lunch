@@ -45,7 +45,7 @@ class ContactsController extends Controller
 
         $new_contact = Contact::create($valid);
 
-        return redirect('/contact'); 
+        return redirect('main.contact'); 
     }
 
     /**
