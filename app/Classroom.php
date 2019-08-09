@@ -12,4 +12,5 @@ class Classroom extends Model
      * @var string
      */
     protected $primaryKey = 'idclassroom';
+    protected $fillable = ['name', 'description'];
 }

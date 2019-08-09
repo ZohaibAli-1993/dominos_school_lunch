@@ -57,7 +57,7 @@ class SchoolsController extends Controller
             'postal_code' => 'required|string',
             'coordinator_first_name' => 'required|string|min:3',
             'coordinator_last_name' => 'required|string|min:3',
-            'email' => 'required|email',
+            'email' => 'required|email|unique',
             'phone' => 'required|regex:/^(?(?=.*\))\()[0-9]{3}[\)]?[\-\s]?[0-9]{3}[\-\s]?[0-9]{4}$/',
             'password' => 'required|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/',
             'verify_password' => 'required_with:password|same:password|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/'

@@ -63,7 +63,19 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        /**
+         * Read setup table to get cutoff_days
+         * 
+         */
+        $setup = Setup::find(1);
+
+        /**
+         * Read calendar table to get begin and end dates
+         * 
+         */
+        $calendar = Calendar::find(1);  //////****** alter to get next calendar
+
+        return view('events.create', compact('setup', 'calendar' ));
     }
 
     /**
@@ -74,7 +86,20 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // Validate form submition
+        $valid = $request->validate([
+            'idschool' => 'required|integer',
+            'event_name' => 'required|string',
+            'event_date' => 'required|date',
+            'cutoff_date' => 'required|date',
+            'event_time' => 'required'
+        ]);
+
+       //Insert new Event in the table
+       $event = Post::create($valid);
+
+       return redirect('/schools/events')->with('success', 'Event was added');
     }
 
     /**

@@ -12,7 +12,7 @@
 */
 
 Route::middleware(['school'])->group(function()
-{
+{   
     //show school profile
     Route::get('/school/{school}', 'Schools\SchoolsController@show');
 
@@ -89,13 +89,14 @@ view('main.parents_registration');
 | contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/login',function(){
-	return view('main.login');
-}); 
+
 
 Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
 });
+
+Route::post('/contact','Home@contact');  
+
 
 
 
@@ -103,14 +104,22 @@ Route::post('/contact','Home@contact');
 
 Route::post('/registration','students\ParentsController@store');
 
+
 /*
 |--------------------------------------------------------------------------
 | about Page
 |--------------------------------------------------------------------------
 */
 Route::get('/about',function(){
-	return view('main.about');
-});
+
+    return view('main.about')
+;}); 
+Route::get('/new',function(){
+    return view('captcha')
+;});
+
+
+
 
 
 /*
@@ -139,18 +148,49 @@ Route::get('/schools/', function(){
 Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
 
-Route::get('/schools/classrooms',function(){return
-view('schools.classrooms');});
 
+
+//Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
+
+Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
+
+Route::post('/schools/classrooms','Schools\ClassroomsController@store');
+
+Route::put('/schools/classrooms','Schools\ClassroomsController@update');
+
+Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+
+
+//Route::get('/schools/menu',function(){return view('schools.menu');});
+Route::get('/schools/events',function(){return view('schools.events');});
+
+//Route::get('/schools/classrooms',function(){return
+//view('schools.classrooms');});
+
+
+//Route::get('/schools/menu',function(){return
+//view('schools.menu');});
+
+
+
+/**SCHOOL EVENTS ROUTES */
+Route::get('/schools/events/create', 'Schools\EventsController@create');
+Route::post('/schools/events/create', 'Schools\EventsController@store');
+Route::get('/schools/events', 'Schools\EventsController@index');
+Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
+Route::put('/schools/events', 'Schools\EventsController@update');
 
 /*
 |--------------------------------------------------------------------------
 | PARENTS ROUTES
 |--------------------------------------------------------------------------
 */
-Route::get('/parents/order','Students\OrdersController@showOrder');
 
-Route::post('/parents/order','Students.OrdersController@store');
+Route::get('/parents/order','Students\OrdersController@showOrder');
+Route::post('/parents/order','Students\OrdersController@store');
+Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
+
 
 Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
@@ -176,6 +216,25 @@ Route::get('/schools/events','Schools\EventsController@index');
 
 /**FOOTER CONTENT LINKS */
 
+Route::get('/content/gift-card', function(){return view('content.cards');});
+Route::get('/content/terms', function(){return view('content.terms');});
+Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
+
+Route::get('/content/privacy', function(){return view('content.privacy');}); 
+/**Parents Registration */  
+Route::post('/registration','students\ParentsRegisterController@store'); 
+Route::middleware(['parents'])->group(function() 
+{ 
+
+
+});
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/content/privacy', function(){return view('content.privacy');});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
 Route::get('/content/gift-card',
 function(){return
 view('content.cards');});
@@ -198,5 +257,6 @@ Auth::routes();
 
 Route::get('/home',
 'HomeController@index')->name('home');
+
 
 

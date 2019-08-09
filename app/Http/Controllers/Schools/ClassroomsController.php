@@ -6,7 +6,6 @@ use App\Classroom;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Classroom;
 
 class ClassroomsController extends Controller
 {
@@ -41,7 +40,15 @@ class ClassroomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'classroom'=>'required',
+            'description' => 'required',
+        ]);
+
+
+        $new_classroom = Classroom::create($valid);
+ 
+        return redirect('/schools/classrooms');
     }
 
     /**
@@ -75,7 +82,17 @@ class ClassroomsController extends Controller
      */
     public function update(Request $request, Classroom $classroom)
     {
-        //
+        $valid = $request->validate([
+            'classroom'=>'required',
+            'description' => 'required',
+        ]);
+
+        $classroom=Classroom::find($valid['idclassroom']);
+        $classroom->title = $valid['classroom'];
+        $classroom->body = $valid['description'];
+        $classroom->save();
+
+        return redirect('/schools/classrooms');
     }
 
     /**
@@ -86,6 +103,8 @@ class ClassroomsController extends Controller
      */
     public function destroy(Classroom $classroom)
     {
-        //
+        $classroom->delete();
+        return redirect('/schools/classrooms');
+
     }
 }

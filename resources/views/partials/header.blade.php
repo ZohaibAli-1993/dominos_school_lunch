@@ -33,12 +33,21 @@
 
             <!-- Header icons-->
             <div id="header_icons">
+                @if (Route::has('login'))
+                   <p class="user_icon">
+                    @auth
+                        <a href="{{ url('/logout') }}">Logout</a>
+                    @else
+                        
 
-                <p class="user_icon">
-
-                    <a href="/login"><i class="far fa-user"></i></a>
-
-                </p>
+                 <a href="{{ url('/login') }}"><i class="far fa-user"a "></i></a>
+                    
+                
+                  @endauth 
+              </p>
+                
+            @endif
+                
 
                 <p class="contact_icon">
 
@@ -132,24 +141,32 @@
                         <!-- Icon -->
                         <div class="fadeIn first">
                             <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
-                            <h2 class="my-5">Sign In</h2>
+                            <h2 class="my-5">{{ __('Login') }}</h2>
                         </div>
 
                         <!-- Login Form -->
-                        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                        <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <input type="email" id="email" class="fadeIn second zero-raduis" name="email"
-                                placeholder="email">
-                            <input type="text" id="password" class="fadeIn third zero-raduis" name="login"
-                                placeholder="password">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> 
+                            @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"> 
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             <div id="formFooter">
                                 <a class="underlineHover" href="#">Forgot Password?</a>
                             </div>
                             <input type="submit" class="fadeIn fourth zero-raduis" value="login">
-                            <h3>You don't have a account ?</h3>
-                            <input type="button" class="fadeIn fourth zero-raduis pc close" value="register"
-                                data-toggle="modal" data-target="#exampleModalRegister" data-dismiss="modal"
-                                aria-label="Close">
+                            <p>You don't have a account ?</p> 
+                            <a href="/registration">
+                            <input type="button" class="fadeIn fourth zero-raduis pc close" value="register"> 
+                            </a>
                         </form>
 
 
