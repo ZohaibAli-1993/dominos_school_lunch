@@ -59,20 +59,50 @@
 
     </div><!-- /container -->
 
+    <noscript>
+        This page required JavaScript. Please enable it
+    </noscript>
+
     <script>
     $(document).ready(function() {
         $(".flash").hide()
             .slideDown()
             .delay(2000)
             .slideUp('slow');
-    });
 
-    $(document).ready(function() {
         $(".password").bind('copy paste cut', function(e) {
             e.preventDefault();
-            alert('cut,copy & paste options are disabled !!');
-        })
-    });
+            alert('cut,copy & paste options are disabled !');
+        });
+
+        $('.show_form').click(function(e){
+            //$('#add_form').css('display', 'block');
+            //$('.show_form').css( 'display', 'none' );
+
+        });
+    });// .document.ready
+
+
+
+$(".btn-refresh").click(function(){
+
+    $.ajax({
+     
+    type:'GET',
+
+    url:'/refresh_captcha',
+
+    success:function(data){
+      
+        $(".captcha span").html(data.captcha); 
+        window.location.reload();
+     }
+
+    });// .ajax
+
+});// .click event
+
+
     </script>
 </footer>
 <!-- Footer -->
