@@ -3,12 +3,10 @@
 /**MONIKA*/
 
 body{
-
     font-family: 'Gothic A1', sans-serif;
 }
 
 #container{
-
     position: relative;
 }
 
@@ -194,6 +192,7 @@ header{
 
 /** newsletter styles */
 .newsletter{
+    margin-top: 20px;
     background-color: #d9e8ef; 
     text-align: center;
     padding-top: 15px;
@@ -242,6 +241,37 @@ form button#join-btn:hover{
 
 /**END Monika*/
 
+/**
+ * Button style
+ */
+
+a.button{
+
+    display: inline-block;
+    color: #fff;
+    background-color: rgba(0, 100, 145,0.8);
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px #fff;
+    transition: all ease-in-out 0.8s;
+    font-weight: bold;
+    min-width: 70px;
+    line-height: 2em;
+    text-align: center;
+    min-height: 30px;
+    padding: 5px;
+}
+
+
+.button:hover{
+    text-decoration: none;
+    box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
+}
+
+.button.red{
+    background-color: rgba(227,24,55,0.8);
+    width: auto;
+    margin-left: 0;
+}
 /*-----------------Home Page -  Nguyen Truong (Daphne)-----------------*/
 .home#main_content{
     padding:0;
@@ -249,6 +279,7 @@ form button#join-btn:hover{
 /* Hero image for home page*/
 #home_header{
     background-image: url(/img/hero_img.jpg);
+    /**background-image: url(/img/image_home.jpg);**/
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
@@ -561,7 +592,7 @@ div#close_box{
 
 /*-----------------End School Profile Page-----------------*/
 
-/*-----------------School Edit School Profile Page-----------------*/
+/*-----------------Edit School Profile Page - Daphne-----------------*/
 
 #edit form #edit_butt{
     background-color: rgba(0, 100, 145,0.8);
@@ -594,6 +625,13 @@ div#close_box{
 
 /*-----------------End Edit School Profile Page-----------------*/
 
+/*-----------------Parents Home Page - Daphne-----------------*/
+/*#add_form{
+  display: none;
+}*/
+
+/*-----------------End Parents Home Page - Daphne-----------------*/
+
 /**END Monika*/
 
 /** -------------------AMANDEEP ------------------------------------- */
@@ -612,8 +650,6 @@ div#close_box{
     position: static;
     
 }
-
-
 
 /** newsletter styles */
 .newsletter{
@@ -1491,6 +1527,7 @@ nav > .nav.nav-tabs{
 
 /*-----------------------------Maryna Footer Part -------------------------------------*/
 footer{
+    margin-top: 30px;
     width: 100%;
     min-height: 200px;
     background-color: #006491;
@@ -1556,10 +1593,10 @@ div.content.text{
     margin: 0 auto;
 }
 .parents,.School{ 
-height: 60px; 
-width: 150px; 
-background-color: red; 
-margin-left: 30px; 
+  height: 60px; 
+  width: 150px; 
+  background-color: red; 
+  margin-left: 30px; 
 
  }
 
@@ -1592,90 +1629,90 @@ margin-left: 30px;
 
   /* ----- CSS for modal box ---------- */
 
-    #overlay{
-        background: #000;
-        opacity: 0;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 1000;
-        pointer-events: none;
-      }
-
-    #modal{
-        width: 450px;
-        height: 250px;
-        position: absolute;
-        top: 410px;
-        left: -150px;
-        background: #fff;
-        border: 3px solid #006491;
-        border-radius: 15px;
-        z-index: 10000;
-        display: none;
-        padding: 15px;
-      }
-    #close_modal{
-        width: 55px;
-        height: 25px;
-        line-height: 20px;
-        position: absolute;
-        border: 2px solid #e51937;
-        border-radius: 5px;
-        background: #fff;
-        color: #f00;
-        font-weight: 700;
-        text-align: center;
-        cursor: pointer;
-        top: 3px;
-        right: 5px;
-      }
-    #display_modal{
-        background-color: #006491;
-        color: #fff;
-        margin-right: auto;
-        border: none;
-        margin-left: 17px;
-        width: 50px;
-        height: 35px;
-        padding-left: 10px;
-        font-size: 18px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        border-radius: 10px;
-        margin-top: 7px;
-        margin-bottom: 20px;
-        display: inline-block;
-        cursor: pointer;
-        font-style: italic;
-
-      }
-    #display_modal:hover{
-        color: #fff;
-        opacity: 0.65;
-
-      }
-      
-      /* ------------CSS for modal box ends -------- */
-
-    .add_student{
-      color: #006491;
-      font-weight: 500;
+  #overlay{
+      background: #000;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1000;
+      pointer-events: none;
     }
 
-    #add_student_btn{
-      background-color: #e51937;
-      padding: 5px;
+  #modal{
+      width: 450px;
+      height: 250px;
+      position: absolute;
+      top: 410px;
+      left: -150px;
+      background: #fff;
+      border: 3px solid #006491;
+      border-radius: 15px;
+      z-index: 10000;
+      display: none;
+      padding: 15px;
+    }
+  #close_modal{
+      width: 55px;
+      height: 25px;
+      line-height: 20px;
+      position: absolute;
+      border: 2px solid #e51937;
+      border-radius: 5px;
+      background: #fff;
+      color: #f00;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      top: 3px;
+      right: 5px;
+    }
+  #display_modal{
+      background-color: #006491;
       color: #fff;
-      margin-bottom: 10px;
-      border: 1px solid #e51937;
+      margin-right: auto;
+      border: none;
+      margin-left: 17px;
+      width: 50px;
+      height: 35px;
+      padding-left: 10px;
+      font-size: 18px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      border-radius: 10px;
+      margin-top: 7px;
+      margin-bottom: 20px;
+      display: inline-block;
+      cursor: pointer;
+      font-style: italic;
+
     }
-    .add_student input,
-    .add_student select{
-      background-color: #ccd8de;
+  #display_modal:hover{
+      color: #fff;
+      opacity: 0.65;
+
     }
+    
+    /* ------------CSS for modal box ends -------- */
+
+  .add_student{
+    color: #006491;
+    font-weight: 500;
+  }
+
+  #add_student_btn{
+    background-color: #e51937;
+    padding: 5px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #e51937;
+  }
+  .add_student input,
+  .add_student select{
+    background-color: #ccd8de;
+  }
 
 
 

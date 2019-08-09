@@ -144,4 +144,30 @@ class OrdersController extends Controller
         ];
         return view('parents.neworder', compact('data'));
     }
+
+    public function checkout(Request $request)
+    {   
+        $input = $request->all();
+        $order =[];
+
+        foreach($input as $field=>$value )
+        {
+            if(strpos($field, 'qty') !== false)
+            {
+
+                $iditem = str_replace("qty","",$field);
+                $row = [
+                    'iditem' => $iditem,
+                    'description' => DB::table('menu_items')->where('iditem','=', $iditem)->first(['item_name']),
+                    'qty' => $value
+                ];
+                $order[] = $row;
+            }
+        }
+        
+
+        var_dump($order);die;
+
+        return view('parents.checkout', compact('order'));
+    }
 }

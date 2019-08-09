@@ -38,17 +38,14 @@
 				<br/>
 				<br/>
 				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
+				
 
 			</div><!-- end col -->
 
 		</div><!-- end row2 -->
+
 		
 	</div><!-- end container -->
+@include('partials.subscribe')
 
 @endsection

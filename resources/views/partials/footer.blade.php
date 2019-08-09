@@ -1,8 +1,7 @@
-</div>
+
 <!--End main_content-->
 <!-- Footer -->
-<footer class="page-footer">
-    <div class="container">
+<footer class="page-footer mt-5">
         <div class="row">
             <div class="col-8">
                 <div class="footer-logo"><span>Domino's</span><br />
@@ -57,7 +56,11 @@
 
         </div><!-- /row-->
 
-    </div><!-- /container -->
+    
+
+    <noscript>
+        This page required JavaScript. Please enable it
+    </noscript>
 
     <script>
     $(document).ready(function() {
@@ -65,39 +68,41 @@
             .slideDown()
             .delay(2000)
             .slideUp('slow');
-    });
 
-    $(document).ready(function() {
         $(".password").bind('copy paste cut', function(e) {
             e.preventDefault();
-            alert('cut,copy & paste options are disabled !!');
-        })
-    }); 
+            alert('cut,copy & paste options are disabled !');
+        });
 
+        $('.show_form').click(function(e){
+            //$('#add_form').css('display', 'block');
+            //$('.show_form').css( 'display', 'none' );
+
+        });
+    });// .document.ready
 
 
 
 $(".btn-refresh").click(function(){
 
-  $.ajax({
+    $.ajax({
      
-     type:'GET',
+    type:'GET',
 
-     url:'/refresh_captcha',
+    url:'/refresh_captcha',
 
-     success:function(data){
+    success:function(data){
       
         $(".captcha span").html(data.captcha); 
         window.location.reload();
-
      }
 
-  });
+    });// .ajax
 
-});
-
+});// .click event
 
 
     </script>
 </footer>
+</div><!-- /container -->
 <!-- Footer -->

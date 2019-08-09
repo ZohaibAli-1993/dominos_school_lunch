@@ -6,14 +6,25 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+<<<<<<< HEAD
+use App\School;
+use App\Setup;
+use App\Calendar;
+use App\MenuItem;
+=======
 use App\Schools;
 use App\Setup;
 use App\Calendar;
+>>>>>>> Daphne
 
 use Illuminate\Support\Facades\DB;
 
 class EventsController extends Controller
 {
+<<<<<<< HEAD
+
+=======
+>>>>>>> Daphne
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +33,19 @@ class EventsController extends Controller
     public function index()
     {
 
+<<<<<<< HEAD
+        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+
+        //Get school data
+        $school = School::where('idschool', $school_id)->first();
+
+        //Get events list according to the school logged in
+        $events_list = DB::table('events_vw')->where('idschool', $school_id)->get();
+=======
         $school = 1;   // It is necessary to update according school logged in
        // $events = Event::where('idschool', $school);
         $events_list = DB::table('events_vw')->get();
+>>>>>>> Daphne
 
         $year_prev = 0;
         $month_prev = 0;
@@ -43,6 +64,10 @@ class EventsController extends Controller
                        [$event->month_event]
                        [$event->day_event]= array();
             }
+<<<<<<< HEAD
+
+=======
+>>>>>>> Daphne
             $values = array('startTime' => $event->event_time,
                             'endTime' => $event->event_time,
                             'text'=> $event->event_name,
@@ -53,7 +78,11 @@ class EventsController extends Controller
         }
 
 
+<<<<<<< HEAD
+        return view('events.index', compact('events', 'events_list', 'school'));
+=======
         return view('events.index', compact('events'), compact('events_list'));
+>>>>>>> Daphne
     }
 
     /**
@@ -63,6 +92,26 @@ class EventsController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
+
+        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+
+        //Get school data
+        $school = School::where('idschool', $school_id)->first();
+        
+        // Read setup table to get cutoff_days
+        $setup = Setup::find(1);
+
+        // Get first active calendar table to get begin and end dates
+        $calendar = DB::table('calendars_act_vw')->first();
+
+        // Get list of menu_items
+        $menu_items = DB::table('menu_items_vw')->get();
+        //$menu_items = MenuItem::get();
+
+        return view('events.create', 
+            compact('setup', 'calendar', 'school', 'menu_items' ));
+=======
         /**
          * Read setup table to get cutoff_days
          * 
@@ -76,6 +125,7 @@ class EventsController extends Controller
         $calendar = Calendar::find(1);  //////****** alter to get next calendar
 
         return view('events.create', compact('setup', 'calendar' ));
+>>>>>>> Daphne
     }
 
     /**
@@ -97,7 +147,16 @@ class EventsController extends Controller
         ]);
 
        //Insert new Event in the table
+<<<<<<< HEAD
+       $event = Event::create($valid);
+
+        //If any menu item was checked, insert event items in table
+      /*if(count(request('event_items'))){
+            $event->eventItems()->attach(request('event_items'));
+       }*/
+=======
        $event = Post::create($valid);
+>>>>>>> Daphne
 
        return redirect('/schools/events')->with('success', 'Event was added');
     }
@@ -122,6 +181,14 @@ class EventsController extends Controller
     public function edit(Event $event)
     {
 
+<<<<<<< HEAD
+        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+
+        //Get school data
+        $school = School::where('idschool', $school_id)->first();
+
+=======
+>>>>>>> Daphne
         /**
          * Read setup table to get cutoff_days
          * 
@@ -132,9 +199,15 @@ class EventsController extends Controller
          * Read calendar table to get begin and end dates
          * 
          */
+<<<<<<< HEAD
+        $calendar = DB::table('calendars_act_vw')->first();
+
+        return view('events.edit', compact('event', 'setup', 'calendar', 'school' ));
+=======
         $calendar = Calendar::find(1);  //////****** alter to get next calendar
 
         return view('events.edit', compact('event', 'setup', 'calendar' ));
+>>>>>>> Daphne
     }
 
     /**
