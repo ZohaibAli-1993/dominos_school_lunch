@@ -85,7 +85,6 @@ view('main.parents_registration');
 });
 
 /*
-=======
 });
 
 /*
@@ -240,6 +239,9 @@ Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterCon
 
 Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
 
+/** Subscription routes  */
+Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
+Route::post('/home', 'Dominos\SubscriptionsController@store');
 
 /*
 |--------------------------------------------------------------------------
@@ -331,6 +333,4 @@ Auth::routes();
 
 Route::get('/home',
 'HomeController@index')->name('home');
-
-
 

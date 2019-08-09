@@ -39,7 +39,7 @@
             <label for="password" class="col-md-4 control-label">Captcha</label>
 
 
-            <div class="col-md-12">footer
+            <div class="col-md-12">
 
                 <div class="captcha">
 
@@ -72,4 +72,7 @@
     </form>
     <!-- Default form contact -->
 </div>
+
+@include('partials.subscribe')
+
 @endsection

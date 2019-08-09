@@ -4,12 +4,18 @@
 		<p>Subscribe to get special offers, free giveaways, and one-in-a-lifetime deals.<br />
 		We promise to send emails you with love.</p>
 	</div>
+   @include('partials.errors')
+   <div class="form-group">
+		<form id="join-form" action="/home" method="post">
+			@csrf
+	    		<input type="hidden"></input>
+	        
 
-	<form id="join-form" action="" method="post">
+			<input class="form-control col-lg-4" type="text" name="email" placeholder="Enter your email address" value="">
+			<button class="btn btn-primary" >Join</button>
 
-		<input type="text" name="subscription" placeholder="Enter your email address" value="">
-		<button id="join-btn" >Join</button>
-
-	</form>
+		</form>
+	</div>
+	@include('partials.flash')
 </div><!-- end col-->
 
