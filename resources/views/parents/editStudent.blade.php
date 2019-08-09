@@ -3,7 +3,7 @@
 @section('content')
 @include('partials.flash')
 <div class="text content">
-<h3>Edit {{$student['first_name']}} {{$student['last_name']}}'s Profile</h3>
+<h3 class="h3">Edit {{$student['first_name']}} {{$student['last_name']}}'s Profile</h3>
 
 <div class="row">
  

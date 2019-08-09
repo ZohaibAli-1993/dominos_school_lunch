@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="text content">
-    <h2>New Order</h2>
+    <h2 class="h2">New Order</h2>
     <div class="row">
         <strong>Event Id:</strong> {{ $data['event']->idevent }}
     </div>
@@ -24,7 +24,7 @@
                     <div class="table-responsive text-nowrap">
                         <form action="/parents/order/checkout" method="post">
                             @csrf
-                            <input type="hidden" name="idevent" value="{{$data['event']->idevent}}">
+                        
                             <table class="table">
                                 <thead>
                                     <tr>
