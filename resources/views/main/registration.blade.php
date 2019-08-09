@@ -46,7 +46,7 @@
 <div id="register_main" class="container">
 	<div class="row">
 		<div class="col">
-			<h1>Registration Page</h1>
+			<h1 class="h1">Registration Page</h1>
 		</div><!-- /col-->
 	</div><!-- /row-->
 	
