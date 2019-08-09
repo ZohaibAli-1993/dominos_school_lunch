@@ -1,7 +1,5 @@
- <?php
-
+<?php
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Subscription extends Model
@@ -13,5 +11,5 @@ class Subscription extends Model
      * @var string
      */
     protected $primaryKey = 'idsubscription';
-    protected $fillable=['subscription_email'];
+    protected $fillable=['email'];
 }
