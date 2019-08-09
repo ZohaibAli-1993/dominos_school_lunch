@@ -6,6 +6,11 @@ body{
     font-family: 'Gothic A1', sans-serif;
 }
 
+.h1, .h2, .h3, .h4{
+  font-weight: 500;
+  color: #006491;
+}
+
 #container{
     position: relative;
 }
