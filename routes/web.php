@@ -46,7 +46,6 @@ Route::get('/contact',function(){
 */
 Route::get('/registration',function(){
 return view('main.registration');
-<<<<<<< HEAD
 });
 
 /*
@@ -86,7 +85,6 @@ view('main.parents_registration');
 });
 
 /*
-=======
 });
 
 /*
@@ -227,7 +225,6 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 | PARENTS ROUTES
 |--------------------------------------------------------------------------
 */
-<<<<<<< HEAD
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
@@ -259,7 +256,6 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
-=======
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
@@ -293,7 +289,6 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
->>>>>>> Daphne
 
 /**FOOTER CONTENT LINKS */
 
