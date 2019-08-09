@@ -251,7 +251,7 @@ header{
  * Button style
  */
 
-a.button{
+.button{
 
     display: inline-block;
     color: #fff;
