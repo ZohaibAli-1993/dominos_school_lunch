@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\EventItem;
 
+
 class Event extends Model
 {
     /**
@@ -23,4 +24,5 @@ class Event extends Model
     public function eventItems(){
         return $this->hasMany(EventItem::class);
     }
+
 }

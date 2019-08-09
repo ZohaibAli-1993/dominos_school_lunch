@@ -6,6 +6,11 @@ body{
     font-family: 'Gothic A1', sans-serif;
 }
 
+.h1, .h2, .h3, .h4{
+  font-weight: 500;
+  color: #006491;
+}
+
 #container{
     position: relative;
 }
@@ -153,13 +158,13 @@ header{
 
 /**END Monika*/
 
-
+/************------------Amandeep-------------------*/
 
 /** hero-image */
-#about-hero-image{
+.container-fluid #about-hero-image{
     width: 100%;
     padding: 0px;
-    margin-bottom: 30px;
+    top: -80px;
 }
 
 /** about image */
@@ -167,16 +172,17 @@ header{
     float:right;
     margin-bottom: 20px;
     margin-left: 20px;
+    margin-top: 20px;
 }
 
-.row .col  h2{
+#about.row .col  h2{
     color:#006491;
     font-family: 'Gothic A1', sans-serif;
     font-weight: bold;
     margin-top: 10px;
 }
 
-.row .col p{
+#about.row .col p{
     font-size: 16px;
     
 }
@@ -185,7 +191,7 @@ header{
 
 .subscription-layout{
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 
@@ -214,7 +220,7 @@ header{
     height: 100%;
 }
 
-#join-form form{
+.subscription-layout #join-form form{
     top: 85%;
     left:35%;
     text-align: center;
@@ -225,7 +231,7 @@ header{
     height: 35px;
 }
 
-form button#join-btn{
+.subscription-layout form button#join-btn{
     border: 1px solid #e51937;
     color: #fff;
     background-color: #e51937;
@@ -233,7 +239,7 @@ form button#join-btn{
     transition: all ease-in-out 0.4s;
 }
 
-form button#join-btn:hover{
+.subscription-layout form button#join-btn:hover{
     box-shadow: inset 0 0 7px #fff;
 }
 

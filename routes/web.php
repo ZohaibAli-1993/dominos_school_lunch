@@ -33,11 +33,8 @@ Route::get('/', function () {
 | Contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/contact',function(){
+Route::post('/contact', 'Dominos\ContactsController@store');
 
-	return view('main.contact');
-
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -84,11 +81,8 @@ view('main.parents_registration');
 
 });
 
-/*
-});
 
 /*
-
 |--------------------------------------------------------------------------
 | school registration Page
 |--------------------------------------------------------------------------
@@ -135,12 +129,12 @@ Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
 });
 
-Route::post('/contact','Home@contact');  
+//Route::post('/contact','Home@contact');  
 
 
 
 
-Route::post('/contact','Home@contact');
+//Route::post('/contact','Home@contact');
 
 Route::post('/registration','students\ParentsController@store');
 
@@ -202,7 +196,7 @@ Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@de
 
 
 //Route::get('/schools/menu',function(){return view('schools.menu');});
-Route::get('/schools/events',function(){return view('schools.events');});
+
 
 //Route::get('/schools/classrooms',function(){return
 //view('schools.classrooms');});

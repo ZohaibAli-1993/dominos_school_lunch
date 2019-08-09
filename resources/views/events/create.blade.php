@@ -10,7 +10,7 @@
 @section('content')
 
 <script type="text/javascript">
-<<<<<<< HEAD
+
 
     //Get begin and end date of active calendar
 	begin = new Date("{{ $calendar->begin_dt }} 00:00:00");
@@ -60,45 +60,16 @@
 		});
     } );
 
-
-=======
-	/*
-	 * On change of the event date, recalculate cutoff date
-	 */
-	/*$('#event_date').on('change', function(e){
-       $(this).closest('form').submit();
-    });*/
-
-	/*
-	 * Defines event date as datepicker, creating default values
-	 */
-    $( function() {
-		$( "#event_date" ).datepicker({
-		    minDate: new Date(2019, 9 - 1, 1),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
-		});
-    } );
-
->>>>>>> Daphne
 	/*
 	 * Defines cutoff date as datepicker, creating default values
 	 */
     $( function() {
 		$( "#cutoff_date" ).datepicker({
-<<<<<<< HEAD
 			dateFormat: 'yy-mm-dd',
 		    minDate: new Date(),
 		    maxDate: end
 		});
     } );   
-=======
-		    minDate: new Date(),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
-		});
-    } );    
->>>>>>> Daphne
 
 </script>
 
@@ -106,17 +77,11 @@
 
 	<div class="col">
 
-<<<<<<< HEAD
 		    <h1 class="h1"> {{ $school->school_name }} </h1>
 			<h2 class="h2">Add New Event</h2>
 
 			@include('partials.flash')
 			@include('partials.errors')
-=======
-		    <h1>Add New Event</h1>
-
-		    @include('partials.errors')
->>>>>>> Daphne
 
 		    <form id="form" 
 		          action="/schools/events/create" 
@@ -125,14 +90,9 @@
 
 		    	@csrf <!-- to create csrf token in the form -->
 
-<<<<<<< HEAD
 		    	<!--  ***Alessandra -------- change to school connected -------> 
 		    	<input id="idschool" name="idschool" 
 		    	       type="hidden" value="{{ $school->idschool }}">
-=======
-		    	<!---------- change to school connected -------> 
-		    	<input id="idschool" name="idschool" type="hidden" value="1">
->>>>>>> Daphne
 
 		        <div class ="form-group">
 					<label for="event_name">Event Name</label>
@@ -187,18 +147,13 @@
 					<input id="event_time" 
 					       name="event_time" 
 					       type="time" class="form-control col-lg-2" 
-<<<<<<< HEAD
 					       value="{{ old('event_time', '12:00') }}">
-=======
-					       value="{{ old('event_time') }}">
->>>>>>> Daphne
 
 					@if($errors->has('event_time'))
 				    <span class="error text-danger">{{ $errors->first('event_time') }}</span>
 				    @endif					
 				</div>				
 
-<<<<<<< HEAD
 				<div class="card mt-5">
 				  <h3 class="card-header text-center 
 				             font-weight-bold py-4">Menu Items Available</h3>
@@ -257,29 +212,12 @@
 					        class="btn btn-primary"
 					        href="/schools/events">Cancel</a>
 				</div>
-
-
-=======
-				<button name="submit" 
-				        type="submit" 
-				        id="form-submit"
-				        class="btn btn-primary">Submit</button>
-
-				<a name="btn-cancel" 
-				        id="btn-cancel"
-				        class="btn btn-primary"
-				        href="/schools/events">Cancel</a>
->>>>>>> Daphne
 				
 			</form>
 
 	</div>
 
 </div>
-
-
-
-
 
 
 @endsection
