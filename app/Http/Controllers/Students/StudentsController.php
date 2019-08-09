@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Students;
 
 use App\Student;
 use App\ParentRegister;
+use App\School;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,9 +15,12 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ParentRegister $parentRegister)
     {
-        
+        $students = Student::where('idparent', $parentRegister->idparent)->get();
+        $school = School::pluck('school_name', 'idschool');
+
+        return view('parents.index', compact('students', 'parentRegister', 'school'));
     }
 
     /**
@@ -39,7 +43,6 @@ class StudentsController extends Controller
     public function store(Request $request, ParentRegister $parentRegister)
     {   
 
-        
         $valid = $request->validate([
             'first_name' =>'required|string' ,
             'last_name' => 'required|string',

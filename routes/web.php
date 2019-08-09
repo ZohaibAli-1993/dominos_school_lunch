@@ -152,7 +152,7 @@ Route::get('/parents/order','Students\OrdersController@showOrder');
 
 Route::post('/parents/order','Students.OrdersController@store');
 
-Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');
+Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
 
 Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
