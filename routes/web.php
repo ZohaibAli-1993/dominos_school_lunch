@@ -196,7 +196,7 @@ Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@de
 
 
 //Route::get('/schools/menu',function(){return view('schools.menu');});
-Route::get('/schools/events',function(){return view('schools.events');});
+
 
 //Route::get('/schools/classrooms',function(){return
 //view('schools.classrooms');});
