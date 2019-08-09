@@ -161,10 +161,10 @@ header{
 /************------------Amandeep-------------------*/
 
 /** hero-image */
-.container-fluid #about-hero-image{
+.container-fluid{
     width: 100%;
     padding: 0px;
-    top: -80px;
+    top: -40px;
 }
 
 /** about image */
@@ -189,7 +189,7 @@ header{
 
 /** Subscribe partial  */
 
-.subscription-layout{
+#subscription-layout{
     position: relative;
     margin-bottom: 40px;
 }
@@ -197,21 +197,20 @@ header{
 
 
 /** newsletter styles */
-.newsletter{
+#newsletter{
     margin-top: 20px;
     background-color: #d9e8ef; 
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
-    position: relative;
-    margin-bottom: 30px;
+    position: static;
 }
 
-.newsletter h4{
+#newsletter h4{
     font-weight: bold;
 }
 
-.newsletter p{
+#newsletter p{
     font-weight: 400; 
 }
 
@@ -220,7 +219,7 @@ header{
     height: 100%;
 }
 
-.subscription-layout #join-form form{
+#subscription-layout .row#subscription-form{
     top: 85%;
     left:35%;
     text-align: center;
@@ -231,7 +230,7 @@ header{
     height: 35px;
 }
 
-.subscription-layout form button#join-btn{
+#subscription-layout .row .col form#join-form button#join-btn{
     border: 1px solid #e51937;
     color: #fff;
     background-color: #e51937;
@@ -239,7 +238,7 @@ header{
     transition: all ease-in-out 0.4s;
 }
 
-.subscription-layout form button#join-btn:hover{
+#subscription-layout .row .col form#join-form button#join-btn:hover{
     box-shadow: inset 0 0 7px #fff;
 }
 
