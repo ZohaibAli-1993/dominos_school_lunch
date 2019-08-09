@@ -4,9 +4,9 @@
 
 <div class="text content">
 
-<h1 class="h1">Gift Cards</h1>
+<h1 class="h1 mt-3">Gift Cards</h1>
 
-<h3 class="h3">Domino's gift cards can be purchased at the following retail stores in Winnipeg</h3>
+<h3 class="h3 mt-3 mb-3">Domino's gift cards can be purchased at the following retail stores in Winnipeg</h3>
 
 <div class="row">
 	<div class="col-6">

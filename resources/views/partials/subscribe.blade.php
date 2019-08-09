@@ -5,17 +5,16 @@
 		We promise to send emails you with love.</p>
 	</div>
    @include('partials.errors')
-   <div class="form-group">
-		<form id="join-form" action="/home" method="post">
-			@csrf
-	    		<input type="hidden"></input>
-	        
+	<form id="join-form" action="/home" method="post">
+		@csrf
+    		<input type="hidden"></input>
+        
 
-			<input class="form-control col-lg-4" type="text" name="email" placeholder="Enter your email address" value="">
-			<button class="btn btn-primary" >Join</button>
+		<input type="text" name="email" placeholder="Enter your email address" value="">
+		<button id="join-btn" >Join</button>
 
-		</form>
-	</div>
+	</form>
+	
 	@include('partials.flash')
 </div><!-- end col-->
 
