@@ -55,6 +55,36 @@ class CreateViews extends Migration
                       on (students.idclassroom = classrooms.idclassroom)
             )
         ");
+
+        DB::statement("
+            CREATE VIEW calendars_act_vw  AS
+            (
+                select idcalendar, 
+                school_year, 
+                begin_dt, 
+                end_dt
+                from calendars
+                where is_active = 1
+                and ((curdate() between begin_dt and end_dt)
+                or begin_dt>= curdate())
+                order by begin_dt
+            )
+        ");
+
+        DB::statement("
+            CREATE VIEW menu_items_vw  AS
+            select iditem, 
+            item_name, 
+            description, 
+            price, 
+            nutrition_facts, 
+            menu_items.idcategory,
+            category,
+            image
+            from menu_items
+            INNER JOIN categories
+            on (menu_items.idcategory = categories.idcategory)
+        ");
     }
 
     /**
@@ -67,5 +97,7 @@ class CreateViews extends Migration
 
         DB::statement("DROP VIEW IF EXISTS events_vw");
         DB::statement("DROP VIEW IF EXISTS classrooms_students_vw");
+        DB::statement("DROP VIEW IF EXISTS calendars_act_vw");
+        DB::statement("DROP VIEW IF EXISTS menu_items_vw");
     }
 }

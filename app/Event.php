@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\EventItem;
 
 class Event extends Model
 {
@@ -18,4 +19,8 @@ class Event extends Model
                          'event_date',
                          'cutoff_date',
                          'event_time']; 
+
+    public function eventItems(){
+        return $this->hasMany(EventItem::class);
+    }
 }

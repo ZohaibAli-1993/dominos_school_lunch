@@ -159,7 +159,7 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 | PARENTS ROUTES
 |--------------------------------------------------------------------------
 */
->>>>>>> 2dc7d2db5f544b40b93231aba69c9552c125b6a5
+
 Route::get('/parents/order','Students\OrdersController@showOrder');
 
 Route::post('/parents/order','Students.OrdersController@store');

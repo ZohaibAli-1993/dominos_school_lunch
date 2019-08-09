@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Event;
 
 class EventItem extends Model
 {
@@ -14,4 +15,7 @@ class EventItem extends Model
      */
     protected $table = 'event_items';
 
+    public function event(){
+        return $this->belongsTp(Event::class);
+    }
 }
