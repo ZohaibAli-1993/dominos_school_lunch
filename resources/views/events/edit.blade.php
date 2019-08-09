@@ -45,9 +45,11 @@
 
 	<div class="col">
 
-		    <h1>Edit Event</h1>
+		    <h1 class="h1"> {{ $school->school_name }} </h1>
+			<h2 class="h2">Events</h2>
 
-		    @include('partials.errors')
+			@include('partials.flash')
+			@include('partials.errors')
 
 		    <form id="form" action="/schools/events" method="post">
 
@@ -129,17 +131,12 @@
 				        id="btn-cancel"
 				        class="btn btn-primary"
 				        href="/schools/events">Cancel</a>
-								        
 				
 			</form>
 
 	</div>
 
 </div>
-
-
-
-
 
 
 @endsection

@@ -10,21 +10,53 @@
 @section('content')
 
 <script type="text/javascript">
-	/*
-	 * On change of the event date, recalculate cutoff date
-	 */
-	/*$('#event_date').on('change', function(e){
-       $(this).closest('form').submit();
-    });*/
+
+
+    //Get begin and end date of active calendar
+	begin = new Date("{{ $calendar->begin_dt }} 00:00:00");
+	end = new Date("{{ $calendar->end_dt }} 00:00:00");
 
 	/*
 	 * Defines event date as datepicker, creating default values
+	 * If a date it is selected, calculate a new cutoff date
 	 */
     $( function() {
 		$( "#event_date" ).datepicker({
-		    minDate: new Date(2019, 9 - 1, 1),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
+			dateFormat: 'yy-mm-dd',
+		    minDate: begin,
+		    maxDate: end,
+		    onSelect: function (dateText, inst) 
+	        {          
+	        	// When a new event date is selected, 
+	        	// verify if it is a weekend
+	        	var available_weekends = {!! $setup->available_weekends !!};
+	        	var newCutoff = new Date($('#event_date').val() + " 00:00:00");
+	        	var week_day = newCutoff.getDate();
+	        	/// Alessandra - verify weekend
+	        	/*if (available_weekends==0 && (week_day=0 || week_day=6)){
+	        		$('#event_date').val("");
+	        		$('#cutoff_date').val("");
+	        	}*/
+
+	        	// calculate new cutoff date
+				var newCutoff = new Date($('#event_date').val() + " 00:00:00");
+				var numberOfDaysCutoff = {!! $setup->cutoff_days !!};
+				newCutoff.setDate(newCutoff.getDate() - numberOfDaysCutoff);
+				var day = newCutoff.getDate();
+				var month = newCutoff.getMonth() + 1;
+				var year = newCutoff.getFullYear();
+				if (day < 10) {
+			        day = "0" + day;
+			    }
+			    if (month < 10) {
+			        month = "0" + month;
+			    }
+			    var date = year + "-" + month + "-" + day;
+
+				$('#cutoff_date').val(date);
+
+         
+	        }, 
 		});
     } );
 
@@ -33,11 +65,11 @@
 	 */
     $( function() {
 		$( "#cutoff_date" ).datepicker({
+			dateFormat: 'yy-mm-dd',
 		    minDate: new Date(),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
+		    maxDate: end
 		});
-    } );    
+    } );   
 
 </script>
 
@@ -45,9 +77,11 @@
 
 	<div class="col">
 
-		    <h1>Add New Event</h1>
+		    <h1 class="h1"> {{ $school->school_name }} </h1>
+			<h2 class="h2">Add New Event</h2>
 
-		    @include('partials.errors')
+			@include('partials.flash')
+			@include('partials.errors')
 
 		    <form id="form" 
 		          action="/schools/events/create" 
@@ -56,8 +90,9 @@
 
 		    	@csrf <!-- to create csrf token in the form -->
 
-		    	<!---------- change to school connected -------> 
-		    	<input id="idschool" name="idschool" type="hidden" value="1">
+		    	<!--  ***Alessandra -------- change to school connected -------> 
+		    	<input id="idschool" name="idschool" 
+		    	       type="hidden" value="{{ $school->idschool }}">
 
 		        <div class ="form-group">
 					<label for="event_name">Event Name</label>
@@ -112,32 +147,77 @@
 					<input id="event_time" 
 					       name="event_time" 
 					       type="time" class="form-control col-lg-2" 
-					       value="{{ old('event_time') }}">
+					       value="{{ old('event_time', '12:00') }}">
 
 					@if($errors->has('event_time'))
 				    <span class="error text-danger">{{ $errors->first('event_time') }}</span>
 				    @endif					
 				</div>				
 
-				<button name="submit" 
-				        type="submit" 
-				        id="form-submit"
-				        class="btn btn-primary">Submit</button>
+				<div class="card mt-5">
+				  <h3 class="card-header text-center 
+				             font-weight-bold py-4">Menu Items Available</h3>
+				  <div class="card-body">
+				    <div id="table" class="table-editable">
+				      <table class="table table-bordered table-responsive-md table-striped text-center">
+				        <thead>
+				          <tr>
+				          	<th class="text-center">Selected</th>
+				            <th class="text-center">Item Name</th>
+				            <th class="text-center">Description</th>
+				            <th class="text-center">Category</th>
+				            <th class="text-center">Price</th>
+				            <th class="text-center">Final Price</th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				        	@foreach ($menu_items as $item)
+				            <tr>
+				            	<td class="pt-3-half">
+				            		<input name="event_items[]"
+					                       class="form-check-input text-center"
+		    	                           type="checkbox" 
+		    	                           value="{{ $item->iditem }}">
+				            	</td>
+					            <td class="pt-3-half">{{ $item->item_name }}</td>
+					            <td class="pt-3-half">{{ $item->description }}</td>
+					            <td class="pt-3-half">{{ $item->category }}</td>
+					            <td class="pt-3-half">{{ $item->price }}</td>
+					            <td class="pt-3-half" 
+					                contenteditable="true">
+					                <input name="{{ 'iditem' . $item->iditem }}" 
+		    	                           type="hidden" 
+		    	                           value="{{ $item->iditem }}">
+					                <input name="{{ 'idfinalprice' . $item->iditem }}"
+					                       class="form-control text-right col-lg-6"
+		    	                           type="text" 
+		    	                           value="{{ number_format($item->price + ($item->price * $school->markup/100),2) }}">
+		    	                </td>
+				            </tr>
+				            @endforeach
+				         </tbody>
+				      </table>
+				    </div>
+				  </div>
+				</div>
 
-				<a name="btn-cancel" 
-				        id="btn-cancel"
-				        class="btn btn-primary"
-				        href="/schools/events">Cancel</a>
+				<div class="row mt-5">
+					<button name="submit" 
+					        type="submit" 
+					        id="form-submit"
+					        class="btn btn-primary mr-3">Submit</button>
+
+					<a name="btn-cancel" 
+					        id="btn-cancel"
+					        class="btn btn-primary"
+					        href="/schools/events">Cancel</a>
+				</div>
 				
 			</form>
 
 	</div>
 
 </div>
-
-
-
-
 
 
 @endsection

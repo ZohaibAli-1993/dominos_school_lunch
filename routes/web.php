@@ -12,7 +12,7 @@
 */
 
 Route::middleware(['school'])->group(function()
-{
+{   
     //show school profile
     Route::get('/school/{school}', 'Schools\SchoolsController@show');
 
@@ -33,11 +33,8 @@ Route::get('/', function () {
 | Contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/contact',function(){
+Route::post('/contact', 'Dominos\ContactsController@store');
 
-	return view('main.contact');
-
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -84,25 +81,60 @@ view('main.parents_registration');
 
 });
 
+
 /*
+|--------------------------------------------------------------------------
+| school registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/school_registration', 'Schools\SchoolsController@create');
+
+Route::post('/school_registration', 'Schools\SchoolsController@store');
+
+/*
+|-------------------------------------------------------------------------
+| login Page
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/login',function(){
+	return view('main.login');
+}); 
+
+
+
+/*
+
+|--------------------------------------------------------------------------
+| parents registration Page
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/parents_registration',function(){
+
+return
+view('main.parents_registration');
+
+});
+
+/*
+>>>>>>> Daphne
 |--------------------------------------------------------------------------
 | contact Page
 |--------------------------------------------------------------------------
 */
-Route::get('/login',function(){
-	return view('main.login');
-}); 
+
 
 Route::get('/parents_registration',function(){
 	return view('main.parents_registration');
 });
 
-Route::post('/contact','Home@contact');  
+//Route::post('/contact','Home@contact');  
 
 
 
 
-Route::post('/contact','Home@contact');
+//Route::post('/contact','Home@contact');
 
 Route::post('/registration','students\ParentsController@store');
 
@@ -166,7 +198,7 @@ Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@de
 
 
 //Route::get('/schools/menu',function(){return view('schools.menu');});
-Route::get('/schools/events',function(){return view('schools.events');});
+
 
 //Route::get('/schools/classrooms',function(){return
 //view('schools.classrooms');});
@@ -193,29 +225,34 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
 Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
+
+/**
+ * Parents home page route
+ */
+Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
+
+Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
 
 
-Route::get('/parents/{parentRegister}', 'Students\ParentsRegisterController@show');
+/**
+ * Parents edit student page route
+ */
+Route::get('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@edit');
+
+Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@update');
+
+/**
+ * Parents add student page route
+ */
+Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
+
+Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
 
 
-Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
-
-Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
-
-
-/*
-|--------------------------------------------------------------------------
-| SCHOOL EVENTS ROUTES
-|--------------------------------------------------------------------------
-*/
-Route::get('/schools/events', 'Schools\EventsController@index');
-
-Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
-
-Route::put('/schools/events', 'Schools\EventsController@update');
-
-Route::get('/schools/events','Schools\EventsController@index');
-
+/** Subscription routes  */
+Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
+Route::post('/home', 'Dominos\SubscriptionsController@store');
 
 /**FOOTER CONTENT LINKS */
 
@@ -227,10 +264,11 @@ Route::get('/content/privacy', function(){return view('content.privacy');});
 /**Parents Registration */  
 Route::post('/registration','students\ParentsRegisterController@store'); 
 Route::middleware(['parents'])->group(function() 
-{
+{ 
+
 
 });
-
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/content/privacy', function(){return view('content.privacy');});
 Auth::routes();
 
@@ -259,6 +297,4 @@ Auth::routes();
 
 Route::get('/home',
 'HomeController@index')->name('home');
-
-
 

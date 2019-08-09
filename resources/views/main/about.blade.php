@@ -3,9 +3,8 @@
 @section('content')
 	<div class="container-fluid">
 		<div class="row" id="hero-image">
-			<div class="col">
-				<img id="about-hero-image" src="img/pizza.jpg" alt="Pizza" />
-			</div>
+			
+				<img id="about-hero-image" src="img/pizza.jpg" alt="Pizza" width="100%" />
 
 		</div><!-- end row1 -->
 	</div>
@@ -13,12 +12,9 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				<h2>About Us</h2>
-
-				<img id="about-image" src="img/Pizza_500.png" alt="Pizza Girl" />
-
-				<p>
+			<div class="col-6">
+				<h1 class="h1 mt-3">About Us</h1>
+                 <p>
 					Every pizza ordered has the potential to be a totally unique creation. Nutritional information is provided for each of the elements that go into a pizza: what size pizza, what type of crust, sause, toppings. When you create your own pizza, to see the total picture of what you are ordering, add together the numbers for each elements from these charts.
 				</p>
 
@@ -33,22 +29,21 @@
 				<p>
 					With Domino's delivery kids will get fresh pizza very quickly.
 				</p>
+                </div><!-- end col -->
 
+                <div class="col-6">
+                <br/>
 				<br/>
 				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
+				<img  src="img/Pizza_500.png" alt="Pizza Girl" width="100%" />
 
 			</div><!-- end col -->
 
 		</div><!-- end row2 -->
+
 		
 	</div><!-- end container -->
+
+@include('partials.subscribe')
 
 @endsection

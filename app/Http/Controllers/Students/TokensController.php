@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Dominos;
+namespace App\Http\Controllers\Students;
 
-use App\Subscription;
+use App\Token;
+use App\School;
+use App\ParentRegister;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SubscriptionsController extends Controller
+class TokensController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,7 @@ class SubscriptionsController extends Controller
      */
     public function index()
     {
-        return view('/home', compact('subscription')) ;
+        //
     }
 
     /**
@@ -24,9 +26,8 @@ class SubscriptionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-
-        
+    {
+        //
     }
 
     /**
@@ -35,23 +36,34 @@ class SubscriptionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ParentRegister $parentRegister)
     {
         $valid = $request->validate([
-            'email' =>'required|email' 
-
+            'idparent'=> 'required|integer',
+            'token' => 'required|string'
         ]);
-        $email = Subscription::create($valid);
-        return redirect('/')->with('success', 'You successfully subscribed for Domino\'s lunches newsletters!');
+
+        $school = School::where('token', $valid['token'])->first();
+
+        if(!$school)
+        {
+           return back()->with('error','Token is invalid');
+        }
+
+        $valid['idschool'] = $school['idschool'];
+
+        $token_add = Token::create($valid);
+
+        return redirect('/parents/'.$parentRegister['idparent'].'/'.$school['token'].'/student/add');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Subscription  $subscription
+     * @param  \App\Token  $token
      * @return \Illuminate\Http\Response
      */
-    public function show(Subscription $subscription)
+    public function show(Token $token)
     {
         //
     }
@@ -59,10 +71,10 @@ class SubscriptionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Subscription  $subscription
+     * @param  \App\Token  $token
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subscription $subscription)
+    public function edit(Token $token)
     {
         //
     }
@@ -71,10 +83,10 @@ class SubscriptionsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Subscription  $subscription
+     * @param  \App\Token  $token
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subscription $subscription)
+    public function update(Request $request, Token $token)
     {
         //
     }
@@ -82,10 +94,10 @@ class SubscriptionsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Subscription  $subscription
+     * @param  \App\Token  $token
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subscription $subscription)
+    public function destroy(Token $token)
     {
         //
     }

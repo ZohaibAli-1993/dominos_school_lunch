@@ -110,7 +110,7 @@ class OrdersController extends Controller
             $all_events[] = $events;
 
             $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get();
-            $all_orders = $orders;
+            $all_orders[] = $orders;
         }
 
         $data = [
@@ -143,5 +143,34 @@ class OrdersController extends Controller
             'item_description' => $item_description
         ];
         return view('parents.neworder', compact('data'));
+    }
+
+    public function checkout(Request $request)
+    {   
+        $input = $request->all();
+        $order =[];
+        $idevent = $request->input('idevent');
+
+        foreach($input as $field=>$value )
+        {
+            if(strpos($field, 'qty') !== false)
+            {
+
+                $iditem = str_replace("qty","",$field);
+                $final_price= DB::table('event_items')->where('idevent','=',$idevent)->where('iditem','=',$iditem)->get();
+                $row = [
+                    'iditem' => $iditem,
+                    'item_name' => DB::table('menu_items')->where('iditem','=', $iditem)->first(['item_name']),
+                    'final_price' => $final_price,
+                    'qty' => $value
+                ];
+                $order[] = $row;
+            }
+        }
+        
+
+        //var_dump($order);die;
+
+        return view('parents.checkout', compact('order'));
     }
 }
