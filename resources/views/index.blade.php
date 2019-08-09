@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partials.flash')
 <!--*******Section 1: shipping, call number and Gift Cards********** -->
 <div class="container" id="section1">
 	<div class="row">
@@ -56,6 +57,7 @@
 
 
 <!--*******Section 4: call to action for instruction page********** -->
+
 <div id="section4">
 	<div class="container">
 		<div class="row">
@@ -67,7 +69,6 @@
 		</div><!-- .row-->
 	</div><!-- .container-->
 </div>
-
 
 @include('partials.subscribe')
 

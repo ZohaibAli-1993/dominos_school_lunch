@@ -1,17 +1,15 @@
 <div class="subscription-layout">
+	<div class="newsletter">
+		<h4>Newsletter</h4>
+		<p>Subscribe to get special offers, free giveaways, and one-in-a-lifetime deals.<br />
+		We promise to send emails you with love.</p>
+	</div>
 
-		<div class="newsletter">
-			<h4>Newsletter</h4>
-			<p>Subscribe to get special offers, free giveaways, and one-in-a-lifetime deals.<br />
-			We promise to send emails you will love.</p>
-		</div>
+	<form id="join-form" action="" method="post">
 
-		<div id="join-form">
-			
-			<form action="" method="post">
-				<input type="text" name="subscription" placeholder="Enter your email address">
-				<button id="join-btn" >Join</button>
-			</form>
-		</div>
+		<input type="text" name="subscription" placeholder="Enter your email address" value="">
+		<button id="join-btn" >Join</button>
 
-	</div><!-- end col-->
+	</form>
+</div><!-- end col-->
+
