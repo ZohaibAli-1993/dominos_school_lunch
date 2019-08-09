@@ -46,7 +46,7 @@ class ClassroomsController extends Controller
         ]);
 
 
-        $new_classroom = Classroom::create($valid);
+        $classroom = Classroom::create($valid);
  
         return redirect('/schools/classrooms');
     }
@@ -70,7 +70,7 @@ class ClassroomsController extends Controller
      */
     public function edit(Classroom $classroom)
     {
-        //
+        return view('schools.edit_classroom', compact('classroom'));
     }
 
     /**
@@ -85,11 +85,12 @@ class ClassroomsController extends Controller
         $valid = $request->validate([
             'classroom'=>'required',
             'description' => 'required',
+            'idclassroom' => 'required'
         ]);
 
         $classroom=Classroom::find($valid['idclassroom']);
-        $classroom->title = $valid['classroom'];
-        $classroom->body = $valid['description'];
+        $classroom->classroom = $valid['classroom'];
+        $classroom->description = $valid['description'];
         $classroom->save();
 
         return redirect('/schools/classrooms');

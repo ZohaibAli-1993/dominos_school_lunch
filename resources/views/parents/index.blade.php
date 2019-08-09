@@ -73,19 +73,19 @@
     <div class="col-sm-8">
     	<div class="parent_account">
     		
-<<<<<<< HEAD
+
     		<h3>Welcome, parent</h3>
 
     		<p class="parent_account_para">To get started please add your child or children to your account.You will 
               then be able to view their up-coming lunch dates.                             
 	            <a type="button" id="display_modal">Add</a>
-=======
+
     		<h3>Welcome, {{$parentRegister->first_name}}</h3>
 
     		<p class="parent_account_para">To get started please add your child or children to your account.You will 
               then be able to view their up-coming lunch dates.                             
 	            <a type="button" id="display_modal" href="/parents/{{$parentRegister->idparent}}/student/add">Add</a>
->>>>>>> b154f81f5680cd35123d0b74df2bfece01b282a9
+
 	       </p>
             
     	</div>
