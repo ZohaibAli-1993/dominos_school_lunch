@@ -43,6 +43,7 @@
 
 		
 	</div><!-- end container -->
+
 @include('partials.subscribe')
 
 @endsection

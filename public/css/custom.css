@@ -656,7 +656,7 @@ div#close_box{
     
 }
 
-/** newsletter styles */
+/** newsletter styles 
 .newsletter{
     background-color: #d9e8ef; 
     text-align: center;
@@ -665,16 +665,13 @@ div#close_box{
     
 }
 
-.newsletter h4{
-    font-weight: bold;
-}
 
-.newsletter p{
+#newsletter p{
     font-weight: bold; 
 }
 
 
-.subscription-layout #join-form{
+#subscription-layout #join-form{
     margin-top: -15px;
     z-index: 1000;
     text-align: center;
@@ -691,7 +688,7 @@ div#close_box{
     border-radius: 3px;
 }
 
-
+**/
 
 /** ---------------------END Amandeep ----------------------------------------*/
 
