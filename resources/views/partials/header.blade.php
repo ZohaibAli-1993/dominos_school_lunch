@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.png" type="image/gif" />
     <link rel="stylesheet" type="text/css" href="/css/app.css" />
     <script src="/js/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -17,11 +18,12 @@
 
     @yield('links_events')
 
-    <title>Dominos Lunch Manager System</title>
+    <title>Dominos Lunch Management System</title>
 </head>
 
 <body>
 
+    
     <!-- Main container of the header -->
     <header id="container">
 
@@ -70,7 +72,7 @@
 
                     <div class="name_first_part">
 
-                        <p>Domino<code id="quote">&#10076;</code>s</p>
+                        <p>Domino's</p>
 
                     </div>
                     <!--/first_part-->
@@ -91,6 +93,7 @@
                     <nav>
 
                         <ul id="menu_list">
+
                             <li><a href="/">Home</a></li>
 
                             <li><a href="/schools">School Coordinator</a></li>

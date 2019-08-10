@@ -9,7 +9,7 @@
 </script>
 
 <div class="text content">
-    <h2>Orders</h2>
+    <h2 class="h2">Orders</h2>
     <div>
         <a class="btn btn-danger" href="">Upcoming Orders</a>
         <a class="btn btn-danger" href="">Previous Orders</a>
