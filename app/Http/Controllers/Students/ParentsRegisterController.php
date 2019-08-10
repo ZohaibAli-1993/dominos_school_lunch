@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Students;
 use Illuminate\Support\Facades\Hash; 
 use App\User;
+use App\School;
 use App\ParentRegister;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -92,6 +93,32 @@ class ParentsRegisterController extends Controller
     public function edit(ParentRegister $parentRegister)
     {
         //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\ParentRegister  $parentRegister
+     * @return \Illuminate\Http\Response
+     */
+    public function updateSession(Request $request, ParentRegister $parentRegister)
+    {
+        $valid = $request->validate([
+            'idparent'=> 'required|integer',
+            'token' => 'required|string'
+        ]);
+
+        $school = School::where('token', $valid['token'])->first();
+
+        if(!$school)
+        {
+           return back()->with('error','Token is invalid');
+        }
+
+        $request->session()->put('idschool', $school['idschool']);
+
+        return redirect('/parents/'.$parentRegister['idparent'].'/'.$school['token'].'/student/add');
     }
 
     /**
