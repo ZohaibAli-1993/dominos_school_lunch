@@ -17,7 +17,8 @@ class CreateEventItemsTable extends Migration
             $table->integer('idevent');
             $table->integer('iditem');
             $table->decimal('final_price',5,3);
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->primary(['idevent', 'iditem']);
         });
     }
