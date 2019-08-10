@@ -1,5 +1,7 @@
 </div>
 <!--End main_content-->
+
+
 <!-- Footer -->
 <footer class="page-footer">
     <div class="container">
@@ -104,5 +106,7 @@ $(".btn-refresh").click(function(){
 
 
     </script>
+
 </footer>
+
 <!-- Footer -->
