@@ -10,6 +10,7 @@ use App\School;
 use App\Setup;
 use App\Calendar;
 use App\MenuItem;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\DB;
 
@@ -119,7 +120,7 @@ class EventsController extends Controller
             'event_name' => 'required|string',
             'event_date' => 'required|date',
             'cutoff_date' => 'required|date',
-            'event_time' => 'required'
+            'event_time' => 'required',
         ]);
 
         //Insert new Event in the table
@@ -127,6 +128,8 @@ class EventsController extends Controller
         //$event = Event::create($valid);
 
         $event = new Event($valid);
+        $event->created_at = Carbon::now();
+        $event->updated_at = Carbon::now();
         $event->save();
         $idevent = $event->idevent;
 
@@ -147,7 +150,7 @@ class EventsController extends Controller
             DB::table("event_items") -> insert($data); 
         }
 
-       return redirect('/schools/events')->with('success', 'Event was added');
+       return redirect('/schools/events')->with('success', 'Event has been added');
     }
 
     /**
@@ -216,11 +219,12 @@ class EventsController extends Controller
         $event->event_date = $valid['event_date'];
         $event->cutoff_date = $valid['cutoff_date'];
         $event->event_time = $valid['event_time'];
+        $event->updated_at = Carbon::now();
         $event->save();
 
         //Delete previous events_items
         DB::table('event_items')->where('idevent', $valid['idevent'])->delete();
-        
+
         //If any menu item was checked, insert event items in table
         $count = count($request->input('event_items'));
         if($count){
@@ -239,7 +243,8 @@ class EventsController extends Controller
         }
 
         
-        return redirect('/schools/events')->with('success', 'Event was updated');
+        return redirect('/schools/events')->
+               with('success', 'Event has been updated');
 
     }
 
@@ -251,6 +256,16 @@ class EventsController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+
+        $event->is_active = 0;
+        $event->updated_at = Carbon::now();
+
+        if($event->save()){
+            return redirect('/schools/events')->
+                   with('success', 'Event has been inactivated.');
+        }
+
+        return redirect('/schools/events')->
+               with('error', 'There was a problem inactiving that event');
     }
 }

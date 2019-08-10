@@ -215,6 +215,7 @@ Route::post('/schools/events/create', 'Schools\EventsController@store');
 Route::get('/schools/events', 'Schools\EventsController@index');
 Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
 Route::put('/schools/events', 'Schools\EventsController@update');
+Route::delete('/schools/events/{event}', 'Schools\EventsController@destroy');
 
 /*
 |--------------------------------------------------------------------------
