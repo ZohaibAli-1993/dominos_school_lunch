@@ -1,5 +1,7 @@
 
 <!--End main_content-->
+
+
 <!-- Footer -->
 <footer class="page-footer mt-5">
         <div class="row">
@@ -103,6 +105,9 @@ $(".btn-refresh").click(function(){
 
 
     </script>
+
 </footer>
+
 </div><!-- /container -->
+
 <!-- Footer -->

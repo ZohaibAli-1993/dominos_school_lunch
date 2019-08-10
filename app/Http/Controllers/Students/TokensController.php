@@ -38,6 +38,7 @@ class TokensController extends Controller
      */
     public function store(Request $request, ParentRegister $parentRegister)
     {
+
         $valid = $request->validate([
             'idparent'=> 'required|integer',
             'token' => 'required|string'
@@ -51,6 +52,8 @@ class TokensController extends Controller
         }
 
         $valid['idschool'] = $school['idschool'];
+
+        
 
         $token_add = Token::create($valid);
 

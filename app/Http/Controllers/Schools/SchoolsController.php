@@ -83,7 +83,7 @@ class SchoolsController extends Controller
          */
         $school = School::find($school['idschool']);
 
-        $school['token'] = $acronym.$school['idschool'];
+        $school['token'] = $acronym.'00'.$school['idschool'];
 
         /**
          * update default markup price from setup table to the new school 

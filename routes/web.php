@@ -230,7 +230,7 @@ Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
  */
 Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
-Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
+Route::post('/parents/{parentRegister}', 'Students\ParentsRegisterController@updateSession');
 
 
 /**
@@ -243,6 +243,10 @@ Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsControl
 /**
  * Parents add student page route
  */
+/*Route::get('/parents/{parentRegister}/student/add', 'Students\StudentsController@create');
+
+Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');*/
+
 Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
 
 Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
