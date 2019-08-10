@@ -47,13 +47,28 @@
                 </div><!-- Copyright -->
             </div>
 
-            <div class="col-sm-8">
-                <img src="/img/logo_footer.png" style="margin-left: 170px; width: 30%;" alt="footer logo">
+            <div class="col-sm-4">
+                <img src="/img/logo_footer.png" 
+                     style="margin-left: 170px; 
+                            margin-bottom: 25px;  
+                            margin-top: 20px;
+                            width: 35%;" 
+                            alt="footer logo">
+            </div>
 
+            <div class="col-sm-4">
                 <a href="https://www.facebook.com/dominoswinnipeg/" target="_blank">
-                    <img src="/img/fb.png" alt="facebook icon" style="margin-left: 70px; padding-left: 30px;"></a>
-                <img src="/img/twitter.png" alt="twitter icon" style="padding-left: 30px;">
-                <img src="/img/instagram.png" alt="instagram icon" style="padding-left: 30px;">
+                    <img src="/img/fb.png" 
+                         alt="facebook icon" 
+                         style="margin-left: 70px;
+                                padding-left: 30px;">
+                </a>
+                    <img src="/img/twitter.png" 
+                         alt="twitter icon" 
+                         style="padding-left: 30px;">
+                    <img src="/img/instagram.png" 
+                         alt="instagram icon"
+                         style="padding-left: 30px;">
             </div>
 
         </div><!-- /row-->

@@ -190,6 +190,8 @@ Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
 
 Route::post('/schools/classrooms','Schools\ClassroomsController@store');
 
+Route::get('/schools/classrooms/{classroom}','Schools\ClassroomsController@edit');
+
 Route::put('/schools/classrooms','Schools\ClassroomsController@update');
 
 Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');

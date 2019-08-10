@@ -9,9 +9,9 @@
     <!-- Default form contact -->
     <form class="form contact text-center border border-light p-5" action="/contact" method="post">
         @csrf
-        <p class="h4 mb-4">Contact us</p>
+        <h4 class="h4 mb-4">Contact us</h4>
 
-        <h5>Please fill out the fields below and we will contact you shortly</h5>
+        <h5 class="h5 mt-3">Please fill out the fields below and we will contact you shortly</h5>
 
         <!-- Name -->
         <input type="text" id="name" name="name" class="form-control mb-4" placeholder="Name">

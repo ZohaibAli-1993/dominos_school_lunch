@@ -30,7 +30,6 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create(Request $request, ParentRegister $parentRegister)
     {
         $idschool = $request->session()->get('idschool');
@@ -49,8 +48,7 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-    public function store(Request $request, ParentRegister $parentRegister)
+    public function store(Request $request, Student $student)
     {   
         $idschool = $request->session()->get('idschool');
 
@@ -59,12 +57,13 @@ class StudentsController extends Controller
             'last_name' => 'required|string',
             'idparent' => 'required|integer',
             'idclassroom' => 'required|integer'
-
         ]);
 
         $valid['idschool'] = $idschool;
         
+        
         $student = Student::create($valid);
+
 
         return redirect('/parents/'.$valid['idparent'])->with('success', 'You added a new child!');
 
@@ -87,7 +86,6 @@ class StudentsController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-
     public function edit(ParentRegister $parentRegister ,Student $student)
     {
         $classrooms = Classroom::where('idschool', $student['idschool'])->get();
@@ -102,7 +100,6 @@ class StudentsController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request,ParentRegister $parentRegister, Student $student)
     {
         $valid = $request->validate([
@@ -120,7 +117,6 @@ class StudentsController extends Controller
         $student->save();
 
         return redirect('/parents/'.$parentRegister['idparent'])->with('success','Successfully edit student profile!');
-
     }
 
     /**
@@ -131,13 +127,10 @@ class StudentsController extends Controller
      */
     public function destroy(Student $student)
     {
-
-
         if($student->delete()) {
             return back()->with('success','Student was deleted');
         } 
         
         return back()->with('error','There was a problem deleting that post');
-
     }
 }

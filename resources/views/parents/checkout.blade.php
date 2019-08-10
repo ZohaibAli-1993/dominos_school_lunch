@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="text content">
-    <h2>CheckOut Page</h2>
+    <h2 class="h2">CheckOut Page</h2>
 
     <div class="row">
         <?php $mytime = Carbon\Carbon::now(); ?>
