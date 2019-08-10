@@ -10,21 +10,69 @@
 @section('content')
 
 <script type="text/javascript">
-	/*
-	 * On change of the event date, recalculate cutoff date
-	 */
-	/*$('#event_date').on('change', function(e){
-       $(this).closest('form').submit();
-    });*/
+    //Get begin and end date of active calendar
+	begin = new Date("{{ $calendar->begin_dt }} 00:00:00");
+	end = new Date("{{ $calendar->end_dt }} 00:00:00");
 
 	/*
 	 * Defines event date as datepicker, creating default values
+	 * If a date it is selected, calculate a new cutoff date
 	 */
     $( function() {
 		$( "#event_date" ).datepicker({
-		    minDate: new Date(2019, 9 - 1, 1),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
+			dateFormat: 'yy-mm-dd',
+		    minDate: begin,
+		    maxDate: end,
+		    onSelect: function (dateText, inst) 
+	        {          
+	        	// When a new event date is selected, 
+	        	// verify if it a weekend was selected
+	        	var available_weekends = {!! $setup->available_weekends !!};
+	        	var newCutoff = new Date($('#event_date').val() + " 00:00:00");
+	        	var week_day = newCutoff.getDay();			
+
+	        	/// Verify if the weekend is available
+	        	if ((available_weekends == 0) && 
+	        		((week_day==0) ||(week_day==6))){
+
+	        		$('#event_date').val("");
+	        		$('#cutoff_date').val("");
+	        		
+	        	    // Define message to show when weekend is not available
+		        	var message = document.createElement("span");
+		        	message.className = "error text-danger";
+					message.id = "err_event_date";
+					message.innerHTML = "Weekends are not available to schedule events.";
+					var event_date_group = document.getElementById("event_date_group");
+	        		event_date_group.appendChild(message);
+	        		return;
+	        	}
+	        	else{
+	        		if(document.getElementById('err_event_date') !== null){
+	        		    document.getElementById("err_event_date").remove();
+	        		}
+	        	}
+	        	
+
+	        	// calculate new cutoff date
+				var newCutoff = new Date($('#event_date').val() + " 00:00:00");
+				var numberOfDaysCutoff = {!! $setup->cutoff_days !!};
+				newCutoff.setDate(newCutoff.getDate() - numberOfDaysCutoff);
+				var day = newCutoff.getDate();
+				var month = newCutoff.getMonth() + 1;
+				var year = newCutoff.getFullYear();
+				if (day < 10) {
+			        day = "0" + day;
+			    }
+			    if (month < 10) {
+			        month = "0" + month;
+			    }
+			    var date = year + "-" + month + "-" + day;
+
+				$('#cutoff_date').val(date);
+
+         
+	        }, 
 		});
     } );
 
@@ -33,9 +81,9 @@
 	 */
     $( function() {
 		$( "#cutoff_date" ).datepicker({
+			dateFormat: 'yy-mm-dd',
 		    minDate: new Date(),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
+		    maxDate: end
 		});
     } );    
 
@@ -45,7 +93,7 @@
 
 	<div class="col">
 
-		    <h1 class="h1"> {{ $school->school_name }} </h1>
+		    <h1 class="h1 text-center" > {{ $school->school_name }} </h1>
 			<h2 class="h2">Events</h2>
 
 			@include('partials.flash')
@@ -122,15 +170,72 @@
 				    @endif					
 				</div>				
 
-				<button name="submit" 
-				        type="submit" 
-				        id="form-submit"
-				        class="btn btn-primary">Submit</button>
+				<div class="card mt-5">
+				  <h3 class="card-header text-center 
+				             font-weight-bold py-4">Menu Items Available</h3>
+				  <div class="card-body">
+				    <div id="table" class="table-editable">
+				      <table class="table table-bordered table-responsive-md table-striped text-center">
+				        <thead>
+				          <tr scope="row">
+				          	<th scope="col" class="text-center">Selected</th>
+				            <th scope="col" class="text-center">Item Name</th>
+				            <th scope="col" class="text-center">Description</th>
+				            <th scope="col" class="text-center">Category</th>
+				            <th scope="col" class="text-center">Price</th>
+				            <th scope="col" class="text-center">Final Price</th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				        	@foreach ($menu_items as $item)
+				            <tr scope="row">
+				            	<td>
 
-				<a name="btn-cancel" 
-				        id="btn-cancel"
-				        class="btn btn-primary"
-				        href="/schools/events">Cancel</a>
+				            		<input name="event_items[]"
+					                       class="form-check-input text-center"
+		    	                           type="checkbox" 
+		    	                           value="{{ $item->iditem }}"
+										   <?=($item->is_selected==1)? 
+										     ' checked ' : ''; ?>
+										   <?=($item->has_order==1)? 
+										     ' disabled ' : ''; ?>
+		    	                           >
+				            	</td>
+					            <td>{{ $item->item_name }}</td>
+					            <td>{{ $item->description }}</td>
+					            <td>{{ $item->category }}</td>
+					            <td>{{ $item->price }}</td>
+					            <td style="min-width:120px">
+					                <input name="{{ 'iditem' . $item->iditem }}" 
+		    	                           type="hidden" 
+		    	                           value="{{ $item->iditem }}">
+					                <input name="{{ 'idfinalprice' . $item->iditem }}"
+					                       class="form-control text-right col-lg-12"
+		    	                           type="text" 
+		    	                           value=<?=($item->is_selected==1)? 
+										     $item->final_price : 
+		    	                             number_format($item->price + ($item->price * $school->markup/100),2);
+		    	                           ?>>
+		    	                </td>
+				            </tr>
+				            @endforeach
+				         </tbody>
+				      </table>
+				    </div>
+				  </div>
+				</div>
+
+				<div class="row mt-5">
+					<button name="submit" 
+					        type="submit" 
+					        id="form-submit"
+					        class="button mr-3">Save</button>
+
+					<a name="btn-cancel" 
+					        id="btn-cancel"
+					        class="button"
+					        href="/schools/events">Cancel</a>
+				</div>
 				
 			</form>
 
