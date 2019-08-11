@@ -28,7 +28,9 @@ class CreateViews extends Migration
                 event_time, 
                 TIME_FORMAT(event_time, '%h:%i %p') as event_time_formated,
                 event_name,
-                idevent
+                idevent,
+                IFNULL((select distinct 1 from orders e
+                  where events.idevent = e.idevent ),0) as has_order
                 from events
                 where is_active = 1
                 order by idschool, event_date

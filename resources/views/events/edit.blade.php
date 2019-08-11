@@ -94,7 +94,12 @@
 	<div class="col">
 
 		    <h1 class="h1 text-center" > {{ $school->school_name }} </h1>
-			<h2 class="h2">Events</h2>
+			<h2 class="h2">Edit Event</h2>
+			@if($event->has_order==1)
+			<p class="error text-danger">* Already has orders</p>
+			@else
+			<p class="error text-danger">* No orders done yet</p>
+			@endif
 
 			@include('partials.flash')
 			@include('partials.errors')
@@ -229,15 +234,27 @@
 					<button name="submit" 
 					        type="submit" 
 					        id="form-submit"
-					        class="button mr-3">Save</button>
+					        class="button mr-3 ml-3">Save</button>
 
 					<a name="btn-cancel" 
 					        id="btn-cancel"
 					        class="button"
 					        href="/schools/events">Cancel</a>
+
+
 				</div>
 				
 			</form>
+
+			@if($event->has_order==0)
+			<form class ="form form-inline" 
+			      action ="/schools/events/{{ $event->idevent }}" 
+			      method="post">
+          		  @csrf
+                  @method('DELETE')
+                  <button class="button red mt-3">Inactivate</button>
+            </form>
+			@endif
 
 	</div>
 

@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(seed_stores_table::class);
         $this->call(seed_events_table::class);
         $this->call(seed_event_items_table::class);
-        $this->call(seed_parents_table::class);
+        $this->call(seed_parents_register_table::class);
         $this->call(seed_students_table::class);
         $this->call(seed_orders_table::class);
     }
