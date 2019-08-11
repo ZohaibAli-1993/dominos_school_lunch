@@ -106,20 +106,29 @@ class OrdersController extends Controller
         
         
         foreach($students as $student){
-            $events = DB::table('events_vw')->where('idschool','=',$student->idschool)->get();
+            $events = DB::table('events_vw')->where('idschool','=',$student->idschool)->get()->toArray();
             $all_events[] = $events;
 
-            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get();
-            $all_orders[] = $orders;
+            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get()->toArray();
+            
+            if (count($orders) == 0){
+                $all_orders[] = '';
+            }else{
+                $all_orders[] = $orders;
+            }
+            
         }
-
+        
         $data = [
-            'students' => $students,
+            'students' => $students->toArray(),
             'all_events' => $all_events,
             'all_orders' => $all_orders
         ];
         
-
+        echo '<pre>';
+        var_dump($all_orders);
+        echo '</pre>';die;
+        
         return view('parents.order', compact('data'));
     }
 

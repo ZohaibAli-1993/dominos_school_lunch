@@ -23,7 +23,7 @@
                 @foreach($data['students'] as $student)
                     <?php $i++; ?>
                     <a class="nav-item nav-link <?= ($i==1 ? 'active' : '') ?>" id="nav-profile<?=$i?>-tab" data-toggle="tab" href="#nav-profile<?=$i?>" role="tab"
-                        aria-controls="nav-profile<?=$i?>" aria-selected="<?= ($i==1 ? 'true' : 'false') ?>">{{ $student->first_name . ' ' . $student->last_name }}</a>
+                        aria-controls="nav-profile<?=$i?>" aria-selected="<?= ($i==1 ? 'true' : 'false') ?>">{{ $student['first_name'] . ' ' . $student['last_name'] }}</a>
                 @endforeach
                 </div>
             </nav>
@@ -55,21 +55,24 @@
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>{{ $event->event_time }}</td>
-                                    <td>
-                                        <?php if(count($data['all_orders'])>0) :?>
-                                            <?= (in_array($event->idevent,$data['all_orders'][$i]) ? 'Completed' : 'Pendient') ?>
-                                            <?php if(in_array($event->idevent,$data['all_orders'][$i])){$pendient=false;} ?> 
-                                        <?php else : ?>
-                                            Pendient
+                                    <td>    
+                                        <?php if($data['all_orders'][$i] != "") : ?>
+                                            <?php if(count($data['all_orders'][$i])>0) :?>
+                                                
+                                                <?= (in_array($event->idevent,$data['all_orders'][$i]) ? 'Completed' : 'Pendient') ?>
+                                                <?php if(in_array($event->idevent,$data['all_orders'][$i])){$pendient=false;} ?> 
+                                            <?php else : ?>
+                                                Pendient
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                    
                                     </td>
                                     <td><?= ($pendient) ? 'Pendient' : '$ 20.00' ?></td>
                                     <td><?= ($pendient) ? 'Pendient' : 'order-id' ?></td>
                                     <td>
-                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='/parents/order/neworder/" . $event->idevent . "/" . $student->idstudent . "'>Order</a>" ?>
+                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event['idevent']  . "' href='/parents/order/neworder/" . $event['idevent'] . "/" . $student['idstudent'] . "'>Order</a>" ?>
                                         <?= ($pendient) ? $order_button : 'Pendient' ?>
-                                        <!--<a href="#">Download</a>--></td>
+                                        <!--<a href="#">Download</a>-->
+                                    </td>
                                 </tr>
                                 @endforeach
 
