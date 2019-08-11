@@ -28,7 +28,9 @@ class CreateViews extends Migration
                 event_time, 
                 TIME_FORMAT(event_time, '%h:%i %p') as event_time_formated,
                 event_name,
-                idevent
+                idevent,
+                IFNULL((select distinct 1 from orders e
+                  where events.idevent = e.idevent ),0) as has_order
                 from events
                 where is_active = 1
                 order by idschool, event_date
@@ -55,7 +57,6 @@ class CreateViews extends Migration
                       on (students.idclassroom = classrooms.idclassroom)
             )
         ");
-<<<<<<< HEAD
 
         DB::statement("
             CREATE VIEW calendars_act_vw  AS
@@ -86,8 +87,28 @@ class CreateViews extends Migration
             INNER JOIN categories
             on (menu_items.idcategory = categories.idcategory)
         ");
-=======
->>>>>>> Daphne
+
+        DB::statement("
+            CREATE VIEW menu_selected_vw  AS
+            select c.idevent,
+            a.iditem, 
+            item_name, 
+            description, 
+            price, 
+            nutrition_facts, 
+            a.idcategory,
+            category,
+            image,
+            IFNULL((select 1 from event_items b
+            where a.iditem = b.iditem and c.idevent = b.idevent),0) as is_selected,
+            IFNULL((select b.final_price from event_items b
+            where a.iditem = b.iditem and c.idevent = b.idevent),0) as final_price,
+            IFNULL((select distinct 1 from orders_items d, orders e
+            where a.iditem = d.iditem and c.idevent = e.idevent and 
+                  d.idorder = e.idorder),0) as has_order
+            from menu_items_vw a, events c
+            order by c.idevent, a.iditem
+        ");
     }
 
     /**
@@ -100,10 +121,8 @@ class CreateViews extends Migration
 
         DB::statement("DROP VIEW IF EXISTS events_vw");
         DB::statement("DROP VIEW IF EXISTS classrooms_students_vw");
-<<<<<<< HEAD
         DB::statement("DROP VIEW IF EXISTS calendars_act_vw");
         DB::statement("DROP VIEW IF EXISTS menu_items_vw");
-=======
->>>>>>> Daphne
+        DB::statement("DROP VIEW IF EXISTS menu_selected_vw");
     }
 }

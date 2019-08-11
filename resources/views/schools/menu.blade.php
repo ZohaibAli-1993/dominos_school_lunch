@@ -2,9 +2,10 @@
 
 @section('content')
 
-<h1>School Lunch Menu</h1>
 
 <div class="container">
+
+	<h1 class="h1 mt-3" style="color:#006491">School Lunch Menu</h1>
 	
 	@foreach($category as $cat_result)
 
@@ -33,7 +34,7 @@
 
 		<div class="row">
 
-			<h3 id="lunch_menu_category">{{$cat_result->category}}</h3>
+			<h2 class="h2 mt-5 mb-3" id="lunch_menu_category" style="color:#006491">{{$cat_result->category}}</h2>
 
 		</div>
 
@@ -52,9 +53,9 @@
 
 				<div class="col-lg-6">
 
-					<div class="menu-image"><img src="{{$result->image}}" width="100%" height="auto">
+					<div id="school_lunch_menu_items"><img src="{{$result->image}}" width="100%" height="auto">
 
-					<h3>{{$result->item_name}}</h3>
+					<h3 class="h3">{{$result->item_name}}</h3>
 
 						  <strong>Price: </strong>${{$result->price}}<br />
 

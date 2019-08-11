@@ -1,52 +1,46 @@
 /*font styles*/
 
 /**MONIKA*/
-
 body{
     font-family: 'Gothic A1', sans-serif;
+    font-size: 16px;
 }
 
+
+header{
+  margin-bottom: 120px;
+}
+
+/** marina**/
 .h1, .h2, .h3, .h4, .h5{
   font-weight: 500;
   color: #006491;
+  text-align: center;
 }
 
-#container{
-    position: relative;
-}
-
-.text.content{
-    max-width: 1080px;
-    margin: 0 auto;
-}
+/** end marina **/
 
 /* Top part of header styles */
 #top_header{
-
     background-color: #006491;
     box-shadow: inset 0 0 10px #fff;
     width: 100%;
     height: 50px;
 }
 
+
 /* Logo styles*/
 
 #logo{
-
     position: absolute;
-    left: 70px;
+    left: 0;
     top:0;
-    z-index:1;
-}
-
-#logo:hover{
-    transform: scale(1.05);
+    z-index:1000000;
 }
 
 /* Bottom part of header styles */
 
 #bottom_header{
-
     background-color: #fff;
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
@@ -58,36 +52,32 @@ body{
 /* Main Navigation styles */
 
 #main_nav_bar nav {
-
     position: relative;
 }
 
 #main_nav_bar nav ul{
     position:absolute;
-    right: 70px;
-    padding-top: 20px;
+    right: 0;
+    padding-top: 0;
 }
 
 #main_nav_bar nav ul li{
-
     list-style-type: none;
     display: inline-block;
 }
 
 #main_nav_bar nav ul li a {
-
     text-decoration: none;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 24px;
-    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 21px;
+    padding-bottom: 15px;
     font-weight: 700;
     color: #006491;
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
 #main_nav_bar nav ul li a:hover{
-
     background-color: #a6c9d9;
     text-decoration: none;
     color: #fff;
@@ -96,6 +86,19 @@ body{
 #main_nav_bar{
     float: left;
     width: 50%;
+}
+
+#main_nav_bar .menu_icon{
+    margin-left: 95%;
+    margin-top: 20px;
+    padding: 0px;
+    font-weight: 700;
+    color: #006491;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    font-size: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    
 }
 
 /* contact and user icons */
@@ -110,7 +113,7 @@ body{
 
 #top_header .user_icon{
     float: right;
-    margin-right: 6.5%;
+    margin-right: 1%;
 }
 
 #top_header .contact_icon{
@@ -122,7 +125,7 @@ body{
 #brand_name{
     float: left;
     width: 50%;
-    padding-left: 13.5%;
+    padding-left: 105px;
 }
 
 #brand_name .name_first_part{
@@ -141,20 +144,133 @@ body{
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
-code#quote{
 
-    color: #006491;
+/********************************************RESPONSIVENESS****************************/
+
+@media screen and (min-width: 900px) and (max-width: 1120px) {
+
+    #logo{
+        position: absolute;
+        left: 0;
+        top:0;
+        z-index:1;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 105px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 29px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 19px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 2;
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
 
 }
 
-header{
-    height: 130px;
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+
+    body{
+        line-height: 1.6;
+    }
+
+    #bottom_header{
+        height: 50px;
+    }
+
+    #logo{
+        left: 5px;
+        width: 100px;
+        height: 94px;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 84px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 25px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 17px;
+    }
+    
+    #main_nav_bar{
+        float: none;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 0;
+        margin-top:45px;
+        padding-top: 5px;
+        background-color: #006491;
+        width: 100%;
+        padding:0;
+        z-index:1000000;
+    }
+
+    #main_nav_bar nav ul li{
+        display: block;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px; 
+        padding-left:0;
+        border-bottom: 1px solid #eee; 
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color:#fff;
+    }
+
+    #main_nav_bar nav ul li:hover{
+        background-color: #a6c9d9;
+    }
+
+    #main_nav_bar nav ul li a:hover{
+        background: none;
+    }
+
+    #main_nav_bar .menu_icon{
+        margin-left: 90%;
+        margin-top: -30px;
+        padding-right: 5px;
+        font-size: 20px;
+        visibility: visible;
+    }
+
+    #menu_list{
+
+        visibility: hidden;
+    }
 }
 
-#main_content{
-    /**padding: 0 100px; */
-    padding: 0;
-}
+
+/**********Classroom page modal styles *********/
+
+
 
 /**END Monika*/
 
@@ -167,25 +283,11 @@ header{
     top: -40px;
 }
 
-/** about image */
+/** about image 
 #about-image{
-    float:right;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
+    top: -40px;
+}*/
 
-#about.row .col  h2{
-    color:#006491;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-#about.row .col p{
-    font-size: 16px;
-    
-}
 
 /** Subscribe partial  */
 
@@ -206,9 +308,6 @@ header{
     position: static;
 }
 
-#newsletter h4{
-    font-weight: bold;
-}
 
 #newsletter p{
     font-weight: 400; 
@@ -244,7 +343,7 @@ header{
 
 /** ---------------------END Amandeep ----------------------------------------*/
 
-/**END Monika*/
+
 
 /**
  * Button style
@@ -643,7 +742,7 @@ div#close_box{
 
 /** hero-image */
 #about-hero-image{
-    width: 100%;
+    height: 85vh;
     color:#fff;
     position: relative;
 }
@@ -656,7 +755,7 @@ div#close_box{
     
 }
 
-/** newsletter styles */
+/** newsletter styles 
 .newsletter{
     background-color: #d9e8ef; 
     text-align: center;
@@ -665,16 +764,13 @@ div#close_box{
     
 }
 
-.newsletter h4{
-    font-weight: bold;
-}
 
-.newsletter p{
+#newsletter p{
     font-weight: bold; 
 }
 
 
-.subscription-layout #join-form{
+#subscription-layout #join-form{
     margin-top: -15px;
     z-index: 1000;
     text-align: center;
@@ -691,7 +787,7 @@ div#close_box{
     border-radius: 3px;
 }
 
-
+**/
 
 /** ---------------------END Amandeep ----------------------------------------*/
 
@@ -1727,21 +1823,6 @@ div.content.text{
 
 /*********************School Lunch Menu page styles**************************/
 
-h3#lunch_menu_category{
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0 auto;
-}
-
-div#classrooms-buttons a{
-    color: #fff;
-}
-
-div#classrooms-buttons a.classrooms-add,
-div#classrooms-buttons a.classrooms-file-upload{
-    background-color: #006491;
-}
-
 
 
 
@@ -1750,4 +1831,17 @@ div#classrooms-buttons a.classrooms-file-upload{
 .alignrigth{
   text-align: right;
 }
+
+
+
+
+
+
+/*****************************Menu page styles*************************************/
+
+div#school_lunch_menu_items{
+  margin-bottom: 10px;
+  border: 1px solid #006491;
+  text-align: center;
+ }
 

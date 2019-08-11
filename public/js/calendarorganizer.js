@@ -507,8 +507,17 @@ Organizer.prototype.list = function (data) {
         paragraph.id = this.id + "-list-item-" + i + "-text";
         paragraph.appendChild(document.createTextNode(data[i].text));
 
+        // Alessandra - Inserted link to edit event
+        var anchor = document.createElement("a");
+        anchor.id = this.id + "-list-item-" + i + "-link";
+        anchor.className = "button";
+        anchor.style = "margin: 7px;"
+        anchor.href = "/schools/events/edit/" + data[i].idevent;
+        anchor.appendChild(document.createTextNode("Edit"));
+
         listItem.appendChild(division);
         listItem.appendChild(paragraph);
+        listItem.appendChild(anchor);
 
         container.appendChild(listItem);
     }

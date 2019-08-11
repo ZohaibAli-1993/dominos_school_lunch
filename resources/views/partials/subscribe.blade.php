@@ -3,7 +3,7 @@
 	<div class="row" id="newsletter">
 		
 		<div class="col">
-			<h4>Newsletter</h4>
+			<h4 class="h4">Newsletter</h4>
 			<p>Subscribe to get special offers, free giveaways, and one-in-a-lifetime deals.<br />
 			We promise to send emails you with love.</p>
 		</div>
@@ -17,7 +17,7 @@
     			<input type="hidden"></input>
        
 				<input type="text" name="email" placeholder="Enter your email address" value="">
-				<button id="join-btn" >Join</button>
+				<button id="join-btn">Join</button>
 
 			</form>
 		</div>
