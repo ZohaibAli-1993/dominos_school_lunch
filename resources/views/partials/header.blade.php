@@ -21,9 +21,8 @@
     <title>Dominos Lunch Management System</title>
 </head>
 
-<body>
+<body onresize="OnWindowResized()">
 
-    
     <!-- Main container of the header -->
     <header id="container">
 

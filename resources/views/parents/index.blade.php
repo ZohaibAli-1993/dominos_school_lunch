@@ -60,7 +60,7 @@
 <div id="close_modal">Close</div>
 
 <div id="modal_content"></div>
-=======
+
 <h1>Welcome, {{$parentRegister->first_name}} {{$parentRegister->last_name}}</h1>
 <div class="text content container">
 <!--<img src="/img/pizza_parent_account111.jpg" width="100%">-->
@@ -168,7 +168,7 @@
 			<button type="submit">Submit</button>
 		</form>
 	</div>
->>>>>>> 1b64f959265269ffd82dcfbce777e89b3aa7a122
+
 
 
 </div>

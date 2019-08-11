@@ -118,7 +118,6 @@ view('main.parents_registration');
 });
 
 /*
->>>>>>> Daphne
 |--------------------------------------------------------------------------
 | contact Page
 |--------------------------------------------------------------------------
@@ -190,11 +189,17 @@ Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
 
 Route::post('/schools/classrooms','Schools\ClassroomsController@store');
 
+Route::get('/schools/upload','Schools\ClassroomsController@showUpload');
+
+Route::post('/schools/upload','Schools\ClassroomsController@storeFileContents');
+
 Route::get('/schools/classrooms/{classroom}','Schools\ClassroomsController@edit');
 
 Route::put('/schools/classrooms','Schools\ClassroomsController@update');
 
 Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+
+
 
 
 //Route::get('/schools/menu',function(){return view('schools.menu');});
