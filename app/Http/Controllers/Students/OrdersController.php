@@ -99,36 +99,84 @@ class OrdersController extends Controller
 
         $parent_id = 1;
 
-        $students = Student::all();
+        $students = DB::table('students')->where('idparent','=',$parent_id)->get()->toArray();
 
         $all_events = [];
         $all_orders = [];
-        
+        $schools_info =[];
+
+        $current_date = date('Y-m-d');
+
+        $final_table = [];
         
         foreach($students as $student){
-            $events = DB::table('events_vw')->where('idschool','=',$student->idschool)->get()->toArray();
-            $all_events[] = $events;
 
+            // Get all upcoming events for the current school
+            $events = DB::table('events')->where('idschool','=',$student->idschool)
+                                            ->where('is_active','=','1')
+                                            ->where('cutoff_date','>=',$current_date)
+                                            ->get()->toArray();
+            $all_events[] = $events;
+            
+            
+            $classroom = DB::table('classrooms')->where('idclassroom','=',$student->idclassroom)->first();
+            $school = DB::table('schools')->where('idschool','=',$student->idschool)->first();
+
+            $row_school['classroom'] = $classroom->classroom . ' , ' . $classroom->description;
+            $row_school['school'] =  $school->school_name . '(Id: ' . $school->idschool . ' )';
+            // Get all the submitted orders from the current student in the upcoming events
             $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get()->toArray();
             
-            if (count($orders) == 0){
-                $all_orders[] = '';
-            }else{
-                $all_orders[] = $orders;
+            
+            // Summary - To be shown in the table in orders.php
+            $orders_student = [];
+
+
+            // Checks if the upcoming order is already submitted
+            foreach($events as $event){
+                $row = [];
+
+                $row['event_date'] = $event->event_date;
+                $row['status'] = 'Pendient';
+                $row['total_amount'] = '---';
+                $row['order'] = '---';
+                $row['action']= '';
+                $row['idevent'] = $event->idevent;
+                $row['idstudent'] = $student->idstudent;
+                
+
+                $submitted = false;
+
+                foreach($orders_student as $order){
+                    if($event['idevent'] == $order['id_event']){
+                        $row['status'] = 'Submitted';
+                        $row['total_amount'] = $order['total_amount'];
+                        $row['order'] = $order['idorder'];
+                        $row['action'] = 'show';
+                        $row['idorder'] = $order['idorder'];
+                    }
+                }
+
+                $orders_student[] = $row;
             }
+
+            $all_orders[] = $orders_student;
+            $schools_info[] = $row_school;
+
             
         }
         
+        
         $data = [
-            'students' => $students->toArray(),
-            'all_events' => $all_events,
-            'all_orders' => $all_orders
+            'students' => $students,
+            'all_events' => $all_orders,
+            'schools_info' =>$schools_info
         ];
-        
+        /*
         echo '<pre>';
-        var_dump($all_orders);
+        var_dump($data);
         echo '</pre>';die;
-        
+        */
         return view('parents.order', compact('data'));
     }
 
@@ -143,6 +191,8 @@ class OrdersController extends Controller
         {
             $item_description[] = DB::table('menu_items')->where('iditem','=', $item->iditem)->first(['item_name']);
         }
+
+
 
         $data = [
             'event' => $event,
