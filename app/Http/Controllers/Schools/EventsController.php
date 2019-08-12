@@ -10,6 +10,7 @@ use App\School;
 use App\Setup;
 use App\Calendar;
 use App\MenuItem;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\DB;
 
@@ -31,10 +32,6 @@ class EventsController extends Controller
 
         //Get events list according to the school logged in
         $events_list = DB::table('events_vw')->where('idschool', $school_id)->get();
-
-        $school = 1;   // It is necessary to update according school logged in
-       // $events = Event::where('idschool', $school);
-        $events_list = DB::table('events_vw')->get();
 
         $year_prev = 0;
         $month_prev = 0;
@@ -88,7 +85,6 @@ class EventsController extends Controller
 
         // Get list of menu_items
         $menu_items = DB::table('menu_items_vw')->get();
-        //$menu_items = MenuItem::get();
 
         return view('events.create', 
             compact('setup', 'calendar', 'school', 'menu_items' ));
@@ -124,19 +120,37 @@ class EventsController extends Controller
             'event_name' => 'required|string',
             'event_date' => 'required|date',
             'cutoff_date' => 'required|date',
-            'event_time' => 'required'
+            'event_time' => 'required',
         ]);
 
-       //Insert new Event in the table
+        //Insert new Event in the table
+ 
+        //$event = Event::create($valid);
 
-       $event = Event::create($valid);
+        $event = new Event($valid);
+        $event->created_at = Carbon::now();
+        $event->updated_at = Carbon::now();
+        $event->save();
+        $idevent = $event->idevent;
 
         //If any menu item was checked, insert event items in table
-      /*if(count(request('event_items'))){
-            $event->eventItems()->attach(request('event_items'));
-       }*/
+        $count = count($request->input('event_items'));
+        if($count){
 
-       return redirect('/schools/events')->with('success', 'Event was added');
+            for ($i=0; $i<$count; $i++){
+                $data[] = array(
+                'idevent' => $idevent,    
+                'iditem' => $request->input('event_items')[$i],
+                'final_price' => 
+                    $request->input('idfinalprice'. 
+                    $request->input('event_items')[$i] )
+                );
+            }
+
+            DB::table("event_items") -> insert($data); 
+        }
+
+       return redirect('/schools/events')->with('success', 'Event has been added');
     }
 
     /**
@@ -164,20 +178,19 @@ class EventsController extends Controller
         //Get school data
         $school = School::where('idschool', $school_id)->first();
 
-        /**
-         * Read setup table to get cutoff_days
-         * 
-         */
+        // Read setup table to get cutoff_days
         $setup = Setup::find(1);
 
-        /**
-         * Read calendar table to get begin and end dates
-         * 
-         */
+        // Read calendar table to get begin and end dates
 
         $calendar = DB::table('calendars_act_vw')->first();
 
-        return view('events.edit', compact('event', 'setup', 'calendar', 'school' ));
+        // Get list of menu_items
+        $menu_items = DB::table('menu_selected_vw')->
+                      where('idevent', $event->idevent)->get();
+
+        return view('events.edit', 
+               compact('event', 'setup', 'calendar', 'school', 'menu_items' ));
     }
 
     /**
@@ -206,10 +219,32 @@ class EventsController extends Controller
         $event->event_date = $valid['event_date'];
         $event->cutoff_date = $valid['cutoff_date'];
         $event->event_time = $valid['event_time'];
+        $event->updated_at = Carbon::now();
         $event->save();
 
+        //Delete previous events_items
+        DB::table('event_items')->where('idevent', $valid['idevent'])->delete();
+
+        //If any menu item was checked, insert event items in table
+        $count = count($request->input('event_items'));
+        if($count){
+
+            for ($i=0; $i<$count; $i++){
+                $data[] = array(
+                'idevent' => $valid['idevent'],    
+                'iditem' => $request->input('event_items')[$i],
+                'final_price' => 
+                    $request->input('idfinalprice'. 
+                    $request->input('event_items')[$i] )
+                );
+            }
+
+            DB::table("event_items") -> insert($data); 
+        }
+
         
-        return redirect('/schools/events')->with('success', 'Event was updated');
+        return redirect('/schools/events')->
+               with('success', 'Event has been updated');
 
     }
 
@@ -221,6 +256,16 @@ class EventsController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+
+        $event->is_active = 0;
+        $event->updated_at = Carbon::now();
+
+        if($event->save()){
+            return redirect('/schools/events')->
+                   with('success', 'Event has been inactivated.');
+        }
+
+        return redirect('/schools/events')->
+               with('error', 'There was a problem inactiving that event');
     }
 }

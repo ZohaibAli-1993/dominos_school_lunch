@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Students;
 
 use App\Student;
-use App\Token;
 use App\ParentRegister;
 use App\School;
 use App\Classroom;
@@ -31,12 +30,15 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function create()
+    public function create(Request $request, ParentRegister $parentRegister)
     {
-        //
+        $idschool = $request->session()->get('idschool');
 
-        return view('parents.addStudent', compact('parentRegister', 'token'));
+        $school = School::find($idschool);
+
+        $classrooms = Classroom::where('idschool', $school['idschool'])->get();
+
+        return view('parents.addStudent', compact('parentRegister','school','classrooms'));
     }
 
     /**
@@ -46,35 +48,24 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-    public function store(Request $request, ParentRegister $parentRegister)
+    public function store(Request $request, Student $student)
     {   
+        $idschool = $request->session()->get('idschool');
 
         $valid = $request->validate([
             'first_name' =>'required|string' ,
             'last_name' => 'required|string',
             'idparent' => 'required|integer',
-            'token' => 'required|string',
             'idclassroom' => 'required|integer'
-
         ]);
 
-        $valid['idparent'] = $parentRegister['idparent'];
-
+        $valid['idschool'] = $idschool;
+        
+        
         $student = Student::create($valid);
 
-        $school = School::where('token', $valid['token'])->first();
 
-        if(!$school)
-        {
-           return back()->with('error','Token is invalid');
-        }
-
-        $valid['idschool'] = $school['idschool'];
-
-        $student = Student::create($valid);
-
-        return redirect('/parents/'.$parentRegister['idparent'])->with('success', 'You added a new child!');
+        return redirect('/parents/'.$valid['idparent'])->with('success', 'You added a new child!');
 
     }
 
@@ -95,7 +86,6 @@ class StudentsController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-
     public function edit(ParentRegister $parentRegister ,Student $student)
     {
         $classrooms = Classroom::where('idschool', $student['idschool'])->get();
@@ -110,7 +100,6 @@ class StudentsController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request,ParentRegister $parentRegister, Student $student)
     {
         $valid = $request->validate([
@@ -128,7 +117,6 @@ class StudentsController extends Controller
         $student->save();
 
         return redirect('/parents/'.$parentRegister['idparent'])->with('success','Successfully edit student profile!');
-
     }
 
     /**
@@ -137,15 +125,11 @@ class StudentsController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(ParentRegister $parentRegister, Student $student)
     {
+        $student->delete();
 
-
-        if($student->delete()) {
-            return back()->with('success','Student was deleted');
-        } 
-        
-        return back()->with('error','There was a problem deleting that post');
-
+        return redirect('/parents/'.$student['idparent'])->with('success','Student was deleted');
+       
     }
 }

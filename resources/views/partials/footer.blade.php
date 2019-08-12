@@ -1,5 +1,7 @@
 
 <!--End main_content-->
+
+
 <!-- Footer -->
 <footer class="page-footer mt-5">
         <div class="row">
@@ -88,12 +90,6 @@
             e.preventDefault();
             alert('cut,copy & paste options are disabled !');
         });
-
-        $('.show_form').click(function(e){
-            //$('#add_form').css('display', 'block');
-            //$('.show_form').css( 'display', 'none' );
-
-        });
     });// .document.ready
 
 
@@ -118,6 +114,9 @@ $(".btn-refresh").click(function(){
 
 
     </script>
+
 </footer>
+
 </div><!-- /container -->
+
 <!-- Footer -->
