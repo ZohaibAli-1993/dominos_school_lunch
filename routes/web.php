@@ -260,6 +260,7 @@ Route::get('/dominos/contacts', 'Dominos\ContactsController@index');
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
 Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+Route::post('/parents/order/neworder/process','Students\OrdersController@store');
 Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
 
 /* Paypal Routes */
