@@ -12,4 +12,12 @@ class Calendar extends Model
      * @var string
      */
     protected $primaryKey = 'idcalendar';
-}
+
+    protected $fillable = ['name', 
+    					   'school_year',
+    					   'begin_dt',
+    					   'end_dt',
+    					   'is_active'
+    					   ];
+
+}    

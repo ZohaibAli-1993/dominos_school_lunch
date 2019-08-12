@@ -109,6 +109,32 @@ class CreateViews extends Migration
             from menu_items_vw a, events c
             order by c.idevent, a.iditem
         ");
+
+        DB::statement("
+            CREATE VIEW store_events_vw  AS
+            select
+            s.idstore,
+            e.event_date,
+            e.idevent,
+            e.idschool
+            from events e, schools s
+            where (e.idschool = s.idschool)
+            order by s.idstore, e.event_date, e.idevent 
+        ");
+
+        DB::statement("
+            CREATE VIEW max_capacity_vw  AS
+            select
+            st.idstore,
+            st.event_date,
+            count(st.idevent) as total_events,
+            s.store_max_events
+            from store_events_vw st, setups s
+            where s.id = 1
+            group by st.idstore,
+            st.event_date
+            having count(st.idevent) >= store_max_events
+        ");
     }
 
     /**
@@ -124,5 +150,7 @@ class CreateViews extends Migration
         DB::statement("DROP VIEW IF EXISTS calendars_act_vw");
         DB::statement("DROP VIEW IF EXISTS menu_items_vw");
         DB::statement("DROP VIEW IF EXISTS menu_selected_vw");
+        DB::statement("DROP VIEW IF EXISTS store_events_vw");
+        DB::statement("DROP VIEW IF EXISTS max_capacity_vw");
     }
 }
