@@ -14,13 +14,28 @@
 Route::middleware(['school'])->group(function()
 {   
     //show school profile
-    Route::get('/school/{school}', 'Schools\SchoolsController@show');
+    Route::get('/schools/{school}', 'Schools\SchoolsController@show');
 
     //show form to edit school profile
-    Route::get('/school/{school}/edit', 'Schools\SchoolsController@edit');
+    Route::get('/schools/{school}/edit', 'Schools\SchoolsController@edit');
 
     //update school profile
-    Route::PUT('/school/{school}/edit', 'Schools\SchoolsController@update');
+    Route::PUT('/schools/{school}/edit', 'Schools\SchoolsController@update');
+
+    //show form to change school password
+    Route::get('/schools/{school}/changepass', 'Schools\SchoolsController@editPass');
+
+    //update school password
+    Route::PUT('/schools/{school}/changepass', 'Schools\SchoolsController@updatePass');
+
+    
+
+});
+
+
+Route::middleware(['parents'])->group(function() 
+{ 
+
 
 });
 
@@ -118,7 +133,6 @@ view('main.parents_registration');
 });
 
 /*
->>>>>>> Daphne
 |--------------------------------------------------------------------------
 | contact Page
 |--------------------------------------------------------------------------
@@ -190,11 +204,17 @@ Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
 
 Route::post('/schools/classrooms','Schools\ClassroomsController@store');
 
+Route::get('/schools/upload','Schools\ClassroomsController@showUpload');
+
+Route::post('/schools/upload','Schools\ClassroomsController@storeFileContents');
+
 Route::get('/schools/classrooms/{classroom}','Schools\ClassroomsController@edit');
 
 Route::put('/schools/classrooms','Schools\ClassroomsController@update');
 
 Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+
+
 
 
 //Route::get('/schools/menu',function(){return view('schools.menu');});
@@ -249,6 +269,15 @@ Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
 Route::post('/parents/{parentRegister}', 'Students\ParentsRegisterController@updateSession');
 
+/**
+ * Parents edit page route
+ */
+Route::get('/parents/{parentRegister}/edit', 'Students\ParentsRegisterController@edit');
+Route::PUT('/parents/{parentRegister}/edit', 'Students\ParentsRegisterController@update');
+
+//parent change their password
+Route::get('/parents/{parentRegister}/changePass', 'Students\ParentsRegisterController@editPass');
+Route::PUT('/parents/{parentRegister}/changePass', 'Students\ParentsRegisterController@updatePass');
 
 /**
  * Parents edit student page route
@@ -257,12 +286,7 @@ Route::get('/parents/{parentRegister}/{student}/edit', 'Students\StudentsControl
 
 Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@update');
 
-/**
- * Parents add student page route
- */
-/*Route::get('/parents/{parentRegister}/student/add', 'Students\StudentsController@create');
-
-Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');*/
+Route::DELETE('/parents/{parentRegister}/{student}', 'Students\StudentsController@destroy');
 
 Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
 
@@ -279,15 +303,12 @@ Route::get('/content/gift-card', function(){return view('content.cards');});
 Route::get('/content/terms', function(){return view('content.terms');});
 Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
 
-Route::get('/content/privacy', function(){return view('content.privacy');}); 
+Route::get('/content/privacy', function(){return view('content.privacy');});
+ 
 /**Parents Registration */  
 Route::post('/registration','students\ParentsRegisterController@store'); 
-Route::middleware(['parents'])->group(function() 
-{ 
 
-
-});
-    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/content/privacy', function(){return view('content.privacy');});
 Auth::routes();
 

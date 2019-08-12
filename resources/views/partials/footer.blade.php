@@ -90,12 +90,6 @@
             e.preventDefault();
             alert('cut,copy & paste options are disabled !');
         });
-
-        $('.show_form').click(function(e){
-            //$('#add_form').css('display', 'block');
-            //$('.show_form').css( 'display', 'none' );
-
-        });
     });// .document.ready
 
 

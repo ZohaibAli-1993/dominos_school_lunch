@@ -23,9 +23,8 @@
     <title>Dominos Lunch Management System</title>
 </head>
 
-<body >
+<body onresize="OnWindowResized()">
 
-    
     <!-- Main container of the header -->
     <header id="container">
 
@@ -103,6 +102,8 @@
                             <li><a href="/parents">Parents</a></li>
 
                             <li><a href="/about">About Us</a></li>
+
+                            <li><a href="/registration" class="button red" id="nav_cta">Sign Up</a></li>
                         </ul>
 
                     </nav>
@@ -117,7 +118,7 @@
                     <div class="cta">
                         <h1>With Domino</h1>
                         <h2>School Lunch is easier than ever</h2>
-                        <a class="button" href="">Lunch Order</a>
+                        <a class="button" href="/registration">Lunch Order</a>
                     </div>
                     @endif
                 </div>

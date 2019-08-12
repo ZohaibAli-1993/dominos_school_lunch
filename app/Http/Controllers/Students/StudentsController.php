@@ -125,12 +125,11 @@ class StudentsController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(ParentRegister $parentRegister, Student $student)
     {
-        if($student->delete()) {
-            return back()->with('success','Student was deleted');
-        } 
-        
-        return back()->with('error','There was a problem deleting that post');
+        $student->delete();
+
+        return redirect('/parents/'.$student['idparent'])->with('success','Student was deleted');
+       
     }
 }
