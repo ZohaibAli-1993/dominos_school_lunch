@@ -6,12 +6,7 @@
 
 <script>
 	$(document).ready(function(){
-		/**
-		 * function of showing model box when page finnished load
-		 * @return:
-		 * 		- change opacity of overlay box to 0.5
-		 * 		- slide the box from the left and change opacity of the box to 1 at the same time
-		 */
+		
 		setTimeout(function(){
 			$('#overlay').css('opacity', .9);
 			$('#box_cover').animate({
@@ -20,10 +15,7 @@
 			},500)
 
 		},500)//end set time out
-		/**
-		 * function for close button
-		 * @return: overlay background and box disappear
-		 */
+		
 		$('#close_box').click(function(){
 			$('#overlay').fadeTo(400,0);
 			$('#box_cover').fadeTo(400,0);

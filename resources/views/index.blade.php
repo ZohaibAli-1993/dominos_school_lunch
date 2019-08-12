@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col">
 				<h2 class="h2">Register FREE account to Get Started</h2>
-				<a class="button school" href="">School Sign up</a>
+				<a class="button school" href="/school_registration">School Sign up</a>
 				<a class="button parents" href="">Parents Sign up</a>
 			</div><!-- .col-->
 		</div><!-- .row-->
