@@ -819,8 +819,6 @@ div#parents_page form.delete_student button{
 
 /** hero-image */
 #about-hero-image{
-    height: 85vh;
-    color:#fff;
     position: relative;
 }
 
