@@ -2,12 +2,12 @@
 
 @section('content')
 
-
-
-
-<h1 class="h1 mt-3 mb-3" style="margin-top: 15px;">Schools Home Page</h1>
-
 <div class="container">
+<br />
+
+<h1 class="h1 mt-3 mb-3">Schools Home Page</h1>
+
+
     <div class="row">
         <div class="col">
             <img src="/img/thinking.png" width="100%">
@@ -48,10 +48,10 @@
 
 
 
-<a type="button" class="button" href="/schools/menu">Show Menu</a>
-<a type="button" class="button" href="/schools/reports">Reports</a>
-<a type="button" class="button" href="/schools/events">Events</a>
-<a type="button" class="button red" href="/registration">Sign Up</a>
+<a type="button" class="button mr-3" href="/schools/menu">Show Menu</a>
+<a type="button" class="button mr-3" href="/schools/reports">Reports</a>
+<a type="button" class="button mr-3" href="/schools/classrooms">Classrooms</a>
+<a type="button" class="button mr-3" href="/schools/events">Events</a>
 
 </div>
 @include('partials.subscribe')

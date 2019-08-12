@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="text content">
+<div class="container">
+	<br />
 
 <h1 class="h1 mt-3">Terms and Conditions</h1>
 
