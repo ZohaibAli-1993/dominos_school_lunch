@@ -91,10 +91,15 @@
         </tbody>
     </table>
     
-    <div id="payment_gateway" class="row">
+    <div id="payment_gateway">
                     
-        <h2>Paypal Payment</h2>
-
+        <div>
+            <h2>Process Payment</h2>
+        </div>
+        <div>
+            @include('partials.paypal')
+        </div>
+        
     </div>
 
 </div>
@@ -148,6 +153,7 @@ function calculateTotal() {
     document.getElementById('subtotal').value = subtotal.toFixed(2);
     document.getElementById('taxes').value = taxes.toFixed(2);
     document.getElementById('total').value = total.toFixed(2);
+    document.getElementById('paypal_total').value = total.toFixed(2);
 }
 </script>
 
