@@ -83,7 +83,7 @@
 
 
                 ?>
-                    <button class="btn btn-danger" id="btn_pay" href="">Pay Now</button>
+                    <button class="btn btn-danger" id="btn_pay" href="">CheckOut Now</button>
                 </td>
             </tr>
 

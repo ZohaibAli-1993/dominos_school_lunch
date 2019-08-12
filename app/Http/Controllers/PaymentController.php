@@ -40,10 +40,10 @@ use PayPal\Exception\PayPalConnectionException;class PaymentController extends C
         $itemList = new ItemList();
         $itemList->setItems(array($item));// Create and setup the total amount.
         $amount = new Amount();
-        $amount->setCurrency('EUR')->setTotal($pay_amount);// Create a transaction and amount and description.
+        $amount->setCurrency('CAD')->setTotal($pay_amount);// Create a transaction and amount and description.
         $transaction = new Transaction();
         $transaction->setAmount($amount)->setItemList($itemList)
-        ->setDescription('Laravel Paypal Payment Tutorial');
+        ->setDescription('Test payment ecommerce project');
         //You can set custom data with '->setCustom($data)' or put it in a session.// Create a redirect urls, cancel url brings us back to current page, return url takes us to confirm payment.
         $redirect_urls = new RedirectUrls();
         $redirect_urls->setReturnUrl(route('confirm-payment'))
@@ -85,6 +85,14 @@ use PayPal\Exception\PayPalConnectionException;class PaymentController extends C
         $result = $payment->execute($execution, $this->api_context);// Get value store in array and verified data integrity
         // $value = $request->session()->pull('key', 'default');// Check if payment is approved
         if ($result->getState() != 'approved')
-            return redirect('/checkout')->withError('Payment was not successful.');return redirect('/checkout')->withSuccess('Payment made successfully');
+            return redirect('/checkout')->withError('Payment was not successful.');
+        
+        /* Payment succesfuly received */
+        /* Add order to database  */
+
+
+
+        /* Show succesful message */
+        return redirect('/checkout')->withSuccess('Payment made successfully');
     }
 }
