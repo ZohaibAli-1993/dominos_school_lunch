@@ -808,14 +808,14 @@ a {
   font-weight: 400;
 }
 
-h2 {
+/**h2 {
   text-align: center;
   font-size: 30px;
   font-weight: 500;
   text-transform: uppercase;
   display:inline-block;
   color: #006491;;
-}
+}**/
 
 
 
