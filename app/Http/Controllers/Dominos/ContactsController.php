@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 class ContactsController extends Controller
 {
+
+    const MAX_CONTACTS = 20;
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,11 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        //
+        //Query Contact model for all contacts
+        $contacts = Contact::latest()
+                ->paginate(self::MAX_CONTACTS);
+
+        return view('admin.contacts', compact('contacts'));
     }
 
     /**
