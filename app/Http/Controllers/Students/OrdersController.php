@@ -39,7 +39,24 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'idevent' =>'required|integer',
+            'idstudent' =>'required|integer',
+            'idschool' =>'required|integer',
+            'idclassroom' =>'required|integer',
+            'amount' =>'required|decimal',
+            'calculated_gst' =>'required|decimal',
+            'calculated_pst' =>'required|decimal',
+            'calculated_hst' =>'required|decimal',
+            'calculated_qst' =>'required|decimal',
+            'total_amount' =>'required|decimal',
+            'order_status' =>'required|boolean',
+            'calculated_gst' =>'required|decimal',
+        ]);        
+
+        Order::create($valid);
+
+        return view('parents.success_order')->withSuccess('Order Submitted. Thank you');
     }
 
     /**
