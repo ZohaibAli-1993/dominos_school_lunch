@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 class SubscriptionsController extends Controller
 {
+
+    const MAX_SUBSCRIPTIONS = 50;
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,12 @@ class SubscriptionsController extends Controller
      */
     public function index()
     {
-        return view('/home', compact('subscription')) ;
+        //return view('/home', compact('subscription')) ;
+        //        //Query Contact model for all contacts
+        $subscriptions = Subscription::latest()
+                ->paginate(self::MAX_SUBSCRIPTIONS);
+
+        return view('admin.subscriptions', compact('subscriptions'));
     }
 
     /**
