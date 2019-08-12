@@ -140,7 +140,6 @@ function calculateTotal() {
 
         subtotal = subtotal + (qty * price);
 
-        alert(subtotal);
     }
 
     taxes = subtotal * 0.05;
