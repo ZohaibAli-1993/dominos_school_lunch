@@ -49,7 +49,11 @@
 
 
 <a type="button" class="button" href="/schools/menu">Show Menu</a>
+<a type="button" class="button" href="/schools/menu">Reports</a>
 <a type="button" class="button" href="/schools/events">Events</a>
 
 </div>
+
+@include('partials.subscribe')
+
 @endsection
