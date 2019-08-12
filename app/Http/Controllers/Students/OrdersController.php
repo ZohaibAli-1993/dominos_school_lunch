@@ -172,11 +172,7 @@ class OrdersController extends Controller
             'all_events' => $all_orders,
             'schools_info' =>$schools_info
         ];
-        /*
-        echo '<pre>';
-        var_dump($data);
-        echo '</pre>';die;
-        */
+
         return view('parents.order', compact('data'));
     }
 
@@ -210,13 +206,15 @@ class OrdersController extends Controller
         $order =[];
         $idevent = $request->input('idevent');
 
+        
+
         foreach($input as $field=>$value )
         {
             if(strpos($field, 'qty') !== false)
             {
 
                 $iditem = str_replace("qty","",$field);
-                $final_price= DB::table('event_items')->where('idevent','=',$idevent)->where('iditem','=',$iditem)->get();
+                $final_price= DB::table('event_items')->where('idevent','=',$idevent)->where('iditem','=',$iditem)->first()->final_price;
                 $row = [
                     'iditem' => $iditem,
                     'item_name' => DB::table('menu_items')->where('iditem','=', $iditem)->first(['item_name']),
@@ -226,10 +224,10 @@ class OrdersController extends Controller
                 $order[] = $row;
             }
         }
-        
-
-        //var_dump($order);die;
-
+        /*
+        echo '<pre>';
+        var_dump($order);die;
+        echo '</pre>';*/
         return view('parents.checkout', compact('order'));
     }
 }
