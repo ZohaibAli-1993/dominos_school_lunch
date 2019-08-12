@@ -24,4 +24,5 @@ class ParentRegister extends Model
  
     protected $fillable=['first_name','last_name','email','phone','idparent','password','captcha'];
 
+
 }

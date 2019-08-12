@@ -1,45 +1,48 @@
 /*font styles*/
 
 /**MONIKA*/
-
 body{
-
     font-family: 'Gothic A1', sans-serif;
+    font-size: 16px;
+    background-color: #fff;
 }
 
-#container{
 
-    position: relative;
+header{
+  margin-bottom: 60px;
 }
+
+/** marina**/
+.h1, .h2, .h3, .h4, .h5{
+  font-weight: 500;
+  color: #006491;
+  text-align: center;
+}
+
+/** end marina **/
 
 /* Top part of header styles */
 #top_header{
-
     background-color: #006491;
     box-shadow: inset 0 0 10px #fff;
     width: 100%;
     height: 50px;
 }
 
+
 /* Logo styles*/
 
 #logo{
-
     position: absolute;
-    left: 70px;
+    left: 0;
     top:0;
-    z-index:1;
-}
-
-#logo:hover{
-    transform: scale(1.05);
+    z-index:1000000;
 }
 
 /* Bottom part of header styles */
 
 #bottom_header{
-
-    background-color: #fff;
+    background-color: rgba(255,255,255,.7);
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
     top: 50px;
@@ -50,36 +53,32 @@ body{
 /* Main Navigation styles */
 
 #main_nav_bar nav {
-
     position: relative;
 }
 
 #main_nav_bar nav ul{
     position:absolute;
-    right: 70px;
-    padding-top: 20px;
+    right: 0;
+    padding-top: 0;
 }
 
 #main_nav_bar nav ul li{
-
     list-style-type: none;
     display: inline-block;
 }
 
 #main_nav_bar nav ul li a {
-
     text-decoration: none;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 24px;
-    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-weight: 700;
     color: #006491;
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
 #main_nav_bar nav ul li a:hover{
-
     background-color: #a6c9d9;
     text-decoration: none;
     color: #fff;
@@ -88,6 +87,19 @@ body{
 #main_nav_bar{
     float: left;
     width: 50%;
+}
+
+#main_nav_bar .menu_icon{
+    margin-left: 95%;
+    margin-top: 20px;
+    padding: 0px;
+    font-weight: 700;
+    color: #006491;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    font-size: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    
 }
 
 /* contact and user icons */
@@ -102,7 +114,7 @@ body{
 
 #top_header .user_icon{
     float: right;
-    margin-right: 6.5%;
+    margin-right: 1%;
 }
 
 #top_header .contact_icon{
@@ -114,7 +126,7 @@ body{
 #brand_name{
     float: left;
     width: 50%;
-    padding-left: 13.5%;
+    padding-left: 105px;
 }
 
 #brand_name .name_first_part{
@@ -133,30 +145,1483 @@ body{
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
-code#quote{
 
-    color: #006491;
+/********************************************RESPONSIVENESS****************************/
+
+@media screen and (min-width: 900px) and (max-width: 1120px) {
+
+    #logo{
+        position: absolute;
+        left: 0;
+        top:0;
+        z-index:1;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 105px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 29px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 19px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 2;
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
 
 }
 
-header{
-    height: 130px;
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+
+    body{
+        line-height: 1.6;
+    }
+
+    #bottom_header{
+        height: 50px;
+    }
+
+    #logo{
+        left: 5px;
+        width: 100px;
+        height: 94px;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 84px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 25px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 17px;
+    }
+    
+    #main_nav_bar{
+        float: none;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 0;
+        margin-top:45px;
+        padding-top: 5px;
+        background-color: #006491;
+        width: 100%;
+        padding:0;
+        z-index:1000000;
+    }
+
+    #main_nav_bar nav ul li{
+        display: block;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px; 
+        padding-left:0;
+        border-bottom: 1px solid #eee; 
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color:#fff;
+    }
+
+    #main_nav_bar nav ul li:hover{
+        background-color: #a6c9d9;
+    }
+
+    #main_nav_bar nav ul li a:hover{
+        background: none;
+    }
+
+    #main_nav_bar .menu_icon{
+        margin-left: 90%;
+        margin-top: -30px;
+        padding-right: 5px;
+        font-size: 20px;
+        visibility: visible;
+    }
+
+    #menu_list{
+
+        visibility: hidden;
+    }
 }
 
-#main_content{
-    padding: 0 100px;
-    min-height: 500px;
-}
+
+/**********Classroom page modal styles *********/
+
+
 
 /**END Monika*/
+
+/************------------Amandeep-------------------*/
+
+/** hero-image */
+.container-fluid{
+    width: 100%;
+    padding: 0px;
+    top: -40px;
+}
+
+/** about image 
+#about-image{
+    top: -40px;
+}*/
+
+
+/** Subscribe partial  */
+
+#subscription-layout{
+    position: relative;
+    margin-bottom: 40px;
+}
+
+
+
+/** newsletter styles */
+#newsletter{
+    margin-top: 20px;
+    background-color: #d9e8ef; 
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: static;
+}
+
+
+#newsletter p{
+    font-weight: 400; 
+}
+
+#join-form form input{
+    width: 80%;
+    height: 100%;
+}
+
+#subscription-layout .row#subscription-form{
+    top: 85%;
+    left:35%;
+    text-align: center;
+    margin-bottom: 30px;
+    position: absolute;
+    z-index: 1000;
+    width: 30%;
+    height: 35px;
+}
+
+#subscription-layout .row .col form#join-form button#join-btn{
+    border: 1px solid #e51937;
+    color: #fff;
+    background-color: #e51937;
+    border-radius: 3px;
+    transition: all ease-in-out 0.4s;
+}
+
+#subscription-layout .row .col form#join-form button#join-btn:hover{
+    box-shadow: inset 0 0 7px #fff;
+}
+
+/** ---------------------END Amandeep ----------------------------------------*/
+
+
+
+/**
+ * Button style
+ */
+
+.button{
+
+    display: inline-block;
+    color: #fff;
+    background-color: rgba(0, 100, 145,0.8);
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px #fff;
+    transition: all ease-in-out 0.8s;
+    font-weight: bold;
+    min-width: 70px;
+    line-height: 2em;
+    text-align: center;
+    min-height: 30px;
+    padding: 5px;
+}
+
+
+.button:hover{
+  color:#fff;
+    text-decoration: none;
+    box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
+}
+
+.button.red{
+    background-color: rgba(227,24,55,0.8);
+    width: auto;
+    margin-left: 0;
+}
+/*-----------------Home Page -  Nguyen Truong (Daphne)-----------------*/
+.home#main_content{
+    padding:0;
+}
+/* Hero image for home page*/
+#home_header{
+    background-image: url(/img/hero_img.jpg);
+    /**background-image: url(/img/image_home.jpg);**/
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+    color:#fff;
+    position: relative;
+}
+
+#home_header #bottom_header{
+    top: 0;
+}
+
+#home_header a#nav_cta{
+  padding:10px;
+  margin-right: 10px;
+  margin-top:3px;
+  transition: all ease-in-out 0.6s;
+}
+
+#home_header a#nav_cta:hover{
+  color:#fff;
+  background-color: rgba(227,24,55,0.8);
+  box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
+}
+
+#home_header .hero{
+    position: absolute;
+    top: 40vh;
+    right: 2%;
+    text-align: center;
+}
+
+#home_header .hero h1{
+    font-size: 3em;
+    color: #006491;
+    text-shadow: 2px 2px 6px rgba(255,255,255,0.4);
+}
+
+#home_header .hero h2{
+    font-size: 1.4em;
+    color:#fff;
+    text-transform: none;
+}
+
+#home_header .hero a.button{
+    display: block;
+    color: #fff;
+    background-color: rgba(0, 100, 145,0.8);
+    height: 40px;
+    line-height: 2em;
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px #fff;
+    transition: all ease-in-out 0.8s;
+    font-weight: bold;
+}
+
+#home_header .hero a.button:hover,
+#section2 a.button:hover,
+#section4 a.button:hover,
+#box_cover a.button:hover,
+#register_main a.button:hover,
+#school_profile a.button:hover{
+    text-decoration: none;
+    box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
+}
+
+/* section1*/
+#section1{
+    margin-top:30px;
+    margin-bottom: 20px;
+}
+#section1 h3{
+  text-align: left;
+  margin:10px 0;
+  padding:0;
+}
+
+#section2 a.button,
+#section4 a.button,
+#box_cover a.button,
+#register_main a.button,
+#school_profile a.button{
+    display: inline-block;
+    color: #fff;
+    padding: 5px;
+    margin-top: 1em;
+    height: 40px;
+    line-height: 2.3em;
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px #fff;
+    transition: all ease-in-out 0.8s;
+    font-weight: bold;
+}
+
+#section2 a.button.school,
+#section4 a.button.school,
+#box_cover a.button.school,
+#register_main a.button.school,
+#school_profile a.button.edit{
+    background-color: rgba(0, 100, 145,0.8);
+    margin-right:10px;
+}
+
+#section2 a.button.parents,
+#section4 a.button.parents,
+#box_cover a.button.parents,
+#register_main a.button.parents,
+#school_profile a.button.changepass{
+    background-color: rgba(227,24,55,0.8);
+    width: auto;
+    margin-left: 0;
+}
+.home_icon{
+    font-size: 4em;
+}
+
+/* section2*/
+#section2{
+    margin-bottom: 20px;
+    height: 50vh;
+    background-image: url(/img/pizza_slice.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    padding-top:20px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+#section2 h2,
+#section4 h2{
+  display: block;
+  color:#fff;
+  text-align: left;
+  padding:0;
+}
+/* section3*/
+
+#section3{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#section3 img{
+    width:70%;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    transition: all ease-in-out 0.6s;
+}
+#section3 img:hover{
+    opacity: 0.8;
+    box-shadow: none;
+}
+#section3 .content  h3{
+    margin-bottom: 20px;
+}
+#section3 .content{
+    position: absolute;
+    top: 25%;
+    left: 38%;
+}
+
+/* section2*/
+#section4{
+    margin-bottom: 20px;
+    height: 50vh;
+    background-image: url(/img/pizza_making.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top:20px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/*-----------------End Home Page-----------------*/
+
+/*-----------------Registration Page -  Nguyen Truong (Daphne)-----------------*/
+
+/*----Box-----*/
+div#overlay,
+div#overlay_form{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: 1000;
+  background-color: #000;
+  opacity:0;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+div#box_cover,
+div#form_cover{
+  position:absolute;
+  top:40%;
+  left:0%;
+  width:40%;
+  height:25%;
+  z-index:10000;
+  background-color: rgba(255,255,255,0.4);
+  display: none;
+  color:#fff;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,.7);
+  padding:5px;
+}
+div#box_content,
+div#token_form{
+  margin-top:40px;
+  margin-left:12px;
+  font-size: 1.2em;
+  text-align: center;
+  display: none;
+}
+
+div#close_box{
+  position:absolute;
+  right:5px;
+  top:5px;
+  width: 25px;
+  height:25px;
+  padding:8px;
+  line-height:13px;
+  text-align:center;
+  border-radius: 50%;
+  box-shadow: inset 0 0 7px #fff;
+  cursor: pointer;
+}
+
+#box_cover #box a.button{
+    line-height: 2em;
+}
+#register_main{
+    margin: 0 auto;
+}
+
+#register_main #register_body{
+    margin: 0 auto;
+}
+
+#register_body{
+    width:100vh;
+    height: 60vh;
+    border-radius:5px;
+    background-image: url(/img/enjoy_today.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    transition: all ease-in-out 0.6s;
+}
+
+#register_body:hover{
+    box-shadow: none;
+}
+#register_main h1{
+    text-align: center;
+}
+#register_main a.button{
+    margin-bottom: 20px;
+}
+#register_main a.button.school{
+    margin-left: 25%;
+}
+/*-----------------End Registration Page-----------------*/
+
+/*-----------------School Profile Page-----------------*/
+#school_profile_tile{
+    text-align: center;
+    color: #006491;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+#school_profile table{
+    width: 100%;
+    height: 60vh;
+    border-collapse: separate;
+}
+#school_profile th{
+    background-color: rgba(227,24,55,.4);
+    border: solid 1px #fff;
+    border-radius: 3px;
+    box-shadow: 0 5px 6px rgba(0,0,0,0.2);
+}
+
+#school_profile td{
+    box-shadow: inset 0 0 5px rgba(227,24,55,.8);
+    border-radius: 3px;
+}
+
+#school_profile th,
+#school_profile td{
+    padding-left:10px;
+}
+
+#school_profile th{
+    width: 30%;
+}
+
+/*#school_profile table caption{
+    font-size: 1.4em;
+    color: #006491;
+    width: 100%;
+    caption-side: initial;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 4px 4px 7px rgba(227,24,55,0.3);
+    width: 100%;
+}*/
+
+#school_profile #profile_table,
+#school_profile #button{
+    margin: 0 auto;
+}
+
+#school_profile #button{
+    margin-bottom: 20px;
+}
+
+#school_profile #button a.edit{
+    width: 100px;
+    text-align: center;
+}
+
+/*-----------------End School Profile Page-----------------*/
+
+/*-----------------Edit School Profile Page - Daphne-----------------*/
+
+#edit form #edit_butt{
+    background-color: rgba(0, 100, 145,0.8);
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px #fff;
+    width:50%;
+    margin-left: 0;
+}
+
+#edit .notice{
+    font-size: 0.8em;
+    color:#e31837;
+    text-align: left;
+    padding-left:10px;
+}
+
+#edit label{
+    display: block;
+    text-align: left;
+    padding-left:10px;
+    margin-bottom: 0;
+    color: #006491;
+    font-weight: bold;
+}
+
+#edit label[for=password]{
+    display: inline;
+    color:#000;
+}
+
+/*-----------------End Edit School Profile Page-----------------*/
+
+/*-----------------Parents Home Page - Daphne-----------------*/
+div#parents_page{
+    background-image: url(/img/parents_bkg_small.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 80vh;
+    margin-bottom: -3rem;
+}
+div#parents_page h1{
+    color: #006491;
+    text-align: center;
+    text-shadow: 3px 3px 7px rgba(255,255,255,.8);
+    display: block;
+    padding-top:20px;
+}
+
+div#parents_page .card{
+    background-color: rgba(255,255,255,0.5);
+}
+
+div#parents_page .card .card-header{
+    box-shadow: 0px 3px 5px rgba(227,24,55,0.3);
+    text-align: center;
+}
+
+div#form_cover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+div#parents_page ul#parents_contact{
+    list-style-type: none;
+    padding:0;
+}
+
+div#parents_page ul#parents_contact li{
+    line-height: 3em;
+}
+
+div#parents_page ul#parents_contact i{
+    font-size: 1.8em;
+    color: #006491;
+}
+
+div#parents_page th{
+    color: #006491;
+}
+
+div#parents_page form.delete_student{
+    display: inline-block;
+}
+
+div#parents_page a.edit_student{
+    color: #006491;
+    margin-right: 10px;
+}
+
+div#parents_page form.delete_student button{
+    border: none;
+    background: none;
+    color: #E31837;
+}
+
+/*-----------------End Parents Home Page - Daphne-----------------*/
+
+/**END Monika*/
+
+/** -------------------AMANDEEP ------------------------------------- */
+
+/** hero-image */
+#about-hero-image{
+    position: relative;
+}
+
+
+/** ------------------- Subscribe partial --------------  */
+
+.subscription-layout{
+    position: static;
+    
+}
+
+/** newsletter styles 
+.newsletter{
+    background-color: #d9e8ef; 
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+
+#newsletter p{
+    font-weight: bold; 
+}
+
+
+#subscription-layout #join-form{
+    margin-top: -15px;
+    z-index: 1000;
+    text-align: center;
+}
+
+.subscription-layout #join-form form legend{
+    border: 1px solid #006491;
+}
+
+.subscription-layout #join-form button#join-btn{
+    border: 1px solid #e51937;
+    color: #fff;
+    background-color: #e51937;
+    border-radius: 3px;
+}
+
+**/
+
+/** ---------------------END Amandeep ----------------------------------------*/
 
 /**WILMER*/
 
 
 .contact.form{
-    width: 50%;
+    width: 75%;
     margin:  0 auto;
 }
+
+/***************************************************/ 
+.zero-raduis{
+    border-radius: 0px !important;
+}
+
+a {
+  color: #92badd;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/**h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  display:inline-block;
+  color: #006491;;
+}**/
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+.modal-content{  
+    width: 400px;
+    
+ }
+#formContent,#loginformContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  text-align: center; 
+  
+}  
+#loginformContent{   
+    width:398px; 
+    border-radius: 0px;
+     
+ }  
+ #province_list * 
+ {  
+    opacity:0.5;
+  }
+ .modal-body{  
+    padding: 0px;
+  }
+#formContent{  
+    min-height: 1350px;
+ }
+#registration,#parents_registration,
+#edit{
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 1050px;  
+  
+  height: auto;
+  /*height: 1300px;*/
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  text-align: center; 
+ 
+  margin:0 auto; 
+  margin-top: 10px; 
+    margin-bottom: 10px;
+} 
+#parents_registration{ 
+    height: 1600px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+ 
+
+
+#formFooter {
+  padding: 2px ;
+  text-align: right;
+  width: 90%;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #006491;
+  border: none;
+  color: white;
+  width: 85%;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+} 
+input[type=button]{  
+background-color: red;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+#email,#password {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+#registration_email,#registration_password,
+#registration_first_name,#registration_last_name,
+#coordinator_first_name,#coordinator_last_name, 
+#registration_verify_password,#registration_phone, 
+#registration_school_name,#registration_city,
+#province_list, #store_list, 
+#registration_address,#registration_postal,#registration_province,#captcha,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 10px 25px;
+ 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px; 
+  width: 85%;
+  margin-bottom: 20px;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+    width:100%;
+}
+
+#captcha{ 
+ width: 30%;
+ }
+
+@media only screen and (max-width: 505px) {  
+    #registration_email,#registration_password,
+    #registration_first_name,#registration_last_name,
+    #coordinator_first_name,#coordinator_last_name,
+    #registration_verify_password,#registration_phone,
+    #province_list, #store_list,
+    #registration_school_name,#registration_city, 
+    #registration_address,#registration_postal,#registration_province,select,
+    #edit_email,
+    #edit_first_name,#edit_last_name, 
+    #edit_phone, 
+    #edit_school_name,#edit_city,
+    #edit_province, #edit_store, 
+    #edit_address,#edit_postal,
+    #edit #markup{ 
+    width: 100%;  
+    margin: 0;
+    margin-bottom: 20px;
+}
+    }
+input[type=text]:focus, input[type=email]:focus{
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder, input[type=email]:placeholder {
+  color: #cccccc;
+}
+
+input#register{  
+    background-color: rgba(227,24,55, 0.8);
+    box-shadow: inset 0 0 5px #fff;
+    transition: all ease-in-out 0.6s;
+ }
+ input#register:hover{
+    box-shadow: none;
+ }
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+#icon {
+  width:30%;
+} 
+input::placeholder {
+  opacity: 0.5;
+}
+/***************************************************************/
+
+/***************************************************/ 
+.zero-raduis{
+    border-radius: 0px !important;
+}
+
+a {
+  color: #92badd;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  display:inline-block;
+  color: #006491;
+}
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+.modal-content{  
+    width: 400px;
+    
+ }
+#formContent,#loginformContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  text-align: center; 
+  
+}  
+#loginformContent{   
+    width:398px; 
+    border-radius: 0px;
+     
+ }  
+ #province_list * 
+ {  
+    opacity:0.5;
+  }
+ .modal-body{  
+    padding: 0px;
+  }
+#formContent{  
+    min-height: 1350px;
+ }
+#registration,#parents_registration,
+#edit{
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 1050px;  
+  
+  height: auto;
+  /*height: 1300px;*/
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  text-align: center; 
+ 
+  margin:0 auto; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+} 
+#parents_registration{ 
+    height: 900px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+ 
+
+
+#formFooter {
+  padding: 2px ;
+  text-align: right;
+  width: 90%;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #006491;
+  border: none;
+  color: white;
+  width: 85%;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+} 
+input[type=button]{  
+background-color: red;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+#email,#password {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+#registration_email,#registration_password, 
+#registration_first_name,#registration_last_name, 
+#registration_verify_password,#registration_phone,
+#province_list, #store_list,
+#registration_school_name,#registration_city, 
+#registration_address,#registration_postal,#registration_province,#captcha,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 10px 25px;
+ 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px; 
+  width: 85%;
+  margin-bottom: 20px;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{
+    width:100%;
+}
+
+#captcha{ 
+ width: 30%;
+ }
+
+@media only screen and (max-width: 505px) {  
+#registration_email,#registration_password, 
+#registration_first_name,#registration_last_name, 
+#registration_verify_password,#registration_phone,
+#province_list, #store_list,
+#registration_school_name,#registration_city, 
+#registration_address,#registration_postal,#registration_province,select,
+#edit_email,
+#edit_first_name,#edit_last_name, 
+#edit_phone, 
+#edit_school_name,#edit_city,
+#edit_province, #edit_store, 
+#edit_address,#edit_postal,
+#edit #markup{ 
+width: 100%;  
+margin: 0;
+margin-bottom: 20px;
+}
+    }
+input[type=text]:focus, input[type=email]:focus{
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder, input[type=email]:placeholder {
+  color: #cccccc;
+}
+
+#register{  
+    background-color: red;
+ }
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+#icon {
+  width:30%;
+} 
+input::placeholder {
+  opacity: 0.5;
+}
+/***************************************************************/
 
 .success.icon{
     font-size: 7em;
@@ -179,7 +1644,66 @@ header{
 
 }
 
+/*******TABS ORDER PAGE***********************/
+nav > .nav.nav-tabs{
+
+    border: none;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  
+  }
+  nav > div a.nav-item.nav-link,
+  nav > div a.nav-item.nav-link.active
+  {
+    border: none;
+      padding: 18px 25px;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  }
+  
+  nav > div a.nav-item.nav-link.active:after
+   {
+    content: "";
+    position: relative;
+    bottom: -60px;
+    left: -10%;
+    border: 15px solid transparent;
+    border-top-color: #e74c3c ;
+  }
+  .tab-content{
+    background: #fdfdfd;
+      line-height: 25px;
+      border: 1px solid #ddd;
+      border-top:5px solid #e51937;
+      border-bottom:5px solid #e51937;
+      padding:30px 25px;
+  }
+  
+  nav > div a.nav-item.nav-link:hover,
+  nav > div a.nav-item.nav-link:focus
+  {
+    border: none;
+      background: #e74c3c;
+      color:#fff;
+      border-radius:0;
+      transition:background 0.20s linear;
+  }
+
+  .main-tab{
+      width:100%;
+      margin: 15px 0;
+  }
+
+  .tab-pane{
+      padding: 15px;
+  }
+
+
+/*-----------------------------Maryna Footer Part -------------------------------------*/
 footer{
+    margin-top: 30px;
     width: 100%;
     min-height: 200px;
     background-color: #006491;
@@ -236,4 +1760,163 @@ footer{
     width: 30%;
     left: 40%;
     display: block;
+
 }
+
+div.content.text{
+
+    max-width: 960px;
+    margin: 0 auto;
+}
+.parents,.School{ 
+  height: 60px; 
+  width: 150px; 
+  background-color: red; 
+  margin-left: 30px; 
+
+ }
+
+/***************** CSS for parents details page and paremts add student page ***************/
+
+.parent_account{
+    /**border: 1px solid #006491;
+    position: absolute;
+    z-index: 1000;**/
+    background-color: #fff;
+  }
+
+  #parent_account_button{
+    padding: 5px;
+    background-color: #e51937;
+    color: #fff;
+    margin-right: auto;
+    border: none;
+  }
+  .parent_account_para{
+    color: #000;
+    padding: 10px;
+  }
+
+  #parents_account_order{
+    border: none;
+    background-color: #fff;
+  }
+
+
+  /* ----- CSS for modal box ---------- */
+
+  #overlay{
+      background: #000;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+  #modal{
+      width: 450px;
+      height: 250px;
+      position: absolute;
+      top: 410px;
+      left: -150px;
+      background: #fff;
+      border: 3px solid #006491;
+      border-radius: 15px;
+      z-index: 10000;
+      display: none;
+      padding: 15px;
+    }
+  #close_modal{
+      width: 55px;
+      height: 25px;
+      line-height: 20px;
+      position: absolute;
+      border: 2px solid #e51937;
+      border-radius: 5px;
+      background: #fff;
+      color: #f00;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      top: 3px;
+      right: 5px;
+    }
+  #display_modal{
+      background-color: #006491;
+      color: #fff;
+      margin-right: auto;
+      border: none;
+      margin-left: 17px;
+      width: 50px;
+      height: 35px;
+      padding-left: 10px;
+      font-size: 18px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      border-radius: 10px;
+      margin-top: 7px;
+      margin-bottom: 20px;
+      display: inline-block;
+      cursor: pointer;
+      font-style: italic;
+
+    }
+  #display_modal:hover{
+      color: #fff;
+      opacity: 0.65;
+
+    }
+    
+    /* ------------CSS for modal box ends -------- */
+
+  .add_student{
+    color: #006491;
+    font-weight: 500;
+  }
+
+  #add_student_btn{
+    background-color: #e51937;
+    padding: 5px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #e51937;
+  }
+  .add_student input,
+  .add_student select{
+    background-color: #ccd8de;
+  }
+
+
+
+
+
+
+
+/*********************School Lunch Menu page styles**************************/
+
+
+
+
+
+
+.alignrigth{
+  text-align: right;
+}
+
+
+
+
+
+
+/*****************************Menu page styles*************************************/
+
+div#school_lunch_menu_items{
+  margin-bottom: 10px;
+  border: 1px solid #006491;
+  text-align: center;
+ }
+

@@ -20,5 +20,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        '/schools/events/create' ,    ////***Alessandra - delete this to send final version
+        '/schools/events/',     ////***Alessandra - delete this to send final version
+        '/dominos/setup/',
+        '/dominos/calendars/'     ////***Alessandra - delete this to send final version
     ];
 }
