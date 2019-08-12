@@ -221,9 +221,13 @@ class OrdersController extends Controller
     {   
         $input = $request->all();
         $order =[];
-        $idevent = $request->input('idevent');
 
+        $idevent = $request->input('idevent');
+        $idstudent = $request->input('idstudent');
         
+        $event  = DB::table('events')->where('idevent','=',$idevent)->first();
+        $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        $student = DB::table('students')->where('idstudent','=',$idstudent)->first();
 
         foreach($input as $field=>$value )
         {
@@ -241,10 +245,20 @@ class OrdersController extends Controller
                 $order[] = $row;
             }
         }
+        
+
+        $data = [
+            'order' => $order,
+            'student' => $student,
+            'school' => $school,
+            'idevent' => $idevent
+        ];
+
         /*
         echo '<pre>';
-        var_dump($order);die;
+        var_dump($data);die;
         echo '</pre>';*/
-        return view('parents.checkout', compact('order'));
+
+        return view('parents.checkout', compact('data'));
     }
 }

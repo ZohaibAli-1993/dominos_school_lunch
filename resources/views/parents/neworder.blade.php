@@ -25,6 +25,7 @@
                         <form action="/parents/order/checkout" method="post">
                             @csrf
                             <input type="hidden" value="{{ $data['event']->idevent }}" name="idevent">
+                            <input type="hidden" value="{{ $data['student']->idstudent }}" name="idstudent">
                             <table class="table">
                                 <thead>
                                     <tr>

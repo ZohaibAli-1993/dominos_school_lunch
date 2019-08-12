@@ -5,13 +5,13 @@
 <div class="text content">
     <h2 class="h2">CheckOut Page</h2>
     <div class="row">
-        <strong>Event Id:</strong>
+        <strong>Event Id:</strong> {{ $data['idevent'] }}
     </div>
     <div class="row">
-        <strong>School:</strong>
+        <strong>School:</strong> {{ $data['school']->school_name }}
     </div>
     <div class="row">
-        <strong>Student:</strong>
+        <strong>Student:</strong> {{ $data['student']->first_name . ' ' . $data['student']->last_name }}
     </div>
     <div class="row">
         <?php $mytime = Carbon\Carbon::now(); ?>
@@ -30,7 +30,7 @@
         <tbody>
             <?php $cursor=0;  ?>
 
-            @foreach ($order as $item)
+            @foreach ($data['order'] as $item)
             <tr>
                 <td>{{$item['iditem']}}</td>
                 <td>
