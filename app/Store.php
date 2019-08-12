@@ -13,6 +13,15 @@ class Store extends Model
      */
     protected $primaryKey = 'idstore';
 
+    protected $fillable = ['name', 
+    					   'address',
+    					   'city',
+    					   'province',
+    					   'postal_code',
+    					   'phone',
+    					   'email'
+    					   ];
+
 }
 
 

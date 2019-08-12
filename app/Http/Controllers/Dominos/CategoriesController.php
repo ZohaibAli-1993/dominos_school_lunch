@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dominos;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class CategoriesController extends Controller
 {
@@ -29,14 +30,14 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * category a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -58,7 +59,10 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // Read categories table 
+        $categories = Category::all();
+
+        return view('admin.categories', compact('categories'));    
     }
 
     /**
@@ -70,7 +74,36 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        //Verify if it is a new category
+        if($request['idcategory']=="new"){
+            // Validate form submition
+            $valid = $request->validate([
+                'category' => 'required|string'
+            ]);
+
+            //Insert new category in the table
+            $category_rec = new Category($valid);
+            $category_rec->created_at = Carbon::now();
+            $category_rec->updated_at = Carbon::now();
+            $category_rec->save();
+            return redirect('/dominos/categories')->
+               with('success', 'Category has been added.');
+        }else
+        {
+            // Validate form submission
+            $valid = $request->validate([
+                'idcategory' => 'required|integer',
+                'category' => 'required|string'
+            ]);    
+
+            //Update values for category
+            $category_rec = Category::find($valid['idcategory']);
+            $category_rec->category = $valid['category'];
+            $category_rec->updated_at = Carbon::now();
+            $category_rec->save();
+            return redirect('/dominos/categories')->
+               with('success', 'Category has been updated.');                      
+        }
     }
 
     /**

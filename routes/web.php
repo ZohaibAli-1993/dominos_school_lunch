@@ -237,6 +237,20 @@ Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
 Route::put('/schools/events', 'Schools\EventsController@update');
 Route::delete('/schools/events/{event}', 'Schools\EventsController@destroy');
 
+
+/**ADMIN ROUTES */
+Route::get('/dominos/setup', 'Dominos\SetupsController@edit');
+Route::put('/dominos/setup', 'Dominos\SetupsController@update');
+Route::get('/dominos/calendars', 'Dominos\CalendarsController@edit');
+Route::put('/dominos/calendars', 'Dominos\CalendarsController@update');
+Route::get('/dominos/stores', 'Dominos\StoresController@edit');
+Route::put('/dominos/stores', 'Dominos\StoresController@update');
+Route::get('/dominos/categories', 'Dominos\CategoriesController@edit');
+Route::put('/dominos/categories', 'Dominos\CategoriesController@update');
+Route::get('/dominos/menuitems', 'Dominos\MenuItemsController@edit');
+Route::put('/dominos/menuitems', 'Dominos\MenuItemsController@update');
+Route::get('/dominos/contacts', 'Dominos\ContactsController@index');
+
 /*
 |--------------------------------------------------------------------------
 | PARENTS ROUTES
