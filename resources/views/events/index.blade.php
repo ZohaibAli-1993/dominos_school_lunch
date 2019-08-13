@@ -8,23 +8,14 @@
 
 @section('content')
 
-<div class="container">
+<div class="container pt-5">
 
-<<<<<<< HEAD
-    <h1 class="h1"> {{ $school->school_name }} </h1>
+    <h1 class="h1 text-center"> {{ $school->school_name }} </h1>
 	<h2 class="h2">Events</h2>
 
 	@include('partials.flash')
 	@include('partials.errors')
 
-=======
-	@include('partials.errors')
-
-	<h1 class="h1">Events</h1>
-
-
-
->>>>>>> Daphne
 	<div id="calendar_events">
 
 		<div class="row">
@@ -46,7 +37,7 @@
 
 	            @csrf
 	            <div class="form-group">
-	                <a class="btn btn-primary" 
+	                <a class="button" 
 	                   href="/schools/events/create">Add New Event</a>
 	            </div>
             </form>
@@ -64,17 +55,17 @@
 		@foreach($events_list as $event)
 	    <div class="row border-bottom mt-3">
 	    	<div class="col-3">
-	    		<h4>{{ $event->event_date_formated  }}</h4>
+	    		<h5>{{ $event->event_date_formated  }}</h5>
 	    	</div>
     	   	<div class="col-3 ">
-	    		<h4>{{ $event->event_time_formated }}</h4>
+	    		<h5>{{ $event->event_time_formated }}</h5>
 	    	</div>
     	   	<div class="col-3 ">
-	    		<h4>{{ $event->event_name }}</h4>
+	    		<h5>{{ $event->event_name }}</h5>
 	    	</div>
     	   	<div class="col-3 ">
 
-	            <p><a class="btn btn-primary" 
+	            <p><a class="button" 
 	            	   href="/schools/events/edit/{{ $event->idevent }}">Edit</a><p>
 	    	</div>	    	
         </div>

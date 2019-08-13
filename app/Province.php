@@ -11,5 +11,13 @@ class Province extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'idprovince';
+    protected $primaryKey = 'province';
+
+    protected $keyType = 'string';
+
+    protected $fillable = ['gst_rate', 
+					   'pst_rate',
+					   'hst_rate',
+					   'qst_rate'
+					   ];
 }

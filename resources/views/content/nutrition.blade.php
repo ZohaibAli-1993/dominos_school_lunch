@@ -2,11 +2,12 @@
 
 @section('content')
 
-<div class="text content">
+<div class="container">
+	<br />
 
-<h1>Nutrition Guide</h1>
+<h1 class="h1 mt-3">Nutrition Guide</h1>
 
-<h3>Using the Canadian Food Guide as a reference, Domino’s Pizza can be part of a healthy, balanced diet.</h3>
+<h3 class="h3">Using the Canadian Food Guide as a reference, Domino’s Pizza can be part of a healthy, balanced diet.</h3>
 <p>Because pizza is customizable, it is possible to enjoy a variety of foods (bread, vegetables, cheese and meats) on a single slice. We choose our ingredients on the basis of safety, taste, and nutritional content to bring our consumers what they want. Domino’s Pizza dedicates its attention, energy, and resources to one mission: deliver a delicious, hot and fresh pizza every time.</p>
 
 <div class="row">
@@ -177,4 +178,6 @@
 
 
 </div>
+
+@include('partials.subscribe')
 @endsection

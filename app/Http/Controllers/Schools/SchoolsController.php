@@ -83,7 +83,7 @@ class SchoolsController extends Controller
          */
         $school = School::find($school['idschool']);
 
-        $school['token'] = $acronym.$school['idschool'];
+        $school['token'] = $acronym.'00'.$school['idschool'];
 
         /**
          * update default markup price from setup table to the new school 
@@ -179,7 +179,43 @@ class SchoolsController extends Controller
 
         $school->save();
 
-        return redirect('/school/'.$school['idschool'])->with('success','School\'s profile was changed!');
+        return redirect('/schools/'.$school['idschool'])->with('success','School\'s profile was changed!');
+    }
+
+    /**
+     * [editPass description] To show change password form
+     * @param  ParentRegister $parentRegister [description]
+     * @return [type]                         [description]
+     */
+    public function editPass(School $school)
+    {
+        return view('schools.changePass', compact('school'));
+    }
+
+
+    /**
+     * [update description]To update parents password
+     * @param  Request        $request        [description]
+     * @param  ParentRegister $parentRegister [description]
+     * @return [type]                         [description]
+     */
+    public function updatePass(Request $request, School $school)
+    {
+        $valid = $request->validate([
+            'current_pass'=> 'required',
+            'password' => 'required|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/',
+            'new_pass' => 'required_with:password|same:password|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/'
+        ]);
+
+        if(!Hash::check($valid['current_pass'],$parentRegister['password'])){
+            return redirect('/school/'.$school['idschool'])->with('error','Incorrect Password!');
+        }
+
+        $school['password'] = Hash::make($valid['password']);
+
+        $school->save();
+
+        return redirect('/schools/'.$school['idschool'])->with('success','Your profile was changed!');
     }
 
     /**

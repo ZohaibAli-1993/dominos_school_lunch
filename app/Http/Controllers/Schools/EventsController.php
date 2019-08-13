@@ -6,25 +6,17 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-<<<<<<< HEAD
 use App\School;
 use App\Setup;
 use App\Calendar;
 use App\MenuItem;
-=======
-use App\Schools;
-use App\Setup;
-use App\Calendar;
->>>>>>> Daphne
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\DB;
 
 class EventsController extends Controller
 {
-<<<<<<< HEAD
 
-=======
->>>>>>> Daphne
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +25,6 @@ class EventsController extends Controller
     public function index()
     {
 
-<<<<<<< HEAD
         $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
 
         //Get school data
@@ -41,11 +32,6 @@ class EventsController extends Controller
 
         //Get events list according to the school logged in
         $events_list = DB::table('events_vw')->where('idschool', $school_id)->get();
-=======
-        $school = 1;   // It is necessary to update according school logged in
-       // $events = Event::where('idschool', $school);
-        $events_list = DB::table('events_vw')->get();
->>>>>>> Daphne
 
         $year_prev = 0;
         $month_prev = 0;
@@ -64,10 +50,7 @@ class EventsController extends Controller
                        [$event->month_event]
                        [$event->day_event]= array();
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> Daphne
             $values = array('startTime' => $event->event_time,
                             'endTime' => $event->event_time,
                             'text'=> $event->event_name,
@@ -77,12 +60,8 @@ class EventsController extends Controller
                               [$event->day_event], $values);
         }
 
-
-<<<<<<< HEAD
         return view('events.index', compact('events', 'events_list', 'school'));
-=======
-        return view('events.index', compact('events'), compact('events_list'));
->>>>>>> Daphne
+
     }
 
     /**
@@ -92,7 +71,6 @@ class EventsController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
 
         $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
 
@@ -107,25 +85,22 @@ class EventsController extends Controller
 
         // Get list of menu_items
         $menu_items = DB::table('menu_items_vw')->get();
-        //$menu_items = MenuItem::get();
 
         return view('events.create', 
             compact('setup', 'calendar', 'school', 'menu_items' ));
-=======
+
         /**
          * Read setup table to get cutoff_days
          * 
          */
         $setup = Setup::find(1);
 
-        /**
-         * Read calendar table to get begin and end dates
-         * 
-         */
-        $calendar = Calendar::find(1);  //////****** alter to get next calendar
+        // Read calendar table to get begin and end dates
+
+        $calendar = DB::table('calendars_act_vw')->first();
 
         return view('events.create', compact('setup', 'calendar' ));
->>>>>>> Daphne
+
     }
 
     /**
@@ -143,22 +118,49 @@ class EventsController extends Controller
             'event_name' => 'required|string',
             'event_date' => 'required|date',
             'cutoff_date' => 'required|date',
-            'event_time' => 'required'
+            'event_time' => 'required',
         ]);
 
-       //Insert new Event in the table
-<<<<<<< HEAD
-       $event = Event::create($valid);
+        //Verify if the store determinated by the school has maximum of events
+        //for the event date
+        $max_capacity = DB::table('max_capacity_vw')->
+        where('idstore', $request['idstore'])->
+        where('event_date', $valid['event_date'])->
+        get();
+
+        //If there is any value, the store reached max capacity 
+        foreach ($max_capacity as $store) {
+            $validator = \Validator::make([], []); 
+            $validator->errors()->add('event_date', 
+                'The store selected for your school has been reach maximum numbers of events in this date');
+            throw new \Illuminate\Validation\ValidationException($validator);
+        }
+
+        //Insert new Event in the table
+        $event = new Event($valid);
+        $event->created_at = Carbon::now();
+        $event->updated_at = Carbon::now();
+        $event->save();
+        $idevent = $event->idevent;
 
         //If any menu item was checked, insert event items in table
-      /*if(count(request('event_items'))){
-            $event->eventItems()->attach(request('event_items'));
-       }*/
-=======
-       $event = Post::create($valid);
->>>>>>> Daphne
+        $count = count($request->input('event_items'));
+        if($count){
 
-       return redirect('/schools/events')->with('success', 'Event was added');
+            for ($i=0; $i<$count; $i++){
+                $data[] = array(
+                'idevent' => $idevent,    
+                'iditem' => $request->input('event_items')[$i],
+                'final_price' => 
+                    $request->input('idfinalprice'. 
+                    $request->input('event_items')[$i] )
+                );
+            }
+
+            DB::table("event_items") -> insert($data); 
+        }
+
+       return redirect('/schools/events')->with('success', 'Event has been added');
     }
 
     /**
@@ -181,33 +183,24 @@ class EventsController extends Controller
     public function edit(Event $event)
     {
 
-<<<<<<< HEAD
         $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();
 
-=======
->>>>>>> Daphne
-        /**
-         * Read setup table to get cutoff_days
-         * 
-         */
+        // Read setup table to get cutoff_days
         $setup = Setup::find(1);
 
-        /**
-         * Read calendar table to get begin and end dates
-         * 
-         */
-<<<<<<< HEAD
+        // Read calendar table to get begin and end dates
+
         $calendar = DB::table('calendars_act_vw')->first();
 
-        return view('events.edit', compact('event', 'setup', 'calendar', 'school' ));
-=======
-        $calendar = Calendar::find(1);  //////****** alter to get next calendar
+        // Get list of menu_items
+        $menu_items = DB::table('menu_selected_vw')->
+                      where('idevent', $event->idevent)->get();
 
-        return view('events.edit', compact('event', 'setup', 'calendar' ));
->>>>>>> Daphne
+        return view('events.edit', 
+               compact('event', 'setup', 'calendar', 'school', 'menu_items' ));
     }
 
     /**
@@ -230,16 +223,58 @@ class EventsController extends Controller
             'event_time' => 'required'
         ]);
       
+
+        //Verify if the event date was updated
+        if($valid['event_date']!=$event['previous_event_date']){
+
+            //Verify if the store determinated by the school has maximum of events
+            //for the event date
+            $max_capacity = DB::table('max_capacity_vw')->
+            where('idstore', $request['idstore'])->
+            where('event_date', $valid['event_date'])->
+            get();
+
+            //If there is any value, the store reached max capacity 
+            foreach ($max_capacity as $store) {
+                $validator = \Validator::make([], []); // Empty data and rules fields
+                $validator->errors()->add('event_date', 
+                    'The store selected for your school has been reach maximum numbers of events in this date');
+                throw new \Illuminate\Validation\ValidationException($validator);
+            }
+        }
+
         //Update values for the event
         $event = Event::find($valid['idevent']);
         $event->event_name = $valid['event_name'];
         $event->event_date = $valid['event_date'];
         $event->cutoff_date = $valid['cutoff_date'];
         $event->event_time = $valid['event_time'];
+        $event->updated_at = Carbon::now();
         $event->save();
 
+        //Delete previous events_items
+        DB::table('event_items')->where('idevent', $valid['idevent'])->delete();
+
+        //If any menu item was checked, insert event items in table
+        $count = count($request->input('event_items'));
+        if($count){
+
+            for ($i=0; $i<$count; $i++){
+                $data[] = array(
+                'idevent' => $valid['idevent'],    
+                'iditem' => $request->input('event_items')[$i],
+                'final_price' => 
+                    $request->input('idfinalprice'. 
+                    $request->input('event_items')[$i] )
+                );
+            }
+
+            DB::table("event_items") -> insert($data); 
+        }
+
         
-        return redirect('/schools/events')->with('success', 'Event was updated');
+        return redirect('/schools/events')->
+               with('success', 'Event has been updated');
 
     }
 
@@ -251,6 +286,16 @@ class EventsController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+
+        $event->is_active = 0;
+        $event->updated_at = Carbon::now();
+
+        if($event->save()){
+            return redirect('/schools/events')->
+                   with('success', 'Event has been inactivated.');
+        }
+
+        return redirect('/schools/events')->
+               with('error', 'There was a problem inactiving that event');
     }
 }

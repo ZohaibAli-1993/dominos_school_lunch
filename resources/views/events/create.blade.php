@@ -10,7 +10,6 @@
 @section('content')
 
 <script type="text/javascript">
-<<<<<<< HEAD
 
     //Get begin and end date of active calendar
 	begin = new Date("{{ $calendar->begin_dt }} 00:00:00");
@@ -28,15 +27,33 @@
 		    onSelect: function (dateText, inst) 
 	        {          
 	        	// When a new event date is selected, 
-	        	// verify if it is a weekend
+	        	// verify if it a weekend was selected
 	        	var available_weekends = {!! $setup->available_weekends !!};
 	        	var newCutoff = new Date($('#event_date').val() + " 00:00:00");
-	        	var week_day = newCutoff.getDate();
-	        	/// Alessandra - verify weekend
-	        	/*if (available_weekends==0 && (week_day=0 || week_day=6)){
+	        	var week_day = newCutoff.getDay();			
+
+	        	/// Verify if the weekend is available
+	        	if ((available_weekends == 0) && 
+	        		((week_day==0) ||(week_day==6))){
+
 	        		$('#event_date').val("");
 	        		$('#cutoff_date').val("");
-	        	}*/
+	        		
+	        	    // Define message to show when weekend is not available
+		        	var message = document.createElement("span");
+		        	message.className = "error text-danger";
+					message.id = "err_event_date";
+					message.innerHTML = "Weekends are not available to schedule events.";
+					var event_date_group = document.getElementById("event_date_group");
+	        		event_date_group.appendChild(message);
+	        		return;
+	        	}
+	        	else{
+	        		if(document.getElementById('err_event_date') !== null){
+	        		    document.getElementById("err_event_date").remove();
+	        		}
+	        	}
+	        	
 
 	        	// calculate new cutoff date
 				var newCutoff = new Date($('#event_date').val() + " 00:00:00");
@@ -60,63 +77,28 @@
 		});
     } );
 
-
-=======
-	/*
-	 * On change of the event date, recalculate cutoff date
-	 */
-	/*$('#event_date').on('change', function(e){
-       $(this).closest('form').submit();
-    });*/
-
-	/*
-	 * Defines event date as datepicker, creating default values
-	 */
-    $( function() {
-		$( "#event_date" ).datepicker({
-		    minDate: new Date(2019, 9 - 1, 1),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
-		});
-    } );
-
->>>>>>> Daphne
 	/*
 	 * Defines cutoff date as datepicker, creating default values
 	 */
     $( function() {
 		$( "#cutoff_date" ).datepicker({
-<<<<<<< HEAD
 			dateFormat: 'yy-mm-dd',
 		    minDate: new Date(),
 		    maxDate: end
 		});
     } );   
-=======
-		    minDate: new Date(),
-		    maxDate: new Date(2020, 6 - 1, 30),
-		    daysOfWeekDisabled: [0, 6]
-		});
-    } );    
->>>>>>> Daphne
 
 </script>
 
-<div class="container mb-5">
+<div class="container mb-5 pt-5">
 
 	<div class="col">
 
-<<<<<<< HEAD
-		    <h1 class="h1"> {{ $school->school_name }} </h1>
+		    <h1 class="h1 text-center"> {{ $school->school_name }} </h1>
 			<h2 class="h2">Add New Event</h2>
 
 			@include('partials.flash')
 			@include('partials.errors')
-=======
-		    <h1>Add New Event</h1>
-
-		    @include('partials.errors')
->>>>>>> Daphne
 
 		    <form id="form" 
 		          action="/schools/events/create" 
@@ -125,14 +107,11 @@
 
 		    	@csrf <!-- to create csrf token in the form -->
 
-<<<<<<< HEAD
 		    	<!--  ***Alessandra -------- change to school connected -------> 
 		    	<input id="idschool" name="idschool" 
 		    	       type="hidden" value="{{ $school->idschool }}">
-=======
-		    	<!---------- change to school connected -------> 
-		    	<input id="idschool" name="idschool" type="hidden" value="1">
->>>>>>> Daphne
+		    	<input id="idstore" name="idstore" 
+		    	       type="hidden" value="{{ $school->idstore }}">
 
 		        <div class ="form-group">
 					<label for="event_name">Event Name</label>
@@ -146,7 +125,7 @@
 				    @endif					
 				</div>
 
-				<div class ="form-group">
+				<div id="event_date_group" class ="form-group">
 					<label for="event_date">Event Date</label>
 					<div class="d-flex">
 						<input id="event_date" 
@@ -187,18 +166,13 @@
 					<input id="event_time" 
 					       name="event_time" 
 					       type="time" class="form-control col-lg-2" 
-<<<<<<< HEAD
 					       value="{{ old('event_time', '12:00') }}">
-=======
-					       value="{{ old('event_time') }}">
->>>>>>> Daphne
 
 					@if($errors->has('event_time'))
 				    <span class="error text-danger">{{ $errors->first('event_time') }}</span>
 				    @endif					
 				</div>				
 
-<<<<<<< HEAD
 				<div class="card mt-5">
 				  <h3 class="card-header text-center 
 				             font-weight-bold py-4">Menu Items Available</h3>
@@ -206,35 +180,47 @@
 				    <div id="table" class="table-editable">
 				      <table class="table table-bordered table-responsive-md table-striped text-center">
 				        <thead>
-				          <tr>
-				          	<th class="text-center">Selected</th>
-				            <th class="text-center">Item Name</th>
-				            <th class="text-center">Description</th>
-				            <th class="text-center">Category</th>
-				            <th class="text-center">Price</th>
-				            <th class="text-center">Final Price</th>
+				          <tr scope="row">
+				          	<th scope="col" class="text-center">Selected</th>
+				            <th scope="col" class="text-center">Item Name</th>
+				            <th scope="col" class="text-center">Description</th>
+				            <th scope="col" class="text-center">Category</th>
+				            <th scope="col" class="text-center">Price</th>
+				            <th scope="col" class="text-center">Final Price</th>
 				          </tr>
 				        </thead>
 				        <tbody>
 				        	@foreach ($menu_items as $item)
-				            <tr>
-				            	<td class="pt-3-half">
+				            <tr scope="row">
+				            	<td>
+				            		@php
+
+									if(is_array(old('event_items')) && in_array($item->iditem, old('event_items')))
+									{
+									    $checked= 'checked';
+						            }
+						            else{
+						            	$checked='';
+						            }
+						            @endphp
+						            
 				            		<input name="event_items[]"
 					                       class="form-check-input text-center"
 		    	                           type="checkbox" 
-		    	                           value="{{ $item->iditem }}">
+		    	                           value="{{ $item->iditem }}"
+										   {{ $checked }}
+		    	                           >
 				            	</td>
-					            <td class="pt-3-half">{{ $item->item_name }}</td>
-					            <td class="pt-3-half">{{ $item->description }}</td>
-					            <td class="pt-3-half">{{ $item->category }}</td>
-					            <td class="pt-3-half">{{ $item->price }}</td>
-					            <td class="pt-3-half" 
-					                contenteditable="true">
+					            <td>{{ $item->item_name }}</td>
+					            <td>{{ $item->description }}</td>
+					            <td>{{ $item->category }}</td>
+					            <td>{{ $item->price }}</td>
+					            <td style="min-width:120px">
 					                <input name="{{ 'iditem' . $item->iditem }}" 
 		    	                           type="hidden" 
 		    	                           value="{{ $item->iditem }}">
 					                <input name="{{ 'idfinalprice' . $item->iditem }}"
-					                       class="form-control text-right col-lg-6"
+					                       class="form-control text-right col-lg-12"
 		    	                           type="text" 
 		    	                           value="{{ number_format($item->price + ($item->price * $school->markup/100),2) }}">
 		    	                </td>
@@ -250,36 +236,19 @@
 					<button name="submit" 
 					        type="submit" 
 					        id="form-submit"
-					        class="btn btn-primary mr-3">Submit</button>
+					        class="button mr-3">Save</button>
 
 					<a name="btn-cancel" 
 					        id="btn-cancel"
-					        class="btn btn-primary"
+					        class="button"
 					        href="/schools/events">Cancel</a>
 				</div>
-
-
-=======
-				<button name="submit" 
-				        type="submit" 
-				        id="form-submit"
-				        class="btn btn-primary">Submit</button>
-
-				<a name="btn-cancel" 
-				        id="btn-cancel"
-				        class="btn btn-primary"
-				        href="/schools/events">Cancel</a>
->>>>>>> Daphne
 				
 			</form>
 
 	</div>
 
 </div>
-
-
-
-
 
 
 @endsection

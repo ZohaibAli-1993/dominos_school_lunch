@@ -37,6 +37,22 @@ class seed_classrooms_table extends Seeder
         ]);   
 
         DB::table('classrooms')->insert([
+            'idschool' => 1, 
+            'classroom' => 'ROOM14', 
+            'description' => 'Grade 04 - 004', 
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);      
+
+        DB::table('classrooms')->insert([
+            'idschool' => 1, 
+            'classroom' => 'ROOM15', 
+            'description' => 'Grade 05 - 005', 
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);              
+
+        DB::table('classrooms')->insert([
             'idschool' => 2, 
             'classroom' => 'ROOM21', 
             'description' => 'Grade 01 - 0021', 

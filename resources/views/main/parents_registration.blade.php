@@ -8,8 +8,8 @@
         <!-- Icon -->
         <div class="fadeIn first">
           <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
-          <h2 class="my-5"><strong>Registration</strong></h2> 
-          <h4>Parents Account</h4>
+          <h2 class="h2">Registration</h2> 
+          <h4 class="h4">Parents Account</h4>
         </div>
 
         <!-- Login Form -->
@@ -45,6 +45,7 @@
         @endif
           <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
 
+
             <div class="col-md-6">
 
               <div class="captcha">
@@ -59,13 +60,36 @@
 
 
               @if ($errors->has('captcha'))
+              <div class="col-md-6">
+
+                  <div class="captcha">
+
+                  <span>{!! captcha_img() !!}</span>
+
+                  <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
+
+                  </div>
+
+                  <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+
 
               <div class="text-danger error">{{ $errors->first('captcha') }}</div>
               @endif
 
+
           </div>
 
             </div>
+
+                  @if ($errors->has('captcha'))
+
+                  <div class="text-danger error">{{ $errors->first('captcha') }}</div>
+                  @endif
+
+              </div>
+
+          </div>
+
 
          <input type="submit" id="register"  value="Register"> 
 

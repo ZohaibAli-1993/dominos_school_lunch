@@ -11,4 +11,5 @@ class Contact extends Model{
      * @var string
      */
     protected $primaryKey = 'idcontact';
+    protected $fillable = ['name','email','subject','message'];
 }

@@ -1,50 +1,49 @@
 /*font styles*/
 
 /**MONIKA*/
-
 body{
-
     font-family: 'Gothic A1', sans-serif;
+    font-size: 16px;
+    background-color: #fff;
 }
 
-#container{
 
-    position: relative;
+header{
+  margin-bottom: 60px;
 }
 
-.text.content{
-    max-width: 1080px;
-    margin: 0 auto;
+/** marina**/
+.h1, .h2, .h3, .h4, .h5{
+  font-weight: 500;
+  color: #006491;
+  text-align: center;
 }
+
+
+/** end marina **/
 
 /* Top part of header styles */
 #top_header{
-
     background-color: #006491;
     box-shadow: inset 0 0 10px #fff;
     width: 100%;
     height: 50px;
 }
 
+
 /* Logo styles*/
 
 #logo{
-
     position: absolute;
-    left: 70px;
+    left: 0;
     top:0;
-    z-index:1;
-}
-
-#logo:hover{
-    transform: scale(1.05);
+    z-index:1000000;
 }
 
 /* Bottom part of header styles */
 
 #bottom_header{
-
-    background-color: #fff;
+    background-color: rgba(255,255,255,.7);
     box-shadow: 2px 2px 2px rgba(181, 181, 181, 0.7);
     position: absolute;
     top: 50px;
@@ -55,36 +54,32 @@ body{
 /* Main Navigation styles */
 
 #main_nav_bar nav {
-
     position: relative;
 }
 
 #main_nav_bar nav ul{
     position:absolute;
-    right: 70px;
-    padding-top: 20px;
+    right: 0;
+    padding-top: 0;
 }
 
 #main_nav_bar nav ul li{
-
     list-style-type: none;
     display: inline-block;
 }
 
 #main_nav_bar nav ul li a {
-
     text-decoration: none;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 24px;
-    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-weight: 700;
     color: #006491;
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
 #main_nav_bar nav ul li a:hover{
-
     background-color: #a6c9d9;
     text-decoration: none;
     color: #fff;
@@ -93,6 +88,19 @@ body{
 #main_nav_bar{
     float: left;
     width: 50%;
+}
+
+#main_nav_bar .menu_icon{
+    margin-left: 95%;
+    margin-top: 20px;
+    padding: 0px;
+    font-weight: 700;
+    color: #006491;
+    text-shadow: 0px 1.5px rgba(0,0,0,0.2);
+    font-size: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    
 }
 
 /* contact and user icons */
@@ -107,7 +115,7 @@ body{
 
 #top_header .user_icon{
     float: right;
-    margin-right: 6.5%;
+    margin-right: 1%;
 }
 
 #top_header .contact_icon{
@@ -119,7 +127,7 @@ body{
 #brand_name{
     float: left;
     width: 50%;
-    padding-left: 13.5%;
+    padding-left: 105px;
 }
 
 #brand_name .name_first_part{
@@ -138,75 +146,172 @@ body{
     text-shadow: 0px 1.5px rgba(0,0,0,0.2);
 }
 
-code#quote{
 
-    color: #006491;
+/********************************************RESPONSIVENESS****************************/
+
+@media screen and (min-width: 900px) and (max-width: 1120px) {
+
+    #logo{
+        position: absolute;
+        left: 0;
+        top:0;
+        z-index:1;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 105px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 29px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 19px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 2;
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
 
 }
 
-header{
-    height: 130px;
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+
+    body{
+        line-height: 1.6;
+    }
+
+    #bottom_header{
+        height: 50px;
+    }
+
+    #logo{
+        left: 5px;
+        width: 100px;
+        height: 94px;
+    }
+
+    #brand_name{
+        float: left;
+        width: 50%;
+        padding-left: 84px;
+    }
+
+    #brand_name .name_first_part{
+        font-size: 25px;
+    }
+
+    #brand_name .name_second_part{
+        font-size: 17px;
+    }
+    
+    #main_nav_bar{
+        float: none;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    #main_nav_bar nav ul{
+        right: 0;
+        margin-top:45px;
+        padding-top: 5px;
+        background-color: #006491;
+        width: 100%;
+        padding:0;
+        z-index:1000000;
+    }
+
+    #main_nav_bar nav ul li{
+        display: block;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px; 
+        padding-left:0;
+        border-bottom: 1px solid #eee; 
+    }
+
+    #main_nav_bar nav ul li a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color:#fff;
+    }
+
+    #main_nav_bar nav ul li:hover{
+        background-color: #a6c9d9;
+    }
+
+    #main_nav_bar nav ul li a:hover{
+        background: none;
+    }
+
+    #main_nav_bar .menu_icon{
+        margin-left: 90%;
+        margin-top: -30px;
+        padding-right: 5px;
+        font-size: 20px;
+        visibility: visible;
+    }
+
+    #menu_list{
+
+        visibility: hidden;
+    }
 }
 
-#main_content{
-    /**padding: 0 100px; */
-    padding: 0;
-}
+
+/**********Classroom page modal styles *********/
+
+
 
 /**END Monika*/
 
-
+/************------------Amandeep-------------------*/
 
 /** hero-image */
-#about-hero-image{
+.container-fluid{
     width: 100%;
     padding: 0px;
-    margin-bottom: 30px;
+    top: -40px;
 }
 
-/** about image */
+/** about image 
 #about-image{
-    float:right;
-    margin-bottom: 20px;
-    margin-left: 20px;
-}
+    top: -40px;
+}*/
 
-.row .col  h2{
-    color:#006491;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.row .col p{
-    font-size: 16px;
-    
-}
 
 /** Subscribe partial  */
 
-.subscription-layout{
+#subscription-layout{
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 
 
 /** newsletter styles */
-.newsletter{
+#newsletter{
+    margin-top: 20px;
     background-color: #d9e8ef; 
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
-    position: relative;
-    margin-bottom: 30px;
+    position: static;
 }
 
-.newsletter h4{
-    font-weight: bold;
-}
 
-.newsletter p{
+#newsletter p{
     font-weight: 400; 
 }
 
@@ -215,7 +320,7 @@ header{
     height: 100%;
 }
 
-#join-form form{
+#subscription-layout .row#subscription-form{
     top: 85%;
     left:35%;
     text-align: center;
@@ -226,7 +331,7 @@ header{
     height: 35px;
 }
 
-form button#join-btn{
+#subscription-layout .row .col form#join-form button#join-btn{
     border: 1px solid #e51937;
     color: #fff;
     background-color: #e51937;
@@ -234,19 +339,19 @@ form button#join-btn{
     transition: all ease-in-out 0.4s;
 }
 
-form button#join-btn:hover{
+#subscription-layout .row .col form#join-form button#join-btn:hover{
     box-shadow: inset 0 0 7px #fff;
 }
 
 /** ---------------------END Amandeep ----------------------------------------*/
 
-/**END Monika*/
+
 
 /**
  * Button style
  */
 
-a.button{
+.button{
 
     display: inline-block;
     color: #fff;
@@ -264,6 +369,7 @@ a.button{
 
 
 .button:hover{
+  color:#fff;
     text-decoration: none;
     box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
 }
@@ -280,6 +386,7 @@ a.button{
 /* Hero image for home page*/
 #home_header{
     background-image: url(/img/hero_img.jpg);
+    /**background-image: url(/img/image_home.jpg);**/
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
@@ -290,6 +397,19 @@ a.button{
 
 #home_header #bottom_header{
     top: 0;
+}
+
+#home_header a#nav_cta{
+  padding:10px;
+  margin-right: 10px;
+  margin-top:3px;
+  transition: all ease-in-out 0.6s;
+}
+
+#home_header a#nav_cta:hover{
+  color:#fff;
+  background-color: rgba(227,24,55,0.8);
+  box-shadow: 3px 3px 6px rgba(255,255,255,0.4);
 }
 
 #home_header .hero{
@@ -316,7 +436,7 @@ a.button{
     color: #fff;
     background-color: rgba(0, 100, 145,0.8);
     height: 40px;
-    line-height: 2.8em;
+    line-height: 2em;
     border-radius: 3px;
     box-shadow: inset 0 0 8px #fff;
     transition: all ease-in-out 0.8s;
@@ -335,7 +455,7 @@ a.button{
 
 /* section1*/
 #section1{
-    margin-top:70vh;
+    margin-top:30px;
     margin-bottom: 20px;
 }
 #section1 h3{
@@ -445,7 +565,8 @@ a.button{
 /*-----------------Registration Page -  Nguyen Truong (Daphne)-----------------*/
 
 /*----Box-----*/
-div#overlay{
+div#overlay,
+div#overlay_form{
   position: fixed;
   top:0;
   left:0;
@@ -458,7 +579,8 @@ div#overlay{
   cursor: not-allowed;
 }
 
-div#box_cover{
+div#box_cover,
+div#form_cover{
   position:absolute;
   top:40%;
   left:0%;
@@ -466,17 +588,19 @@ div#box_cover{
   height:25%;
   z-index:10000;
   background-color: rgba(255,255,255,0.4);
-  opacity: 0;
+  display: none;
   color:#fff;
   border-radius: 5px;
   box-shadow: 3px 3px 6px rgba(0,0,0,.7);
   padding:5px;
 }
-div#box_content{
+div#box_content,
+div#token_form{
   margin-top:40px;
   margin-left:12px;
   font-size: 1.2em;
   text-align: center;
+  display: none;
 }
 
 div#close_box{
@@ -626,9 +750,67 @@ div#close_box{
 /*-----------------End Edit School Profile Page-----------------*/
 
 /*-----------------Parents Home Page - Daphne-----------------*/
-/*#add_form{
-  display: none;
-}*/
+div#parents_page{
+    background-image: url(/img/parents_bkg_small.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 80vh;
+    margin-bottom: -3rem;
+}
+div#parents_page h1{
+    color: #006491;
+    text-align: center;
+    text-shadow: 3px 3px 7px rgba(255,255,255,.8);
+    display: block;
+    padding-top:20px;
+}
+
+div#parents_page .card{
+    background-color: rgba(255,255,255,0.5);
+}
+
+div#parents_page .card .card-header{
+    box-shadow: 0px 3px 5px rgba(227,24,55,0.3);
+    text-align: center;
+}
+
+div#form_cover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+div#parents_page ul#parents_contact{
+    list-style-type: none;
+    padding:0;
+}
+
+div#parents_page ul#parents_contact li{
+    line-height: 3em;
+}
+
+div#parents_page ul#parents_contact i{
+    font-size: 1.8em;
+    color: #006491;
+}
+
+div#parents_page th{
+    color: #006491;
+}
+
+div#parents_page form.delete_student{
+    display: inline-block;
+}
+
+div#parents_page a.edit_student{
+    color: #006491;
+    margin-right: 10px;
+}
+
+div#parents_page form.delete_student button{
+    border: none;
+    background: none;
+    color: #E31837;
+}
 
 /*-----------------End Parents Home Page - Daphne-----------------*/
 
@@ -638,9 +820,7 @@ div#close_box{
 
 /** hero-image */
 #about-hero-image{
-    width: 100%;
     position: relative;
-    top: -80px;
 }
 
 
@@ -651,7 +831,7 @@ div#close_box{
     
 }
 
-/** newsletter styles */
+/** newsletter styles 
 .newsletter{
     background-color: #d9e8ef; 
     text-align: center;
@@ -660,16 +840,13 @@ div#close_box{
     
 }
 
-.newsletter h4{
-    font-weight: bold;
-}
 
-.newsletter p{
+#newsletter p{
     font-weight: bold; 
 }
 
 
-.subscription-layout #join-form{
+#subscription-layout #join-form{
     margin-top: -15px;
     z-index: 1000;
     text-align: center;
@@ -686,7 +863,7 @@ div#close_box{
     border-radius: 3px;
 }
 
-
+**/
 
 /** ---------------------END Amandeep ----------------------------------------*/
 
@@ -710,14 +887,14 @@ a {
   font-weight: 400;
 }
 
-h2 {
+/**h2 {
   text-align: center;
   font-size: 30px;
   font-weight: 500;
   text-transform: uppercase;
   display:inline-block;
   color: #006491;;
-}
+}**/
 
 
 
@@ -1527,6 +1704,7 @@ nav > .nav.nav-tabs{
 
 /*-----------------------------Maryna Footer Part -------------------------------------*/
 footer{
+    margin-top: 30px;
     width: 100%;
     min-height: 200px;
     background-color: #006491;
@@ -1592,10 +1770,10 @@ div.content.text{
     margin: 0 auto;
 }
 .parents,.School{ 
-height: 60px; 
-width: 150px; 
-background-color: red; 
-margin-left: 30px; 
+  height: 60px; 
+  width: 150px; 
+  background-color: red; 
+  margin-left: 30px; 
 
  }
 
@@ -1628,90 +1806,90 @@ margin-left: 30px;
 
   /* ----- CSS for modal box ---------- */
 
-    #overlay{
-        background: #000;
-        opacity: 0;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 1000;
-        pointer-events: none;
-      }
-
-    #modal{
-        width: 450px;
-        height: 250px;
-        position: absolute;
-        top: 410px;
-        left: -150px;
-        background: #fff;
-        border: 3px solid #006491;
-        border-radius: 15px;
-        z-index: 10000;
-        display: none;
-        padding: 15px;
-      }
-    #close_modal{
-        width: 55px;
-        height: 25px;
-        line-height: 20px;
-        position: absolute;
-        border: 2px solid #e51937;
-        border-radius: 5px;
-        background: #fff;
-        color: #f00;
-        font-weight: 700;
-        text-align: center;
-        cursor: pointer;
-        top: 3px;
-        right: 5px;
-      }
-    #display_modal{
-        background-color: #006491;
-        color: #fff;
-        margin-right: auto;
-        border: none;
-        margin-left: 17px;
-        width: 50px;
-        height: 35px;
-        padding-left: 10px;
-        font-size: 18px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        border-radius: 10px;
-        margin-top: 7px;
-        margin-bottom: 20px;
-        display: inline-block;
-        cursor: pointer;
-        font-style: italic;
-
-      }
-    #display_modal:hover{
-        color: #fff;
-        opacity: 0.65;
-
-      }
-      
-      /* ------------CSS for modal box ends -------- */
-
-    .add_student{
-      color: #006491;
-      font-weight: 500;
+  #overlay{
+      background: #000;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1000;
+      pointer-events: none;
     }
 
-    #add_student_btn{
-      background-color: #e51937;
-      padding: 5px;
+  #modal{
+      width: 450px;
+      height: 250px;
+      position: absolute;
+      top: 410px;
+      left: -150px;
+      background: #fff;
+      border: 3px solid #006491;
+      border-radius: 15px;
+      z-index: 10000;
+      display: none;
+      padding: 15px;
+    }
+  #close_modal{
+      width: 55px;
+      height: 25px;
+      line-height: 20px;
+      position: absolute;
+      border: 2px solid #e51937;
+      border-radius: 5px;
+      background: #fff;
+      color: #f00;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      top: 3px;
+      right: 5px;
+    }
+  #display_modal{
+      background-color: #006491;
       color: #fff;
-      margin-bottom: 10px;
-      border: 1px solid #e51937;
+      margin-right: auto;
+      border: none;
+      margin-left: 17px;
+      width: 50px;
+      height: 35px;
+      padding-left: 10px;
+      font-size: 18px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      border-radius: 10px;
+      margin-top: 7px;
+      margin-bottom: 20px;
+      display: inline-block;
+      cursor: pointer;
+      font-style: italic;
+
     }
-    .add_student input,
-    .add_student select{
-      background-color: #ccd8de;
+  #display_modal:hover{
+      color: #fff;
+      opacity: 0.65;
+
     }
+    
+    /* ------------CSS for modal box ends -------- */
+
+  .add_student{
+    color: #006491;
+    font-weight: 500;
+  }
+
+  #add_student_btn{
+    background-color: #e51937;
+    padding: 5px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #e51937;
+  }
+  .add_student input,
+  .add_student select{
+    background-color: #ccd8de;
+  }
 
 
 
@@ -1721,21 +1899,6 @@ margin-left: 30px;
 
 /*********************School Lunch Menu page styles**************************/
 
-h3#lunch_menu_category{
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0 auto;
-}
-
-div#classrooms-buttons a{
-    color: #fff;
-}
-
-div#classrooms-buttons a.classrooms-add,
-div#classrooms-buttons a.classrooms-file-upload{
-    background-color: #006491;
-}
-
 
 
 
@@ -1744,4 +1907,17 @@ div#classrooms-buttons a.classrooms-file-upload{
 .alignrigth{
   text-align: right;
 }
+
+
+
+
+
+
+/*****************************Menu page styles*************************************/
+
+div#school_lunch_menu_items{
+  margin-bottom: 10px;
+  border: 1px solid #006491;
+  text-align: center;
+ }
 

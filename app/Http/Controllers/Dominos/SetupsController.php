@@ -6,6 +6,8 @@ use App\Setup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Carbon\Carbon;
+
 class SetupsController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class SetupsController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -58,7 +60,10 @@ class SetupsController extends Controller
      */
     public function edit(Setup $setup)
     {
-        //
+        // Read setup table 
+        $setup = Setup::find(1);
+
+        return view('admin.setup', compact('setup'));
     }
 
     /**
@@ -70,7 +75,27 @@ class SetupsController extends Controller
      */
     public function update(Request $request, Setup $setup)
     {
-        //
+        
+        // Validate form submition
+        $valid = $request->validate([
+            'idsetup' => 'required|integer',
+            'store_max_events' => 'required|integer',
+            'markup_default' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'cutoff_days' => 'required|integer',
+            'available_weekends' => 'required|integer'
+        ]);
+
+        //Update values for setup
+        $setup = Setup::find(1);
+        $setup->store_max_events = $valid['store_max_events'];
+        $setup->markup_default = $valid['markup_default'];
+        $setup->cutoff_days = $valid['cutoff_days'];
+        $setup->available_weekends = $valid['available_weekends'];
+        $setup->updated_at = Carbon::now();
+        $setup->save();
+
+        return redirect('/dominos/setup')->
+               with('success', 'Setup has been updated');
     }
 
     /**

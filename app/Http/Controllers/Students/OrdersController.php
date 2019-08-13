@@ -99,26 +99,79 @@ class OrdersController extends Controller
 
         $parent_id = 1;
 
-        $students = Student::all();
+        $students = DB::table('students')->where('idparent','=',$parent_id)->get()->toArray();
 
         $all_events = [];
         $all_orders = [];
-        
+        $schools_info =[];
+
+        $current_date = date('Y-m-d');
+
+        $final_table = [];
         
         foreach($students as $student){
-            $events = DB::table('events_vw')->where('idschool','=',$student->idschool)->get();
+
+            // Get all upcoming events for the current school
+            $events = DB::table('events')->where('idschool','=',$student->idschool)
+                                            ->where('is_active','=','1')
+                                            ->where('cutoff_date','>=',$current_date)
+                                            ->get()->toArray();
             $all_events[] = $events;
+            
+            
+            $classroom = DB::table('classrooms')->where('idclassroom','=',$student->idclassroom)->first();
+            $school = DB::table('schools')->where('idschool','=',$student->idschool)->first();
 
-            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get();
-            $all_orders = $orders;
+            $row_school['classroom'] = $classroom->classroom . ' , ' . $classroom->description;
+            $row_school['school'] =  $school->school_name . '(Id: ' . $school->idschool . ' )';
+            // Get all the submitted orders from the current student in the upcoming events
+            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get()->toArray();
+            
+            
+            // Summary - To be shown in the table in orders.php
+            $orders_student = [];
+
+
+            // Checks if the upcoming order is already submitted
+            foreach($events as $event){
+                $row = [];
+
+                $row['event_date'] = $event->event_date;
+                $row['status'] = 'Pendient';
+                $row['total_amount'] = '---';
+                $row['order'] = '---';
+                $row['action']= '';
+                $row['idevent'] = $event->idevent;
+                $row['idstudent'] = $student->idstudent;
+                
+
+                $submitted = false;
+
+                foreach($orders_student as $order){
+                    if($event['idevent'] == $order['id_event']){
+                        $row['status'] = 'Submitted';
+                        $row['total_amount'] = $order['total_amount'];
+                        $row['order'] = $order['idorder'];
+                        $row['action'] = 'show';
+                        $row['idorder'] = $order['idorder'];
+                    }
+                }
+
+                $orders_student[] = $row;
+            }
+
+            $all_orders[] = $orders_student;
+            $schools_info[] = $row_school;
+
+            
         }
-
+        
+        
         $data = [
             'students' => $students,
-            'all_events' => $all_events,
-            'all_orders' => $all_orders
+            'all_events' => $all_orders,
+            'schools_info' =>$schools_info
         ];
-        
 
         return view('parents.order', compact('data'));
     }
@@ -135,6 +188,8 @@ class OrdersController extends Controller
             $item_description[] = DB::table('menu_items')->where('iditem','=', $item->iditem)->first(['item_name']);
         }
 
+
+
         $data = [
             'event' => $event,
             'school' => $school,
@@ -149,6 +204,9 @@ class OrdersController extends Controller
     {   
         $input = $request->all();
         $order =[];
+        $idevent = $request->input('idevent');
+
+        
 
         foreach($input as $field=>$value )
         {
@@ -156,18 +214,20 @@ class OrdersController extends Controller
             {
 
                 $iditem = str_replace("qty","",$field);
+                $final_price= DB::table('event_items')->where('idevent','=',$idevent)->where('iditem','=',$iditem)->first()->final_price;
                 $row = [
                     'iditem' => $iditem,
-                    'description' => DB::table('menu_items')->where('iditem','=', $iditem)->first(['item_name']),
+                    'item_name' => DB::table('menu_items')->where('iditem','=', $iditem)->first(['item_name']),
+                    'final_price' => $final_price,
                     'qty' => $value
                 ];
                 $order[] = $row;
             }
         }
-        
-
+        /*
+        echo '<pre>';
         var_dump($order);die;
-
+        echo '</pre>';*/
         return view('parents.checkout', compact('order'));
     }
 }

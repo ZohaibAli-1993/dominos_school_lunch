@@ -19,15 +19,12 @@ class DatabaseSeeder extends Seeder
         $this->call(seed_schools_table::class);
         $this->call(seed_classrooms_table::class);
         $this->call(seed_provinces_table::class);
-<<<<<<< HEAD
         $this->call(seed_menu_items_table::class);
-=======
->>>>>>> Daphne
         $this->call(seed_setups_table::class);
         $this->call(seed_stores_table::class);
         $this->call(seed_events_table::class);
         $this->call(seed_event_items_table::class);
-        $this->call(seed_parents_table::class);
+        $this->call(seed_parents_register_table::class);
         $this->call(seed_students_table::class);
         $this->call(seed_orders_table::class);
     }

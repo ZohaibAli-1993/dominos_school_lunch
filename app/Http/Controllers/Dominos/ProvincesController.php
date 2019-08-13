@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dominos;
 use App\Province;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class ProvincesController extends Controller
 {
@@ -58,7 +59,10 @@ class ProvincesController extends Controller
      */
     public function edit(Province $province)
     {
-        //
+        // Read provinces table 
+        $provinces = Province::all();
+
+        return view('admin.provinces', compact('provinces'));    
     }
 
     /**
@@ -70,7 +74,27 @@ class ProvincesController extends Controller
      */
     public function update(Request $request, Province $province)
     {
-        //
+
+        // Validate form submission
+        $valid = $request->validate([
+            'province' => 'required|string',
+            'gst_rate' => 'required|string',
+            'pst_rate' => 'required|string',
+            'hst_rate' => 'required|string',
+            'qst_rate' => 'required|string'
+        ]);    
+
+        //Update values for province
+        $province_rec = Province::find($valid['province']);
+        $province_rec->gst_rate = $valid['gst_rate'];
+        $province_rec->pst_rate = $valid['pst_rate'];
+        $province_rec->hst_rate = $valid['hst_rate'];
+        $province_rec->qst_rate = $valid['qst_rate'];
+        $province_rec->updated_at = Carbon::now();
+        $province_rec->save();
+        return redirect('/dominos/provinces')->
+           with('success', 'Province has been updated.');                      
+
     }
 
     /**

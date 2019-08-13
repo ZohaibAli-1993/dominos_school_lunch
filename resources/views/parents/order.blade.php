@@ -2,14 +2,8 @@
 
 @section('content')
 
-<script>
-
-    $()
-
-</script>
-
 <div class="text content">
-    <h2>Orders</h2>
+    <h2 class="h2">Orders</h2>
     <div>
         <a class="btn btn-danger" href="">Upcoming Orders</a>
         <a class="btn btn-danger" href="">Previous Orders</a>
@@ -30,46 +24,43 @@
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                 <?php $i=0; ?>    
                 
-                @foreach($data['students'] as $student)
+                @foreach($data['all_events'] as $events_student)
 
-                    <?php $i++; ?>
+                <?php $i++; ?>
                 <div class="tab-pane fade  <?= ($i==1 ? 'show active' : ' ') ?>" id="nav-profile<?=$i?>" role="tabpanel" aria-labelledby="nav-profile<?=$i?>-tab">
-                <strong>School:</strong> <br />
-                    <strong>Classroom:</strong>
+                <strong>School:</strong>  {{ $data['schools_info'][$i-1]['school'] }} <br />
+                    <strong>Classroom: </strong> {{ $data['schools_info'][$i-1]['classroom'] }}
                     <div class="table-responsive text-nowrap">
 
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Event Date</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Total Amount</th>
                                     <th scope="col">Order</th>
-                                    <th scope="col">Invoice</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data['all_events'][$i-1] as $event)
-                                <?php $pendient = true; ?>
+                                @foreach ($events_student as $event)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>{{ $event->event_time }}</td>
-                                    <td>
-                                        <?php if(count($data['all_orders'])>0) :?>
-                                            <?= (in_array($event->idevent,$data['all_orders'][$i]) ? 'Completed' : 'Pendient') ?>
-                                            <?php if(in_array($event->idevent,$data['all_orders'][$i])){$pendient=false;} ?> 
-                                        <?php else : ?>
-                                            Pendient
+                                    <td>{{ $event['idevent'] }}</td>
+                                    <td> {{ $event['event_date'] }} </td>
+                                    <td> {{ $event['status'] }} </td>
+                                    <td> {{ $event['total_amount'] }} </td>
+                                    <td> {{ $event['order'] }} </td>
+                                    <td> 
+                                        <?php if($event['action'] == 'show') : ?>
+                                            Show Invoice
+                                        <?php else: ?>
+                                            <?php $order_button = "<a class='btn btn-danger' id='btn" . $event['idevent']  . "' href='/parents/order/neworder/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Order</a>"; ?>
+                                            <?= $order_button ?>
                                         <?php endif; ?>
-                                    
+
+                                        
                                     </td>
-                                    <td><?= ($pendient) ? 'Pendient' : '$ 20.00' ?></td>
-                                    <td><?= ($pendient) ? 'Pendient' : 'order-id' ?></td>
-                                    <td>
-                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event->idevent  . "' href='/parents/order/neworder/" . $event->idevent . "/" . $student->idstudent . "'>Order</a>" ?>
-                                        <?= ($pendient) ? $order_button : 'Pendient' ?>
-                                        <!--<a href="#">Download</a>--></td>
                                 </tr>
                                 @endforeach
 

@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 class ContactsController extends Controller
 {
+
+    const MAX_CONTACTS = 20;
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,11 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        //
+        //Query Contact model for all contacts
+        $contacts = Contact::latest()
+                ->paginate(self::MAX_CONTACTS);
+
+        return view('admin.contacts', compact('contacts'));
     }
 
     /**
@@ -36,7 +43,16 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        $new_contact = Contact::create($valid);
+
+        return redirect('main.contact'); 
     }
 
     /**

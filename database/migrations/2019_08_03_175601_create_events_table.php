@@ -20,11 +20,7 @@ class CreateEventsTable extends Migration
             $table->date('event_date');      
             $table->date('cutoff_date');  
             $table->time('event_time');     
-<<<<<<< HEAD
             $table->boolean('is_active')->default(1);      
-=======
-            $table->boolean('is_active');      
->>>>>>> Daphne
             $table->timestamps();
         });
     }

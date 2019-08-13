@@ -8,8 +8,8 @@
     <!-- Icon -->
     <div class="fadeIn first">
         <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
-        <h2 class="my-5"><strong>Registration</strong></h2> 
-        <h4>School Account</h4>
+        <h2 class="h2"><strong>Registration</strong></h2> 
+        <h4 class="h4">School Account</h4>
     </div>
 
     <!-- Login Form -->
