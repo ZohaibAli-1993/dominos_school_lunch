@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\School;
 use App\Setup;
-use App\Calendar;;
+use App\Calendar;
 use App\MenuItem;
 use Carbon\Carbon;
 

@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container pt-5">
 
     <h1 class="h1 text-center"> {{ $school->school_name }} </h1>
 	<h2 class="h2">Events</h2>
