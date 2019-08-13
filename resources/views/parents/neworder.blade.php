@@ -26,6 +26,11 @@
                             @csrf
                             <input type="hidden" value="{{ $data['event']->idevent }}" name="idevent">
                             <input type="hidden" value="{{ $data['student']->idstudent }}" name="idstudent">
+                            <input type="hidden" value="{{ $data['province']->gst_rate }}" name="calculated_gst" id="calculated_gst">
+                            <input type="hidden" value="{{ $data['province']->pst_rate }}" name="calculated_pst" id="calculated_pst">v
+                            <input type="hidden" value="{{ $data['province']->hst_rate }}" name="calculated_hst" id="calculated_hst">
+                            <input type="hidden" value="{{ $data['province']->qst_rate }}" name="calculated_qst" id="calculated_qst">
+                            
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -59,11 +64,37 @@
                                         </td>
                                         <td><input type="text" readonly name="subtotal" id="subtotal"></td>
                                     </tr>
+                                    <!--
                                     <tr>
                                         <td class="alignrigth" colspan="3">
                                             Tax(es)
                                         </td>
                                         <td><input type="text" readonly name="taxes" id="taxes"></td>
+                                    </tr>
+                                    -->
+                                    <tr>
+                                        <td class="alignrigth" colspan="3">
+                                            GST
+                                        </td>
+                                        <td><input type="text" readonly name="tcalculated_gst" id="tcalculated_gst"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="alignrigth" colspan="3">
+                                            PST
+                                        </td>
+                                        <td><input type="text" readonly name="tcalculated_pst" id="tcalculated_pst"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="alignrigth" colspan="3">
+                                            HST
+                                        </td>
+                                        <td><input type="text" readonly name="tcalculated_hst" id="tcalculated_hst"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="alignrigth" colspan="3">
+                                            QST
+                                        </td>
+                                        <td><input type="text" readonly name="tcalculated_qst" id="tcalculated_qst"></td>
                                     </tr>
                                     <tr>
                                         <td class="alignrigth" colspan="3">
@@ -142,11 +173,18 @@ function calculateTotal(){
         subtotal = subtotal + (qty * price);
     }
 
-    taxes = subtotal * 0.05;
-    total = subtotal * 1.05;
-
+    var gst = document.getElementById('calculated_gst').value * subtotal * 0.01;
+    var pst = document.getElementById('calculated_pst').value * subtotal * 0.01;
+    var hst = document.getElementById('calculated_hst').value * subtotal;
+    var qst = document.getElementById('calculated_qst').value * subtotal;
+    var total = subtotal + gst + pst + hst + qst;
+    
     document.getElementById('subtotal').value = subtotal.toFixed(2);
-    document.getElementById('taxes').value = taxes.toFixed(2);
+    document.getElementById('tcalculated_gst').value = gst.toFixed(2);
+    document.getElementById('tcalculated_pst').value = pst.toFixed(2);
+    document.getElementById('tcalculated_hst').value = hst.toFixed(2);
+    document.getElementById('tcalculated_qst').value = qst.toFixed(2);
+    //document.getElementById('taxes').value = taxes.toFixed(2);
     document.getElementById('total').value = total.toFixed(2);
 }
 </script>

@@ -14,6 +14,11 @@
     <input type="hidden" name="idstudent" value="{{ $data['student']->idstudent }}">
     <input type="hidden" name="idclassroom" value="{{ $data['student']->idclassroom }}">
     <input type="hidden" name="idschool" value="{{ $data['school']->idschool }}">
+    <input type="hidden" value="{{ $data['province']->gst_rate }}" name="calculated_gst" id="calculated_gst">
+    <input type="hidden" value="{{ $data['province']->pst_rate }}" name="calculated_pst" id="calculated_pst">
+    <input type="hidden" value="{{ $data['province']->hst_rate }}" name="calculated_hst" id="calculated_hst">
+    <input type="hidden" value="{{ $data['province']->qst_rate }}" name="calculated_qst" id="calculated_qst">
+
     <div class="m-2">
      <input type="text" name="amount" id="paypal_total" readonly placeholder="Amount">
      @if ($errors->has('amount'))

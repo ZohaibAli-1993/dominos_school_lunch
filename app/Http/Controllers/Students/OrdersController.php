@@ -69,7 +69,7 @@ class OrdersController extends Controller
                                  $valid['calculated_hst'] +
                                  $valid['calculated_qst'] +
                                  $valid['amount'];
-        $valid['order_status']  = 1;
+        $valid['order_status']  = 'C';
 
         $idorder = Order::create($valid)->idorder;
         $id_items = $all_inputs['item'];
@@ -89,6 +89,14 @@ class OrdersController extends Controller
                 'quantity' => $qty_items[$i],
                 'sub_total' => $subtotal[$i]
             ];
+
+            if(!is_numeric($item['quantity'])){
+                $item['quantity'] = 0;
+                $item['sub_total'] = 0;
+            }elseif($item['quantity']>0){
+                $item['quantity'] = 0;
+                $item['sub_total'] = 0;
+            }
 
             OrderItem::create($item);
         }
@@ -333,6 +341,7 @@ class OrdersController extends Controller
     {
 
         $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        $province = DB::table('provinces')->where('province','=',$school->province)->first();
         $items = DB::table('event_items')->where('idevent','=',$event->idevent)->get();
         $item_description = [];
         
@@ -348,8 +357,10 @@ class OrdersController extends Controller
             'school' => $school,
             'items' => $items,
             'student' =>$student,
-            'item_description' => $item_description
+            'item_description' => $item_description,
+            'province' => $province
         ];
+
         return view('parents.neworder', compact('data'));
     }
 
@@ -413,6 +424,7 @@ class OrdersController extends Controller
         
         $event  = DB::table('events')->where('idevent','=',$idevent)->first();
         $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        $province = DB::table('provinces')->where('province','=',$school->province)->first();
         $student = DB::table('students')->where('idstudent','=',$idstudent)->first();
 
         foreach($input as $field=>$value )
@@ -437,7 +449,8 @@ class OrdersController extends Controller
             'order' => $order,
             'student' => $student,
             'school' => $school,
-            'idevent' => $idevent
+            'idevent' => $idevent,
+            'province' => $province
         ];
 
         /*

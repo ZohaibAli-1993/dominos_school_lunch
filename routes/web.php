@@ -1,7 +1,5 @@
 <?php
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,36 +18,13 @@ Route::middleware(['school'])->group(function()
     Route::get('/school/{school}/edit', 'Schools\SchoolsController@edit');
 
     //update school profile
-
-    Route::PUT('/schools/{school}/edit', 'Schools\SchoolsController@update');
-
-    //show form to change school password
-    Route::get('/schools/{school}/changepass', 'Schools\SchoolsController@editPass');
-
-    //update school password
-    Route::PUT('/schools/{school}/changepass', 'Schools\SchoolsController@updatePass');
-
-});
-
-
-Route::middleware(['parents'])->group(function() 
-{ 
-
+    Route::PUT('/school/{school}/edit', 'Schools\SchoolsController@update');
 
 });
 
 Route::get('/', function () {
 	return view('index');
 })->name('home');
-
-
-Route::get('/parents_help', function () {
-    return view('parents.instruction');
-});
-
-Route::get('/schools_help', function () {
-    return view('schools.instruction');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +41,9 @@ Route::post('/contact', 'Dominos\ContactsController@store');
 */
 Route::get('/registration',function(){
 return view('main.registration');
+
+
+
 });
 
 /*
@@ -88,6 +66,8 @@ Route::get('/login',function(){
 	return view('main.login');
 }); 
 
+
+
 /*
 
 |--------------------------------------------------------------------------
@@ -103,6 +83,53 @@ view('main.parents_registration');
 });
 
 
+/*
+|--------------------------------------------------------------------------
+| school registration Page
+|--------------------------------------------------------------------------
+*/
+Route::get('/school_registration', 'Schools\SchoolsController@create');
+
+Route::post('/school_registration', 'Schools\SchoolsController@store');
+
+/*
+|-------------------------------------------------------------------------
+| login Page
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/login',function(){
+	return view('main.login');
+}); 
+
+
+
+/*
+
+|--------------------------------------------------------------------------
+| parents registration Page
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/parents_registration',function(){
+
+return
+view('main.parents_registration');
+
+});
+
+/*
+>>>>>>> Daphne
+|--------------------------------------------------------------------------
+| contact Page
+|--------------------------------------------------------------------------
+*/
+
+
+Route::get('/parents_registration',function(){
+	return view('main.parents_registration');
+});
+
 //Route::post('/contact','Home@contact');  
 
 
@@ -110,7 +137,7 @@ view('main.parents_registration');
 
 //Route::post('/contact','Home@contact');
 
-//Route::post('/registration','students\ParentsController@store');
+Route::post('/registration','students\ParentsController@store');
 
 
 /*
@@ -125,6 +152,10 @@ Route::get('/about',function(){
 Route::get('/new',function(){
     return view('captcha')
 ;});
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -152,25 +183,31 @@ Route::get('/schools/', function(){
 Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
 
-Route::get('/schools/{school}/classrooms', 'Schools\ClassroomsController@index');
 
-Route::post('/schools/{school}/classrooms','Schools\ClassroomsController@store');
 
-Route::get('/schools/{school}/upload','Schools\ClassroomsController@showUpload');
+//Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
-Route::post('/schools/{school}/upload','Schools\ClassroomsController@storeFileContents');
+Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
 
-Route::get('/schools/{school}/classrooms/{classroom}','Schools\ClassroomsController@edit');
+Route::post('/schools/classrooms','Schools\ClassroomsController@store');
 
-Route::put('/schools/{school}/classrooms','Schools\ClassroomsController@update');
+Route::get('/schools/classrooms/{classroom}','Schools\ClassroomsController@edit');
 
-Route::delete('/schools/{school}/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+Route::put('/schools/classrooms','Schools\ClassroomsController@update');
 
-//Route::get('/schools/classrooms/{classroom}','Schools\ClassroomsController@edit');
+Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
 
-//Route::put('/schools/classrooms','Schools\ClassroomsController@update');
 
-//Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+//Route::get('/schools/menu',function(){return view('schools.menu');});
+
+
+//Route::get('/schools/classrooms',function(){return
+//view('schools.classrooms');});
+
+
+//Route::get('/schools/menu',function(){return
+//view('schools.menu');});
+
 
 
 /**SCHOOL EVENTS ROUTES */
@@ -256,6 +293,7 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
+
 /**
  * Parents edit student page route
  */
@@ -274,10 +312,6 @@ Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsCo
 
 Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
 
-
-
-
-
 /** Subscription routes  */
 Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
 Route::post('/home', 'Dominos\SubscriptionsController@store');
@@ -289,14 +323,12 @@ Route::get('/content/gift-card', function(){return view('content.cards');});
 Route::get('/content/terms', function(){return view('content.terms');});
 Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
 
-
 Route::get('/content/privacy', function(){return view('content.privacy');}); 
 /**Parents Registration */  
 Route::post('/parent_registration','students\ParentsRegisterController@store'); 
 Route::middleware(['parents'])->group(function() 
 { 
 Route::post('/parent/{id}','students\ParentsRegisterController@show');
-
 
 });
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

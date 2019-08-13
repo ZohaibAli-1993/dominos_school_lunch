@@ -30,6 +30,15 @@ class seed_users_table extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+        
+        DB::table('users')->insert([
+            'name' =>'Admin User', 
+            'email' => 'admin@admin.com',
+            'type' =>'admin', 
+            'password' =>bcrypt("12345678"),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);        
 
 
         DB::table('users')->insert([
@@ -61,6 +70,7 @@ class seed_users_table extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+
 
 
     }
