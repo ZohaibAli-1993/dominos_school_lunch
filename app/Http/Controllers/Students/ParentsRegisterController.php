@@ -67,6 +67,8 @@ class ParentsRegisterController extends Controller
 
         $user['type'] = 'Parents';
 
+        $user['idparents'] = $school['idparents'];
+
         $new_user= User::create($user);
 
         return back()->with('success','Parent was added!'); 
@@ -114,10 +116,10 @@ class ParentsRegisterController extends Controller
 
         $parentRegister = ParentRegister::find($valid['idparent']);
 
-        $parentRegister['first_name'] = $valid['first_name'];
-        $parentRegister['last_name'] = $valid['last_name'];
-        $parentRegister['email'] = $valid['email'];
-        $parentRegister['phone'] = $valid['phone'];
+        $parentRegister->first_name = $valid['first_name'];
+        $parentRegister->last_name = $valid['last_name'];
+        $parentRegister->email = $valid['email'];
+        $parentRegister->phone = $valid['phone'];
         
 
         $parentRegister->save();
@@ -154,7 +156,13 @@ class ParentsRegisterController extends Controller
             return redirect('/parents/'.$parentRegister['idparent'])->with('error','Incorrect Password!');
         }
 
-        $parentRegister['password'] = Hash::make($valid['password']);
+        $user = Auth::user();
+
+        $user->password = Hash::make($valid['password']);
+
+        $user->save();
+
+        $parentRegister->password = Hash::make($valid['password']);
 
         $parentRegister->save();
 

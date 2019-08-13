@@ -7,6 +7,7 @@ use App\Province;
 use App\Store;
 use App\Setup;
 use App\User;
+use Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -45,7 +46,7 @@ class SchoolsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, School $school)
     {
 
         $valid = $request->validate([
@@ -57,7 +58,7 @@ class SchoolsController extends Controller
             'postal_code' => 'required|string',
             'coordinator_first_name' => 'required|string|min:3',
             'coordinator_last_name' => 'required|string|min:3',
-            'email' => 'required|email|unique',
+            'email' => 'required|email|unique:schools',
             'phone' => 'required|regex:/^(?(?=.*\))\()[0-9]{3}[\)]?[\-\s]?[0-9]{3}[\-\s]?[0-9]{4}$/',
             'password' => 'required|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/',
             'verify_password' => 'required_with:password|same:password|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/'
@@ -83,7 +84,7 @@ class SchoolsController extends Controller
          */
         $school = School::find($school['idschool']);
 
-        $school['token'] = $acronym.'00'.$school['idschool'];
+        $school['token'] = strtoupper($acronym).'00'.$school['idschool'];
 
         /**
          * update default markup price from setup table to the new school 
@@ -91,7 +92,7 @@ class SchoolsController extends Controller
          */
         $setup = Setup::find(1);
 
-        $school['markup']= $setup['markup_default'];
+        $school['markup'] = $setup['markup_default'];
 
         $school->save();
 
@@ -108,9 +109,11 @@ class SchoolsController extends Controller
 
         $user['type'] = 'school';
 
+        $user['idschool'] = $school['idschool'];
+
         $new_user= User::create($user);
 
-        return back()->with('success','School was added!');
+        return redirect('/schools/'.$school->idschool.'/classrooms')->with('success','School was added!');
 
     }
 
@@ -167,15 +170,15 @@ class SchoolsController extends Controller
 
         $school = School::find($school['idschool']);
 
-        $school['city'] = $valid['city'];
-        $school['province'] = $valid['province'];
-        $school['idstore'] = $valid['idstore'];
-        $school['address'] = $valid['address'];
-        $school['postal_code'] = $valid['postal_code'];
-        $school['coordinator_first_name'] = $valid['coordinator_first_name'];
-        $school['email'] = $valid['email'];
-        $school['phone'] = $valid['phone'];
-        $school['markup'] = $valid['markup'];
+        $school->city = $valid['city'];
+        $school->province = $valid['province'];
+        $school->idstore = $valid['idstore'];
+        $school->address = $valid['address'];
+        $school->postal_code = $valid['postal_code'];
+        $school->coordinator_first_name = $valid['coordinator_first_name'];
+        $school->email = $valid['email'];
+        $school->phone = $valid['phone'];
+        $school->markup = $valid['markup'];
 
         $school->save();
 
@@ -207,15 +210,21 @@ class SchoolsController extends Controller
             'new_pass' => 'required_with:password|same:password|regex:/(?=.*[0-9]+)(?=.*[A-Z]).{8,}/'
         ]);
 
-        if(!Hash::check($valid['current_pass'],$parentRegister['password'])){
-            return redirect('/school/'.$school['idschool'])->with('error','Incorrect Password!');
+        if(!Hash::check($valid['current_pass'],$school['password'])){
+            return redirect('/schools/'.$school['idschool'])->with('error','Incorrect Password!');
         }
 
-        $school['password'] = Hash::make($valid['password']);
+        $user = Auth::user();
+
+        $school->password = Hash::make($valid['password']);
+
+        $user->password = Hash::make($valid['password']);
 
         $school->save();
 
-        return redirect('/schools/'.$school['idschool'])->with('success','Your profile was changed!');
+        $user->save();
+
+        return redirect('/schools/'.$school->idschool)->with('success','Your password was changed!');
     }
 
     /**

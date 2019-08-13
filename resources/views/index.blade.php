@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-@include('partials.flash')
+
 <!--*******Section 1: shipping, call number and Gift Cards********** -->
 <div class="container" id="section1">
+	@include('partials.flash')
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			<i class="fas fa-shipping-fast shipping home_icon"></i>

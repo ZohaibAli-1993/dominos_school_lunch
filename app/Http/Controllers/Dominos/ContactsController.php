@@ -43,6 +43,11 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
+
+        request()->validate(
+            ['captcha' => 'required|captcha'],
+            ['captcha.captcha'=>'Invalid captcha code.']);
+
         $valid = $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -52,7 +57,7 @@ class ContactsController extends Controller
 
         $new_contact = Contact::create($valid);
 
-        return redirect('main.contact'); 
+    return redirect('/sucess');
     }
 
     /**

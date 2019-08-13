@@ -12,7 +12,7 @@
     </div>
 
     <!-- Login Form -->
-    <form method="post" action="/school/{{$school->idschool}}/edit" novalidate="novalidate">
+    <form method="post" action="/schools/{{$school->idschool}}" novalidate="novalidate">
         @csrf
         @method('PUT')
         <div class="container">

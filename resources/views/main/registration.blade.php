@@ -2,17 +2,16 @@
 
 @section('content')
 
-
-
 <script>
 	$(document).ready(function(){
 		
 		setTimeout(function(){
 			$('#overlay').css('opacity', .9);
 			$('#box_cover').animate({
-				left: '30%',
-				opacity: 1
-			},500)
+				left: '30%'
+			},500);
+			$('#box_cover').css('display', 'block');
+			$('#box_content').css('display', 'block');
 
 		},500)//end set time out
 		
@@ -50,8 +49,8 @@
 	
 	<div class="row">
 		<div class="col">
-			<a class="button school" href="">School Instruction</a>
-			<a class="button parents" href="">Parents Instruction</a>
+			<a class="button school" href="/schools_help">School Instruction</a>
+			<a class="button parents" href="/parents_help">Parents Instruction</a>
 		</div><!-- /col-->
 	</div><!-- /row-->
 	
