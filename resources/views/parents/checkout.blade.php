@@ -153,7 +153,7 @@ function calculateTotal() {
     document.getElementById('subtotal').value = subtotal.toFixed(2);
     document.getElementById('taxes').value = taxes.toFixed(2);
     document.getElementById('total').value = total.toFixed(2);
-    document.getElementById('paypal_total').value = total.toFixed(2);
+    document.getElementById('paypal_total').value = subtotal.toFixed(2);
 }
 </script>
 

@@ -25,6 +25,5 @@ class Order extends Model
             'calculated_qst',
             'total_amount',
             'order_status',
-            'calculated_gst'
     ];
 }

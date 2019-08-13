@@ -1,4 +1,5 @@
 <section class="pay-area">
+  @include('partials.errors')
   <div>
    <img height="60" src="/img/paypal.png">
    @if (session('error') || session('success'))
@@ -11,6 +12,7 @@
     @csrf
     <input type="hidden" name="idevent" value="{{ $data['idevent'] }}">
     <input type="hidden" name="idstudent" value="{{ $data['student']->idstudent }}">
+    <input type="hidden" name="idclassroom" value="{{ $data['student']->idclassroom }}">
     <input type="hidden" name="idschool" value="{{ $data['school']->idschool }}">
     <div class="m-2">
      <input type="text" name="amount" id="paypal_total" readonly placeholder="Amount">

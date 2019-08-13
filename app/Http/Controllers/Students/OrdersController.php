@@ -39,24 +39,43 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
+        $all_inputs = $request->all();
+        
+       
+        
         $valid = $request->validate([
             'idevent' =>'required|integer',
             'idstudent' =>'required|integer',
             'idschool' =>'required|integer',
             'idclassroom' =>'required|integer',
-            'amount' =>'required|decimal',
-            'calculated_gst' =>'required|decimal',
-            'calculated_pst' =>'required|decimal',
-            'calculated_hst' =>'required|decimal',
-            'calculated_qst' =>'required|decimal',
-            'total_amount' =>'required|decimal',
-            'order_status' =>'required|boolean',
-            'calculated_gst' =>'required|decimal',
-        ]);        
+            'amount' =>'required|numeric',
+        ]);   
+        $school = DB::table('schools')->where('idschool','=',$valid['idschool'])->first();
+        $gst_rate = DB::table('provinces')->where('province','=',$school->province)->first()->gst_rate;
+        $pst_rate = DB::table('provinces')->where('province','=',$school->province)->first()->pst_rate;
+        $hst_rate = DB::table('provinces')->where('province','=',$school->province)->first()->hst_rate;
+        $qst_rate = DB::table('provinces')->where('province','=',$school->province)->first()->qst_rate;
+
+
+        $valid['calculated_gst'] = $gst_rate * $valid['amount'] * 0.01;
+        $valid['calculated_pst'] = $pst_rate * $valid['amount'] * 0.01;
+        $valid['calculated_hst'] = $hst_rate * $valid['amount'] * 0.01;
+        $valid['calculated_qst'] = $qst_rate * $valid['amount'] * 0.01;
+        $valid['total_amount'] = $valid['calculated_gst'] +
+                                 $valid['calculated_pst'] +
+                                 $valid['calculated_hst'] +
+                                 $valid['calculated_qst'] +
+                                 $valid['amount'];
+        $valid['order_status']  = 1;
 
         Order::create($valid);
 
         return view('parents.success_order')->withSuccess('Order Submitted. Thank you');
+    }
+
+    public function temp()
+    {
+        return view('parents.temp');
     }
 
     /**
@@ -164,13 +183,13 @@ class OrdersController extends Controller
 
                 $submitted = false;
 
-                foreach($orders_student as $order){
-                    if($event['idevent'] == $order['id_event']){
+                foreach($orders as $order){
+                    if($event->idevent == $order->idevent){
                         $row['status'] = 'Submitted';
-                        $row['total_amount'] = $order['total_amount'];
-                        $row['order'] = $order['idorder'];
+                        $row['total_amount'] = $order->total_amount;
+                        $row['order'] = $order->idorder;
                         $row['action'] = 'show';
-                        $row['idorder'] = $order['idorder'];
+                        $row['idorder'] = $order->idorder;
                     }
                 }
 
