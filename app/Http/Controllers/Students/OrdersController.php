@@ -93,7 +93,7 @@ class OrdersController extends Controller
             if(!is_numeric($item['quantity'])){
                 $item['quantity'] = 0;
                 $item['sub_total'] = 0;
-            }elseif($item['quantity']>0){
+            }elseif($item['quantity']<0){
                 $item['quantity'] = 0;
                 $item['sub_total'] = 0;
             }
