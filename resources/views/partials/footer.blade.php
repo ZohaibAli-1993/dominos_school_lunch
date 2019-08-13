@@ -95,7 +95,7 @@ $(".btn-refresh").click(function(){
     success:function(data){
       
         $(".captcha span").html(data.captcha); 
-        window.location.reload();
+        
      }
 
     });// .ajax

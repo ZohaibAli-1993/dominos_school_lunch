@@ -46,7 +46,7 @@ Route::get('/contact',function(){
 */
 Route::get('/registration',function(){
 return view('main.registration');
-<<<<<<< HEAD
+
 });
 
 /*
@@ -227,7 +227,7 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 | PARENTS ROUTES
 |--------------------------------------------------------------------------
 */
-<<<<<<< HEAD
+
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
@@ -256,7 +256,7 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
-=======
+
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
 Route::post('/parents/order','Students\OrdersController@store');
@@ -290,7 +290,7 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
 
->>>>>>> Daphne
+
 
 /**FOOTER CONTENT LINKS */
 
@@ -300,10 +300,10 @@ Route::get('/content/nutricion-guide', function(){return view('content.nutrition
 
 Route::get('/content/privacy', function(){return view('content.privacy');}); 
 /**Parents Registration */  
-Route::post('/registration','students\ParentsRegisterController@store'); 
+Route::post('/parent_registration','students\ParentsRegisterController@store'); 
 Route::middleware(['parents'])->group(function() 
 { 
-
+Route::post('/parent/{id}','students\ParentsRegisterController@show');
 
 });
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

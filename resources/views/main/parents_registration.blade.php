@@ -13,7 +13,7 @@
         </div>
 
         <!-- Login Form -->
-        <form action="/registration" method="post">
+        <form action="/parent_registration" method="post">
             @csrf 
 
           <input type="text" id="registration_first_name"  name="first_name" placeholder="First Name" value="{{old('coordinator_first_name')}}">  
@@ -45,30 +45,27 @@
         @endif
           <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
 
-                      
+            <div class="col-md-6">
+
+              <div class="captcha">
+
+              <span>{!! captcha_img() !!}</span>
+
+              <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
+
+              </div>
+
+              <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
 
 
-                      <div class="col-md-6">
+              @if ($errors->has('captcha'))
 
-                          <div class="captcha">
+              <div class="text-danger error">{{ $errors->first('captcha') }}</div>
+              @endif
 
-                          <span>{!! captcha_img() !!}</span>
+          </div>
 
-                          <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
-
-                          </div>
-
-                          <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
-
-
-                          @if ($errors->has('captcha'))
-
-                          <div class="text-danger error">{{ $errors->first('captcha') }}</div>
-                          @endif
-
-                      </div>
-
-                  </div>
+            </div>
 
          <input type="submit" id="register"  value="Register"> 
 
