@@ -65,7 +65,8 @@
         <!--/top header -->
 
         <!-- Bottom portion of the header -->
-        <div id="{{ (Request::path() == '/') ? 'home_header' : 'not_home' }}">
+        <div id="{{ ((Request::path() == '/') ||
+                     (Request::path() == 'home')) ? 'home_header' : 'not_home' }}">
             <div id="bottom_header">
 
                 <!-- Brand name -->

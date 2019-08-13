@@ -4,28 +4,59 @@
 
 <div class="text content">
 
-    
-    <!-- Material form contact -->
-    <!-- Default form contact -->
-    <form class="form contact text-center border border-light p-5" action="/contact" method="post">
+    <form class="form contact border border-light p-5" action="/contact"
+          method="post" autocomplete="off">
         @csrf
-        <h4 class="h4 mb-4">Contact us</h4>
+        <h1 class="h1 mb-4 mt4">Contact us</h1>
 
         <h5 class="h5 mt-3">Please fill out the fields below and we will contact you shortly</h5>
 
         <!-- Name -->
-        <input type="text" id="name" name="name" class="form-control mb-4" placeholder="Name">
+        <div class ="form-group">
+            <label for="name">Name</label>
+            <input id="name" 
+                   name="name"
+                   type="text" 
+                   class="form-control" 
+                   value="{{ old('name') }}">
+            @if($errors->has('name'))
+            <span class="error text-danger">{{ $errors->first('name') }}</span>
+            @endif                  
+        </div>
 
         <!-- Email -->
-        <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
+        <div class ="form-group">
+            <label for="email_">Email</label>
+            <input id="email_" 
+                   name="email"
+                   type="text" 
+                   class="form-control" 
+                   value="{{ old('email') }}">
+            @if($errors->has('email'))
+            <span class="error text-danger">{{ $errors->first('email') }}</span>
+            @endif                  
+        </div>        
 
         <!-- Subject -->
-        <input type="text" id="subject" name="subject" class="form-control mb-4" placeholder="Subject">
+        <div class ="form-group">
+            <label for="subject">Subject</label>
+            <input id="subject" 
+                   name="subject"
+                   type="text" 
+                   class="form-control" 
+                   value="{{ old('subject') }}">
+            @if($errors->has('subject'))
+            <span class="error text-danger">{{ $errors->first('subject') }}</span>
+            @endif                  
+        </div>
 
         <!-- Message -->
         <div class="form-group">
-            <textarea class="form-control rounded-0" id="message" name="message" rows="3"
-                placeholder="Message"></textarea>
+            <label for="message">Message</label>
+            <textarea class="form-control rounded-0" id="message" name="message" rows="3"></textarea>
+            @if($errors->has('message'))
+            <span class="error text-danger">{{ $errors->first('message') }}</span>
+            @endif              
         </div>
 
         <!-- Copy -->
@@ -67,12 +98,12 @@
         </div>
 
         <!-- Send button -->
-        <button class="btn btn-danger btn-block" type="submit">Send</button>
+        <button class="button" type="submit">Send</button>
+
+        <a class="button ml-3" href="/home">Cancel</a>
 
     </form>
     <!-- Default form contact -->
 </div>
-
-@include('partials.subscribe')
 
 @endsection
