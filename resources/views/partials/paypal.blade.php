@@ -22,8 +22,8 @@
 
 
      @foreach ($data['order'] as $item)
-            <input type="hidden" name="item{{$item['iditem']}}" value="{{ $item['iditem'] }}">
-            <input type="hidden" name="qty{{$item['iditem']}}" value="{{ $item['qty'] }}">
+            <input type="hidden" name="item[]" value="{{ $item['iditem'] }}">
+            <input type="hidden" name="qty[]}}" value="{{ $item['qty'] }}">
       @endforeach
 
 

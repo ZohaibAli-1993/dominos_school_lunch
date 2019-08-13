@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Students;
 
 use App\Order;
+use App\OrderItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Student;
@@ -68,7 +69,31 @@ class OrdersController extends Controller
                                  $valid['amount'];
         $valid['order_status']  = 1;
 
-        Order::create($valid);
+        $idorder = Order::create($valid)->idorder;
+        $id_items = $all_inputs['item'];
+        $qty_items = $all_inputs['qty'];
+        $price = [];
+        $subtotal = [];
+        
+        for ($i=0; $i < count($id_items); $i++){
+            $price[] = DB::table('event_items')->where('idevent','=',$all_inputs['idevent'])->where('iditem','=',$id_items[$i])->first()->final_price;
+            $subtotal[] = number_format($qty_items[$i] * $price[$i], 2);
+
+
+            $item = [
+                'idorder' => $idorder,
+                'iditem' => $id_items[$i],
+                'item_price' => $price[$i],
+                'quantity' => $qty_items[$i],
+                'sub_total' => $subtotal[$i]
+            ];
+
+            OrderItem::create($item);
+        }
+
+        
+
+        
 
         return view('parents.success_order')->withSuccess('Order Submitted. Thank you');
     }

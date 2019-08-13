@@ -32,7 +32,9 @@
 
             @foreach ($data['order'] as $item)
             <tr>
-                <td>{{$item['iditem']}}</td>
+                <td>
+                    {{$item['iditem']}}
+                </td>
                 <td>
                     <?php if ($item['item_name']) :?>
                     {{$item['item_name']->item_name}}
