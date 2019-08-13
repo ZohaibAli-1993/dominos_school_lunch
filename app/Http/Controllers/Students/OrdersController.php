@@ -333,6 +333,7 @@ class OrdersController extends Controller
     {
 
         $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        $province = DB::table('provinces')->where('province','=',$school->province)->first();
         $items = DB::table('event_items')->where('idevent','=',$event->idevent)->get();
         $item_description = [];
         
@@ -348,8 +349,10 @@ class OrdersController extends Controller
             'school' => $school,
             'items' => $items,
             'student' =>$student,
-            'item_description' => $item_description
+            'item_description' => $item_description,
+            'province' => $province
         ];
+
         return view('parents.neworder', compact('data'));
     }
 
