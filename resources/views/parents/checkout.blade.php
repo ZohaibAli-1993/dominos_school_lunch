@@ -28,6 +28,7 @@
             </tr>
         </thead>
         <tbody>
+            
             <?php $cursor=0;  ?>
 
             @foreach ($data['order'] as $item)
@@ -57,9 +58,27 @@
             </tr>
             <tr>
                 <td class="alignrigth" colspan="3">
-                    Tax(es)
+                    GST
                 </td>
-                <td><input type="text" readonly name="taxes" id="taxes"></td>
+                <td><input type="text" readonly name="tcalculated_gst" id="tcalculated_gst"></td>
+            </tr>
+            <tr>
+                <td class="alignrigth" colspan="3">
+                    PST
+                </td>
+                <td><input type="text" readonly name="tcalculated_pst" id="tcalculated_pst"></td>
+            </tr>
+            <tr>
+                <td class="alignrigth" colspan="3">
+                    HST
+                </td>
+                <td><input type="text" readonly name="tcalculated_hst" id="tcalculated_hst"></td>
+            </tr>
+            <tr>
+                <td class="alignrigth" colspan="3">
+                    QST
+                </td>
+                <td><input type="text" readonly name="tcalculated_qst" id="tcalculated_qst"></td>
             </tr>
             <tr>
                 <td class="alignrigth" colspan="3">
@@ -75,13 +94,9 @@
                         
                         echo '<a class="btn btn-info" href="'. $referer .'" title="Return to the previous page">Edit</a>';
                         
-                    } else {
-                        
-                        echo '<a class="btn btn-info" href="javascript:history.go(-1)" title="Return to the previous page">Cancel</a>';
-                        
                     }
 
-                    echo '<a class="btn btn-info" href="/parents/order" title="Cancel Order">&laquo; Cancel</a>';
+                    echo '<a class="btn btn-secondary" href="/parents/order" title="Cancel Order">&laquo; Cancel</a>';
 
 
                 ?>

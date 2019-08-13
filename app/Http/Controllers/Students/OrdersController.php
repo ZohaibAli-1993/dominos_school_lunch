@@ -69,7 +69,7 @@ class OrdersController extends Controller
                                  $valid['calculated_hst'] +
                                  $valid['calculated_qst'] +
                                  $valid['amount'];
-        $valid['order_status']  = 1;
+        $valid['order_status']  = 'C';
 
         $idorder = Order::create($valid)->idorder;
         $id_items = $all_inputs['item'];
@@ -89,6 +89,14 @@ class OrdersController extends Controller
                 'quantity' => $qty_items[$i],
                 'sub_total' => $subtotal[$i]
             ];
+
+            if(!is_numeric($item['quantity'])){
+                $item['quantity'] = 0;
+                $item['sub_total'] = 0;
+            }elseif($item['quantity']>0){
+                $item['quantity'] = 0;
+                $item['sub_total'] = 0;
+            }
 
             OrderItem::create($item);
         }

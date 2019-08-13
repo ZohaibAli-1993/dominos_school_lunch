@@ -300,9 +300,6 @@ Route::get('/schools/events','Schools\EventsController@index');
 
 
 
-Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
-
-Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
 
 
 /**
