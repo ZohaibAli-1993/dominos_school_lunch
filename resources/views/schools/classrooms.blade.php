@@ -79,11 +79,9 @@
           @include('partials.errors')
 
           <div class="modal-body">
-<<<<<<< HEAD
-            <form action="" method="POST">
-=======
+
             <form style="padding:20px" action="/schools/{{$school->idschool}}/classrooms" method="POST">
->>>>>>> b6ba59b9fdfb3fda552edf112bdd0fe17e0ad860
+
                 @csrf
 
                 <div class="form-group">
