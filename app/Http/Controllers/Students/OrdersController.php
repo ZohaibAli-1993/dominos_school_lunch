@@ -167,7 +167,7 @@ class OrdersController extends Controller
      */
     public function showOrder()
     {   
-        $parent_id = Auth::user()->id;
+        $parent_id = Auth::user()->idparent;
         $name = DB::table('users')->where('id','=',$parent_id)->first()->name;
 
         
@@ -256,7 +256,7 @@ class OrdersController extends Controller
     public function showOrderPast()
     {
 
-        $parent_id = Auth::user()->id;
+        $parent_id = Auth::user()->idparent;
         $name = DB::table('users')->where('id','=',$parent_id)->first()->name;
 
         $students = DB::table('students')->where('idparent','=',$parent_id)->get()->toArray();
@@ -367,7 +367,7 @@ class OrdersController extends Controller
     public function showInvoice(Event $event, Student $student)
     {
 
-        $parent_id = Auth::user()->id;
+        $parent_id = Auth::user()->idparent;
         $name = DB::table('users')->where('id','=',$parent_id)->first()->name;
         $students_parent = DB::table('students')->where('idparent','=',$parent_id)->get();
 
