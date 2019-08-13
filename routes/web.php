@@ -239,11 +239,9 @@ Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
 Route::post('/parents/{parentRegister}', 'Students\ParentsRegisterController@updateSession');
 
-
 Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
 
 Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -257,16 +255,6 @@ Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
 Route::put('/schools/events', 'Schools\EventsController@update');
 
 Route::get('/schools/events','Schools\EventsController@index');
-
-
-
-
-
-
-Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
-
-
-
 
 /**
  * Parents edit student page route
