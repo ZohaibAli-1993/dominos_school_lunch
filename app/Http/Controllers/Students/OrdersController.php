@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Student;
 use App\Event;
 use Illuminate\Support\Facades\DB;
+use Auth;
+
 
 class OrdersController extends Controller
 {
@@ -156,9 +158,17 @@ class OrdersController extends Controller
      * @return view showing the form
      */
     public function showOrder()
-    {
+    {   
+        $parent_id = Auth::user()->id;
+        $user_type = DB::table('users')->where('id','=',$parent_id)->first()->type;
 
-        $parent_id = 1;
+        if($user_type !== 'parents'){
+            return view('home')->withErrors('Unauthorized access. Permission denied.');
+        }
+
+        
+
+        //$parent_id = 1;
 
         $students = DB::table('students')->where('idparent','=',$parent_id)->get()->toArray();
 

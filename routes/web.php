@@ -43,6 +43,9 @@ Route::post('/contact', 'Dominos\ContactsController@store');
 */
 Route::get('/registration',function(){
 return view('main.registration');
+
+
+
 });
 
 /*
@@ -248,19 +251,24 @@ Route::put('/dominos/provinces', 'Dominos\ProvincesController@update');
 |--------------------------------------------------------------------------
 */
 
-Route::get('/parents/order','Students\OrdersController@showOrder');
-Route::get('/parents/order/past','Students\OrdersController@showOrderPast');
-Route::post('/parents/order','Students\OrdersController@store');
-Route::post('/parents/order/neworder/process','Students\OrdersController@store');
-Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+Route::middleware(['parents'])->group(function(){
+    Route::get('/parents/order','Students\OrdersController@showOrder');
+    Route::get('/parents/order/past','Students\OrdersController@showOrderPast');
+    Route::post('/parents/order','Students\OrdersController@store');
+    Route::post('/parents/order/neworder/process','Students\OrdersController@store');
+    Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+    
+    Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
+    Route::get('/parents/order/checkout/', 'Students\OrdersController@temp');
+    
+    /* Paypal Routes */
+    Route::view('/checkout', 'checkout-page');
+    Route::post('/checkout', 'PaymentController@createPayment')->name('create-payment');
+    Route::get('/confirm', 'PaymentController@confirmPayment')->name('confirm-payment');
+});
 
-Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
-Route::get('/parents/order/checkout/', 'Students\OrdersController@temp');
 
-/* Paypal Routes */
-Route::view('/checkout', 'checkout-page');
-Route::post('/checkout', 'PaymentController@createPayment')->name('create-payment');
-Route::get('/confirm', 'PaymentController@confirmPayment')->name('confirm-payment');
+
 
 /**
  * Parents home page route
@@ -268,6 +276,34 @@ Route::get('/confirm', 'PaymentController@confirmPayment')->name('confirm-paymen
 Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
 Route::post('/parents/{parentRegister}', 'Students\ParentsRegisterController@updateSession');
+
+
+Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
+
+Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
+
+
+/*
+|--------------------------------------------------------------------------
+| SCHOOL EVENTS ROUTES
+|--------------------------------------------------------------------------
+*/
+Route::get('/schools/events', 'Schools\EventsController@index');
+
+Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
+
+Route::put('/schools/events', 'Schools\EventsController@update');
+
+Route::get('/schools/events','Schools\EventsController@index');
+
+
+
+
+
+
+Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
+
+Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
 
 
 /**
@@ -289,9 +325,13 @@ Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsCo
 Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
 
 
+
+
+
 /** Subscription routes  */
 Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
 Route::post('/home', 'Dominos\SubscriptionsController@store');
+
 
 /**FOOTER CONTENT LINKS */
 
@@ -301,10 +341,10 @@ Route::get('/content/nutricion-guide', function(){return view('content.nutrition
 
 Route::get('/content/privacy', function(){return view('content.privacy');}); 
 /**Parents Registration */  
-Route::post('/registration','students\ParentsRegisterController@store'); 
+Route::post('/parent_registration','students\ParentsRegisterController@store'); 
 Route::middleware(['parents'])->group(function() 
 { 
-
+Route::post('/parent/{id}','students\ParentsRegisterController@show');
 
 });
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

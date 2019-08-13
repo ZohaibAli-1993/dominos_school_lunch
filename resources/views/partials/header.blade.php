@@ -47,7 +47,8 @@
                     @else
 
 
-                    <a href="{{ url('/login') }}"><i class="far fa-user" a "></i></a>
+                    <a href="{{ url('/login') }}"><i class="far fa-user"></i></a>
+                    <!--<a  href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-user"></i></a>-->
                     
                 
                   @endauth 
@@ -214,6 +215,7 @@
             </div>
         </div>
     </div>
+
 
 
     <div class="{{ (Request::path() == '/') ? 'home' : ''}}" id="main_content">
