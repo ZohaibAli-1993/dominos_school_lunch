@@ -153,7 +153,20 @@ function calculateTotal() {
     total = subtotal * 1.05;
 
     document.getElementById('subtotal').value = subtotal.toFixed(2);
-    document.getElementById('taxes').value = taxes.toFixed(2);
+
+    var gst = document.getElementById('calculated_gst').value * subtotal * 0.01;
+    var pst = document.getElementById('calculated_pst').value * subtotal * 0.01;
+    var hst = document.getElementById('calculated_hst').value * subtotal;
+    var qst = document.getElementById('calculated_qst').value * subtotal;
+    var total = subtotal + gst + pst + hst + qst;
+
+    document.getElementById('subtotal').value = subtotal.toFixed(2);
+    document.getElementById('tcalculated_gst').value = gst.toFixed(2);
+    document.getElementById('tcalculated_pst').value = pst.toFixed(2);
+    document.getElementById('tcalculated_hst').value = hst.toFixed(2);
+    document.getElementById('tcalculated_qst').value = qst.toFixed(2);
+    document.getElementById('total').value = total.toFixed(2);
+    
     document.getElementById('total').value = total.toFixed(2);
     document.getElementById('paypal_total').value = subtotal.toFixed(2);
 }

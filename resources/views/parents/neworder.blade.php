@@ -173,13 +173,12 @@ function calculateTotal(){
         subtotal = subtotal + (qty * price);
     }
 
-    taxes = subtotal * 0.05;
     var gst = document.getElementById('calculated_gst').value * subtotal * 0.01;
     var pst = document.getElementById('calculated_pst').value * subtotal * 0.01;
     var hst = document.getElementById('calculated_hst').value * subtotal;
     var qst = document.getElementById('calculated_qst').value * subtotal;
-    total = subtotal * 1.05;
-
+    var total = subtotal + gst + pst + hst + qst;
+    
     document.getElementById('subtotal').value = subtotal.toFixed(2);
     document.getElementById('tcalculated_gst').value = gst.toFixed(2);
     document.getElementById('tcalculated_pst').value = pst.toFixed(2);

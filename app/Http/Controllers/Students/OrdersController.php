@@ -416,6 +416,7 @@ class OrdersController extends Controller
         
         $event  = DB::table('events')->where('idevent','=',$idevent)->first();
         $school = DB::table('schools')->where('idschool','=',$event->idschool)->first();
+        $province = DB::table('provinces')->where('province','=',$school->province)->first();
         $student = DB::table('students')->where('idstudent','=',$idstudent)->first();
 
         foreach($input as $field=>$value )
@@ -440,7 +441,8 @@ class OrdersController extends Controller
             'order' => $order,
             'student' => $student,
             'school' => $school,
-            'idevent' => $idevent
+            'idevent' => $idevent,
+            'province' => $province
         ];
 
         /*
