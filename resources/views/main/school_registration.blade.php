@@ -13,7 +13,7 @@
     </div>
 
     <!-- Login Form -->
-    <form method="post" action="/school_registration" novalidate="novalidate">
+    <form method="post" action="" novalidate="novalidate">
         @csrf
 
         <input type="text" id="registration_school_name" class="fadeIn third zero-raduis" name="school_name" placeholder="School Name" value="{{old('school_name')}}">
@@ -87,16 +87,13 @@
 
         <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
 
-            <label for="password" class="col-md-4 control-label">Captcha</label>
-
-
-            <div class="col-md-12">footer
+            <div class="col-md-6">
 
                 <div class="captcha">
 
-                    <span>{!! captcha_img() !!}</span>
+                <span>{!! captcha_img() !!}</span>
 
-                    <button type="button" class="btn btn-danger btn-refresh"><i class="fas fa-sync"></i></button>
+                <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
 
                 </div>
 
@@ -105,18 +102,12 @@
 
                 @if ($errors->has('captcha'))
 
-                    <span class="help-block">
-
-                        <strong>{{ $errors->first('captcha') }}</strong>
-
-                    </span>
-
+                <div class="text-danger error">{{ $errors->first('captcha') }}</div>
                 @endif
 
-            </div>
+        </div>
 
-          </div>
-
+        </div>
         <input type="submit" id="register" class="fadeIn fourth zero-raduis" value="Register">
     </form>
 

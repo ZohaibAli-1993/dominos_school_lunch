@@ -11,9 +11,9 @@
 	</div><!-- /row-->
 
 	<div class="row">
-		<div class="col">
+		<div class="col changepass_cover">
 			@include('partials.changePassForm')
-			<a href="/parents/{{$parentRegister->idparent}}" class="button red">Cancel</a>
+			<a href="/parents/{{$parentRegister->idparent}}" class="button red cancel">Cancel</a>
 		</div><!-- /col-->
 	</div><!-- /row-->
 </div><!-- /container-->

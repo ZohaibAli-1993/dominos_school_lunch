@@ -2,13 +2,6 @@
 
 @section('content')
 	<div class="container-fluid">
-		<div class="row" id="hero-image">
-			
-				<img id="about-hero-image" src="/img/pizza.jpg" alt="Pizza" width="100%" />
-
-		</div><!-- end row1 -->
-	</div>
-	
 
 	<div class="container">
 		<div class="row">

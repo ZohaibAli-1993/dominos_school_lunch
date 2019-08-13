@@ -22,9 +22,10 @@
                 <?php $i++; ?>
                 <div class="tab-pane fade show active">
                     <div class="table-responsive text-nowrap">
-                        <form action="/parents/order/checkout" method="post">
+                        <form action="/parents/order/checkout" onsubmit="return validateForm()"  method="post">
                             @csrf
                             <input type="hidden" value="{{ $data['event']->idevent }}" name="idevent">
+                            <input type="hidden" value="{{ $data['student']->idstudent }}" name="idstudent">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -72,6 +73,7 @@
                                     </tr>
                                     <tr>
                                         <td class="alignrigth" colspan="4">
+                                            <a href="/parents/order" class="btn btn-secondary" href="">Cancel</a>
                                             <button class="btn btn-danger" href="">Pay Now</button>
                                         </td>
                                     </tr>
@@ -106,6 +108,13 @@ $(document).ready(function() {
     });
 
 });
+
+function validateForm(){
+        if(document.getElementById('total').value <= 0){
+            alert('No items selected');
+            return false;
+        }
+}
 
 function calculateTotal(){
     var subtotal = 0;

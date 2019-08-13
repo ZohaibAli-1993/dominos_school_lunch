@@ -20,6 +20,7 @@ class StudentsController extends Controller
     public function index(ParentRegister $parentRegister)
     {
         $students = Student::where('idparent', $parentRegister->idparent)->get();
+        
         $school = School::pluck('school_name', 'idschool');
 
         return view('parents.index', compact('students', 'parentRegister', 'school'));
@@ -110,9 +111,9 @@ class StudentsController extends Controller
         ]);
 
         $student = Student::find($student['idstudent']);
-        $student['idclassroom'] = $valid['idclassroom'];
-        $student['first_name'] = $valid['first_name'];
-        $student['last_name'] = $valid['last_name'];
+        $student->idclassroom = $valid['idclassroom'];
+        $student->first_name = $valid['first_name'];
+        $student->last_name = $valid['last_name'];
 
         $student->save();
 
