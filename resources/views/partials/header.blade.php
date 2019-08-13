@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="favicon.png" type="image/gif" />
     <link rel="stylesheet" type="text/css" href="/css/app.css" />
     <script>window.Laravel = {csrfToken: '{{csrf_token()}}'}</script>
-    <!--<script src="/js/app.js"></script>-->
+    <script src="/js/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -43,7 +43,7 @@
                     @else
                         
 
-                 <a href="{{ url('/login') }}"><i class="far fa-user"a "></i></a>
+                 <a href="{{ url('/login') }}"><i class="far fa-user"></i></a>
                     
                 
                   @endauth 

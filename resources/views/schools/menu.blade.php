@@ -34,7 +34,7 @@
 
 		<div class="row">
 
-			<h2 class="h2 mt-5 mb-3" id="lunch_menu_category" style="color:#006491">{{$cat_result->category}}</h2>
+			<h3 class="h3 mt-5 mb-3 col" id="lunch_menu_category" style="color:#006491">{{$cat_result->category}}</h3>
 
 		</div>
 
@@ -53,15 +53,21 @@
 
 				<div class="col-lg-6">
 
-					<div id="school_lunch_menu_items"><img src="{{$result->image}}" width="100%" height="auto">
+					<div id="school_lunch_menu_items">
 
-					<h3 class="h3">{{$result->item_name}}</h3>
+						<object data="/img/{{$result->image}}" type="image/png" width="100%" height="400px">
 
-						  <strong>Price: </strong>${{$result->price}}<br />
+							<img src="/img/no_name.png" width="100%" height="400px">
 
-						  	{{$result->description}}<br />
+						</object>
 
-						  	<em><strong>Nutrition Facts: </strong>{{$result->nutrition_facts}}</em><br />
+						<h3 class="h3">{{$result->item_name}}</h3>
+
+							  <strong>Price: </strong>${{$result->price}}<br />
+
+							  	{{$result->description}}<br />
+
+							  	<em><strong>Nutrition Facts: </strong>{{$result->nutrition_facts}}</em><br />
 
 					</div>
 

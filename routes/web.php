@@ -181,23 +181,19 @@ Route::get('/schools/', function(){
 Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
 
+Route::get('/schools/{school}/classrooms', 'Schools\ClassroomsController@index');
 
+Route::post('/schools/{school}/classrooms','Schools\ClassroomsController@store');
 
-//Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
+Route::get('/schools/{school}/upload','Schools\ClassroomsController@showUpload');
 
-Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
+Route::post('/schools/{school}/upload','Schools\ClassroomsController@storeFileContents');
 
-Route::post('/schools/classrooms','Schools\ClassroomsController@store');
+Route::get('/schools/{school}/classrooms/{classroom}','Schools\ClassroomsController@edit');
 
-Route::get('/schools/upload','Schools\ClassroomsController@showUpload');
+Route::put('/schools/{school}/classrooms','Schools\ClassroomsController@update');
 
-Route::post('/schools/upload','Schools\ClassroomsController@storeFileContents');
-
-Route::get('/schools/classrooms/{classroom}','Schools\ClassroomsController@edit');
-
-Route::put('/schools/classrooms','Schools\ClassroomsController@update');
-
-Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+Route::delete('/schools/{school}/classrooms/{classroom}','Schools\ClassroomsController@destroy');
 
 
 
