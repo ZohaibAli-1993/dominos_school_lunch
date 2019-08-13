@@ -237,6 +237,91 @@ class OrdersController extends Controller
         return view('parents.order', compact('data'));
     }
 
+    /**
+     * Show past orders for current parent
+     */
+    public function showOrderPast()
+    {
+
+        $parent_id = 1;
+
+        $students = DB::table('students')->where('idparent','=',$parent_id)->get()->toArray();
+
+        $all_events = [];
+        $all_orders = [];
+        $schools_info =[];
+
+        $current_date = date('Y-m-d');
+
+        $final_table = [];
+        
+        foreach($students as $student){
+
+            // Get all upcoming events for the current school
+            $events = DB::table('events')->where('idschool','=',$student->idschool)
+                                            ->where('is_active','=','1')
+                                            ->where('cutoff_date','<',$current_date)
+                                            ->get()->toArray();
+            $all_events[] = $events;
+            
+            
+            $classroom = DB::table('classrooms')->where('idclassroom','=',$student->idclassroom)->first();
+            $school = DB::table('schools')->where('idschool','=',$student->idschool)->first();
+
+            $row_school['classroom'] = $classroom->classroom . ' , ' . $classroom->description;
+            $row_school['school'] =  $school->school_name . '(Id: ' . $school->idschool . ' )';
+            // Get all the submitted orders from the current student in the upcoming events
+            $orders = DB::table('orders')->where('idstudent','=',$student->idstudent)->get()->toArray();
+            
+            
+            // Summary - To be shown in the table in orders.php
+            $orders_student = [];
+
+
+            // Checks if the upcoming order is already submitted
+            foreach($events as $event){
+                $row = [];
+
+                $row['event_date'] = $event->event_date;
+                $row['status'] = 'Pendient';
+                $row['total_amount'] = '---';
+                $row['order'] = '---';
+                $row['action']= '';
+                $row['idevent'] = $event->idevent;
+                $row['idstudent'] = $student->idstudent;
+                
+
+                $submitted = false;
+
+                foreach($orders as $order){
+                    if($event->idevent == $order->idevent){
+                        $row['status'] = 'Submitted';
+                        $row['total_amount'] = $order->total_amount;
+                        $row['order'] = $order->idorder;
+                        $row['action'] = 'show';
+                        $row['idorder'] = $order->idorder;
+                    }
+                }
+
+                $orders_student[] = $row;
+            }
+
+            $all_orders[] = $orders_student;
+            $schools_info[] = $row_school;
+
+            
+        }
+        
+        
+        $data = [
+            'students' => $students,
+            'all_events' => $all_orders,
+            'schools_info' =>$schools_info
+        ];
+
+        return view('parents.order_past', compact('data'));
+    }
+
     public function newOrder(Event $event, Student $student)
     {
 

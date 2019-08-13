@@ -5,8 +5,8 @@
 <div class="text content">
     <h2 class="h2">Orders</h2>
     <div>
-        <a class="btn btn-danger" href="/parents/order">Upcoming Orders</a>
-        <a class="btn btn-secondary" href="/parents/order/past">Previous Orders</a>
+        <a class="btn btn-secondary" href="/parents/order">Upcoming Orders</a>
+        <a class="btn btn-danger" href="/parents/order/past">Previous Orders</a>
     </div>
     <div class="row">
 
@@ -55,9 +55,9 @@
                                     <td> {{ $event['order'] }} </td>
                                     <td>
                                         <?php if($event['action'] == 'show') : ?>
-                                        Show Invoice
+                                            Show Invoice
                                         <?php else: ?>
-                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event['idevent']  . "' href='/parents/order/neworder/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Order</a>"; ?>
+                                            No submitted
                                         <?= $order_button ?>
                                         <?php endif; ?>
 

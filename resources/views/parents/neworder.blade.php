@@ -73,6 +73,7 @@
                                     </tr>
                                     <tr>
                                         <td class="alignrigth" colspan="4">
+                                            <a href="/parents/order" class="btn btn-secondary" href="">Cancel</a>
                                             <button class="btn btn-danger" href="">Pay Now</button>
                                         </td>
                                     </tr>

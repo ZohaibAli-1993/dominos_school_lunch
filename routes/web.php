@@ -249,6 +249,7 @@ Route::put('/dominos/provinces', 'Dominos\ProvincesController@update');
 */
 
 Route::get('/parents/order','Students\OrdersController@showOrder');
+Route::get('/parents/order/past','Students\OrdersController@showOrderPast');
 Route::post('/parents/order','Students\OrdersController@store');
 Route::post('/parents/order/neworder/process','Students\OrdersController@store');
 Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
