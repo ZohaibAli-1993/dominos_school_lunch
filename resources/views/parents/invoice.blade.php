@@ -16,6 +16,9 @@
         <strong>Student:</strong> {{ $data['student']->first_name . ' ' . $data['student']->last_name }}
     </div>
     <div class="row">
+        <strong>Date:</strong> {{ $data['order']->created_at  }}
+    </div>
+    <div class="row">
 
     <div class="col-xs-12 main-tab">
             <div class="tab-content py-3 px-3 px-sm-0">
