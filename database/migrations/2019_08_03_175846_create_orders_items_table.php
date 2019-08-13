@@ -18,7 +18,7 @@ class CreateOrdersItemsTable extends Migration
             $table->integer('iditem');
             $table->decimal('item_price',5,3);
             $table->integer('quantity');
-            $table->decimal('sub_total',5,3);
+            $table->decimal('sub_total',10,3);
             $table->timestamps();
             $table->primary(['idorder', 'iditem']);
         });

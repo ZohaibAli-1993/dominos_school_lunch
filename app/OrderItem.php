@@ -12,5 +12,13 @@ class OrderItem extends Model
      *
      * @var string
      */
-    protected $table = 'order_items';
+    protected $table = 'orders_items';
+
+    protected $fillable = [
+        'idorder',
+        'iditem',
+        'item_price',
+        'quantity',
+        'sub_total'
+    ];
 }

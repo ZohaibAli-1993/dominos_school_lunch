@@ -23,6 +23,8 @@ class VerifyCsrfToken extends Middleware
         '/schools/events/create' ,    ////***Alessandra - delete this to send final version
         '/schools/events/',     ////***Alessandra - delete this to send final version
         '/dominos/setup/',
+        '/dominos/stores/',
+        '/login/',
         '/dominos/calendars/'     ////***Alessandra - delete this to send final version
     ];
 }

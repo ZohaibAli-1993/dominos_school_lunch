@@ -14,12 +14,13 @@
 Route::middleware(['school'])->group(function()
 {   
     //show school profile
-    Route::get('/schools/{school}', 'Schools\SchoolsController@show');
+    Route::get('/school/{school}', 'Schools\SchoolsController@show');
 
     //show form to edit school profile
-    Route::get('/schools/{school}/edit', 'Schools\SchoolsController@edit');
+    Route::get('/school/{school}/edit', 'Schools\SchoolsController@edit');
 
     //update school profile
+
     Route::PUT('/schools/{school}/edit', 'Schools\SchoolsController@update');
 
     //show form to change school password
@@ -101,6 +102,17 @@ view('main.parents_registration');
 
 });
 
+
+//Route::post('/contact','Home@contact');  
+
+
+
+
+//Route::post('/contact','Home@contact');
+
+//Route::post('/registration','students\ParentsController@store');
+
+
 /*
 |--------------------------------------------------------------------------
 | about Page
@@ -140,10 +152,6 @@ Route::get('/schools/', function(){
 Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
 
-
-
-//Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
-
 Route::get('/schools/{school}/classrooms', 'Schools\ClassroomsController@index');
 
 Route::post('/schools/{school}/classrooms','Schools\ClassroomsController@store');
@@ -154,9 +162,15 @@ Route::post('/schools/{school}/upload','Schools\ClassroomsController@storeFileCo
 
 Route::get('/schools/{school}/classrooms/{classroom}','Schools\ClassroomsController@edit');
 
-Route::put('/schools/{school}/classrooms/{classroom}','Schools\ClassroomsController@update');
+Route::put('/schools/{school}/classrooms','Schools\ClassroomsController@update');
 
 Route::delete('/schools/{school}/classrooms/{classroom}','Schools\ClassroomsController@destroy');
+
+//Route::get('/schools/classrooms/{classroom}','Schools\ClassroomsController@edit');
+
+//Route::put('/schools/classrooms','Schools\ClassroomsController@update');
+
+//Route::delete('/schools/classrooms/{classroom}','Schools\ClassroomsController@destroy');
 
 
 /**SCHOOL EVENTS ROUTES */
@@ -167,6 +181,14 @@ Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
 Route::put('/schools/events', 'Schools\EventsController@update');
 Route::delete('/schools/events/{event}', 'Schools\EventsController@destroy');
 
+/**SCHOOL REPORTS**/
+Route::get('/schools/reports', 'Schools\ReportsController@index');
+Route::get('/schools/reports/orders', 'Schools\ReportsController@orders');
+Route::get('/schools/reports/classrooms', 'Schools\ReportsController@classrooms');
+Route::get('/schools/reports/students', 'Schools\ReportsController@students');
+Route::get('/schools/reports/parents', 'Schools\ReportsController@parents');
+Route::get('/schools/reports/download/{report}', 
+           'Schools\ReportsController@download');
 
 /**ADMIN ROUTES */
 Route::get('/dominos/setup', 'Dominos\SetupsController@edit');
@@ -180,6 +202,9 @@ Route::put('/dominos/categories', 'Dominos\CategoriesController@update');
 Route::get('/dominos/menuitems', 'Dominos\MenuItemsController@edit');
 Route::put('/dominos/menuitems', 'Dominos\MenuItemsController@update');
 Route::get('/dominos/contacts', 'Dominos\ContactsController@index');
+Route::get('/dominos/subscriptions', 'Dominos\SubscriptionsController@index');
+Route::get('/dominos/provinces', 'Dominos\ProvincesController@edit');
+Route::put('/dominos/provinces', 'Dominos\ProvincesController@update');
 
 /*
 |--------------------------------------------------------------------------
@@ -187,10 +212,25 @@ Route::get('/dominos/contacts', 'Dominos\ContactsController@index');
 |--------------------------------------------------------------------------
 */
 
-Route::get('/parents/order','Students\OrdersController@showOrder');
-Route::post('/parents/order','Students\OrdersController@store');
-Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
-Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
+Route::middleware(['parents'])->group(function(){
+    Route::get('/parents/order','Students\OrdersController@showOrder');
+    Route::get('/parents/order/past','Students\OrdersController@showOrderPast');
+    Route::post('/parents/order','Students\OrdersController@store');
+    Route::post('/parents/order/neworder/process','Students\OrdersController@store');
+    Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+    Route::get('/parents/order/invoice/{event}/{student}', 'Students\OrdersController@showInvoice');
+    
+    Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
+    Route::get('/parents/order/checkout/', 'Students\OrdersController@temp');
+    
+    /* Paypal Routes */
+    Route::view('/checkout', 'checkout-page');
+    Route::post('/checkout', 'PaymentController@createPayment')->name('create-payment');
+    Route::get('/confirm', 'PaymentController@confirmPayment')->name('confirm-payment');
+});
+
+
+
 
 /**
  * Parents home page route
@@ -199,15 +239,34 @@ Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
 
 Route::post('/parents/{parentRegister}', 'Students\ParentsRegisterController@updateSession');
 
-/**
- * Parents edit page route
- */
-Route::get('/parents/{parentRegister}/edit', 'Students\ParentsRegisterController@edit');
-Route::PUT('/parents/{parentRegister}/edit', 'Students\ParentsRegisterController@update');
 
-//parent change their password
-Route::get('/parents/{parentRegister}/changePass', 'Students\ParentsRegisterController@editPass');
-Route::PUT('/parents/{parentRegister}/changePass', 'Students\ParentsRegisterController@updatePass');
+Route::get('/parents/{parentRegister}/student/add', 'Students\ParentsRegisterController@index');
+
+Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
+
+
+/*
+|--------------------------------------------------------------------------
+| SCHOOL EVENTS ROUTES
+|--------------------------------------------------------------------------
+*/
+Route::get('/schools/events', 'Schools\EventsController@index');
+
+Route::get('/schools/events/edit/{event}', 'Schools\EventsController@edit');
+
+Route::put('/schools/events', 'Schools\EventsController@update');
+
+Route::get('/schools/events','Schools\EventsController@index');
+
+
+
+
+
+
+Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
+
+Route::post('/parents/{parentRegister}', 'Students\TokensController@store');
+
 
 /**
  * Parents edit student page route
@@ -216,16 +275,25 @@ Route::get('/parents/{parentRegister}/{student}/edit', 'Students\StudentsControl
 
 Route::PUT('/parents/{parentRegister}/{student}/edit', 'Students\StudentsController@update');
 
-Route::DELETE('/parents/{parentRegister}/{student}', 'Students\StudentsController@destroy');
+/**
+ * Parents add student page route
+ */
+/*Route::get('/parents/{parentRegister}/student/add', 'Students\StudentsController@create');
+
+Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');*/
 
 Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
 
 Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
 
 
+
+
+
 /** Subscription routes  */
 Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
 Route::post('/home', 'Dominos\SubscriptionsController@store');
+
 
 /**FOOTER CONTENT LINKS */
 
@@ -233,9 +301,19 @@ Route::get('/content/gift-card', function(){return view('content.cards');});
 Route::get('/content/terms', function(){return view('content.terms');});
 Route::get('/content/nutricion-guide', function(){return view('content.nutrition');});
 
+<<<<<<< HEAD
 Route::get('/content/privacy', function(){return view('content.privacy');});
+=======
+Route::get('/content/privacy', function(){return view('content.privacy');}); 
+/**Parents Registration */  
+Route::post('/parent_registration','students\ParentsRegisterController@store'); 
+Route::middleware(['parents'])->group(function() 
+{ 
+Route::post('/parent/{id}','students\ParentsRegisterController@show');
+>>>>>>> b6ba59b9fdfb3fda552edf112bdd0fe17e0ad860
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+});
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/content/privacy', function(){return view('content.privacy');});
 Auth::routes();
 

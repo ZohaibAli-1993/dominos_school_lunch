@@ -72,7 +72,7 @@
 		    	                </td>
 		    	                <td>
 		    	                	<a
-		    	                	class="button red"
+		    	                	class="button"
 		    	                	data-toggle="modal" 
 		    	                	data-target="#ModalcategoryForm" 
 		    	                	data-title="Edit category"

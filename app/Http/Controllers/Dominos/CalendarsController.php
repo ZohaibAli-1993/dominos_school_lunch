@@ -1,4 +1,4 @@
-<?php
+pluck<?php
 
 namespace App\Http\Controllers\Dominos;
 

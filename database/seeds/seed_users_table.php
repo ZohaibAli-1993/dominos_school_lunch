@@ -31,11 +31,22 @@ class seed_users_table extends Seeder
             'updated_at' => Carbon::now()
         ]);
 
+
         DB::table('users')->insert([
             'name' =>'Diana Robert', 
             'email' => 'diana@email.com',
             'type' =>'parents',
             'idparent' => 1,
+            'password' =>bcrypt("12345678"),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('users')->insert([
+            'name' =>'Any Parent', 
+            'email' => 'parent@example.com',
+            'type' =>'parents',
+            'idparent' => 3,
             'password' =>bcrypt("12345678"),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()

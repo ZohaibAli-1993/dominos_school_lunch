@@ -14,7 +14,8 @@
         "laravel/tinker": "^1.0",
         "league/omnipay": "^3.0",
         "mews/captcha": "^2.2",
-        "omnipay/paypal": "^3.0"
+        "omnipay/paypal": "^3.0",
+        "paypal/rest-api-sdk-php": "^1.14"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

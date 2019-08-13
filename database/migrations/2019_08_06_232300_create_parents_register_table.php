@@ -14,7 +14,6 @@ class CreateParentsRegisterTable extends Migration
     public function up()
     {
 
-
         Schema::create('parents', function (Blueprint $table) {
             $table->bigIncrements('idparent');
             $table->string('first_name',30); 

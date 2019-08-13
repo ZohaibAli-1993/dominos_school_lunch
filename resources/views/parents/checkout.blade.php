@@ -5,13 +5,13 @@
 <div class="text content">
     <h2 class="h2">CheckOut Page</h2>
     <div class="row">
-        <strong>Event Id:</strong>
+        <strong>Event Id:</strong> {{ $data['idevent'] }}
     </div>
     <div class="row">
-        <strong>School:</strong>
+        <strong>School:</strong> {{ $data['school']->school_name }}
     </div>
     <div class="row">
-        <strong>Student:</strong>
+        <strong>Student:</strong> {{ $data['student']->first_name . ' ' . $data['student']->last_name }}
     </div>
     <div class="row">
         <?php $mytime = Carbon\Carbon::now(); ?>
@@ -30,9 +30,11 @@
         <tbody>
             <?php $cursor=0;  ?>
 
-            @foreach ($order as $item)
+            @foreach ($data['order'] as $item)
             <tr>
-                <td>{{$item['iditem']}}</td>
+                <td>
+                    {{$item['iditem']}}
+                </td>
                 <td>
                     <?php if ($item['item_name']) :?>
                     {{$item['item_name']->item_name}}
@@ -83,7 +85,7 @@
 
 
                 ?>
-                    <button class="btn btn-danger" id="btn_pay" href="">Pay Now</button>
+                    <button class="btn btn-danger" id="btn_pay" href="">CheckOut Now</button>
                 </td>
             </tr>
 
@@ -91,10 +93,15 @@
         </tbody>
     </table>
     
-    <div id="payment_gateway" class="row">
+    <div id="payment_gateway">
                     
-        <h2>Paypal Payment</h2>
-
+        <div>
+            <h2>Process Payment</h2>
+        </div>
+        <div>
+            @include('partials.paypal')
+        </div>
+        
     </div>
 
 </div>
@@ -148,6 +155,7 @@ function calculateTotal() {
     document.getElementById('subtotal').value = subtotal.toFixed(2);
     document.getElementById('taxes').value = taxes.toFixed(2);
     document.getElementById('total').value = total.toFixed(2);
+    document.getElementById('paypal_total').value = subtotal.toFixed(2);
 }
 </script>
 

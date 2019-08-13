@@ -8,7 +8,7 @@
 
     <h1 class="h1">Upload CSV file</h1>
    
-    <form action="{{url('/schools/upload')}}" method="POST" enctype="multipart/form-data">
+    <form action="/schools/{{$school->idschool}}/upload" method="POST" enctype="multipart/form-data">
 
         @csrf
 
