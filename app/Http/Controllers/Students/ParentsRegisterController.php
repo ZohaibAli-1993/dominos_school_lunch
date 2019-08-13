@@ -189,8 +189,10 @@ class ParentsRegisterController extends Controller
         {
            return back()->with('error','Token is invalid');
         }
-
+        
         $request->session()->put('idschool', $school['idschool']);
+
+
 
         return redirect('/parents/'.$parentRegister['idparent'].'/'.$school['token'].'/student/add');
     }
