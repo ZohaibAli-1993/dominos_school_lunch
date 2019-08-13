@@ -160,15 +160,9 @@ class OrdersController extends Controller
     public function showOrder()
     {   
         $parent_id = Auth::user()->id;
-        $user_type = DB::table('users')->where('id','=',$parent_id)->first()->type;
-
-        if($user_type !== 'parents'){
-            return view('home')->withErrors('Unauthorized access. Permission denied.');
-        }
+        $name = DB::table('users')->where('id','=',$parent_id)->first()->name;
 
         
-
-        //$parent_id = 1;
 
         $students = DB::table('students')->where('idparent','=',$parent_id)->get()->toArray();
 
@@ -241,7 +235,8 @@ class OrdersController extends Controller
         $data = [
             'students' => $students,
             'all_events' => $all_orders,
-            'schools_info' =>$schools_info
+            'schools_info' =>$schools_info,
+            'parent_name' => $name
         ];
 
         return view('parents.order', compact('data'));
@@ -253,7 +248,8 @@ class OrdersController extends Controller
     public function showOrderPast()
     {
 
-        $parent_id = 1;
+        $parent_id = Auth::user()->id;
+        $name = DB::table('users')->where('id','=',$parent_id)->first()->name;
 
         $students = DB::table('students')->where('idparent','=',$parent_id)->get()->toArray();
 
@@ -326,7 +322,8 @@ class OrdersController extends Controller
         $data = [
             'students' => $students,
             'all_events' => $all_orders,
-            'schools_info' =>$schools_info
+            'schools_info' =>$schools_info,
+            'parent_name' => $name
         ];
 
         return view('parents.order_past', compact('data'));
@@ -354,6 +351,56 @@ class OrdersController extends Controller
             'item_description' => $item_description
         ];
         return view('parents.neworder', compact('data'));
+    }
+
+    public function showInvoice(Event $event, Student $student)
+    {
+
+        $parent_id = Auth::user()->id;
+        $name = DB::table('users')->where('id','=',$parent_id)->first()->name;
+        $students_parent = DB::table('students')->where('idparent','=',$parent_id)->get();
+
+        $exist = false;
+
+        foreach ($students_parent as $student_item){
+            if($student->idstudent == $student_item->idstudent){
+                $exist = true;
+            }
+        }
+
+        if(!$exist){
+            return view('/parents/order')->withErrors('Student not found');
+        }
+
+        $order = DB::table('orders')->where('idstudent','=',$student->idstudent)
+                                    ->where('idevent','=',$event->idevent)->first();
+
+        
+        $items = DB::table('orders_items')->where('idorder','=',$order->idorder)->get();
+
+        $item_description = [];
+        
+        foreach ($items as $item)
+        {
+            $item_description[] = DB::table('menu_items')->where('iditem','=', $item->iditem)->first(['item_name']);
+        }
+
+
+
+        $data = [
+            'event' => $event,
+            'items' => $items,
+            'student' =>$student,
+            'item_description' => $item_description,
+            'order' => $order,
+            'name' => $name
+        ];
+        /*
+        echo '<pre>';
+        var_dump($data['items']);die;
+        echo '</pre>';
+              */
+        return view('parents.invoice', compact('data'));
     }
 
     public function checkout(Request $request)

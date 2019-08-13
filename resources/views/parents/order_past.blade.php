@@ -3,7 +3,12 @@
 @section('content')
 
 <div class="text content">
-    <h2 class="h2">Orders</h2>
+<div class="row">
+        <h2>Welcome {{ $data['parent_name'] }}</h2>
+    </div>
+    <div class="row">
+        <h3 class="h3">My Orders</h3>
+    </div>
     <div>
         <a class="btn btn-secondary" href="/parents/order">Upcoming Orders</a>
         <a class="btn btn-danger" href="/parents/order/past">Previous Orders</a>

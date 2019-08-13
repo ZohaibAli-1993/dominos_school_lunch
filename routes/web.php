@@ -257,6 +257,7 @@ Route::middleware(['parents'])->group(function(){
     Route::post('/parents/order','Students\OrdersController@store');
     Route::post('/parents/order/neworder/process','Students\OrdersController@store');
     Route::get('/parents/order/neworder/{event}/{student}', 'Students\OrdersController@newOrder');
+    Route::get('/parents/order/invoice/{event}/{student}', 'Students\OrdersController@showInvoice');
     
     Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
     Route::get('/parents/order/checkout/', 'Students\OrdersController@temp');
