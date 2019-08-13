@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <h1 class="h1" style="text-align:left">Edit Classrooms</h1>
+    <h2>Welcome to the site {{$user['name']}}</h2>
        
     <form action="" method="POST">
         @csrf

@@ -8,17 +8,17 @@
 
     
 
-    <h1 class="h1">Classroom List</h1>
+    <a href="/schools/{{$school->idschool}}"><h1 class="h1">{{$school->school_name}} Classroom List</h1></a>
    
     <form id="classroom-list-layout">
     
         <div id="classrooms-buttons">
-            
             <p>
-                <a class="button" data-toggle="modal" data-target="#classroomListModal">Add a Classroom</a>&nbsp; &nbsp;
+                <a class="button" data-toggle="modal" data-target="#classroomListModal" href="">Add a Classroom</a>&nbsp; &nbsp;
        
-                <a class="button" href="/schools/upload">Upload classrooms list</a>
+                <a class="button" href="/schools/{{$school->idschool}}/upload">Upload classrooms list</a>
 
+                <a class="button red" href="/schools/{{$school->idschool}}/event">New Lunch Event</a>
             </p>
 
         </div>
@@ -41,12 +41,11 @@
                         <td>{{$result->classroom}}</td>
                         <td>{{$result->description}}</td>
                         <td>
-                           
-                            <p>
-                               <a href="/schools/classrooms/{{$result->idclassroom}}" class="button edit"><i class="far fa-edit"></i></a>
-                            </p>
+                                <a href="/schools/{{$school->idschool}}/classrooms/{{$result->idclassroom}}" class="button edit">
+                                    <i class="far fa-edit"></i>
+                                </a>
 
-                            <form action="/schools/classrooms/{{$result->idclassroom}}" method="post">
+                            <form action="/schools/{{$school->idschool}}/classrooms/{{$result->idclassroom}}" method="post" class="delete_form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="button delete"><i class="fas fa-trash"></i></button>
@@ -72,7 +71,7 @@
             <h4 class="modal-title" id="modal_heading">Add a new Classroom</h4>
           </div>
           <div class="modal-body">
-            <form action="/schools/classrooms" method="POST">
+            <form action="" method="POST">
                 @csrf
                 <p>
                     <label for="classroom">Classroom</label>

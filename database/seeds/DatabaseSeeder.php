@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(seed_parents_register_table::class);
         $this->call(seed_students_table::class);
         $this->call(seed_orders_table::class);
+        $this->call(seed_users_table::class);
     }
 }

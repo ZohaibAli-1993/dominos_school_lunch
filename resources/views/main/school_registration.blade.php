@@ -13,7 +13,7 @@
     </div>
 
     <!-- Login Form -->
-    <form method="post" action="/school_registration" novalidate="novalidate">
+    <form method="post" action="" novalidate="novalidate">
         @csrf
 
         <input type="text" id="registration_school_name" class="fadeIn third zero-raduis" name="school_name" placeholder="School Name" value="{{old('school_name')}}">

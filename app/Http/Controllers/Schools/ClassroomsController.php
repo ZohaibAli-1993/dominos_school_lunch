@@ -15,11 +15,12 @@ class ClassroomsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(School $school)
     {
-        $classrooms = Classroom::all();
+        
+        $classrooms = Classroom::where('idschool', $school->idschool)->get();
           
-        return view('schools.classrooms', compact('classrooms'));
+        return view('schools.classrooms', compact('classrooms', 'school'));
 
     }
 
@@ -39,17 +40,18 @@ class ClassroomsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, School $school)
     {
         $valid = $request->validate([
             'classroom'=>'required',
             'description' => 'required',
         ]);
 
+        $valid['idschool'] = $school->idschool;
 
         $classroom = Classroom::create($valid);
  
-        return redirect('/schools/classrooms')->with('success', 'New classroom has been added to the list');
+        return redirect('/schools/'.$school['idschool'].'/classrooms')->with('success', 'New classroom has been added to the list');
     }
 
 
@@ -149,7 +151,7 @@ class ClassroomsController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function edit(Classroom $classroom)
+    public function edit(School $school, Classroom $classroom)
     {
         return view('schools.edit_classroom', compact('classroom'));
     }
@@ -161,7 +163,7 @@ class ClassroomsController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Classroom $classroom)
+    public function update(Request $request, School $school,Classroom $classroom)
     {
         $valid = $request->validate([
             'classroom'=>'required',
@@ -169,13 +171,13 @@ class ClassroomsController extends Controller
             'idclassroom' => 'required'
         ]);
 
-        $classroom=Classroom::find($valid['idclassroom']);
+        $classroom = Classroom::find($valid['idclassroom']);
         $classroom->classroom = $valid['classroom'];
         $classroom->description = $valid['description'];
         $classroom->save();
         $classroom->touch();
 
-        return redirect('/schools/classrooms')->with('success','Classroom information has been updated');
+        return redirect('/schools/'.$school->idschool.'/classrooms')->with('success','Classroom information has been updated');
     }
 
     /**
@@ -184,10 +186,10 @@ class ClassroomsController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Classroom $classroom)
+    public function destroy(School $school, Classroom $classroom)
     {
         $classroom->delete();
-        return redirect('/schools/classrooms')->with('success','Classroom has been removed from list');
+        return redirect('/schools/'.$school->idschool.'/classrooms')->with('success','Classroom has been removed from list');
 
     }
 }

@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="favicon.png" type="image/gif" />
     <link rel="stylesheet" type="text/css" href="/css/app.css" />
     <script>window.Laravel = {csrfToken: '{{csrf_token()}}'}</script>
-    <!--<script src="/js/app.js"></script>-->
+    <script src="/js/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -90,25 +90,49 @@
 
                 <!-- Main Navigation -->
                 <div id="main_nav_bar">
-
-                    <nav>
+                    @if(!auth()->check())
+                    <nav id=main_nav>
 
                         <ul id="menu_list">
 
                             <li><a href="/">Home</a></li>
 
-                            <li><a href="/schools">School Coordinator</a></li>
+                            <li><a href="/schools_help">School Coordinator</a></li>
 
-                            <li><a href="/parents">Parents</a></li>
+                            <li><a href="/parents_help">Parents</a></li>
 
                             <li><a href="/about">About Us</a></li>
 
                             <li><a href="/registration" class="button red" id="nav_cta">Sign Up</a></li>
                         </ul>
+                    </nav><!--/nav-->
+                    @endif
+                
+                    @if(auth()->check())
+                        @if(auth()->user()->type == 'school')
+                            <nav id="school_nav">
+                                <ul>
+                                    <li><a href="">Classrooms</a></li>
+                                    <li><a href="">Events</a></li>
+                                    <li><a href="">Reports</a></li>
+                                    <li><a href="">Profile</a></li>
+                                    <li><a href="/schools_help">Help</a></li>
+                                </ul>
+                            </nav>
+                        @endif
 
-                    </nav>
-                    <!--/nav-->
+                        @if(auth()->user()->type == 'parents')
+                            <nav id="parents_nav">
+                                <ul>
+                                    <li><a href="">Order New Lunch</a></li>
+                                    <li><a href="">Add Student</a></li>
+                                    <li><a href="">Profile</a></li>
+                                    <li><a href="/parents_help">Help</a></li>
+                                </ul>
+                            </nav>
 
+                        @endif
+                    @endif
                     <p class="menu_icon" onclick="openMenu()"><i class="fas fa-bars"></i></p>
 
                 </div>
