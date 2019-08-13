@@ -12,4 +12,6 @@ class Category extends Model
      * @var string
      */
     protected $primaryKey = 'idcategory';
+
+    protected $fillable = ['category'];
 }

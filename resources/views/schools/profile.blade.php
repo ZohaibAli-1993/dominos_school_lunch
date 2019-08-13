@@ -49,8 +49,8 @@
 
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="button">
-			<a class="button edit" href="/school/{{$school->idschool}}/edit">Edit</a>
-			<a class="button changepass" href="/school/{{$school->idschool}}/changepass">Change Password</a>
+			<a class="button edit" href="/schools/{{$school->idschool}}/edit">Edit</a>
+			<a class="button changepass" href="/schools/{{$school->idschool}}/changepass">Change Password</a>
 		</div><!-- /col-->
 	</div><!-- /row-->
 	

@@ -14,8 +14,6 @@ class CreateParentsRegisterTable extends Migration
     public function up()
     {
 
-        Schema::create('parents_register', function (Blueprint $table) {
-
         Schema::create('parents', function (Blueprint $table) {
             $table->bigIncrements('idparent');
             $table->string('first_name',30); 
@@ -34,8 +32,6 @@ class CreateParentsRegisterTable extends Migration
      */
     public function down()
     {
-
-        Schema::dropIfExists('parents_register');
 
         Schema::dropIfExists('parents');
 

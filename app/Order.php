@@ -12,4 +12,18 @@ class Order extends Model
      * @var string
      */
     protected $primaryKey = 'idorder';
+
+    protected $fillable = [
+            'idevent',
+            'idstudent',
+            'idschool',
+            'idclassroom',
+            'amount',
+            'calculated_gst',
+            'calculated_pst',
+            'calculated_hst',
+            'calculated_qst',
+            'total_amount',
+            'order_status',
+    ];
 }

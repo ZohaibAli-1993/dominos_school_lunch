@@ -95,11 +95,9 @@ class EventsController extends Controller
          */
         $setup = Setup::find(1);
 
-        /**
-         * Read calendar table to get begin and end dates
-         * 
-         */
-        $calendar = Calendar::find(1);  //////****** alter to get next calendar
+        // Read calendar table to get begin and end dates
+
+        $calendar = DB::table('calendars_act_vw')->first();
 
         return view('events.create', compact('setup', 'calendar' ));
 
@@ -123,10 +121,22 @@ class EventsController extends Controller
             'event_time' => 'required',
         ]);
 
-        //Insert new Event in the table
- 
-        //$event = Event::create($valid);
+        //Verify if the store determinated by the school has maximum of events
+        //for the event date
+        $max_capacity = DB::table('max_capacity_vw')->
+        where('idstore', $request['idstore'])->
+        where('event_date', $valid['event_date'])->
+        get();
 
+        //If there is any value, the store reached max capacity 
+        foreach ($max_capacity as $store) {
+            $validator = \Validator::make([], []); 
+            $validator->errors()->add('event_date', 
+                'The store selected for your school has been reach maximum numbers of events in this date');
+            throw new \Illuminate\Validation\ValidationException($validator);
+        }
+
+        //Insert new Event in the table
         $event = new Event($valid);
         $event->created_at = Carbon::now();
         $event->updated_at = Carbon::now();
@@ -213,6 +223,26 @@ class EventsController extends Controller
             'event_time' => 'required'
         ]);
       
+
+        //Verify if the event date was updated
+        if($valid['event_date']!=$event['previous_event_date']){
+
+            //Verify if the store determinated by the school has maximum of events
+            //for the event date
+            $max_capacity = DB::table('max_capacity_vw')->
+            where('idstore', $request['idstore'])->
+            where('event_date', $valid['event_date'])->
+            get();
+
+            //If there is any value, the store reached max capacity 
+            foreach ($max_capacity as $store) {
+                $validator = \Validator::make([], []); // Empty data and rules fields
+                $validator->errors()->add('event_date', 
+                    'The store selected for your school has been reach maximum numbers of events in this date');
+                throw new \Illuminate\Validation\ValidationException($validator);
+            }
+        }
+
         //Update values for the event
         $event = Event::find($valid['idevent']);
         $event->event_name = $valid['event_name'];

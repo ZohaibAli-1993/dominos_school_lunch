@@ -89,7 +89,7 @@
 
 </script>
 
-<div class="container mb-5">
+<div class="container mb-5 pt-5">
 
 	<div class="col">
 
@@ -114,6 +114,10 @@
 		    	<input id="idevent" name="idevent" type="hidden" value="{{ $event->idevent }}">
 
 		    	<input id="idschool" name="idschool" type="hidden" value="{{ $event->idschool }}">
+    			<input id="idstore" name="idstore" 
+    	        type="hidden" value="{{ $school->idstore }}">
+    	        <input id="previous_event_date" name="event_date" 
+    	        type="hidden" value="{{ $event->event_date }}">
 
 		        <div class ="form-group">
 					<label for="event_name">Event Name</label>
@@ -195,6 +199,22 @@
 				        	@foreach ($menu_items as $item)
 				            <tr scope="row">
 				            	<td>
+
+				            		@php
+
+									if(is_array(old('event_items')) && in_array($item->iditem, old('event_items')))
+									{
+									    $checked= 'checked';
+						            }
+						            else{
+						            	if($item->is_selected==1){
+                                            $checked= 'checked';
+						            	} else 
+						            	{
+						            	    $checked='';
+						                }
+						            }
+						            @endphp
 
 				            		<input name="event_items[]"
 					                       class="form-check-input text-center"
