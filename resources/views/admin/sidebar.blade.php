@@ -20,7 +20,7 @@
                        class="list-group-item list-group-item-action 
                        bg-dark text-white pl-0">
                        Calendars</a>
-                    <a href="#" 
+                    <a href="/dominos/provinces" 
                        class="list-group-item list-group-item-action 
                        bg-dark text-white pl-0">
                        Provinces</a>
@@ -40,9 +40,9 @@
                        class="list-group-item list-group-item-action 
                        bg-dark text-white pl-0">
                        Contact</a>
-                    <a href="#" 
+                    <a href="/dominos/subscriptions" 
                        class="list-group-item list-group-item-action 
-                       bg-dark text-white pl-0">Subscription</a>
+                       bg-dark text-white pl-0">Subscriptions</a>
                   </div>
             </td>
             <td id="col-button-side" class="col-lg-1 p-4">
