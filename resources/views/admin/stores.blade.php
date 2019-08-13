@@ -103,7 +103,7 @@
 
 		    	                <td>
 		    	                	<a
-		    	                	class="button red"
+		    	                	class="button edit"
 		    	                	data-toggle="modal" 
 		    	                	data-target="#ModalstoreForm" 
 		    	                	data-title="Edit store"
@@ -115,7 +115,9 @@
 				                    data-postal_code="{{ $store->postal_code }}"
 				                    data-phone="{{ $store->phone }}"
 				                    data-email="{{ $store->email }}"				                    
-		    	                	id="edit">Edit</a>
+		    	                	id="btn_edit">
+		    	                		<i class="far fa-edit"></i>
+		    	                	</a>
 		    	                </td>
 
 				            </tr>

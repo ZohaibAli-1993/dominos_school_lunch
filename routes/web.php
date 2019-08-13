@@ -218,9 +218,13 @@ Route::put('/schools/events', 'Schools\EventsController@update');
 Route::delete('/schools/events/{event}', 'Schools\EventsController@destroy');
 
 /**SCHOOL REPORTS**/
-Route::get('/schools/reports/', function () {
-    return view('schools.reports');
-});
+Route::get('/schools/reports', 'Schools\ReportsController@index');
+Route::get('/schools/reports/orders', 'Schools\ReportsController@orders');
+Route::get('/schools/reports/classrooms', 'Schools\ReportsController@classrooms');
+Route::get('/schools/reports/students', 'Schools\ReportsController@students');
+Route::get('/schools/reports/parents', 'Schools\ReportsController@parents');
+Route::get('/schools/reports/download/{report}', 
+           'Schools\ReportsController@download');
 
 /**ADMIN ROUTES */
 Route::get('/dominos/setup', 'Dominos\SetupsController@edit');
@@ -237,6 +241,7 @@ Route::get('/dominos/contacts', 'Dominos\ContactsController@index');
 Route::get('/dominos/subscriptions', 'Dominos\SubscriptionsController@index');
 Route::get('/dominos/provinces', 'Dominos\ProvincesController@edit');
 Route::put('/dominos/provinces', 'Dominos\ProvincesController@update');
+
 /*
 |--------------------------------------------------------------------------
 | PARENTS ROUTES

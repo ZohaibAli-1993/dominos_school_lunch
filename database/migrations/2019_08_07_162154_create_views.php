@@ -49,14 +49,122 @@ class CreateViews extends Migration
                 students.idstudent, 
                 students.idparent, 
                 students.first_name, 
-                students.last_name
+                students.last_name,
+                parents.first_name as parent_first_name, 
+                parents.last_name as parent_last_name
                 from schools
                 inner join classrooms 
                       on (schools.idschool = classrooms.idschool)
                 inner join students   
                       on (students.idclassroom = classrooms.idclassroom)
+                inner join parents   
+                      on (students.idparent = parents.idparent)                      
+                order by schools.idschool, classrooms.idclassroom, students.first_name,
+                students.last_name
+
             )
         ");
+
+        DB::statement("
+            CREATE VIEW parents_students_vw  AS
+            (
+                select
+                schools.idschool, 
+                schools.school_name, 
+                classrooms.idclassroom, 
+                classrooms.classroom, 
+                classrooms.description, 
+                students.idstudent, 
+                students.idparent, 
+                students.first_name, 
+                students.last_name,
+                parents.first_name as parent_first_name, 
+                parents.last_name as parent_last_name,
+                parents.email
+                from schools
+                inner join classrooms 
+                      on (schools.idschool = classrooms.idschool)
+                inner join students   
+                      on (students.idclassroom = classrooms.idclassroom)
+                inner join parents   
+                      on (students.idparent = parents.idparent)                      
+                order by schools.idschool, parents.first_name,
+                parents.last_name,
+                classrooms.idclassroom, students.first_name,
+                students.last_name
+
+            )
+        ");    
+
+        DB::statement("
+            CREATE VIEW students_vw  AS
+            (
+                select
+                schools.idschool, 
+                schools.school_name, 
+                classrooms.idclassroom, 
+                classrooms.classroom, 
+                classrooms.description, 
+                students.idstudent, 
+                students.idparent, 
+                students.first_name, 
+                students.last_name,
+                parents.first_name as parent_first_name, 
+                parents.last_name as parent_last_name,
+                parents.email
+                from schools
+                inner join classrooms 
+                      on (schools.idschool = classrooms.idschool)
+                inner join students   
+                      on (students.idclassroom = classrooms.idclassroom)
+                inner join parents   
+                      on (students.idparent = parents.idparent)                      
+                order by schools.idschool, students.first_name,
+                students.last_name, parents.first_name,
+                parents.last_name,
+                classrooms.idclassroom 
+
+            )
+        ");     
+
+        DB::statement("
+            CREATE VIEW events_orders_vw  AS
+            (
+                select
+                orders.idevent,
+                orders.idorder,
+                events.event_name, 
+                events.event_date, 
+                events.cutoff_date, 
+                events.event_time, 
+                schools.idschool, 
+                schools.school_name, 
+                classrooms.idclassroom, 
+                classrooms.classroom, 
+                classrooms.description, 
+                students.idstudent, 
+                students.idparent, 
+                students.first_name, 
+                students.last_name,
+                parents.first_name as parent_first_name, 
+                parents.last_name as parent_last_name
+                from orders
+                inner join schools
+                      on (schools.idschool = orders.idschool)
+                inner join events
+                      on (events.idevent = orders.idevent)
+                inner join classrooms 
+                      on (orders.idclassroom = classrooms.idclassroom)
+                inner join students   
+                      on (orders.idclassroom = students.idclassroom)
+                inner join parents   
+                      on (students.idparent = parents.idparent)                      
+                order by schools.idschool, events.event_date, 
+                events.event_name, classrooms.idclassroom, 
+                students.first_name, students.last_name
+
+            )
+        ");                 
 
         DB::statement("
             CREATE VIEW calendars_act_vw  AS
@@ -147,6 +255,9 @@ class CreateViews extends Migration
 
         DB::statement("DROP VIEW IF EXISTS events_vw");
         DB::statement("DROP VIEW IF EXISTS classrooms_students_vw");
+        DB::statement("DROP VIEW IF EXISTS parents_students_vw");
+        DB::statement("DROP VIEW IF EXISTS students_vw");
+        DB::statement("DROP VIEW IF EXISTS events_orders_vw");
         DB::statement("DROP VIEW IF EXISTS calendars_act_vw");
         DB::statement("DROP VIEW IF EXISTS menu_items_vw");
         DB::statement("DROP VIEW IF EXISTS menu_selected_vw");
