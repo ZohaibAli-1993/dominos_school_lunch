@@ -34,8 +34,19 @@ Route::get('/home', function () {
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Subscription 
-//Route::get('/home', 'Dominos\SubscriptionsController@store')->name('home');
 Route::post('/home', 'Dominos\SubscriptionsController@store');
+
+
+//Parents instructions
+Route::get('/parents_help', function () {
+    return view('parents.instruction');
+});
+
+//School Instructions
+Route::get('/schools_help', function () {
+    return view('schools.instruction');
+});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -179,7 +190,7 @@ Route::get('/send/email', 'Email@mail');
 |--------------------------------------------------------------------------
 */
 // Parents routes with login
-Route::middleware(['admin'])->group(function()
+Route::middleware(['parents'])->group(function()
     { 
     // Orders 
     Route::get('/parents/order','Students\OrdersController@showOrder');
@@ -205,9 +216,15 @@ Route::middleware(['admin'])->group(function()
     /**
      * Parents add student page route
      */
-    Route::get('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@create');
+    Route::get('/parents/{parentRegister}/student/add', 'Students\StudentsController@create');
 
-    Route::post('/parents/{parentRegister}/{token}/student/add', 'Students\StudentsController@store');
+    Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
+
+    //show form to edit parents profile
+    Route::get('/parents/{parentRegister}/edit', 'Students\StudentsController@edit');
+
+    //update school profile
+    Route::PUT('/parents/{parentRegister}/edit', 'Students\StudentsController@update');
 
 
     ///////????????????????

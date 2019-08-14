@@ -3,9 +3,11 @@
 @section('content')
 
 @include('partials.flash')
-<h1 id="school_profile_tile">{{$school->school_name}} Profile</h1>
 
-<div id="school_profile" class="container">
+<div id="school_profile" class="container mt-5">
+	<h1 id="school_profile_tile">{{$school->school_name}} </h1>
+    </h2>Profile</h2>
+
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="profile_table">
 			<table>

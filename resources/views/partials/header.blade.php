@@ -112,10 +112,10 @@
                         @if(auth()->user()->type == 'school')
                             <nav id="school_nav">
                                 <ul>
-                                    <li><a href="">Classrooms</a></li>
-                                    <li><a href="">Events</a></li>
-                                    <li><a href="">Reports</a></li>
-                                    <li><a href="">Profile</a></li>
+                                    <li><a href="/schools/classrooms">Classrooms</a></li>
+                                    <li><a href="/schools/events">Events</a></li>
+                                    <li><a href="/schools/reports">Reports</a></li>
+                                    <li><a href="/school/{{ auth()->user()->idschool }}/edit">Profile</a></li>
                                     <li><a href="/schools_help">Help</a></li>
                                 </ul>
                             </nav>
@@ -124,10 +124,23 @@
                         @if(auth()->user()->type == 'parents')
                             <nav id="parents_nav">
                                 <ul>
-                                    <li><a href="">Order New Lunch</a></li>
-                                    <li><a href="">Add Student</a></li>
-                                    <li><a href="">Profile</a></li>
+                                    <li><a href="/parents/order">Order New Lunch</a></li>
+                                    <li><a 
+                                        href="/parents/{{ auth()->user()->idparent }}/student/add">
+                                        Add Student</a></li>
+                                    <li><a 
+                                        href="/parents/{{ auth()->user()->idparent }}/edit"">
+                                        Profile</a></li>
                                     <li><a href="/parents_help">Help</a></li>
+                                </ul>
+                            </nav>
+
+                        @endif
+
+                        @if(auth()->user()->type == 'admin')
+                            <nav id="admin_nav">
+                                <ul>
+                                    <li><a href="/dominos/setup">Admin</a></li>
                                 </ul>
                             </nav>
 

@@ -6,7 +6,8 @@
 @include('partials.flash')
 
 <div class="container pt-5">
-    <h1 class="h1 mb-5">{{$school->school_name}} Classroom List</h1>
+    <h1 class="h1">{{$school->school_name}} </h1>
+    <h2 class="h2 mb-3">Classroom List</h2>
 
     <form id="classroom-list-layout">
     
@@ -15,7 +16,7 @@
 
                 <a href="" class="button" data-toggle="modal" data-target="#classroomListModal">Add a Classroom</a>&nbsp; &nbsp;
        
-                <a class="button" href="/schools/{{$school->idschool}}/upload">Upload Classrooms List</a>
+                <a class="button mr-2" href="/schools/{{$school->idschool}}/upload">Upload Classrooms List</a>
 
                 <a class="button red" href="/schools/{{$school->idschool}}/event">New Lunch Event</a>
             </p>
@@ -73,14 +74,14 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="width:500px">
           <div class="modal-header">
-            <h1 class="h1 modal-title" style="text-align:center">Add a classroom</h1>
+            <h1 class="h1 modal-title" style="text-align:center">Add a Classroom</h1>
           </div>
 
           @include('partials.errors')
 
           <div class="modal-body">
 
-            <form style="padding:20px" action="/schools/{{$school->idschool}}/classrooms" method="POST">
+            <form style="padding:20px" action="/schools/classrooms" method="POST">
 
                 @csrf
 

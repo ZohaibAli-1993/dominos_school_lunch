@@ -958,7 +958,7 @@ h2 {
   text-align: center;
   font-size: 30px;
   font-weight: 500;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   display:inline-block;
   color: #006491;;
 }
@@ -1017,15 +1017,13 @@ h2 {
   padding: 30px;
   width: 90%;
   max-width: 1050px;  
-  
   height: auto;
   /*height: 1300px;*/
   position: relative;
-  padding: 0px;
+  padding: 100px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
   text-align: center; 
- 
   margin:0 auto; 
   margin-top: 10px; 
     margin-bottom: 10px;
@@ -1118,8 +1116,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
-#registration_email,#registration_password,
-#registration_first_name,#registration_last_name,
+/*#registration_first_name,#registration_last_name,
 #coordinator_first_name,#coordinator_last_name, 
 #registration_verify_password,#registration_phone, 
 #registration_school_name,#registration_city,
@@ -1152,6 +1149,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
+*/
 
 #edit_email,
 #edit_first_name,#edit_last_name, 
@@ -1495,6 +1493,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
+/*
 #registration_email,#registration_password, 
 #registration_first_name,#registration_last_name, 
 #registration_verify_password,#registration_phone,
@@ -1528,6 +1527,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
+*/
 
 #edit_email,
 #edit_first_name,#edit_last_name, 

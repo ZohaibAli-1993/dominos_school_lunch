@@ -25,7 +25,7 @@ class EventsController extends Controller
     public function index()
     {
 
-        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+        $school_id = auth()->user()->idschool;
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();
@@ -72,7 +72,7 @@ class EventsController extends Controller
     public function create()
     {
 
-        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+        $school_id = auth()->user()->idschool;
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();
@@ -183,7 +183,7 @@ class EventsController extends Controller
     public function edit(Event $event)
     {
 
-        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+        $school_id =  auth()->user()->idschool;
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();

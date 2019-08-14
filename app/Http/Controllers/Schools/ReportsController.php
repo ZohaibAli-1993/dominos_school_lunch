@@ -34,7 +34,7 @@ class ReportsController extends Controller
     public function classrooms()
     {
 
-        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+        $school_id = auth()->user()->idschool;
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();
@@ -57,7 +57,7 @@ class ReportsController extends Controller
     public function parents()
     {
 
-        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+        $school_id = auth()->user()->idschool;
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();
@@ -79,7 +79,7 @@ class ReportsController extends Controller
     public function students()
     {
 
-        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+        $school_id = auth()->user()->idschool;
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();
@@ -101,7 +101,7 @@ class ReportsController extends Controller
     public function orders()
     {
 
-        $school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+        $school_id = auth()->user()->idschool;
 
         //Get school data
         $school = School::where('idschool', $school_id)->first();
@@ -122,7 +122,7 @@ class ReportsController extends Controller
      */
     public function download($file)
     {
-    	$school_id = 1;   // ***** Alessandra - It is necessary to update according school logged in
+    	$school_id = auth()->user()->idschool;
     
 	    if($file=="classrooms"){
 	    	//Get classrooms/students list according to the school logged in
