@@ -19,6 +19,12 @@ class StudentsController extends Controller
      */
     public function index(ParentRegister $parentRegister)
     {
+
+        $parent_id = auth()->user()->idparent;
+
+        //Get parents data
+        $parentRegister = ParentRegister::where('idparent', $parent_id)->first();
+
         $students = Student::where('idparent', $parentRegister->idparent)->get();
         
         $school = School::pluck('school_name', 'idschool');

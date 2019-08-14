@@ -94,6 +94,11 @@ class ParentsRegisterController extends Controller
      */
     public function edit(ParentRegister $parentRegister)
     {
+        $parent_id = auth()->user()->idparent;
+
+        //Get parents data
+        $parentRegister = ParentRegister::where('idparent', $parent_id)->first();
+
         return view('parents.editParents', compact('parentRegister'));
     }
 
@@ -124,7 +129,7 @@ class ParentsRegisterController extends Controller
 
         $parentRegister->save();
 
-        return redirect('/parents/'.$parentRegister['idparent'])->with('success','Your profile was changed!');
+        return redirect('/parents/')->with('success','Your profile was changed!');
     }
 
     /**
