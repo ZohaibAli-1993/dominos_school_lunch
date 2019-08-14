@@ -69,10 +69,10 @@ Route::middleware(['school'])->group(function()
     Route::get('/school/{school}', 'Schools\SchoolsController@show');
 
     //show form to edit school profile
-    Route::get('/school/{school}/edit', 'Schools\SchoolsController@edit');
+    Route::get('/school/edit', 'Schools\SchoolsController@edit');
 
     //update school profile
-    Route::PUT('/school/{school}/edit', 'Schools\SchoolsController@update');
+    Route::PUT('/school/edit', 'Schools\SchoolsController@update');
 
     //Routes for classroom pages
     Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');
@@ -207,8 +207,8 @@ Route::middleware(['parents'])->group(function()
     /**
      * Parents home page route
      */
-    Route::get('/parents/{parentRegister}', 'Students\StudentsController@index');
-    Route::post('/parents/{parentRegister}', 
+    Route::get('/parents/', 'Students\StudentsController@index');
+    Route::post('/parents/', 
            'Students\ParentsRegisterController@updateSession');
 
     /**
@@ -225,11 +225,14 @@ Route::middleware(['parents'])->group(function()
 
     Route::post('/parents/{parentRegister}/student/add', 'Students\StudentsController@store');
 
-    //show form to edit parents profile
-    Route::get('/parents/{parentRegister}/edit', 'Students\StudentsController@edit');
+    Route::get('/parents', 'Students\StudentsController@index');
 
-    //update school profile
-    Route::PUT('/parents/{parentRegister}/edit', 'Students\StudentsController@update');
+    //show form to edit parents profile
+    Route::get('/parents/edit', 
+               'Students\ParentsRegisterController@edit');
+
+    //update parents profile
+    Route::PUT('/parents/edit', 'Students\ParentsRegisterController@update');
 
 
     ///////????????????????
