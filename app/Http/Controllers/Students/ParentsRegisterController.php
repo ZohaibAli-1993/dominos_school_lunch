@@ -27,7 +27,7 @@ class ParentsRegisterController extends Controller
      */
     public function create(ParentRegister $parentRegister)
     {
-        return view('parents.add_student', compact('parentRegister'));
+        return view('parents.addStudent', compact('parentRegister'));
     }
 
     /**

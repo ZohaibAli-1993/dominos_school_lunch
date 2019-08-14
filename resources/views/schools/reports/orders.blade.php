@@ -19,8 +19,21 @@
 			    <h2 class="h2">Reports - Events/Orders</h2>
 
 				@include('partials.flash')
-	
-				<div class="card mt-5">
+
+				<p>
+					<a  class="button" 
+					    href="/schools/reports/download/orders"  
+					    target="_blank"            
+					    >
+					    Download
+					</a>
+					<a  class="button ml-3" 
+					    href="/schools/reports"          
+					    >
+					    Reports
+					</a>					
+				</p>
+				<div class="card mt-2">
 				  <div class="card-body">
 				    <div id="table" class="table-editable">
 
@@ -75,17 +88,7 @@
 				    </div>
 				  </div>
 				</div>		
-				<a  class="button mt-5" 
-				    href="/schools/reports/download/orders"  
-				    target="_blank"            
-				    >
-				    Download
-				</a>
-				<a  class="button ml-3 mt-5" 
-				    href="/schools/reports"          
-				    >
-				    Reports
-				</a>					
+				
 			</div>
 
 		</div>

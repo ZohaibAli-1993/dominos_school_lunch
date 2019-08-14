@@ -18,6 +18,11 @@ class ClassroomsController extends Controller
     public function index(School $school)
     {
 
+        $school_id =  auth()->user()->idschool;
+
+        //Get school data
+        $school = School::where('idschool', $school_id)->first();
+
         $classrooms = Classroom::where('idschool', $school->idschool)->get();
 
         return view('schools.classrooms', compact('classrooms', 'school'));
@@ -43,8 +48,8 @@ class ClassroomsController extends Controller
     public function store(Request $request, School $school)
     {
         $valid = $request->validate([
-            'classroom'=>'required',
-            'description' => 'required'
+            'classroom'=>'required|string|max:6',
+            'description' => 'required|string|max:100'
         ]);
 
         $valid['idschool'] = $school->idschool;

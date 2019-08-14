@@ -10,7 +10,8 @@
     <div class="col-8">
 
     	@include('partials.errors')
-    	<form class="add_student" method="post" action="/parents/{{$parentRegister->idparent}}/student/add"> 
+    	<form class="add_student" method="post" 
+    	action="/parents/{{$parentRegister->idparent}}/student/add"> 
     		@csrf
     		<input type="hidden" value="{{$parentRegister->idparent}} " name="idparent"></input>
 
