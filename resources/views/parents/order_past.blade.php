@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="text content">
+<div class="text content pt-5">
 <div class="row">
         <h2>Welcome {{ $data['parent_name'] }}</h2>
     </div>
@@ -60,9 +60,11 @@
                                     <td> {{ $event['order'] }} </td>
                                     <td>
                                         <?php if($event['action'] == 'show') : ?>
-                                            Show Invoice
+                                            <?php $invoice_button = "<a class='button' id='btn" . $event['idevent']  . "' href='/parents/order/invoice/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Invoice</a>"; ?>
+                                            <?= $invoice_button ?>
                                         <?php else: ?>
-                                            No submitted
+                                            <?php $order_button = "<a class='button red' id='btn" . $event['idevent']  . "' href='/parents/order/neworder/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Order</a>"; ?>
+                                            <?= $order_button ?>
                                         <?= $order_button ?>
                                         <?php endif; ?>
 

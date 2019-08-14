@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="text content">
-    <div class="row">
+<div class="text content pt-5">
+    <div class="row ">
         <h2>Welcome {{ $data['parent_name'] }}</h2>
     </div>
     <div class="row">
@@ -60,10 +60,10 @@
                                     <td> {{ $event['order'] }} </td>
                                     <td>
                                         <?php if($event['action'] == 'show') : ?>
-                                            <?php $invoice_button = "<a class='btn btn-secondary' id='btn" . $event['idevent']  . "' href='/parents/order/invoice/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Invoice</a>"; ?>
+                                            <?php $invoice_button = "<a class='button' id='btn" . $event['idevent']  . "' href='/parents/order/invoice/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Invoice</a>"; ?>
                                             <?= $invoice_button ?>
                                         <?php else: ?>
-                                        <?php $order_button = "<a class='btn btn-danger' id='btn" . $event['idevent']  . "' href='/parents/order/neworder/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Order</a>"; ?>
+                                        <?php $order_button = "<a class='button red' id='btn" . $event['idevent']  . "' href='/parents/order/neworder/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Order</a>"; ?>
                                         <?= $order_button ?>
                                         <?php endif; ?>
 
