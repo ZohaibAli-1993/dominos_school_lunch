@@ -10,8 +10,8 @@
         <h3 class="h3">My Orders</h3>
     </div>
     <div>
-        <a class="btn btn-danger" href="/parents/order">Upcoming Orders</a>
-        <a class="btn btn-secondary" href="/parents/order/past">Previous Orders</a>
+        <a class="button red" href="/parents/order">Upcoming Orders</a>
+        <a class="button" href="/parents/order/past">Previous Orders</a>
     </div>
     <div class="row">
 
