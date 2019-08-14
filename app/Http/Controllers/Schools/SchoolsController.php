@@ -125,6 +125,12 @@ class SchoolsController extends Controller
      */
     public function show(School $school)
     {
+
+        $school_id = auth()->user()->idschool;
+
+        //Get school data
+        $school = School::where('idschool', $school_id)->first();
+
         $stores= Store::pluck('name','idstore');
         return view('schools.profile', compact('school','stores'));
     }
@@ -137,6 +143,11 @@ class SchoolsController extends Controller
      */
     public function edit(School $school)
     {
+        $school_id = auth()->user()->idschool;
+
+        //Get school data
+        $school = School::where('idschool', $school_id)->first();
+
         //combine province as a key and province_name as a value in 1 array to show province name instead of province acronym
         $provinces= Province::pluck('province_name','province');
 
@@ -192,6 +203,11 @@ class SchoolsController extends Controller
      */
     public function editPass(School $school)
     {
+        $school_id = auth()->user()->idschool;
+
+        //Get school data
+        $school = School::where('idschool', $school_id)->first();
+
         return view('schools.changePass', compact('school'));
     }
 

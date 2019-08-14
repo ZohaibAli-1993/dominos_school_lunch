@@ -6,7 +6,7 @@
 
 <div id="school_profile" class="container mt-5">
 	<h1 id="school_profile_tile">{{$school->school_name}} </h1>
-    </h2>Profile</h2>
+    <h2 class="h2 text-center">Profile</h2>
 
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="profile_table">
@@ -51,8 +51,8 @@
 
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="button">
-			<a class="button edit" href="/schools/{{$school->idschool}}/edit">Edit</a>
-			<a class="button changepass" href="/schools/{{$school->idschool}}/changepass">Change Password</a>
+			<a class="button edit" href="/schools/edit">Edit</a>
+			<a class="button changepass" href="/schools/changepass">Change Password</a>
 		</div><!-- /col-->
 	</div><!-- /row-->
 	

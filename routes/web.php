@@ -66,13 +66,15 @@ Route::middleware(['school'])->group(function()
     Route::get('/schools/menu', 'Dominos\MenuItemsController@index');
 
     //show school profile
-    Route::get('/school/{school}', 'Schools\SchoolsController@show');
+    Route::get('/schools/profile', 'Schools\SchoolsController@show');
 
-    //show form to edit school profile
-    Route::get('/school/edit', 'Schools\SchoolsController@edit');
+    //Edit school profile
+    Route::get('/schools/edit', 'Schools\SchoolsController@edit');
+    Route::PUT('/schools/edit', 'Schools\SchoolsController@update');
 
-    //update school profile
-    Route::PUT('/school/edit', 'Schools\SchoolsController@update');
+    //Edit school profile
+    Route::get('/schools/changepass', 'Schools\SchoolsController@editPass');
+    Route::PUT('/schools/changepass', 'Schools\SchoolsController@updatePass');    
 
     //Routes for classroom pages
     Route::get('/schools/classrooms', 'Schools\ClassroomsController@index');

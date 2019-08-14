@@ -115,7 +115,7 @@
                                     <li><a href="/schools/classrooms">Classrooms</a></li>
                                     <li><a href="/schools/events">Events</a></li>
                                     <li><a href="/schools/reports">Reports</a></li>
-                                    <li><a href="/school/edit">Profile</a></li>
+                                    <li><a href="/schools/profile">Profile</a></li>
                                     <li><a href="/schools_help">Help</a></li>
                                 </ul>
                             </nav>
