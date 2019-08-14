@@ -194,11 +194,15 @@ Route::middleware(['parents'])->group(function()
     { 
     // Orders 
     Route::get('/parents/order','Students\OrdersController@showOrder');
-    Route::post('/parents/order','Students\OrdersController@store');
+    Route::post('/parents/order/neworder/process','Students\OrdersController@store');
+    Route::get('/parents/order/past','Students\OrdersController@showOrderPast');
+    Route::get('/parents/order/invoice/{event}/{student}','Students\OrdersController@showInvoice');
     Route::get('/parents/order/neworder/{event}/{student}', 
                 'Students\OrdersController@newOrder');
     Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
-
+    Route::view('/checkout', 'checkout-page');
+    Route::post('/checkout', 'PaymentController@createPayment')->name('create-payment');
+    Route::get('/confirm', 'PaymentController@confirmPayment')->name('confirm-payment');
     /**
      * Parents home page route
      */

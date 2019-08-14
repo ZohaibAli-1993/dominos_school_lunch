@@ -68,10 +68,12 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
+        
+        var_dump($user);
+        
         if(\Auth::user()->type == 'school'){
             Mail::to($data['email'])->send(new WelcomeMail($user));
         }
-
+        
     }
 }

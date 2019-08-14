@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="text content">
+<div class="text content pt-5">
     <h2 class="h2">New Order</h2>
     <div class="row">
         <strong>Event Id:</strong> {{ $data['event']->idevent }}
@@ -103,9 +103,9 @@
                                         <td><input type="text" readonly name="total" id="total"></td>
                                     </tr>
                                     <tr>
-                                        <td class="alignrigth" colspan="4">
-                                            <a href="/parents/order" class="btn btn-secondary" href="">Cancel</a>
-                                            <button class="btn btn-danger" href="">Pay Now</button>
+                                        <td class="alignleft" colspan="4">
+                                            <a href="/parents/order" class="button" href="">Cancel</a>
+                                            <button class="button red" href="">Pay Now</button>
                                         </td>
                                     </tr>
 
@@ -178,13 +178,12 @@ function calculateTotal(){
     var hst = document.getElementById('calculated_hst').value * subtotal;
     var qst = document.getElementById('calculated_qst').value * subtotal;
     var total = subtotal + gst + pst + hst + qst;
-    
+
     document.getElementById('subtotal').value = subtotal.toFixed(2);
     document.getElementById('tcalculated_gst').value = gst.toFixed(2);
     document.getElementById('tcalculated_pst').value = pst.toFixed(2);
     document.getElementById('tcalculated_hst').value = hst.toFixed(2);
     document.getElementById('tcalculated_qst').value = qst.toFixed(2);
-    //document.getElementById('taxes').value = taxes.toFixed(2);
     document.getElementById('total').value = total.toFixed(2);
 }
 </script>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="text content">
+<div class="text content pt-5">
 <div class="row">
         <h2>Welcome {{ $data['name'] }}</h2>
     </div>
@@ -96,8 +96,8 @@
                                     </tr>
 
                                     <tr>
-                                        <td class="alignrigth" colspan="4">
-                                            <a href="/parents/order" class="btn btn-secondary" href="">Back</a>
+                                        <td class="left" colspan="4">
+                                            <a href="/parents/order" class="button" href="">Back</a>
                                         </td>
                                     </tr>
 

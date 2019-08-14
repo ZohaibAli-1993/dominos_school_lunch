@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="text content">
+<div class="text content pt-5">
 <div class="row">
         <h2>Welcome {{ $data['parent_name'] }}</h2>
     </div>
@@ -10,8 +10,8 @@
         <h3 class="h3">My Orders</h3>
     </div>
     <div>
-        <a class="btn btn-secondary" href="/parents/order">Upcoming Orders</a>
-        <a class="btn btn-danger" href="/parents/order/past">Previous Orders</a>
+        <a class="button" href="/parents/order">Upcoming Orders</a>
+        <a class="button red" href="/parents/order/past">Previous Orders</a>
     </div>
     <div class="row">
 
@@ -60,9 +60,11 @@
                                     <td> {{ $event['order'] }} </td>
                                     <td>
                                         <?php if($event['action'] == 'show') : ?>
-                                            Show Invoice
+                                            <?php $invoice_button = "<a class='button' id='btn" . $event['idevent']  . "' href='/parents/order/invoice/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Invoice</a>"; ?>
+                                            <?= $invoice_button ?>
                                         <?php else: ?>
-                                            No submitted
+                                            <?php $order_button = "<a class='button red' id='btn" . $event['idevent']  . "' href='/parents/order/neworder/" . $event['idevent'] . "/" . $event['idstudent'] . "'>Order</a>"; ?>
+                                            <?= $order_button ?>
                                         <?= $order_button ?>
                                         <?php endif; ?>
 

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="text content">
+<div class="text content pt-5">
     <h2 class="h2">CheckOut Page</h2>
     <div class="row">
         <strong>Event Id:</strong> {{ $data['idevent'] }}
@@ -87,20 +87,20 @@
                 <td><input type="text" readonly name="total" id="total"></td>
             </tr>
             <tr>
-                <td class="alignrigth" colspan="4">
+                <td class="alignleft" colspan="4">
                 <?php $referer = filter_var($_SERVER['HTTP_REFERER'], FILTER_VALIDATE_URL);
 	
                     if (!empty($referer)) {
                         
-                        echo '<a class="btn btn-info" href="'. $referer .'" title="Return to the previous page">Edit</a>';
+                        echo '<a class="button" href="'. $referer .'" title="Return to the previous page">Edit</a>';
                         
                     }
 
-                    echo '<a class="btn btn-secondary" href="/parents/order" title="Cancel Order">&laquo; Cancel</a>';
+                    echo '<a class="button" href="/parents/order" title="Cancel Order"> Cancel</a>';
 
 
                 ?>
-                    <button class="btn btn-danger" id="btn_pay" href="">CheckOut Now</button>
+                    <button class="button red" id="btn_pay" href="">CheckOut Now</button>
                 </td>
             </tr>
 
