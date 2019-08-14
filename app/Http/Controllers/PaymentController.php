@@ -30,13 +30,14 @@ use PayPal\Exception\PayPalConnectionException;class PaymentController extends C
     **/
     public function createPayment(Request $request)
     {
+        
         // Amount received as request is validated here.
         $request->validate(['amount' => 'required|numeric']);
         $pay_amount = $request->amount;// We create the payer and set payment method, could be any of "credit_card", "bank", "paypal", "pay_upon_invoice", "carrier", "alternate_payment". 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');// Create and setup items being paid for.. Could multiple items like: 'item1, item2 etc'.
         $item = new Item();
-        $item->setName('Paypal Payment')->setCurrency('EUR')->setQuantity(1)->setPrice($pay_amount);// Create item list and set array of items for the item list.
+        $item->setName('Paypal Payment')->setCurrency('CAD')->setQuantity(1)->setPrice($pay_amount);// Create item list and set array of items for the item list.
         $itemList = new ItemList();
         $itemList->setItems(array($item));// Create and setup the total amount.
         $amount = new Amount();
@@ -90,9 +91,10 @@ use PayPal\Exception\PayPalConnectionException;class PaymentController extends C
         /* Payment succesfuly received */
         /* Add order to database  */
 
-
+        
+        
 
         /* Show succesful message */
-        return redirect('/checkout')->withSuccess('Payment made successfully');
+        return redirect('/parents/order')->withSuccess('Payment made successfully');
     }
 }

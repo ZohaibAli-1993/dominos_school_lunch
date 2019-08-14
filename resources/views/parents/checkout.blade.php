@@ -5,7 +5,7 @@
 <div class="text content pt-5">
     <h2 class="h2">CheckOut Page</h2>
     <div class="row">
-        <strong>Event Id:</strong> {{ $data['idevent'] }}
+        <strong>Event Name:</strong> {{ $data['event_name'] }}
     </div>
     <div class="row">
         <strong>School:</strong> {{ $data['school']->school_name }}

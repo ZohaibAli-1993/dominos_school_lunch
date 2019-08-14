@@ -5,7 +5,7 @@
 <div class="text content pt-5">
     <h2 class="h2">New Order</h2>
     <div class="row">
-        <strong>Event Id:</strong> {{ $data['event']->idevent }}
+        <strong>Event Name:</strong> {{ $data['event']->event_name }}
     </div>
     <div class="row">
         <strong>School:</strong> {{ $data['school']->school_name }}
@@ -22,7 +22,7 @@
                 <?php $i++; ?>
                 <div class="tab-pane fade show active">
                     <div class="table-responsive text-nowrap">
-                        <form action="/parents/order/checkout" onsubmit="return validateForm()"  method="post">
+                        <form action="/parents/order/confirm" onsubmit="return validateForm()"  method="post">
                             @csrf
                             <input type="hidden" value="{{ $data['event']->idevent }}" name="idevent">
                             <input type="hidden" value="{{ $data['student']->idstudent }}" name="idstudent">

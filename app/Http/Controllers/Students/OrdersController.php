@@ -44,8 +44,6 @@ class OrdersController extends Controller
     {
         $all_inputs = $request->all();
         
-       
-        
         $valid = $request->validate([
             'idevent' =>'required|integer',
             'idstudent' =>'required|integer',
@@ -100,11 +98,8 @@ class OrdersController extends Controller
 
             OrderItem::create($item);
         }
-
         
-
-        //$this.showInvoice($all_inputs['idevent'],$all_inputs['idstudent']);
-        header("Location: parents/order");
+        return $this->showOrder();
         //return view('parents.order')->withSuccess('Order Submitted. Thank you');
     }
 
@@ -124,7 +119,7 @@ class OrdersController extends Controller
         //
     }
 
-    /**
+    /**7
      * Show the form for editing the specified resource.
      *
      * @param  \App\Order  $order
@@ -215,6 +210,7 @@ class OrdersController extends Controller
                 $row['order'] = '---';
                 $row['action']= '';
                 $row['idevent'] = $event->idevent;
+                $row['event_name'] = $event->event_name;
                 $row['idstudent'] = $student->idstudent;
                 
 
@@ -302,6 +298,7 @@ class OrdersController extends Controller
                 $row['order'] = '---';
                 $row['action']= '';
                 $row['idevent'] = $event->idevent;
+                $rown['event_name'] = $event->event_name;
                 $row['idstudent'] = $student->idstudent;
                 
 
@@ -450,7 +447,8 @@ class OrdersController extends Controller
             'student' => $student,
             'school' => $school,
             'idevent' => $idevent,
-            'province' => $province
+            'province' => $province,
+            'event_name' => $event->event_name
         ];
 
         /*

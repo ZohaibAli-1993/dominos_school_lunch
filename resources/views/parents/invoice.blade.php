@@ -10,7 +10,7 @@
         <h3 class="h3">Invoice</h3>
     </div>    
     <div class="row">
-        <strong>Event Id:</strong> {{ $data['event']->idevent }}
+        <strong>Event Name:</strong> {{ $data['event']->event_name }}
     </div>
     <div class="row">
         <strong>Student:</strong> {{ $data['student']->first_name . ' ' . $data['student']->last_name }}

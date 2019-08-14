@@ -199,9 +199,10 @@ Route::middleware(['parents'])->group(function()
     Route::get('/parents/order/invoice/{event}/{student}','Students\OrdersController@showInvoice');
     Route::get('/parents/order/neworder/{event}/{student}', 
                 'Students\OrdersController@newOrder');
-    Route::post('/parents/order/checkout/', 'Students\OrdersController@checkout');
+    Route::post('/parents/order/confirm/', 'Students\OrdersController@checkout');
+    /**Paypal Routes */
     Route::view('/checkout', 'checkout-page');
-    Route::post('/checkout', 'PaymentController@createPayment')->name('create-payment');
+    Route::post('/parents/order/paypal', 'PaymentController@createPayment')->name('create-payment');
     Route::get('/confirm', 'PaymentController@confirmPayment')->name('confirm-payment');
     /**
      * Parents home page route

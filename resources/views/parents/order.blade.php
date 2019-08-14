@@ -42,7 +42,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Id</th>
+                                    <th scope="col">Event Name</th>
                                     <th scope="col">Event Date</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Total Amount</th>
@@ -53,7 +53,7 @@
                             <tbody>
                                 @foreach ($events_student as $event)
                                 <tr>
-                                    <td>{{ $event['idevent'] }}</td>
+                                    <td>{{ $event['event_name'] }}</td>
                                     <td> {{ $event['event_date'] }} </td>
                                     <td> {{ $event['status'] }} </td>
                                     <td> {{ $event['total_amount'] }} </td>
