@@ -103,9 +103,9 @@ class OrdersController extends Controller
 
         
 
-        
-
-        return view('parents.success_order')->withSuccess('Order Submitted. Thank you');
+        //$this.showInvoice($all_inputs['idevent'],$all_inputs['idstudent']);
+        header("Location: parents/order");
+        //return view('parents.order')->withSuccess('Order Submitted. Thank you');
     }
 
     public function temp()
